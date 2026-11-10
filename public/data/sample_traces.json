@@ -1,0 +1,176 @@
+[
+  {
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "service_name": "lrcp-rag-gateway",
+    "name": "POST /api/v1/rag/query",
+    "status": "OK",
+    "cache_hit": true,
+    "wall_clock_duration_ms": 4.12,
+    "spans": [
+      {
+        "span_id": "0001",
+        "parent_id": null,
+        "name": "rag.query",
+        "start_ms": 0.0,
+        "duration_ms": 4.12,
+        "attributes": {
+          "http.method": "POST",
+          "rag.query": "What is the WAL rotation size in LRCP?"
+        }
+      },
+      {
+        "span_id": "0002",
+        "parent_id": "0001",
+        "name": "redis.semantic_cache.lookup",
+        "start_ms": 0.35,
+        "duration_ms": 3.52,
+        "attributes": {
+          "cache.status": "HIT",
+          "cache.cosine_similarity": 0.942,
+          "cache.threshold": 0.9
+        }
+      }
+    ]
+  },
+  {
+    "trace_id": "8a3c4f289d0e0e47364bf92f3577b34d",
+    "service_name": "lrcp-rag-gateway",
+    "name": "POST /api/v1/rag/query",
+    "status": "OK",
+    "cache_hit": false,
+    "wall_clock_duration_ms": 312.45,
+    "spans": [
+      {
+        "span_id": "1001",
+        "parent_id": null,
+        "name": "rag.query",
+        "start_ms": 0.0,
+        "duration_ms": 312.45,
+        "attributes": {
+          "http.method": "POST",
+          "rag.query": "Explain two-phase Zstd Parquet compaction"
+        }
+      },
+      {
+        "span_id": "1002",
+        "parent_id": "1001",
+        "name": "redis.semantic_cache.lookup",
+        "start_ms": 0.42,
+        "duration_ms": 2.18,
+        "attributes": {
+          "cache.status": "MISS",
+          "cache.cosine_similarity": 0.741,
+          "cache.threshold": 0.9
+        }
+      },
+      {
+        "span_id": "1003",
+        "parent_id": "1001",
+        "name": "chromadb.vector_search",
+        "start_ms": 3.1,
+        "duration_ms": 18.6,
+        "attributes": {
+          "top_k": 5,
+          "collection": "lrcp-docs"
+        }
+      },
+      {
+        "span_id": "1004",
+        "parent_id": "1001",
+        "name": "cross_encoder.relevance_filter",
+        "start_ms": 22.4,
+        "duration_ms": 45.1,
+        "attributes": {
+          "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+          "relevance_scores": [
+            0.92,
+            0.88,
+            0.31
+          ],
+          "passed_chunks": 2
+        }
+      },
+      {
+        "span_id": "1005",
+        "parent_id": "1001",
+        "name": "ollama.generate",
+        "start_ms": 68.2,
+        "duration_ms": 238.1,
+        "attributes": {
+          "gen_ai.request.model": "llama3.2:1b (4-bit Q4_K_M)",
+          "tokens_generated": 142,
+          "gen_ai.tokens_per_sec": 59.6
+        }
+      },
+      {
+        "span_id": "1006",
+        "parent_id": "1001",
+        "name": "pydantic.schema_validate",
+        "start_ms": 307.0,
+        "duration_ms": 4.8,
+        "attributes": {
+          "schema_valid": true,
+          "citations_count": 2
+        }
+      }
+    ]
+  },
+  {
+    "trace_id": "77772f3577b34da6a3ce929d0e0e4736",
+    "service_name": "lrcp-rag-gateway",
+    "name": "POST /api/v1/rag/query",
+    "status": "CIRCUIT_OPEN",
+    "cache_hit": false,
+    "wall_clock_duration_ms": 1.85,
+    "spans": [
+      {
+        "span_id": "2001",
+        "parent_id": null,
+        "name": "rag.query",
+        "start_ms": 0.0,
+        "duration_ms": 1.85,
+        "attributes": {
+          "http.method": "POST",
+          "rag.query": "Simulated query during LLM outage"
+        }
+      },
+      {
+        "span_id": "2002",
+        "parent_id": "2001",
+        "name": "circuit_breaker.evaluate",
+        "start_ms": 0.3,
+        "duration_ms": 1.15,
+        "attributes": {
+          "circuit_state": "OPEN",
+          "intervention": "circuit_open",
+          "cooldown_remaining_sec": 24.5,
+          "fallback": "deterministic_clarification"
+        }
+      }
+    ]
+  },
+  {
+    "trace_id": "99992f3577b34da6a3ce929d0e0e4736",
+    "service_name": "lrcp-c++-gateway",
+    "name": "POST /v1/traces",
+    "status": "OK",
+    "cache_hit": false,
+    "wall_clock_duration_ms": 4.92,
+    "spans": [
+      {
+        "span_id": "3001",
+        "parent_id": null,
+        "name": "otlp.http_ingest",
+        "start_ms": 0.0,
+        "duration_ms": 4.92,
+        "attributes": {
+          "gateway.lang": "C++20",
+          "payload_bytes": 16384,
+          "crc32": "0x8F2D1A3C",
+          "wal.file": "wal-1731238490-001.wal",
+          "wal.fsync": true
+        }
+      }
+    ]
+  }
+]

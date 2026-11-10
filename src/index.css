@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-grid-color: rgba(30, 30, 30, 0.08);
+  }
+
+  .dark {
+    --bg-grid-color: rgba(255, 255, 255, 0.06);
+  }
+
+  body {
+    background-color: var(--color-bg, #f8f9fa);
+    color: var(--color-text, #1e1e1e);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
+
+/* 20px architectural grid */
+.engineering-grid {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, var(--bg-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid-color) 1px, transparent 1px);
+}
+
+/* Blueprint sketchy borders */
+.sketch-border {
+  border: 1.5px solid #1e1e1e;
+  box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.dark .sketch-border {
+  border: 1.5px solid #64748b;
+  box-shadow: 2px 2px 0px #334155;
+}
+
+.sketch-border-accent {
+  border: 1.5px solid #1e1e1e;
+  box-shadow: 3px 3px 0px #10b981;
+}
+
+.dark .sketch-border-accent {
+  border: 1.5px solid #10b981;
+  box-shadow: 3px 3px 0px #047857;
+}
