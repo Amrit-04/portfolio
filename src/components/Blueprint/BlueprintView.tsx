@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePortfolioStore } from '../../store/portfolioStore';
 import { PROJECTS, RoleLensKey, LENS_RESUME_MAP, ProjectDefinition } from '../../data/projects';
+import { getAssetUrl } from '../../lib/assets';
 import { 
   GitBranch, ExternalLink, Play, ArrowRight, Download, 
   Terminal, ShieldCheck, Sun, Moon, Bike, BookOpen, Bug, CheckCircle2 
@@ -92,7 +93,7 @@ export const BlueprintView: React.FC = () => {
               </h2>
             </div>
             <a
-              href={`/resumes/${activeResume.filename}`}
+              href={getAssetUrl(`resumes/${activeResume.filename}`)}
               download={activeResume.filename}
               className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black sketch-border font-mono text-xs font-bold flex items-center gap-2 hover:opacity-90"
             >

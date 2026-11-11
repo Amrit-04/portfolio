@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as ort from 'onnxruntime-web';
 import { parsePlanTree, buildTensors, FlattenedPlanNode } from '../../lib/graphBuilder';
+import { getAssetUrl } from '../../lib/assets';
 import { CheckCircle2, AlertTriangle, Cpu, Play, Check } from 'lucide-react';
 
 interface Props {
@@ -22,14 +23,14 @@ export const NeuralQueryDemo: React.FC<Props> = () => {
 
   useEffect(() => {
     // 1. Load sample plan fixtures and golden predictions
-    fetch('/data/sample_plans.json')
+    fetch(getAssetUrl('data/sample_plans.json'))
       .then(res => res.json())
       .then(data => {
         setPlans(data);
       })
       .catch(err => setErrorMsg(`Failed to load plans: ${err.message}`));
 
-    fetch('/data/golden_predictions.json')
+    fetch(getAssetUrl('data/golden_predictions.json'))
       .then(res => res.json())
       .then(data => setGoldenPreds(data))
       .catch(() => {});
@@ -38,8 +39,8 @@ export const NeuralQueryDemo: React.FC<Props> = () => {
     async function initModel() {
       try {
         ort.env.wasm.numThreads = 1;
-        ort.env.wasm.wasmPaths = '/';
-        const sess = await ort.InferenceSession.create('/models/best_real.onnx', {
+        ort.env.wasm.wasmPaths = getAssetUrl('');
+        const sess = await ort.InferenceSession.create(getAssetUrl('models/best_real.onnx'), {
           executionProviders: ['wasm']
         });
         setSession(sess);

@@ -2,7 +2,7 @@
 
 > **Dual-Mode Systems, AI/ML, and Quantitative Engineering Portfolio**  
 > *B.Tech CSE AI/ML, SRM Institute of Science and Technology (Graduated Jul 2026)*  
-> **GitHub:** [Amrit-04](https://github.com/Amrit-04) • **Live Portfolio:** Blueprint & 2D Physics Rider
+> **GitHub:** [Amrit-04](https://github.com/Amrit-04) • **Live Site:** [https://amrit-04.github.io/portfolio/](https://amrit-04.github.io/portfolio/)
 
 ---
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingDown, Activity, Cpu, ShieldCheck } from 'lucide-react';
+import { getAssetUrl } from '../../lib/assets';
 
 export const MoneyballDemo: React.FC = () => {
   const [quantData, setQuantData] = useState<any>(null);
@@ -8,7 +9,7 @@ export const MoneyballDemo: React.FC = () => {
   const [simulatedVaR, setSimulatedVaR] = useState<{ var95: number; var99: number; cvar99: number; timeMs: number } | null>(null);
 
   useEffect(() => {
-    fetch('/data/quant_and_routing_benchmarks.json')
+    fetch(getAssetUrl('data/quant_and_routing_benchmarks.json'))
       .then(res => res.json())
       .then(data => {
         setQuantData(data.moneyball);

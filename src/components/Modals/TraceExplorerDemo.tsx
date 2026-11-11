@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldAlert, Zap, Clock, Database, Layers } from 'lucide-react';
+import { getAssetUrl } from '../../lib/assets';
 
 export const TraceExplorerDemo: React.FC = () => {
   const [traces, setTraces] = useState<any[]>([]);
@@ -7,7 +8,7 @@ export const TraceExplorerDemo: React.FC = () => {
   const [filter, setFilter] = useState<'ALL' | 'HITS' | 'MISSES' | 'CIRCUIT_OPEN'>('ALL');
 
   useEffect(() => {
-    fetch('/data/sample_traces.json')
+    fetch(getAssetUrl('data/sample_traces.json'))
       .then(res => res.json())
       .then(data => {
         setTraces(data);

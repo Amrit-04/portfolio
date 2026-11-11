@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Pause, RotateCcw, AlertTriangle, ShieldCheck, Activity } from 'lucide-react';
+import { getAssetUrl } from '../../lib/assets';
 
 export const PipelineReplayDemo: React.FC = () => {
   const [benchmarks, setBenchmarks] = useState<any>(null);
@@ -8,7 +9,7 @@ export const PipelineReplayDemo: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch('/data/telemetry_benchmarks.json')
+    fetch(getAssetUrl('data/telemetry_benchmarks.json'))
       .then(res => res.json())
       .then(data => setBenchmarks(data))
       .catch(console.error);
