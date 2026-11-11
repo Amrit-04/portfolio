@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Pause, RotateCcw, AlertTriangle, ShieldCheck, Activity } from 'lucide-react';
+import { Play, Pause, RotateCcw, ShieldCheck } from 'lucide-react';
 import { getAssetUrl } from '../../lib/assets';
 
 export const PipelineReplayDemo: React.FC = () => {
@@ -28,9 +28,6 @@ export const PipelineReplayDemo: React.FC = () => {
   if (!benchmarks) {
     return <div className="p-8 text-center text-xs font-mono">Loading recorded telemetry execution data...</div>;
   }
-
-  const tp = benchmarks.throughput?.summary || {};
-  const goVsPy = benchmarks.go_vs_python || {};
 
   return (
     <div className="space-y-6">

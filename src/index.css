@@ -2,18 +2,55 @@
 
 @layer base {
   :root {
-    --bg-grid-color: rgba(30, 30, 30, 0.08);
+    --bg-grid-color: rgba(30, 30, 30, 0.07);
+    --paper-bg: #faf8f5;
+    --paper-card: #ffffff;
+    --ink-black: #11141a;
+    --ink-dim: #374151;
+    --ink-muted: #6b7280;
+    --accent-emerald: #059669;
+    --accent-indigo: #2563eb;
+    --accent-amber: #d97706;
   }
 
   .dark {
-    --bg-grid-color: rgba(255, 255, 255, 0.06);
+    --bg-grid-color: rgba(255, 255, 255, 0.05);
+    --paper-bg: #0f131a;
+    --paper-card: #161b24;
+    --ink-black: #f3f4f6;
+    --ink-dim: #d1d5db;
+    --ink-muted: #9ca3af;
+    --accent-emerald: #10b981;
+    --accent-indigo: #3b82f6;
+    --accent-amber: #f59e0b;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-bg, #f8f9fa);
-    color: var(--color-text, #1e1e1e);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background-color: var(--paper-bg);
+    color: var(--ink-black);
+    font-family: 'Space Grotesk', sans-serif;
   }
+}
+
+/* Typography styles */
+.font-editorial {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-hand {
+  font-family: 'Caveat', cursive;
 }
 
 /* 20px architectural grid */
@@ -24,23 +61,87 @@
     linear-gradient(to bottom, var(--bg-grid-color) 1px, transparent 1px);
 }
 
-/* Blueprint sketchy borders */
+/* Diagonal crosshatch texture for technical drawings */
+.crosshatch-bg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(100, 116, 139, 0.06),
+    rgba(100, 116, 139, 0.06) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+/* Hand-drawn sketch border utilities */
 .sketch-border {
-  border: 1.5px solid #1e1e1e;
-  box-shadow: 2px 2px 0px #1e1e1e;
+  border: 1.5px solid #11141a;
+  box-shadow: 2px 2px 0px #11141a;
 }
 
 .dark .sketch-border {
-  border: 1.5px solid #64748b;
-  box-shadow: 2px 2px 0px #334155;
+  border: 1.5px solid #4b5563;
+  box-shadow: 2px 2px 0px #1f2937;
 }
 
 .sketch-border-accent {
-  border: 1.5px solid #1e1e1e;
-  box-shadow: 3px 3px 0px #10b981;
+  border: 1.5px solid #11141a;
+  box-shadow: 3px 3px 0px #059669;
 }
 
 .dark .sketch-border-accent {
   border: 1.5px solid #10b981;
   box-shadow: 3px 3px 0px #047857;
+}
+
+/* Wobbly hand-drawn container */
+.wobbly-box {
+  border: 1.5px solid #11141a;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 2px 0px #11141a;
+}
+
+.dark .wobbly-box {
+  border: 1.5px solid #4b5563;
+  box-shadow: 2px 2px 0px #1f2937;
+}
+
+/* Drafting tape across blueprint corners */
+.drafting-tape {
+  position: absolute;
+  background: rgba(228, 218, 192, 0.85);
+  height: 18px;
+  width: 55px;
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dark .drafting-tape {
+  background: rgba(75, 85, 99, 0.7);
+}
+
+/* Empirical stamp badge */
+.stamp-badge {
+  border: 2px dashed #059669;
+  color: #059669;
+  transform: rotate(-3deg);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dark .stamp-badge {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+/* Subtle hand-drawn underline */
+.hand-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0,5 Q25,0 50,5 T100,5' fill='none' stroke='%23059669' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 6px;
+  padding-bottom: 3px;
 }

@@ -19,6 +19,10 @@ interface PortfolioState {
   toggleDarkMode: () => void;
   showFlyPet: boolean;
   toggleFlyPet: () => void;
+  targetRideSector: number | null;
+  setTargetRideSector: (sector: number | null) => void;
+  searchFilter: string;
+  setSearchFilter: (query: string) => void;
 }
 
 export const usePortfolioStore = create<PortfolioState>((set) => ({
@@ -51,4 +55,8 @@ export const usePortfolioStore = create<PortfolioState>((set) => ({
     }),
   showFlyPet: false,
   toggleFlyPet: () => set((state) => ({ showFlyPet: !state.showFlyPet })),
+  targetRideSector: null,
+  setTargetRideSector: (targetRideSector) => set({ targetRideSector }),
+  searchFilter: '',
+  setSearchFilter: (searchFilter) => set({ searchFilter }),
 }));
