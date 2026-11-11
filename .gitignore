@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 repos/
+audit-results.json
+test-live-site.cjs
+
 
 
 # Editor directories and files
