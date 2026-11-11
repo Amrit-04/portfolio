@@ -12,10 +12,10 @@ export const SITE = {
   },
 };
 
-export const HERO_LINES = ['I build systems', 'that survive', 'their benchmarks.'];
+export const HERO_LINES = ['I build things', 'that think, move,', 'and scale.'];
 
 export const HERO_SUB =
-  'I engineer high-throughput event-driven systems, learned query cost models, and quantitative research platforms — and I publish every metric with the artifact that produced it. Ride the track to find each one.';
+  'I engineer high-throughput event-driven systems, learned query cost models, and quantitative research platforms — and I publish every metric with the artifact that produced it. Explore my exhibition wall below or ride the track to find each one.';
 
 export const ABOUT_PARAGRAPHS = [
   'I am an engineer who likes proving things. Every number on this site comes from a benchmark artifact sitting in a repository — evaluation JSONs, latency traces, chaos-run logs. If a measurement is informal, it says so. If a system missed its target, the target stays printed next to the miss.',

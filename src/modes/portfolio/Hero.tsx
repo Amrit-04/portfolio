@@ -3,53 +3,46 @@ import { motion } from 'framer-motion';
 import { HERO_LINES, HERO_SUB, SITE } from '../../data/site';
 import { getAssetUrl } from '../../lib/assets';
 import { WorkbenchArt } from '../../components/illustrations';
-import { Mail, FileText, ArrowDown } from 'lucide-react';
+import { Mail, FileText, ArrowDown, Bike, Sparkles } from 'lucide-react';
 import { Github, Linkedin } from '../../components/BrandIcons';
-
-const lineVariants = {
-  hidden: { y: '112%' },
-  show: (i: number) => ({
-    y: '0%',
-    transition: { delay: 0.25 + i * 0.14, duration: 0.85, ease: [0.22, 1, 0.36, 1] as const },
-  }),
-};
 
 export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string) => void }> = ({
   onEnterTrack,
   scrollTo,
 }) => {
   return (
-    <section className="relative min-h-screen grid-bg overflow-hidden flex flex-col justify-center" id="top">
-      <div className="max-w-page w-full mx-auto px-5 md:px-10 pt-24 pb-16 grid lg:grid-cols-12 gap-10 items-center">
+    <section
+      className="relative min-h-[92vh] pt-28 pb-16 px-5 md:px-10 flex flex-col justify-center overflow-hidden watercolor-wash"
+      id="top"
+    >
+      <div className="max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-10 items-center">
+        {/* Left Column: Personal Introduction & Expressive Headline */}
         <div className="lg:col-span-7 relative z-10">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="flex items-center gap-3 mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-wrap items-center gap-2.5 mb-6"
           >
-            <span className="w-2.5 h-2.5 bg-red" />
-            <span className="label-mono">Engineering Notebook — {SITE.name}</span>
+            <span className="sticker text-xs text-ink bg-paper2/90 border border-ink3/40">
+              <Sparkles className="w-3.5 h-3.5 text-accent mr-1.5" />
+              SRM &apos;26 · AI/ML Systems &amp; Backend Engineer
+            </span>
+            <span className="annotation text-ink3 text-base hidden sm:inline rotate-[-2deg]">
+              hand-drawn &amp; fully verified
+            </span>
           </motion.div>
 
-          <h1 className="font-serif leading-[0.95] text-[clamp(3rem,8.5vw,6.2rem)] tracking-tight">
+          <h1 className="font-serif leading-[1.0] text-[clamp(2.75rem,7vw,5.5rem)] tracking-tight text-ink font-normal">
             {HERO_LINES.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-1">
-                <motion.span
-                  className="block"
-                  custom={i}
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="show"
-                >
-                  {i === HERO_LINES.length - 1 ? (
-                    <span>
-                      their <em className="text-red not-italic font-serif italic">benchmarks.</em>
-                    </span>
-                  ) : (
-                    line
-                  )}
-                </motion.span>
+              <span key={line} className="block">
+                {i === HERO_LINES.length - 1 ? (
+                  <span>
+                    and <em className="text-accent not-italic font-serif italic font-medium">scale.</em>
+                  </span>
+                ) : (
+                  line
+                )}
               </span>
             ))}
           </h1>
@@ -57,8 +50,8 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.6 }}
-            className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-ink2"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-ink2 font-sans"
           >
             {HERO_SUB}
           </motion.p>
@@ -66,62 +59,90 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.6 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
-            <button className="btn-ink" onClick={() => scrollTo('#work')} data-testid="explore-work-btn">
+            <button
+              className="btn-ink"
+              onClick={() => scrollTo('#work')}
+              data-testid="explore-work-btn"
+            >
               Explore my work <ArrowDown className="w-4 h-4" />
             </button>
-            <button className="btn-red" onClick={onEnterTrack} data-testid="enter-track-btn">
-              Enter the track
+            <button
+              className="btn-red flex items-center gap-2"
+              onClick={onEnterTrack}
+              data-testid="enter-track-btn"
+            >
+              <Bike className="w-4 h-4 text-accent" />
+              <span>Enter the track</span>
             </button>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3"
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 pt-3 border-t border-ink3/20"
           >
-            <a href={SITE.links.github} target="_blank" rel="noreferrer" className="link-sketch font-mono text-xs uppercase tracking-[0.14em] flex items-center gap-1.5">
+            <a
+              href={SITE.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent transition-colors flex items-center gap-1.5"
+            >
               <Github className="w-4 h-4" /> GitHub
             </a>
-            <a href={SITE.links.linkedin} target="_blank" rel="noreferrer" className="link-sketch font-mono text-xs uppercase tracking-[0.14em] flex items-center gap-1.5">
+            <a
+              href={SITE.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent transition-colors flex items-center gap-1.5"
+            >
               <Linkedin className="w-4 h-4" /> LinkedIn
             </a>
-            <a href={SITE.links.email} className="link-sketch font-mono text-xs uppercase tracking-[0.14em] flex items-center gap-1.5">
+            <a
+              href={SITE.links.email}
+              className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent transition-colors flex items-center gap-1.5"
+            >
               <Mail className="w-4 h-4" /> Email
             </a>
             <a
               href={getAssetUrl('resumes/Amriteshkumar_Yadav_.pdf')}
               download="Amriteshkumar_Yadav_Resume.pdf"
-              className="link-sketch font-mono text-xs uppercase tracking-[0.14em] flex items-center gap-1.5"
+              className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent transition-colors flex items-center gap-1.5"
               title="Download verified resume"
             >
-              <FileText className="w-4 h-4" /> Resume
+              <FileText className="w-4 h-4" /> Resume PDF
             </a>
           </motion.div>
         </div>
 
+        {/* Right Column: Hand-drawn Illustrated Studio Scene */}
         <motion.div
-          className="lg:col-span-5 relative"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-5 relative flex justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <WorkbenchArt className="w-full max-w-[560px] mx-auto text-ink" />
-          <span className="annotation absolute top-2 right-4 text-lg rotate-2 hidden md:block">drawn from scratch</span>
+          <div className="relative w-full max-w-[560px]">
+            <WorkbenchArt className="w-full h-auto text-ink drop-shadow-sm float" />
+            <span className="annotation absolute -top-4 right-2 text-xl text-accent rotate-3 hidden sm:block">
+              drawn from scratch ✎
+            </span>
+          </div>
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 label-mono flex items-center gap-2 text-ink3"
-      >
-        scroll <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-      </motion.div>
+      <div className="mt-8 flex justify-center">
+        <button
+          onClick={() => scrollTo('#work')}
+          className="text-xs text-ink3 hover:text-accent flex items-center gap-1.5 font-sans transition-colors"
+        >
+          <span>scroll to explore the blueprint wall</span>
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+        </button>
+      </div>
     </section>
   );
 };

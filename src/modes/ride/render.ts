@@ -3,9 +3,8 @@
 import { GameEngine } from './engine';
 import { Decoration } from './track';
 
-const INK = '#1A1A1A';
-const RED = '#D9381E';
-const BLUE = '#18528C';
+const INK = '#2A2520';
+const RED = '#C84B31';
 
 function wobble(x: number): number {
   return Math.sin(x * 12.9898) * 43758.5453 % 1;
@@ -45,9 +44,9 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
     case 'db': {
       for (let i = 0; i < 3; i++) {
         const ox = x + i * 40;
-        const oy = y - i * 0;
+        const oy = y;
         ctx.beginPath();
-        ctx.ellipse(ox + 15, oy - 66 + i * 0, 16, 6, 0, 0, Math.PI * 2);
+        ctx.ellipse(ox + 15, oy - 66, 16, 6, 0, 0, Math.PI * 2);
         ctx.moveTo(ox - 1, oy - 66);
         ctx.lineTo(ox - 1, oy - 30);
         ctx.ellipse(ox + 15, oy - 30, 16, 6, 0, Math.PI, 0, true);
@@ -55,7 +54,7 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
         ctx.stroke();
         const oy2 = oy - 10;
         ctx.beginPath();
-        ctx.ellipse(ox + 15, oy2 - 62 + 6, 16, 6, 0, 0, Math.PI * 2);
+        ctx.ellipse(ox + 15, oy2 - 56, 16, 6, 0, 0, Math.PI * 2);
         ctx.stroke();
       }
       break;
@@ -252,7 +251,7 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
   const scale = (ch / 760) * eng.zoom;
 
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.fillStyle = '#F4F1EA';
+  ctx.fillStyle = '#FAF8F3';
   ctx.fillRect(0, 0, cw, ch);
 
   ctx.save();
@@ -261,26 +260,12 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
 
   const viewLeft = eng.camX - cw / 2 / scale;
   const viewRight = eng.camX + (cw * 0.62) / scale;
-  const viewTop = eng.camY - ch / 2 / scale;
-  const viewBottom = eng.camY + ch / 2 / scale;
 
-  // faint drafting grid
-  ctx.strokeStyle = 'rgba(26,26,26,0.05)';
-  ctx.lineWidth = 1 / scale;
-  ctx.beginPath();
-  for (let x = Math.floor(viewLeft / 120) * 120; x < viewRight; x += 120) {
-    ctx.moveTo(x, viewTop);
-    ctx.lineTo(x, viewBottom);
-  }
-  for (let y = Math.floor(viewTop / 120) * 120; y < viewBottom; y += 120) {
-    ctx.moveTo(viewLeft, y);
-    ctx.lineTo(viewRight, y);
-  }
-  ctx.stroke();
+  // Clean Free Rider minimalist line-art aesthetic — no dense blueprint grid
 
-  // section title painted on the world
-  ctx.fillStyle = 'rgba(26,26,26,0.13)';
-  ctx.font = "italic 64px 'Instrument Serif'";
+  // section title painted on the world with organic artistic lettering
+  ctx.fillStyle = 'rgba(42,37,32,0.11)';
+  ctx.font = "italic 52px 'Playfair Display', Georgia, serif";
   ctx.textAlign = 'center';
   for (const s of eng.track.sections) {
     if (s.startX + 900 > viewLeft && s.startX + 900 < viewRight) {
@@ -323,7 +308,7 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
     ctx.moveTo(cp.x, cp.y);
     ctx.lineTo(cp.x, cp.y - 66);
     ctx.stroke();
-    ctx.fillStyle = visited ? RED : '#F4F1EA';
+    ctx.fillStyle = visited ? RED : '#FAF8F3';
     ctx.beginPath();
     ctx.moveTo(cp.x, cp.y - 66);
     ctx.lineTo(cp.x + 34, cp.y - 56);
@@ -434,7 +419,7 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
   ctx.fill();
   ctx.stroke();
   if (!eng.crashed) {
-    ctx.fillStyle = '#F4F1EA';
+    ctx.fillStyle = '#FAF8F3';
     ctx.beginPath();
     ctx.arc(head.x + 3, head.y - 2, 2, 0, Math.PI * 2);
     ctx.fill();
