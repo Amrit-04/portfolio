@@ -1,6 +1,7 @@
-// Client-side TypeScript port of Tradeflow Order State Machine & Pre-Trade Risk Engine
+// Client-side TypeScript port of the Tradeflow Order State Machine & Pre-Trade Risk Engine.
+// This is a browser simulation of the Go OMS / Redis Lua engine — not the production services.
 
-export type OrderState = 
+export type OrderState =
   | 'PendingNew'
   | 'New'
   | 'PartiallyFilled'
@@ -10,13 +11,7 @@ export type OrderState =
   | 'Rejected'
   | 'Expired';
 
-export type Trigger = 
-  | 'SubmitNew'
-  | 'RiskPassed'
-  | 'RiskRejected'
-  | 'Fill'
-  | 'CancelRequest'
-  | 'CancelAck';
+export type Trigger = 'SubmitNew' | 'RiskPassed' | 'RiskRejected' | 'Fill' | 'CancelRequest' | 'CancelAck';
 
 export interface Order {
   orderId: string;
@@ -32,7 +27,7 @@ export interface Order {
 export interface RiskLimits {
   maxOrderQty: number;
   maxDailyNotional: number;
-  priceCollarBps: number; // basis points (e.g. 500 = 5%)
+  priceCollarBps: number;
   killSwitchActive: boolean;
 }
 
@@ -43,7 +38,6 @@ export interface RiskCheckResult {
   evaluationTimeNs: number;
 }
 
-// 7-Rule Pre-Trade Risk Checks executed with exact integer basis points
 export function evaluatePreTradeRisk(
   order: Order,
   lastPrice: number,
@@ -52,47 +46,42 @@ export function evaluatePreTradeRisk(
 ): RiskCheckResult {
   const t0 = performance.now();
 
-  // Rule 1: Kill switch check
   if (limits.killSwitchActive) {
     return {
       passed: false,
       rejectReason: 'KILL_SWITCH_ACTIVE: account is under emergency trading halt',
       ruleViolated: 'Rule 1 (Emergency Kill Switch)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
-  // Rule 2: Quantity sanity check (> 0)
   if (order.qty <= 0) {
     return {
       passed: false,
       rejectReason: 'INVALID_QUANTITY: order quantity must be strictly positive',
       ruleViolated: 'Rule 2 (Quantity Sanity)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
-  // Rule 3: Single order max quantity ceiling
   if (order.qty > limits.maxOrderQty) {
     return {
       passed: false,
       rejectReason: `MAX_ORDER_QTY_EXCEEDED: ${order.qty} exceeds limit ${limits.maxOrderQty}`,
       ruleViolated: 'Rule 3 (Max Order Quantity)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
-  // Rule 4: Price sanity (> 0)
   if (order.price <= 0) {
     return {
       passed: false,
       rejectReason: 'INVALID_PRICE: order limit price must be strictly positive',
       ruleViolated: 'Rule 4 (Price Sanity)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
-  // Rule 5: Price collar band (integer basis-point check)
   if (lastPrice > 0) {
     const diff = Math.abs(order.price - lastPrice);
     const bpsDiff = Math.floor((diff * 10000) / lastPrice);
@@ -101,40 +90,41 @@ export function evaluatePreTradeRisk(
         passed: false,
         rejectReason: `PRICE_COLLAR_VIOLATION: price deviates by ${bpsDiff} bps (limit: ${limits.priceCollarBps} bps)`,
         ruleViolated: 'Rule 5 (Price Collar Band)',
-        evaluationTimeNs: (performance.now() - t0) * 1e6
+        evaluationTimeNs: (performance.now() - t0) * 1e6,
       };
     }
   }
 
-  // Rule 6: Daily gross notional limit
   const orderNotional = order.qty * order.price;
   if (currentDailyNotional + orderNotional > limits.maxDailyNotional) {
     return {
       passed: false,
       rejectReason: `DAILY_NOTIONAL_EXCEEDED: cumulative notional ${currentDailyNotional + orderNotional} exceeds ceiling ${limits.maxDailyNotional}`,
       ruleViolated: 'Rule 6 (Daily Gross Notional)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
-  // Rule 7: Symbol restriction check
   if (order.symbol === 'RESTRICTED') {
     return {
       passed: false,
       rejectReason: 'SYMBOL_RESTRICTED: compliance restricted list violation',
       ruleViolated: 'Rule 7 (Compliance Symbol Restriction)',
-      evaluationTimeNs: (performance.now() - t0) * 1e6
+      evaluationTimeNs: (performance.now() - t0) * 1e6,
     };
   }
 
   return {
     passed: true,
-    evaluationTimeNs: (performance.now() - t0) * 1e6
+    evaluationTimeNs: (performance.now() - t0) * 1e6,
   };
 }
 
-// OMS FSM transition logic
-export function applyTransition(order: Order, trigger: Trigger, fillQty: number = 0): { order: Order; error?: string } {
+export function applyTransition(
+  order: Order,
+  trigger: Trigger,
+  fillQty: number = 0
+): { order: Order; error?: string } {
   const current = order.state;
   const updated = { ...order };
 

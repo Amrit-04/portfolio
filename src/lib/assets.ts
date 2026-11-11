@@ -1,9 +1,9 @@
 /**
- * Helper to resolve public assets correctly under any Vite base path (e.g. GitHub Pages /portfolio/).
+ * Resolves public assets under Vite's BASE_URL so the build stays
+ * base-path aware (GitHub Pages /portfolio/ or any subdirectory host).
  */
 export function getAssetUrl(path: string): string {
-  const base = import.meta.env.BASE_URL || '/';
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  const cleanBase = base.endsWith('/') ? base : `${base}/`;
-  return `${cleanBase}${cleanPath}`;
+  return `${base}/${cleanPath}`;
 }

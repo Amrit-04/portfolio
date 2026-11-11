@@ -23,7 +23,6 @@ function manhattan(p1: GridPoint, p2: GridPoint): number {
   return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
 }
 
-// A* pathfinding over 2D cost grid
 export function aStarSearch(
   start: GridPoint,
   goal: GridPoint,
@@ -42,7 +41,9 @@ export function aStarSearch(
     return { path: [], distance: Infinity, executionTimeMs: performance.now() - t0, nodesExpanded: 0 };
   }
 
-  const openSet: { point: GridPoint; f: number; g: number }[] = [{ point: start, f: manhattan(start, goal), g: 0 }];
+  const openSet: { point: GridPoint; f: number; g: number }[] = [
+    { point: start, f: manhattan(start, goal), g: 0 },
+  ];
   const gScore = new Map<string, number>();
   gScore.set(startKey, 0);
 
@@ -50,17 +51,18 @@ export function aStarSearch(
   const closedSet = new Set<string>();
 
   const neighbors = [
-    { x: 1, y: 0 }, { x: -1, y: 0 }, { x: 0, y: 1 }, { x: 0, y: -1 }
+    { x: 1, y: 0 },
+    { x: -1, y: 0 },
+    { x: 0, y: 1 },
+    { x: 0, y: -1 },
   ];
 
   while (openSet.length > 0) {
-    // Sort by f-score
     openSet.sort((a, b) => a.f - b.f);
     const current = openSet.shift()!;
     const currKey = key(current.point);
 
     if (currKey === goalKey) {
-      // Reconstruct path
       const path: GridPoint[] = [];
       let temp: GridPoint | undefined = current.point;
       while (temp) {
@@ -72,7 +74,7 @@ export function aStarSearch(
         path,
         distance: current.g,
         executionTimeMs: performance.now() - t0,
-        nodesExpanded
+        nodesExpanded,
       };
     }
 
@@ -91,7 +93,7 @@ export function aStarSearch(
         cameFrom.set(neighborKey, current.point);
         gScore.set(neighborKey, tentativeG);
         const f = tentativeG + manhattan({ x: nx, y: ny }, goal);
-        const existing = openSet.find(o => key(o.point) === neighborKey);
+        const existing = openSet.find((o) => key(o.point) === neighborKey);
         if (existing) {
           existing.g = tentativeG;
           existing.f = f;
@@ -105,7 +107,6 @@ export function aStarSearch(
   return { path: [], distance: Infinity, executionTimeMs: performance.now() - t0, nodesExpanded };
 }
 
-// Exact Held-Karp Dynamic Programming (K <= 10)
 export function solveHeldKarpTSP(stops: GridPoint[]): TSPResult {
   const t0 = performance.now();
   const n = stops.length;
@@ -113,7 +114,6 @@ export function solveHeldKarpTSP(stops: GridPoint[]): TSPResult {
     return { orderedStops: stops, totalDistance: 0, executionTimeMs: performance.now() - t0, method: 'held-karp' };
   }
 
-  // Distance matrix
   const dist: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -125,7 +125,7 @@ export function solveHeldKarpTSP(stops: GridPoint[]): TSPResult {
   const memo: number[][] = Array.from({ length: numSubsets }, () => Array(n).fill(Infinity));
   const parent: number[][] = Array.from({ length: numSubsets }, () => Array(n).fill(-1));
 
-  memo[1][0] = 0; // start at node 0
+  memo[1][0] = 0;
 
   for (let mask = 1; mask < numSubsets; mask += 2) {
     for (let u = 0; u < n; u++) {
@@ -142,7 +142,6 @@ export function solveHeldKarpTSP(stops: GridPoint[]): TSPResult {
     }
   }
 
-  // Find min cost returning to 0 or completing tour
   const fullMask = numSubsets - 1;
   let bestCost = Infinity;
   let lastNode = -1;
@@ -155,27 +154,25 @@ export function solveHeldKarpTSP(stops: GridPoint[]): TSPResult {
     }
   }
 
-  // Reconstruct tour
   const tourIndices: number[] = [];
   let curr = lastNode;
   let mask = fullMask;
   while (curr !== -1) {
     tourIndices.push(curr);
     const prev = parent[mask][curr];
-    mask ^= (1 << curr);
+    mask ^= 1 << curr;
     curr = prev;
   }
   tourIndices.reverse();
 
   return {
-    orderedStops: tourIndices.map(i => stops[i]),
+    orderedStops: tourIndices.map((i) => stops[i]),
     totalDistance: bestCost,
     executionTimeMs: performance.now() - t0,
-    method: 'held-karp'
+    method: 'held-karp',
   };
 }
 
-// 2-Opt Local Search Heuristic (K > 10)
 export function solve2OptTSP(stops: GridPoint[]): TSPResult {
   const t0 = performance.now();
   const n = stops.length;
@@ -183,7 +180,6 @@ export function solve2OptTSP(stops: GridPoint[]): TSPResult {
     return { orderedStops: stops, totalDistance: 0, executionTimeMs: performance.now() - t0, method: '2-opt' };
   }
 
-  // Initial Nearest Neighbor tour
   const visited = new Set<number>([0]);
   const tour = [0];
   while (tour.length < n) {
@@ -233,9 +229,9 @@ export function solve2OptTSP(stops: GridPoint[]): TSPResult {
   }
 
   return {
-    orderedStops: tour.map(i => stops[i]),
+    orderedStops: tour.map((i) => stops[i]),
     totalDistance: bestDist,
     executionTimeMs: performance.now() - t0,
-    method: '2-opt'
+    method: '2-opt',
   };
 }

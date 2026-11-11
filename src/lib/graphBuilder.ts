@@ -1,11 +1,11 @@
-// Utilities for Neural Query Optimizer Web Demo
+// Utilities for Neural Query Optimizer browser demo (plan parsing + tensor build)
 
 export const OPERATOR_TYPES = [
   'Seq Scan', 'Index Scan', 'Index Only Scan', 'Bitmap Heap Scan', 'Bitmap Index Scan',
   'Nested Loop', 'Merge Join', 'Hash Join', 'Aggregate', 'Hash Aggregate',
   'Sort', 'Limit', 'Subquery Scan', 'Materialize', 'Unique',
   'Set Op', 'Append', 'ModifyTable', 'Memoize', 'Gather',
-  'Gather Merge', 'CTE Scan', 'Unknown'
+  'Gather Merge', 'CTE Scan', 'Unknown',
 ] as const;
 
 const typeToId = new Map<string, number>();
@@ -29,11 +29,11 @@ export interface FlattenedPlanNode {
 
 export interface PlanGraph {
   nodes: FlattenedPlanNode[];
-  edges: [number, number][]; // [parent, child]
+  edges: [number, number][];
 }
 
 export function parsePlanTree(rawPlan: any): PlanGraph {
-  const planObj = Array.isArray(rawPlan) ? rawPlan[0]?.Plan : (rawPlan?.Plan || rawPlan);
+  const planObj = Array.isArray(rawPlan) ? rawPlan[0]?.Plan : rawPlan?.Plan || rawPlan;
   if (!planObj) {
     return { nodes: [], edges: [] };
   }
@@ -51,7 +51,7 @@ export function parsePlanTree(rawPlan: any): PlanGraph {
       planRows: parseFloat(curr['Plan Rows'] || '0') || 0,
       planWidth: parseInt(curr['Plan Width'] || '0', 10) || 0,
       relationName: curr['Relation Name'],
-      actualTotalTime: curr['Actual Total Time'] ? parseFloat(curr['Actual Total Time']) : undefined
+      actualTotalTime: curr['Actual Total Time'] ? parseFloat(curr['Actual Total Time']) : undefined,
     });
 
     if (parentIdx !== null) {
@@ -82,14 +82,13 @@ export function buildTensors(graph: PlanGraph) {
   for (let i = 0; i < numNodes; i++) {
     const n = graph.nodes[i];
     xOpData[i] = BigInt(getOperatorId(n.nodeType));
-    
-    // Feature transforms: log1p(max(0, val))
+
     xContData[i * 4 + 0] = Math.log1p(Math.max(0, n.startupCost));
     xContData[i * 4 + 1] = Math.log1p(Math.max(0, n.totalCost));
     xContData[i * 4 + 2] = Math.log1p(Math.max(0, n.planRows));
     xContData[i * 4 + 3] = Math.log1p(Math.max(0, n.planWidth));
 
-    batchData[i] = 0n;
+    batchData[i] = BigInt(0);
   }
 
   for (let e = 0; e < numEdges; e++) {
@@ -101,6 +100,6 @@ export function buildTensors(graph: PlanGraph) {
     x_op: { data: xOpData, dims: [numNodes] },
     x_cont: { data: xContData, dims: [numNodes, 4] },
     edge_index: { data: edgeIndexData, dims: [2, numEdges] },
-    batch: { data: batchData, dims: [numNodes] }
+    batch: { data: batchData, dims: [numNodes] },
   };
 }
