@@ -53,6 +53,7 @@ test.describe('Interactive Project Demos', () => {
 
     // Verify prediction and actual execution metrics
     const prediction = page.locator('[data-testid="nqo-prediction"]');
+    await prediction.scrollIntoViewIfNeeded();
     await expect(prediction).toBeVisible();
     await expect(prediction).not.toHaveText('—', { timeout: 10000 });
 
@@ -259,9 +260,23 @@ test.describe('Ride Mode (Free Rider Physics & Checkpoints)', () => {
     const canvas = page.locator('[data-testid="ride-canvas"]');
     await expect(canvas).toBeVisible();
 
-    // Verify HUD section badge
+    // Verify HUD section badge and collectible star counter
     const hud = page.locator('[data-testid="hud-section"]');
     await expect(hud).toBeVisible();
+    await expect(page.locator('[data-testid="hud-stars"]')).toBeVisible();
+
+    // Test Track Editor toolbar toggle
+    const editorBtn = page.locator('[data-testid="hud-editor-btn"]');
+    await editorBtn.click();
+    const toolbar = page.locator('[data-testid="track-editor-toolbar"]');
+    await expect(toolbar).toBeVisible();
+    await expect(page.locator('[data-testid="editor-tool-physics"]')).toBeVisible();
+    await expect(page.locator('[data-testid="editor-tool-scenery"]')).toBeVisible();
+    await expect(page.locator('[data-testid="editor-tool-eraser"]')).toBeVisible();
+
+    // Switch back to ride mode via Test Ride button
+    await page.locator('[data-testid="editor-tool-ride"]').click();
+    await expect(toolbar).not.toBeVisible();
 
     // Send physics inputs (ArrowUp to accelerate forward smoothly without flipping)
     await page.keyboard.down('ArrowUp');

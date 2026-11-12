@@ -1,19 +1,18 @@
-// Canvas renderer: paper world, ink terrain, hand-drawn landmarks, stick rider.
+// Free Rider HD Canvas Renderer: Paper world, ink terrain, non-colliding scenery lines,
+// golden collectible stars, detailed bicycle with spring suspension, and animated stick rider.
 
 import { GameEngine } from './engine';
 import { Decoration } from './track';
 
 const INK = '#2A2520';
 const RED = '#C84B31';
-
-function wobble(x: number): number {
-  return Math.sin(x * 12.9898) * 43758.5453 % 1;
-}
+const GOLD = '#D4A843';
+const BLUE = '#3A6EA5';
 
 function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
   const { x, y } = d;
   ctx.strokeStyle = INK;
-  ctx.lineWidth = 1.6;
+  ctx.lineWidth = 1.8;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 
@@ -31,62 +30,40 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
       ctx.moveTo(x - 23, y - 52);
       ctx.lineTo(x - 23, y - 44);
       ctx.stroke();
-      // coffee
-      ctx.beginPath();
-      ctx.moveTo(x + 26, y - 62);
-      ctx.lineTo(x + 30, y - 52);
-      ctx.lineTo(x + 40, y - 52);
-      ctx.lineTo(x + 44, y - 62);
-      ctx.closePath();
-      ctx.stroke();
       break;
     }
     case 'db': {
       for (let i = 0; i < 3; i++) {
-        const ox = x + i * 40;
+        const ox = x + i * 36;
         const oy = y;
         ctx.beginPath();
-        ctx.ellipse(ox + 15, oy - 66, 16, 6, 0, 0, Math.PI * 2);
-        ctx.moveTo(ox - 1, oy - 66);
-        ctx.lineTo(ox - 1, oy - 30);
-        ctx.ellipse(ox + 15, oy - 30, 16, 6, 0, Math.PI, 0, true);
-        ctx.lineTo(ox + 31, oy - 66);
-        ctx.stroke();
-        const oy2 = oy - 10;
-        ctx.beginPath();
-        ctx.ellipse(ox + 15, oy2 - 56, 16, 6, 0, 0, Math.PI * 2);
+        ctx.ellipse(ox + 15, oy - 60, 15, 6, 0, 0, Math.PI * 2);
+        ctx.moveTo(ox, oy - 60);
+        ctx.lineTo(ox, oy - 25);
+        ctx.ellipse(ox + 15, oy - 25, 15, 6, 0, Math.PI, 0, true);
+        ctx.lineTo(ox + 30, oy - 60);
         ctx.stroke();
       }
       break;
     }
     case 'tower': {
       ctx.beginPath();
-      ctx.moveTo(x - 26, y);
+      ctx.moveTo(x - 24, y);
       ctx.lineTo(x - 6, y - 130);
       ctx.lineTo(x + 6, y - 130);
-      ctx.lineTo(x + 26, y);
-      ctx.moveTo(x - 18, y - 40);
-      ctx.lineTo(x + 18, y - 40);
+      ctx.lineTo(x + 24, y);
+      ctx.moveTo(x - 16, y - 40);
+      ctx.lineTo(x + 16, y - 40);
       ctx.moveTo(x - 12, y - 80);
       ctx.lineTo(x + 12, y - 80);
-      ctx.moveTo(x - 18, y - 40);
+      ctx.moveTo(x - 16, y - 40);
       ctx.lineTo(x + 12, y - 80);
       ctx.moveTo(x - 12, y - 80);
-      ctx.lineTo(x + 18, y - 40);
+      ctx.lineTo(x + 16, y - 40);
       ctx.stroke();
       ctx.beginPath();
       ctx.arc(x, y - 138, 5, 0, Math.PI * 2);
       ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(x, y - 143);
-      ctx.lineTo(x, y - 158);
-      ctx.stroke();
-      for (let i = 0; i < 3; i++) {
-        ctx.beginPath();
-        ctx.moveTo(x, y - 150 - i * 3);
-        ctx.lineTo(x + 10 + i * 4, y - 156 - i * 5);
-        ctx.stroke();
-      }
       break;
     }
     case 'breaker': {
@@ -98,111 +75,69 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
       ctx.stroke();
       ctx.fillStyle = RED;
       ctx.beginPath();
-      ctx.arc(x + 10, y - 36, 3, 0, Math.PI * 2);
+      ctx.arc(x, y - 36, 4, 0, Math.PI * 2);
       ctx.fill();
       break;
     }
     case 'bridge': {
-      const w = d.w ?? 1000;
-      ctx.lineWidth = 1.4;
-      for (let i = 0; i <= w; i += 60) {
-        ctx.beginPath();
-        ctx.moveTo(x + i, y - 26);
-        ctx.lineTo(x + i + 30, y - 4);
-        ctx.stroke();
-      }
+      const w = d.w ?? 900;
       ctx.beginPath();
-      ctx.moveTo(x, y - 30);
-      ctx.lineTo(x + w, y - 30);
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y + 160);
+      ctx.moveTo(x + w, y);
+      ctx.lineTo(x + w, y + 160);
       ctx.stroke();
       break;
     }
     case 'shelf': {
-      ctx.strokeRect(x - 34, y - 96, 68, 96);
-      for (let r = 0; r < 3; r++) {
-        ctx.beginPath();
-        ctx.moveTo(x - 34, y - 30 - r * 26);
-        ctx.lineTo(x + 34, y - 30 - r * 26);
-        ctx.stroke();
-        for (let c = 0; c < 3; c++) {
-          ctx.strokeRect(x - 28 + c * 22, y - 52 - r * 26, 16, 18);
-        }
-      }
+      ctx.strokeRect(x - 30, y - 70, 60, 70);
+      ctx.beginPath();
+      ctx.moveTo(x - 30, y - 45);
+      ctx.lineTo(x + 30, y - 45);
+      ctx.moveTo(x - 30, y - 22);
+      ctx.lineTo(x + 30, y - 22);
+      ctx.stroke();
       break;
     }
     case 'chart': {
+      ctx.strokeRect(x - 45, y - 80, 90, 60);
       ctx.beginPath();
-      let py = y - 60;
-      ctx.moveTo(x - 50, py);
-      const moves = [8, -14, 10, -22, 6, -10, 14, -8];
-      for (let i = 0; i < 8; i++) {
-        py += moves[i] * 0.9;
-        ctx.lineTo(x - 50 + (i + 1) * 14, py);
-      }
+      ctx.moveTo(x - 38, y - 30);
+      ctx.lineTo(x - 20, y - 55);
+      ctx.lineTo(x, y - 40);
+      ctx.lineTo(x + 20, y - 70);
+      ctx.lineTo(x + 38, y - 35);
       ctx.stroke();
-      ctx.lineWidth = 1.3;
-      for (let i = 0; i < 6; i++) {
-        const cx2 = x - 44 + i * 18;
-        const up = wobble(x + i) > 0;
-        const h = 16 + (i % 3) * 8;
-        ctx.beginPath();
-        ctx.moveTo(cx2, y - 40 - (up ? h : 0));
-        ctx.lineTo(cx2, y - 40 + (up ? 0 : h));
-        ctx.stroke();
-        ctx.strokeRect(cx2 - 4, y - 44 - (up ? h : 6), 8, 14);
-      }
       break;
     }
     case 'pipes': {
-      ctx.strokeRect(x - 40, y - 90, 80, 56);
       ctx.beginPath();
-      ctx.moveTo(x - 40, y - 74);
-      ctx.lineTo(x + 40, y - 74);
-      ctx.stroke();
-      for (let i = 0; i < 3; i++) {
-        ctx.beginPath();
-        ctx.arc(x - 20 + i * 20, y - 62, 5, 0, Math.PI * 2);
-        ctx.stroke();
-      }
-      ctx.beginPath();
-      ctx.moveTo(x - 24, y - 34);
-      ctx.lineTo(x - 24, y - 10);
-      ctx.moveTo(x + 24, y - 34);
-      ctx.lineTo(x + 24, y - 10);
+      ctx.moveTo(x - 20, y);
+      ctx.lineTo(x - 20, y - 80);
+      ctx.lineTo(x + 60, y - 80);
+      ctx.lineTo(x + 60, y);
       ctx.stroke();
       break;
     }
     case 'camera': {
       ctx.beginPath();
-      ctx.moveTo(x - 22, y);
+      ctx.moveTo(x, y);
       ctx.lineTo(x, y - 110);
-      ctx.lineTo(x + 22, y);
-      ctx.closePath();
+      ctx.lineTo(x + 20, y - 110);
       ctx.stroke();
-      ctx.strokeRect(x - 12, y - 128, 24, 14);
-      ctx.beginPath();
-      ctx.moveTo(x - 12, y - 121);
-      ctx.lineTo(x - 34, y - 112);
-      ctx.stroke();
-      ctx.setLineDash([3, 4]);
-      ctx.beginPath();
-      ctx.moveTo(x - 34, y - 112);
-      ctx.lineTo(x - 60, y - 60);
-      ctx.stroke();
-      ctx.setLineDash([]);
+      ctx.strokeRect(x + 15, y - 120, 24, 16);
       break;
     }
     case 'flag': {
-      ctx.lineWidth = 2.4;
       ctx.beginPath();
       ctx.moveTo(x, y);
-      ctx.lineTo(x, y - 90);
+      ctx.lineTo(x, y - 110);
       ctx.stroke();
       ctx.fillStyle = RED;
       ctx.beginPath();
-      ctx.moveTo(x, y - 90);
-      ctx.lineTo(x + 44, y - 78);
-      ctx.lineTo(x, y - 64);
+      ctx.moveTo(x, y - 110);
+      ctx.lineTo(x + 44, y - 98);
+      ctx.lineTo(x, y - 84);
       ctx.closePath();
       ctx.fill();
       break;
@@ -215,14 +150,14 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
       ctx.stroke();
       ctx.strokeRect(x - w / 2, y - 88, w, 26);
       ctx.fillStyle = INK;
-      ctx.font = "bold 10px 'JetBrains Mono'";
+      ctx.font = "bold 10px 'JetBrains Mono', monospace";
       ctx.textAlign = 'center';
       ctx.fillText(d.text ?? '', x, y - 71);
       ctx.textAlign = 'left';
       break;
     }
     case 'banner': {
-      const w = 320;
+      const w = 340;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(x - w / 2, y - 150);
@@ -232,17 +167,40 @@ function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
       ctx.moveTo(x - w / 2, y - 150);
       ctx.lineTo(x + w / 2, y - 150);
       ctx.stroke();
-      ctx.fillStyle = 'rgba(217,56,30,0.14)';
+      ctx.fillStyle = 'rgba(200,75,49,0.15)';
       ctx.fillRect(x - w / 2, y - 148, w, 34);
       ctx.strokeRect(x - w / 2, y - 148, w, 34);
       ctx.fillStyle = INK;
-      ctx.font = "bold 14px 'JetBrains Mono'";
+      ctx.font = "bold 13px 'JetBrains Mono', monospace";
       ctx.textAlign = 'center';
       ctx.fillText(d.text ?? '', x, y - 126);
       ctx.textAlign = 'left';
       break;
     }
   }
+}
+
+function drawStar(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number) {
+  ctx.save();
+  ctx.fillStyle = GOLD;
+  ctx.strokeStyle = INK;
+  ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  for (let i = 0; i < 5; i++) {
+    const a1 = (i * Math.PI * 2) / 5 - Math.PI / 2;
+    const a2 = a1 + Math.PI / 5;
+    const x1 = cx + Math.cos(a1) * r;
+    const y1 = cy + Math.sin(a1) * r;
+    const x2 = cx + Math.cos(a2) * (r * 0.45);
+    const y2 = cy + Math.sin(a2) * (r * 0.45);
+    if (i === 0) ctx.moveTo(x1, y1);
+    else ctx.lineTo(x1, y1);
+    ctx.lineTo(x2, y2);
+  }
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
 }
 
 export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
@@ -261,136 +219,185 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
   const viewLeft = eng.camX - cw / 2 / scale;
   const viewRight = eng.camX + (cw * 0.62) / scale;
 
-  // Clean Free Rider minimalist line-art aesthetic — no dense blueprint grid
-
-  // section title painted on the world with organic artistic lettering
-  ctx.fillStyle = 'rgba(42,37,32,0.11)';
-  ctx.font = "italic 52px 'Playfair Display', Georgia, serif";
+  // 1. SECTION TITLES AS HAND-DRAWN MURAL CALLOUTS
+  ctx.fillStyle = 'rgba(42,37,32,0.12)';
+  ctx.font = "bold 56px 'Playfair Display', Georgia, serif";
   ctx.textAlign = 'center';
   for (const s of eng.track.sections) {
-    if (s.startX + 900 > viewLeft && s.startX + 900 < viewRight) {
-      ctx.fillText(`${s.name}`, s.startX + 900, 120);
+    if (s.startX + 700 > viewLeft && s.startX + 700 < viewRight) {
+      ctx.fillText(s.name, s.startX + 700, 100);
     }
   }
   ctx.textAlign = 'left';
 
-  // distance ticks
-  ctx.fillStyle = 'rgba(26,26,26,0.4)';
-  ctx.font = "9px 'JetBrains Mono'";
+  // 2. NON-COLLIDING BACKGROUND SCENERY LINES (Free Rider HD aesthetic)
+  for (const line of eng.track.scenery) {
+    if (Math.max(line.x1, line.x2) < viewLeft - 60 || Math.min(line.x1, line.x2) > viewRight + 60) continue;
+    ctx.strokeStyle = line.color || 'rgba(74,69,64,0.3)';
+    ctx.lineWidth = line.width || 1.4;
+    ctx.lineCap = 'round';
+    if (line.dashed) ctx.setLineDash([6, 4]);
+    else ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(line.x1, line.y1);
+    ctx.lineTo(line.x2, line.y2);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  // 3. DISTANCE TICKS ALONG TRACK
+  ctx.fillStyle = 'rgba(74,69,64,0.4)';
+  ctx.font = "9px 'JetBrains Mono', monospace";
   for (let x = 0; x <= eng.track.length; x += 500) {
     if (x < viewLeft || x > viewRight) continue;
     const seg = eng.track.segments.find((s) => x >= Math.min(s.x1, s.x2) && x <= Math.max(s.x1, s.x2));
     if (seg) {
       const t = (x - seg.x1) / (seg.x2 - seg.x1 || 1);
       const gy = seg.y1 + (seg.y2 - seg.y1) * t;
-      ctx.fillText(`${x / 10}m`, x, gy - 30);
+      ctx.fillText(`${x / 10}m`, x, gy - 25);
       ctx.beginPath();
       ctx.moveTo(x, gy);
-      ctx.lineTo(x, gy - 10);
-      ctx.strokeStyle = 'rgba(26,26,26,0.4)';
+      ctx.lineTo(x, gy - 8);
+      ctx.strokeStyle = 'rgba(74,69,64,0.35)';
       ctx.stroke();
     }
   }
 
-  // decorations
+  // 4. DECORATIONS (Workshop, database cylinders, towers, bridges)
   for (const d of eng.track.decorations) {
-    if (d.x + 260 < viewLeft || d.x - 260 > viewRight) continue;
+    if (d.x + 300 < viewLeft || d.x - 300 > viewRight) continue;
     drawDecoration(ctx, d);
   }
 
-  // checkpoints
+  // 5. COLLECTIBLE GOLDEN STARS
+  for (const star of eng.track.stars) {
+    if (star.collected) continue;
+    if (star.x < viewLeft - 40 || star.x > viewRight + 40) continue;
+    drawStar(ctx, star.x, star.y, 11);
+  }
+
+  // 6. CHECKPOINTS & BANNERS
   for (const cp of eng.track.checkpoints) {
     if (cp.x < viewLeft - 100 || cp.x > viewRight + 100) continue;
     const visited = eng.visited.has(cp.projectId);
     ctx.strokeStyle = INK;
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.2;
     ctx.beginPath();
     ctx.moveTo(cp.x, cp.y);
-    ctx.lineTo(cp.x, cp.y - 66);
+    ctx.lineTo(cp.x, cp.y - 68);
     ctx.stroke();
     ctx.fillStyle = visited ? RED : '#FAF8F3';
     ctx.beginPath();
-    ctx.moveTo(cp.x, cp.y - 66);
-    ctx.lineTo(cp.x + 34, cp.y - 56);
+    ctx.moveTo(cp.x, cp.y - 68);
+    ctx.lineTo(cp.x + 36, cp.y - 56);
     ctx.lineTo(cp.x, cp.y - 44);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
     ctx.fillStyle = INK;
-    ctx.font = "bold 10px 'JetBrains Mono'";
+    ctx.font = "bold 10px 'JetBrains Mono', monospace";
     ctx.textAlign = 'center';
     ctx.fillText(cp.label, cp.x + 6, cp.y - 78);
     ctx.textAlign = 'left';
+
     if (eng.activeCheckpoint?.projectId === cp.projectId) {
       ctx.strokeStyle = RED;
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1.8;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
-      ctx.arc(cp.x, cp.y - 30, 46, 0, Math.PI * 2);
+      ctx.arc(cp.x, cp.y - 30, 48, 0, Math.PI * 2);
       ctx.stroke();
       ctx.setLineDash([]);
     }
   }
 
-  // terrain
+  // 7. SOLID COLLISION TERRAIN LINES (Heavy Free Rider track stroke)
   ctx.strokeStyle = INK;
-  ctx.lineWidth = 3.4;
+  ctx.lineWidth = 3.6;
   ctx.lineCap = 'round';
   ctx.beginPath();
   for (const s of eng.track.segments) {
-    if (s.x2 < viewLeft - 50 || s.x1 > viewRight + 50) continue;
+    if (Math.max(s.x1, s.x2) < viewLeft - 50 || Math.min(s.x1, s.x2) > viewRight + 50) continue;
     ctx.moveTo(s.x1, s.y1);
     ctx.lineTo(s.x2, s.y2);
   }
   ctx.stroke();
 
-  // hatch below terrain
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = 'rgba(26,26,26,0.35)';
+  // Terrain under-hatching (classic Free Rider hand-drawn texture)
+  ctx.lineWidth = 1.2;
+  ctx.strokeStyle = 'rgba(42,37,32,0.25)';
   ctx.beginPath();
   for (const s of eng.track.segments) {
-    if (s.x2 < viewLeft - 50 || s.x1 > viewRight + 50) continue;
+    if (Math.max(s.x1, s.x2) < viewLeft - 50 || Math.min(s.x1, s.x2) > viewRight + 50) continue;
     const len = Math.hypot(s.x2 - s.x1, s.y2 - s.y1);
-    const n = Math.floor(len / 14);
+    const n = Math.floor(len / 16);
     for (let i = 0; i < n; i++) {
       const t = (i + 0.5) / n;
       const hx = s.x1 + (s.x2 - s.x1) * t;
       const hy = s.y1 + (s.y2 - s.y1) * t;
       ctx.moveTo(hx, hy);
-      ctx.lineTo(hx - 7, hy + 9);
+      ctx.lineTo(hx - 8, hy + 10);
     }
   }
   ctx.stroke();
 
-  // particles
-  ctx.fillStyle = 'rgba(26,26,26,0.5)';
+  // 8. PARTICLES & DUST TRAILS
   for (const p of eng.particles) {
+    ctx.fillStyle = p.color || 'rgba(74,69,64,0.5)';
     ctx.beginPath();
-    ctx.arc(p.x, p.y, 2.2 * p.life * 2, 0, Math.PI * 2);
+    ctx.arc(p.x, p.y, 2.5 * p.life * 2, 0, Math.PI * 2);
     ctx.fill();
   }
 
-  // bike
+  // 9. DRAFT LINE IN TRACK EDITOR (if active)
+  if (eng.editorActive && eng.editorDraftLine) {
+    ctx.strokeStyle = eng.editorTool === 'physics' ? RED : BLUE;
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(eng.editorDraftLine.x1, eng.editorDraftLine.y1);
+    ctx.lineTo(eng.editorDraftLine.x2, eng.editorDraftLine.y2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // 10. FREE RIDER BICYCLE & ANIMATED RAGDOLL RIDER
   const { w1, w2, frame, head } = eng;
   ctx.strokeStyle = INK;
-  ctx.lineWidth = 2.4;
+  ctx.lineWidth = 2.6;
+
+  // Wheels (Radius 14px)
   for (const w of [w1, w2]) {
+    // Outer tire
     ctx.beginPath();
-    ctx.arc(w.x, w.y, 13, 0, Math.PI * 2);
+    ctx.arc(w.x, w.y, 14, 0, Math.PI * 2);
     ctx.stroke();
-    ctx.lineWidth = 1.1;
+    // Inner rim
     ctx.beginPath();
-    for (let i = 0; i < 4; i++) {
-      const a = eng.wheelSpin + (i * Math.PI) / 2;
+    ctx.arc(w.x, w.y, 11, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // 6 Rotating spokes
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const a = eng.wheelSpin + (i * Math.PI) / 3;
       ctx.moveTo(w.x - Math.cos(a) * 11, w.y - Math.sin(a) * 11);
       ctx.lineTo(w.x + Math.cos(a) * 11, w.y + Math.sin(a) * 11);
     }
     ctx.stroke();
-    ctx.lineWidth = 2.4;
+    ctx.lineWidth = 2.6;
+    // Hub center
+    ctx.fillStyle = INK;
+    ctx.beginPath();
+    ctx.arc(w.x, w.y, 2.5, 0, Math.PI * 2);
+    ctx.fill();
   }
 
-  // frame
-  ctx.lineWidth = 2.6;
+  // Bicycle Diamond Frame
+  ctx.lineWidth = 2.8;
+  ctx.strokeStyle = RED;
   ctx.beginPath();
   ctx.moveTo(w1.x, w1.y);
   ctx.lineTo(frame.x, frame.y);
@@ -398,40 +405,72 @@ export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
   ctx.closePath();
   ctx.stroke();
 
-  // rider
-  const barX = frame.x + (w2.x - frame.x) * 0.75;
-  const barY = frame.y + (w2.y - frame.y) * 0.75 - 8;
+  // Bottom Bracket Crank
+  ctx.strokeStyle = INK;
   ctx.lineWidth = 2;
+  const crankA = eng.wheelSpin * 0.8;
+  const crankR = 7;
+  const bx = frame.x;
+  const by = frame.y;
+  const p1x = bx + Math.cos(crankA) * crankR;
+  const p1y = by + Math.sin(crankA) * crankR;
+  const p2x = bx - Math.cos(crankA) * crankR;
+  const p2y = by - Math.sin(crankA) * crankR;
   ctx.beginPath();
-  ctx.moveTo(frame.x, frame.y);
+  ctx.moveTo(p1x, p1y);
+  ctx.lineTo(p2x, p2y);
+  ctx.stroke();
+
+  // Handlebars & Stem
+  const barX = frame.x + (w2.x - frame.x) * 0.78;
+  const barY = frame.y + (w2.y - frame.y) * 0.78 - 9;
+  ctx.beginPath();
+  ctx.moveTo(w2.x, w2.y);
+  ctx.lineTo(barX, barY);
+  ctx.stroke();
+
+  // Rider Torso, Arms & Legs
+  ctx.lineWidth = 2.2;
+  ctx.beginPath();
+  // Spine: Seat lug to Head
+  ctx.moveTo(frame.x, frame.y - 4);
   ctx.lineTo(head.x, head.y);
+
+  // Arms to Handlebars
   ctx.moveTo(head.x, head.y + 8);
   ctx.lineTo(barX, barY);
-  ctx.moveTo(frame.x, frame.y);
-  ctx.lineTo(frame.x - 6, frame.y - 14);
-  ctx.moveTo(frame.x - 6, frame.y - 14);
-  ctx.lineTo(w1.x + 4, w1.y - 6);
+
+  // Pedaling Legs: Hip to Foot
+  ctx.moveTo(frame.x, frame.y - 4);
+  ctx.lineTo(p1x, p1y);
   ctx.stroke();
-  // helmet
+
+  // Helmet with visor
   ctx.beginPath();
-  ctx.arc(head.x, head.y, 8, 0, Math.PI * 2);
+  ctx.arc(head.x, head.y, 9, 0, Math.PI * 2);
   ctx.fillStyle = eng.crashed ? INK : RED;
   ctx.fill();
   ctx.stroke();
+
   if (!eng.crashed) {
+    // Rider face & visor
     ctx.fillStyle = '#FAF8F3';
     ctx.beginPath();
-    ctx.arc(head.x + 3, head.y - 2, 2, 0, Math.PI * 2);
+    ctx.arc(head.x + 3, head.y - 2, 2.5, 0, Math.PI * 2);
     ctx.fill();
   } else {
-    // crash stars
+    // Cartoon crash stars circling head
     ctx.strokeStyle = RED;
-    ctx.lineWidth = 1.6;
-    for (let i = 0; i < 3; i++) {
-      const a = (i / 3) * Math.PI * 2 + eng.wheelSpin * 0.5;
+    ctx.lineWidth = 1.8;
+    for (let i = 0; i < 4; i++) {
+      const a = (i / 4) * Math.PI * 2 + eng.wheelSpin * 0.4;
+      const sx = head.x + Math.cos(a) * 20;
+      const sy = head.y + Math.sin(a) * 20;
       ctx.beginPath();
-      ctx.moveTo(head.x + Math.cos(a) * 16, head.y + Math.sin(a) * 16);
-      ctx.lineTo(head.x + Math.cos(a) * 24, head.y + Math.sin(a) * 24);
+      ctx.moveTo(sx - 3, sy);
+      ctx.lineTo(sx + 3, sy);
+      ctx.moveTo(sx, sy - 3);
+      ctx.lineTo(sx, sy + 3);
       ctx.stroke();
     }
   }

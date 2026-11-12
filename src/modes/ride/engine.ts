@@ -1,8 +1,9 @@
 // Verlet bicycle physics with a fixed 120 Hz timestep.
 // Two independently-constrained wheels, a chassis node and a rider head node.
 // Head touches terrain = ragdoll crash → respawn at last checkpoint.
+// Enhanced Free Rider HD physics: Scenery lines, collectible stars, and track editor integration.
 
-import { Track, buildTrack, Checkpoint } from './track';
+import { Track, buildTrack, Checkpoint, Seg, SceneryLine } from './track';
 import { drawWorld } from './render';
 import { sfx } from '../../lib/sound';
 
@@ -26,6 +27,7 @@ export interface Particle {
   vx: number;
   vy: number;
   life: number;
+  color?: string;
 }
 
 export interface EngineCallbacks {
@@ -37,13 +39,14 @@ export interface EngineCallbacks {
   onRespawn: () => void;
   onFinish: () => void;
   requestPause: () => void;
+  onStarCollect?: (collectedCount: number, totalStars: number) => void;
 }
 
 const STEP = 1 / 120;
-const GRAVITY = 0.155;
-const WHEEL_R = 13;
-const HEAD_R = 8;
-const MAX_SPEED = 6.4;
+const GRAVITY = 0.16;
+const WHEEL_R = 14;
+const HEAD_R = 9;
+const MAX_SPEED = 6.8;
 
 export class GameEngine {
   private canvas: HTMLCanvasElement;
@@ -53,8 +56,8 @@ export class GameEngine {
   private raf = 0;
   private accumulator = 0;
   private lastTime = 0;
-  private dpr = 1;
-  private running = false;
+  dpr = 1;
+  running = false;
   private destroyed = false;
 
   input: EngineInput = { accel: false, brake: false, leanB: false, leanF: false };
@@ -69,19 +72,26 @@ export class GameEngine {
   crashTimer = 0;
   airTime = 0;
   wasAir = false;
-  private grounded = false;
+  grounded = false;
 
   // camera
-  camX = 120;
-  camY = 200;
-  zoom = 1.05;
+  camX = 0;
+  camY = 140;
+  zoom = 1.25;
 
-  // progress
+  // progress & gameplay
   visited = new Set<string>();
   activeCheckpoint: Checkpoint | null = null;
   respawnCp: Checkpoint | null = null;
   particles: Particle[] = [];
   speed = 0;
+  collectedStarsCount = 0;
+
+  // editor state (if active)
+  editorActive = false;
+  editorTool: 'physics' | 'scenery' | 'line' | 'eraser' = 'physics';
+  editorDraftLine: { x1: number; y1: number; x2: number; y2: number } | null = null;
+  customHistory: Array<{ type: 'physics' | 'scenery'; item: Seg | SceneryLine }> = [];
 
   private onVis = () => {
     if (document.hidden && this.running) this.cb.requestPause();
@@ -116,6 +126,7 @@ export class GameEngine {
   pause() {
     this.running = false;
   }
+
   resume() {
     if (this.destroyed) return;
     this.running = true;
@@ -134,106 +145,190 @@ export class GameEngine {
     this.w1 = { x: x - 22, y: y - 14, ox: x - 22, oy: y - 14 };
     this.w2 = { x: x + 22, y: y - 14, ox: x + 22, oy: y - 14 };
     this.frame = { x, y: y - 36, ox: x, oy: y - 36 };
-    this.head = { x, y: y - 60, ox: x, oy: y - 60 };
+    this.head = { x, y: y - 62, ox: x, oy: y - 62 };
     this.crashed = false;
     this.crashTimer = 0;
     this.camX = x;
-    this.camY = y - 40;
-    this.particles = [];
+    this.camY = y;
+    this.input = { accel: false, brake: false, leanB: false, leanF: false };
   }
 
-  respawn(manual = false) {
-    const cp = this.respawnCp ?? { x: this.track.startX, y: this.track.startY, projectId: 'workshop', label: 'THE WORKSHOP' };
-    this.placeAt(cp.x, cp.y - 6);
-    if (manual) sfx.click();
+  respawn(fullReset = false) {
+    if (fullReset || !this.respawnCp) {
+      this.placeAt(this.track.startX, this.track.startY);
+    } else {
+      this.placeAt(this.respawnCp.x, this.respawnCp.y - 70);
+    }
     this.cb.onRespawn();
   }
 
-  private nearSegs(x: number) {
+  // =========================================================================
+  // TRACK EDITOR METHODS
+  // =========================================================================
+  addCustomSegment(seg: Seg) {
+    this.track.segments.push(seg);
+    this.customHistory.push({ type: 'physics', item: seg });
     const BUCKET = 96;
-    const b = Math.floor(x / BUCKET);
-    const out = [];
-    for (let i = b - 1; i <= b + 1; i++) {
-      const arr = this.track.buckets.get(i);
-      if (arr) out.push(...arr);
+    const b0 = Math.floor(Math.min(seg.x1, seg.x2) / BUCKET);
+    const b1 = Math.floor(Math.max(seg.x1, seg.x2) / BUCKET);
+    for (let b = b0; b <= b1; b++) {
+      if (!this.track.buckets.has(b)) this.track.buckets.set(b, []);
+      this.track.buckets.get(b)!.push(seg);
     }
-    return out;
   }
 
-  private collide(p: Point, r: number, isHead: boolean): { grounded: boolean; impact: number } {
+  addCustomScenery(line: SceneryLine) {
+    this.track.scenery.push(line);
+    this.customHistory.push({ type: 'scenery', item: line });
+  }
+
+  undo() {
+    const last = this.customHistory.pop();
+    if (!last) return;
+    if (last.type === 'physics') {
+      const idx = this.track.segments.indexOf(last.item as Seg);
+      if (idx !== -1) {
+        this.track.segments.splice(idx, 1);
+        this.rebuildBuckets();
+      }
+    } else {
+      const idx = this.track.scenery.indexOf(last.item as SceneryLine);
+      if (idx !== -1) {
+        this.track.scenery.splice(idx, 1);
+      }
+    }
+  }
+
+  private rebuildBuckets() {
+    const buckets = new Map<number, Seg[]>();
+    const BUCKET = 96;
+    for (const s of this.track.segments) {
+      const b0 = Math.floor(Math.min(s.x1, s.x2) / BUCKET);
+      const b1 = Math.floor(Math.max(s.x1, s.x2) / BUCKET);
+      for (let b = b0; b <= b1; b++) {
+        if (!buckets.has(b)) buckets.set(b, []);
+        buckets.get(b)!.push(s);
+      }
+    }
+    this.track.buckets = buckets;
+  }
+
+  eraseAt(worldX: number, worldY: number, radius = 28) {
+    // Filter out physics segments near click
+    const prevCount = this.track.segments.length;
+    this.track.segments = this.track.segments.filter((s) => {
+      const midX = (s.x1 + s.x2) / 2;
+      const midY = (s.y1 + s.y2) / 2;
+      return Math.hypot(worldX - midX, worldY - midY) > radius;
+    });
+
+    if (this.track.segments.length !== prevCount) {
+      this.rebuildBuckets();
+    }
+
+    // Filter out scenery lines near click
+    this.track.scenery = this.track.scenery.filter((s) => {
+      const midX = (s.x1 + s.x2) / 2;
+      const midY = (s.y1 + s.y2) / 2;
+      return Math.hypot(worldX - midX, worldY - midY) > radius;
+    });
+  }
+
+  clearCustomTrack() {
+    this.track = buildTrack();
+    this.customHistory = [];
+    this.placeAt(this.track.startX, this.track.startY);
+  }
+
+  // =========================================================================
+  // PHYSICS COLLISION & SIMULATION
+  // =========================================================================
+  private collide(p: Point, radius: number, isHead: boolean): { grounded: boolean; impact: number } {
     let grounded = false;
     let impact = 0;
-    for (const s of this.nearSegs(p.x)) {
-      const dx = s.x2 - s.x1;
-      const dy = s.y2 - s.y1;
-      const l2 = dx * dx + dy * dy;
-      if (l2 === 0) continue;
-      let t = ((p.x - s.x1) * dx + (p.y - s.y1) * dy) / l2;
-      t = Math.max(0, Math.min(1, t));
-      const px = s.x1 + t * dx;
-      const py = s.y1 + t * dy;
-      const dist = Math.hypot(p.x - px, p.y - py);
-      if (dist < r) {
-        if (isHead) {
-          this.crashed = true;
-          this.crashTimer = 1.4;
-          this.cb.onCrash();
-          sfx.crash();
-          return { grounded, impact };
+    const BUCKET = 96;
+    const b0 = Math.floor((p.x - radius) / BUCKET);
+    const b1 = Math.floor((p.x + radius) / BUCKET);
+
+    for (let b = b0; b <= b1; b++) {
+      const segs = this.track.buckets.get(b);
+      if (!segs) continue;
+      for (const s of segs) {
+        const dx = s.x2 - s.x1;
+        const dy = s.y2 - s.y1;
+        const len2 = dx * dx + dy * dy || 0.0001;
+        let t = ((p.x - s.x1) * dx + (p.y - s.y1) * dy) / len2;
+        if (t < 0) t = 0;
+        else if (t > 1) t = 1;
+        const cx = s.x1 + t * dx;
+        const cy = s.y1 + t * dy;
+        const dist = Math.hypot(p.x - cx, p.y - cy);
+        if (dist < radius) {
+          if (isHead && !this.crashed) {
+            this.crashed = true;
+            this.crashTimer = 1.0;
+            this.cb.onCrash();
+            sfx.crash();
+            return { grounded: true, impact: 10 };
+          }
+          const overlap = radius - dist;
+          const nx = dist === 0 ? 0 : (p.x - cx) / dist;
+          const ny = dist === 0 ? -1 : (p.y - cy) / dist;
+          p.x += nx * overlap;
+          p.y += ny * overlap;
+
+          // surface friction
+          const vx = p.x - p.ox;
+          const vy = p.y - p.oy;
+          const dot = vx * nx + vy * ny;
+          const imp = Math.abs(dot);
+          impact = Math.max(impact, imp);
+          p.ox += dot * nx * 1.5;
+          p.oy += dot * ny * 1.5;
+          grounded = true;
         }
-        const nx = (p.x - px) / (dist || 1);
-        const ny = (p.y - py) / (dist || 1);
-        p.x = px + nx * r;
-        p.y = py + ny * r;
-        // kill outward velocity, damp tangential (rolling friction)
-        const vx = p.x - p.ox;
-        const vy = p.y - p.oy;
-        const vDotN = vx * nx + vy * ny;
-        if (vDotN < 0) impact = Math.max(impact, -vDotN);
-        const tx = -ny;
-        const ty = nx;
-        let vDotT = vx * tx + vy * ty;
-        vDotT *= 0.995;
-        p.ox = p.x - (tx * vDotT + nx * Math.max(0, vDotN) * 0.4);
-        p.oy = p.y - (ty * vDotT + ny * Math.max(0, vDotN) * 0.4);
-        grounded = true;
       }
     }
     return { grounded, impact };
   }
 
   private step() {
-    const pts = [this.w1, this.w2, this.frame, this.head];
-
     if (this.crashed) {
       this.crashTimer -= STEP;
-      if (this.crashTimer <= 0) this.respawn();
-    } else {
-      // controls
+      if (this.crashTimer <= 0) {
+        this.respawn(false);
+      }
+    }
+
+    const pts = [this.w1, this.w2, this.frame, this.head];
+
+    // apply inputs when not crashed
+    if (!this.crashed) {
       if (this.input.accel) {
-        const boost = this.grounded ? 0.05 : 0.022;
-        for (const p of pts) {
-          const vx = p.x - p.ox;
-          if (vx < MAX_SPEED) {
-            const share = p === this.frame || p === this.head ? 0.85 : 1;
-            p.ox -= boost * share;
-          }
-        }
+        // rear wheel drive torque along chassis forward vector
+        const dx = this.w2.x - this.w1.x;
+        const dy = this.w2.y - this.w1.y;
+        const d = Math.hypot(dx, dy) || 1;
+        const fx = (dx / d) * 0.16;
+        const fy = (dy / d) * 0.16;
+        this.w1.ox -= fx;
+        this.w1.oy -= fy;
+        this.frame.ox -= fx * 0.5;
+        this.frame.oy -= fy * 0.5;
       }
       if (this.input.brake) {
-        for (const w of [this.w1, this.w2, this.frame, this.head]) {
-          const vx = w.x - w.ox;
-          w.ox = w.x - vx * 0.86;
-        }
+        // rear wheel braking
         const vx = this.w1.x - this.w1.ox;
-        if (vx < 0.3) this.w1.ox += 0.01;
+        const vy = this.w1.y - this.w1.oy;
+        this.w1.ox += vx * 0.22;
+        this.w1.oy += vy * 0.22;
       }
       const lean = (this.input.leanF ? 1 : 0) - (this.input.leanB ? 1 : 0);
       if (lean !== 0) {
         // angular impulse about the chassis centroid
         const cx = (this.w1.x + this.w2.x + this.frame.x + this.head.x) / 4;
         const cy = (this.w1.y + this.w2.y + this.frame.y + this.head.y) / 4;
-        const k = lean * 0.02;
+        const k = lean * 0.022;
         for (const p of pts) {
           const rx = p.x - cx;
           const ry = p.y - cy;
@@ -286,19 +381,19 @@ export class GameEngine {
     }
     this.grounded = grounded;
 
-    // landing effects
+    // landing audio & dust particles
     if (!grounded) {
       this.airTime += STEP;
       this.wasAir = true;
     } else {
-      if (this.wasAir && this.airTime > 0.25 && impact > 1.6 && !this.crashed) {
+      if (this.wasAir && this.airTime > 0.22 && impact > 1.4 && !this.crashed) {
         sfx.land(Math.min(1, impact / 5));
         for (let i = 0; i < 8; i++) {
           this.particles.push({
             x: this.frame.x + (Math.random() - 0.5) * 30,
             y: this.frame.y + 22,
-            vx: (Math.random() - 0.5) * 1.6,
-            vy: -Math.random() * 1.4,
+            vx: (Math.random() - 0.5) * 1.8,
+            vy: -Math.random() * 1.5,
             life: 0.5 + Math.random() * 0.3,
           });
         }
@@ -320,7 +415,7 @@ export class GameEngine {
     this.wheelSpin += vx / WHEEL_R;
     this.speed = Math.abs(vx) * 120;
 
-    // particles
+    // particles update
     for (const pt of this.particles) {
       pt.x += pt.vx;
       pt.y += pt.vy;
@@ -329,7 +424,30 @@ export class GameEngine {
     }
     this.particles = this.particles.filter((p) => p.life > 0);
 
-    // checkpoints
+    // COLLECTIBLE STARS DETECTION
+    for (const star of this.track.stars) {
+      if (!star.collected) {
+        const d = Math.hypot(this.frame.x - star.x, this.frame.y - star.y);
+        if (d < 36) {
+          star.collected = true;
+          this.collectedStarsCount++;
+          sfx.checkpoint();
+          for (let i = 0; i < 8; i++) {
+            this.particles.push({
+              x: star.x,
+              y: star.y,
+              vx: (Math.random() - 0.5) * 2.8,
+              vy: (Math.random() - 0.5) * 2.8,
+              life: 0.6,
+              color: '#d4a843',
+            });
+          }
+          this.cb.onStarCollect?.(this.collectedStarsCount, this.track.stars.length);
+        }
+      }
+    }
+
+    // CHECKPOINT DETECTION
     let nearest: Checkpoint | null = null;
     let nd = Infinity;
     for (const cp of this.track.checkpoints) {
@@ -357,24 +475,24 @@ export class GameEngine {
       this.cb.onCheckpointLeave();
     }
 
-    // progress + section
-    const pct = Math.max(0, Math.min(100, ((this.frame.x + 700) / (this.track.length + 700)) * 100));
+    // progress + section update
+    const pct = Math.max(0, Math.min(100, (this.frame.x / this.track.length) * 100));
     this.cb.onProgress(pct, Math.max(0, Math.round(this.frame.x / 10)));
     const sec = this.track.sections.find((s) => this.frame.x >= s.startX && this.frame.x < s.endX);
     if (sec) this.cb.onSection(sec.name, sec.num);
 
-    // camera
-    const targetZoom = Math.max(0.78, Math.min(1.05, 1.05 - this.speed * 0.028));
+    // camera tracking with forward velocity look-ahead
+    const targetZoom = Math.max(1.05, Math.min(1.35, 1.35 - (this.speed / 100) * 0.15));
     this.zoom += (targetZoom - this.zoom) * 0.04;
-    const lookX = this.frame.x + (this.w2.x - this.w1.x) * 2 + (this.frame.x - this.frame.ox) * 60;
-    const lookY = this.frame.y - 46;
-    this.camX += (lookX - this.camX) * 0.055;
-    this.camY += (lookY - this.camY) * 0.05;
+    const lookX = this.frame.x + (this.w2.x - this.w1.x) * 2.2 + (this.frame.x - this.frame.ox) * 55;
+    const lookY = this.frame.y - 42;
+    this.camX += (lookX - this.camX) * 0.06;
+    this.camY += (lookY - this.camY) * 0.055;
   }
 
   private loop = (time: number) => {
     if (this.destroyed) return;
-    if (this.running) {
+    if (this.running && !this.editorActive) {
       let dt = (time - this.lastTime) / 1000;
       this.lastTime = time;
       if (dt > 0.1) dt = 0.1;
@@ -383,10 +501,21 @@ export class GameEngine {
         this.step();
         this.accumulator -= STEP;
       }
-      drawWorld(this.ctx, this);
+    } else {
+      this.lastTime = time;
     }
+    drawWorld(this.ctx, this);
     this.raf = requestAnimationFrame(this.loop);
   };
+
+  screenToWorld(screenX: number, screenY: number): [number, number] {
+    const cw = this.canvas.clientWidth;
+    const ch = this.canvas.clientHeight;
+    const scale = (ch / 760) * this.zoom;
+    const worldX = (screenX - cw * 0.38) / scale + this.camX;
+    const worldY = (screenY - ch * 0.5) / scale + this.camY;
+    return [worldX, worldY];
+  }
 
   worldToScreen(x: number, y: number): [number, number] {
     const cw = this.canvas.clientWidth;

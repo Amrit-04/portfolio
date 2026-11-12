@@ -2,27 +2,27 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectDefinition } from '../../data/projects';
 import {
-  DiagramNeural,
-  DiagramControl,
-  DiagramTrade,
-  DiagramWarehouse,
-  DiagramQuant,
-  DiagramPipeline,
-  DiagramSafety,
+  TreeEaselArt,
+  ControlConsoleArt,
+  PneumaticPipelineArt,
+  TradingDeskArt,
+  ResearchLedgerArt,
+  IsometricWarehouseArt,
+  IndustrialVisionArt,
 } from '../../components/illustrations';
 import { getLazyDemo } from '../../projects/demos';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
-import { X, ExternalLink, FileWarning, FlaskConical, BookOpen, Sparkles } from 'lucide-react';
+import { X, ExternalLink, FileWarning, FlaskConical, BookOpen, Sparkles, Pin } from 'lucide-react';
 import { Github } from '../../components/BrandIcons';
 
 const DIAGRAMS: Record<string, React.FC<{ className?: string }>> = {
-  'onnx-gnn': DiagramNeural,
-  'trace-explorer': DiagramControl,
-  'oms-fsm': DiagramTrade,
-  'spatial-wasm': DiagramWarehouse,
-  'hmm-risk': DiagramQuant,
-  'pipeline-replay': DiagramPipeline,
-  'case-study': DiagramSafety,
+  'onnx-gnn': TreeEaselArt,
+  'trace-explorer': ControlConsoleArt,
+  'oms-fsm': TradingDeskArt,
+  'spatial-wasm': IsometricWarehouseArt,
+  'hmm-risk': ResearchLedgerArt,
+  'pipeline-replay': PneumaticPipelineArt,
+  'case-study': IndustrialVisionArt,
 };
 
 export const ProjectDetail: React.FC<{
@@ -60,24 +60,29 @@ export const ProjectDetail: React.FC<{
       {/* Dimmed backdrop */}
       <div className="fixed inset-0 bg-ink/40 backdrop-blur-xs" onClick={onClose} aria-hidden="true" />
 
-      {/* Main Modal Paper Card */}
+      {/* Main Modal Paper Card styled as an Architectural Master Folio */}
       <motion.div
         initial={{ y: 30, opacity: 0, scale: 0.98 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 20, opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative bg-paper rounded-3xl border border-ink3/40 shadow-xl w-full max-w-5xl my-6 overflow-hidden z-10"
+        className="relative bg-paper rounded-3xl border-2 border-ink shadow-2xl w-full max-w-5xl my-6 overflow-hidden z-10"
       >
-        {/* Sticky Header */}
-        <div className="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-ink3/20 bg-paper/95 backdrop-blur-md px-6 md:px-8 py-4">
-          <div className="flex items-center gap-2">
-            <span className="sticker text-xs text-accent">
-              <Sparkles className="w-3 h-3 text-accent mr-1" />
-              Project Notebook — {project.id}
+        {/* Sticky Architectural Header with Binder Clip Styling */}
+        <div className="sticky top-0 z-20 flex items-center justify-between gap-4 border-b-2 border-ink/20 bg-paper2/95 backdrop-blur-md px-6 md:px-8 py-3.5">
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-xs bg-ink/90 flex items-center justify-center text-gold">
+              <Pin className="w-3.5 h-3.5" />
+            </div>
+            <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
+              ENGINEERING FOLIO — {project.id}
+            </span>
+            <span className="hidden sm:inline annotation text-ink3 text-sm">
+              verified system specs
             </span>
           </div>
           <button
-            className="w-8 h-8 rounded-full bg-paper2 hover:bg-paper3 flex items-center justify-center text-ink hover:text-accent transition-colors"
+            className="w-8 h-8 rounded-full bg-paper hover:bg-paper3 border border-ink3/40 flex items-center justify-center text-ink hover:text-accent transition-colors cursor-pointer"
             onClick={onClose}
             aria-label="Close notebook"
             data-testid="close-notebook-btn"

@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../../data/projects';
 import {
-  DiagramNeural,
-  DiagramControl,
-  DiagramTrade,
-  DiagramWarehouse,
-  DiagramQuant,
-  DiagramPipeline,
-  DiagramSafety,
+  TreeEaselArt,
+  ControlConsoleArt,
+  PneumaticPipelineArt,
+  TradingDeskArt,
+  ResearchLedgerArt,
+  IsometricWarehouseArt,
+  IndustrialVisionArt,
 } from '../../components/illustrations';
-import { NotebookPen, ExternalLink, Sparkles, BookOpen } from 'lucide-react';
+import { NotebookPen, ExternalLink, Sparkles, BookOpen, Layers, Terminal } from 'lucide-react';
 import { Github } from '../../components/BrandIcons';
 
 interface GalleryProps {
@@ -21,554 +21,685 @@ interface GalleryProps {
 export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject }) => {
   const handleOpen = onOpenProject || onOpen || (() => {});
   const pNeural = PROJECTS[0]; // neural-query-optimizer
-  const pLrcp = PROJECTS[1]; // lrcp
-  const pPipeline = PROJECTS[2]; // fault-tolerant-telemetry-pipeline
+  const pLrcp = PROJECTS[1]; // llm-reliability-control-plane
+  const pPipeline = PROJECTS[2]; // fault-tolerant-ml-telemetry
   const pTrade = PROJECTS[3]; // tradeflow
   const pMoneyball = PROJECTS[4]; // moneyball
-  const pWarehouse = PROJECTS[5]; // warehouse-spatial-routing
-  const pSafety = PROJECTS[6]; // edge-workplace-safety
+  const pWarehouse = PROJECTS[5]; // warehouse-routing-engine
+  const pSafety = PROJECTS[6]; // workplace-safety-vision
 
   return (
-    <section className="py-20 px-5 md:px-10 max-w-7xl mx-auto" id="work">
-      {/* Editorial Section Header */}
-      <div className="mb-14">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="sticker text-xs text-accent bg-paper2/90 border border-ink3/40">
+    <section className="py-24 px-4 sm:px-6 md:px-10 max-w-7xl mx-auto" id="work">
+      {/* Editorial Exhibition Wall Header */}
+      <div className="mb-20 text-center max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 mb-3">
+          <span className="sticker text-xs text-accent bg-paper2/90 border border-ink3/40 px-3 py-1 rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-accent mr-1.5 inline" />
-            Selected Systems &amp; Research Portfolio
+            The Illustrated Exhibition Wall
           </span>
           <span className="annotation text-ink3 text-base hidden sm:inline rotate-[-1.5deg]">
-            all 7 systems include interactive browser sandboxes
+            7 individual architectural installations
           </span>
         </div>
-        <h2 className="font-serif text-4xl md:text-6xl font-normal text-ink tracking-tight">
-          Illustrated Works &amp; Architecture Studies
+        <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink tracking-tight">
+          Physical Works &amp; Engineering Folios
         </h2>
-        <p className="mt-3 text-base text-ink2 max-w-2xl font-sans leading-relaxed">
-          Each exhibit represents a substantial engineering system: measured benchmarks, verified source code,
-          documented tradeoffs, and a runnable client-side simulation.
+        <p className="mt-4 text-base md:text-lg text-ink2 font-sans leading-relaxed">
+          Not conventional project cards. Every exhibit below is an individually illustrated physical installation
+          housing measured benchmarks, verified source code, and a runnable in-browser sandbox.
         </p>
       </div>
 
-      {/* Handcrafted Exhibition Wall Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* =========================================================================
-            EXHIBIT 01: NEURAL QUERY OPTIMIZER (Panoramic Drafting Plate)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+      <div className="space-y-24">
+        {/* ========================================================================= */}
+        {/* EXHIBIT 01: NEURAL QUERY OPTIMIZER (The Grand Drafting Easel) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="lg:col-span-12 relative p-6 md:p-10 rounded-3xl border-2 border-ink3/30 bg-paper shadow-sm hover:shadow-md transition-shadow overflow-hidden rotate-[-0.3deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pNeural.id}`}
         >
-          {/* Top tape doodle */}
-          <div className="absolute top-0 left-12 w-28 h-4 bg-paper3/80 -translate-y-1.5 rotate-[-2deg] border-x border-ink3/30 pointer-events-none" />
-
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-accent" />
-              <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
-                Exhibit No. 01 · Feature Architectural Study
+          {/* Architectural installation header badge */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 01 · DRAFTING EASEL
               </span>
+              <span className="font-serif text-sm italic text-ink2">Living Query Tree Blueprint</span>
             </div>
-            <span className="sticker text-xs font-mono">{pNeural.tierLabel}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">TPC-H Q10 (2.17x Speedup)</span>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-4">
-              <button
-                onClick={() => handleOpen(pNeural.id)}
-                className="text-left group cursor-pointer"
-                data-testid={`open-notebook-${pNeural.id}`}
-              >
-                <h3 className="font-serif text-3xl md:text-4xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
+            {/* Left Column: Massive Drafting Easel Illustration taking center stage */}
+            <div className="lg:col-span-7">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <TreeEaselArt className="w-full h-auto text-ink" />
+              </div>
+            </div>
+
+            {/* Right Column: Architectural Dossier & Verified Metrics */}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                  Graph Neural Networks · PostgreSQL 16
+                </span>
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
                   {pNeural.title}
                 </h3>
-                <p className="mt-2 text-base text-ink2 font-sans leading-relaxed">
-                  {pNeural.tagline}
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pNeural.problem}
                 </p>
-              </button>
 
-              <div className="border-l-2 border-accent pl-4 py-1 space-y-1">
-                <p className="font-serif text-lg text-ink font-medium">
-                  &ldquo;Can graph neural networks beat PostgreSQL&apos;s native cost-based optimizer?&rdquo;
-                </p>
-                <p className="font-sans text-xs text-ink3">
-                  184 real execution plans · PlanGCN GNN architecture · ONNX Runtime WebAssembly
-                </p>
-              </div>
-
-              {/* Metrics Pills */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
-                {pNeural.metrics.slice(0, 3).map((m) => (
-                  <div key={m.label} className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20">
-                    <p className="font-mono text-xs font-bold text-ink">{m.value}</p>
-                    <p className="font-sans text-[11px] text-ink2 mt-0.5">{m.label}</p>
+                {/* Hand-drawn verified metric highlights */}
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>PlanGCN Top-1 Accuracy:</span>
+                    <strong className="text-accent">38.9% (+9.7 pp vs GBDT)</strong>
                   </div>
-                ))}
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Rank Correlation:</span>
+                    <strong className="text-blue">Spearman ρ = 0.74</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>ONNX CPU Inference:</span>
+                    <strong>0.21 ms p95 (0.44 ms E2E)</strong>
+                  </div>
+                </div>
+
+                {/* Technology chips */}
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pNeural.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              {/* Tech Stack Chips */}
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {pNeural.stack.map((s) => (
-                  <span key={s} className="chip bg-paper3/60 font-mono text-[11px]">
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-wrap items-center gap-3 pt-3">
+              {/* Action buttons */}
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2"
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
                   onClick={() => handleOpen(pNeural.id)}
+                  data-testid={`open-notebook-${pNeural.id}`}
                 >
-                  <NotebookPen className="w-4 h-4 text-accent" />
-                  <span>Open Notebook &amp; Demo</span>
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Inspect Blueprint &amp; Run ONNX GNN</span>
                 </button>
                 <a
                   href={pNeural.links.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-outline flex items-center gap-1.5 font-sans text-xs"
+                  className="btn-outline text-xs flex items-center gap-1.5"
                 >
-                  <Github className="w-4 h-4" />
-                  <span>Source Code</span>
+                  <Github className="w-3.5 h-3.5" /> Source
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ========================================================================= */}
+        {/* EXHIBIT 02: LLM RELIABILITY CONTROL PLANE (The Observability Console) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-[#221f1d] text-paper border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-xl"
+          data-testid={`project-card-${pLrcp.id}`}
+        >
+          {/* Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-paper3/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-accent text-paper rounded-xs">
+                EXHIBIT 02 · OBSERVABILITY RACK
+              </span>
+              <span className="font-serif text-sm italic text-paper3">19-Inch Telemetry Console &amp; WAL Drum</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-gold">54 Passing Pytest Suites</span>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Dossier Information & Metrics */}
+            <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-between">
+              <div>
+                <span className="sticker text-xs text-gold bg-ink/60 border border-gold/40 mb-2 inline-block">
+                  C++20 &amp; Python OTLP · DuckDB · Redis
+                </span>
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-paper leading-tight">
+                  {pLrcp.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-paper2/90 font-sans leading-relaxed">
+                  {pLrcp.problem}
+                </p>
+
+                {/* Control room verified gauges */}
+                <div className="mt-5 p-4 bg-ink/80 rounded-xl border border-paper3/20 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-paper2">
+                    <span>WAL Segment Rotation:</span>
+                    <strong className="text-gold">64 MB · CRC-32 Checksummed</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-paper2">
+                    <span>Compaction Throughput:</span>
+                    <strong className="text-blue">50,000 spans/sec Zstd Parquet</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-paper2">
+                    <span>Analytical Queries:</span>
+                    <strong className="text-accent">&lt;100 ms p99 (DuckDB)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-paper2">
+                    <span>Circuit Breaker Fallback:</span>
+                    <strong>30s Automatic Trip Window</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pLrcp.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-ink border border-paper3/20 text-paper3">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-paper3/20">
+                <button
+                  className="btn-red flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pLrcp.id)}
+                  data-testid={`open-notebook-${pLrcp.id}`}
+                >
+                  <Terminal className="w-4 h-4 text-gold" />
+                  <span>Launch Trace Explorer &amp; Waterfall</span>
+                </button>
+                <a
+                  href={pLrcp.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline !text-paper !border-paper3/40 hover:!bg-paper/10 text-xs flex items-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5" /> Source
                 </a>
               </div>
             </div>
 
-            {/* Right Large Illustration Frame */}
-            <div className="lg:col-span-6 relative">
-              <div className="rounded-2xl border border-ink3/30 bg-paper2/60 p-4 shadow-inner">
-                <DiagramNeural className="w-full h-auto text-ink drop-shadow-xs" />
-              </div>
-              <p className="annotation text-center text-ink3 text-base mt-2 rotate-[-1deg]">
-                plan operator AST · GNN cost prediction · PostgreSQL 16 EXPLAIN
-              </p>
-            </div>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 02: LRCP (Tall Vertical Dossier / Field Notebook)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.08 }}
-          className="lg:col-span-5 relative p-6 md:p-8 rounded-3xl border border-ink3/30 bg-paper2/95 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[0.6deg]"
-          data-testid={`project-card-${pLrcp.id}`}
-        >
-          {/* Top pin sticker */}
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-accent2 uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent2" />
-              Exhibit No. 02 · Dossier
-            </span>
-            <span className="sticker text-[11px] font-mono border-accent2/40 text-accent2">
-              OTLP GATEWAY
-            </span>
-          </div>
-
-          <div>
-            <button
-              onClick={() => handleOpen(pLrcp.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pLrcp.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pLrcp.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pLrcp.tagline}
-              </p>
-            </button>
-
-            {/* Illustrated Artwork Frame */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper p-3 overflow-hidden shadow-xs">
-              <DiagramControl className="w-full h-44 text-ink drop-shadow-xs" />
-            </div>
-
-            <div className="space-y-2 mb-4">
-              <p className="font-sans text-xs text-ink3 leading-relaxed">
-                High-throughput telemetry gateway with CRC-32 write-ahead log, zstd parquet compactor, and circuit breaker fallbacks.
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {pLrcp.stack.slice(0, 5).map((s) => (
-                  <span key={s} className="chip bg-paper font-mono text-[11px]">
-                    {s}
-                  </span>
-                ))}
+            {/* Right Column: Console Art */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="relative p-2 bg-ink/90 rounded-xl border border-paper3/20 shadow-inner">
+                <ControlConsoleArt className="w-full h-auto text-paper" />
               </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="pt-4 border-t border-ink3/20 flex items-center justify-between gap-3">
-            <span className="annotation text-ink3 text-base">54 automated tests · zero span loss</span>
-            <button
-              onClick={() => handleOpen(pLrcp.id)}
-              className="btn-outline !py-1.5 !px-3 font-sans text-xs flex items-center gap-1"
-            >
-              <span>Explore</span>
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-            </button>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 03: TELEMETRY STREAMING PIPELINE (Factory Conveyor Canvas)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+        {/* ========================================================================= */}
+        {/* EXHIBIT 03: TELEMETRY STREAMING PIPELINE (Pneumatic Sorter & DLQ) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.14 }}
-          className="lg:col-span-7 relative p-6 md:p-8 rounded-3xl border border-ink3/30 bg-paper shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[-0.5deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pPipeline.id}`}
         >
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Exhibit No. 03 · Stream Infrastructure
-            </span>
-            <span className="sticker text-[11px] font-mono border-accent/40 text-accent">
-              2.2M+ EVENTS REPLAY
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 03 · PNEUMATIC MANIFOLD
+              </span>
+              <span className="font-serif text-sm italic text-ink2">12 Kafka Partitions &amp; DLQ Quarantine</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">Zero Loss Across 900K+ Chaos Events</span>
+            </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => handleOpen(pPipeline.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pPipeline.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pPipeline.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pPipeline.tagline}
-              </p>
-            </button>
-
-            {/* Illustration */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper2/50 p-3 overflow-hidden shadow-xs">
-              <DiagramPipeline className="w-full h-44 text-ink drop-shadow-xs" />
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-2.5 mb-4">
-              <div className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20 font-mono text-xs">
-                <p className="text-ink3 text-[10px]">SUSTAINED RATE</p>
-                <p className="font-bold text-ink mt-0.5">7,117 eps</p>
-              </div>
-              <div className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20 font-mono text-xs">
-                <p className="text-ink3 text-[10px]">CHAOS LOAD</p>
-                <p className="font-bold text-ink mt-0.5">8,000 eps</p>
-              </div>
-              <div className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20 font-mono text-xs">
-                <p className="text-ink3 text-[10px]">INTEGRITY RECON</p>
-                <p className="font-bold text-blue mt-0.5">0 Loss / 0 Dup</p>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <PneumaticPipelineArt className="w-full h-auto text-ink" />
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {pPipeline.stack.map((s) => (
-                <span key={s} className="chip bg-paper3/60 font-mono text-[11px]">
-                  {s}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                  Go · Kafka KRaft · PostgreSQL 16 · Redis
                 </span>
-              ))}
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                  {pPipeline.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pPipeline.problem}
+                </p>
+
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Go HTTP Ingestion:</span>
+                    <strong className="text-blue">288 RPS · 5.37 ms p99</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Sustained Stream Rate:</span>
+                    <strong className="text-accent">7,117 events/sec (7,892 peak)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Dead Letter Quarantine:</span>
+                    <strong>44,493 malformed isolated (100%)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Consumer Tuning Matrix:</span>
+                    <strong>27 sweep configurations tested</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pPipeline.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
+                <button
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pPipeline.id)}
+                  data-testid={`open-notebook-${pPipeline.id}`}
+                >
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Open 310s Kafka Replay Scrubber</span>
+                </button>
+                <a
+                  href={pPipeline.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline text-xs flex items-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5" /> Source
+                </a>
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="pt-4 border-t border-ink3/20 flex items-center justify-between gap-3">
-            <span className="annotation text-ink3 text-base">honest failure modes documented</span>
-            <button
-              onClick={() => handleOpen(pPipeline.id)}
-              className="btn-ink !py-1.5 !px-3 font-sans text-xs flex items-center gap-1.5"
-            >
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-              <span>Inspect Run</span>
-            </button>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 04: TRADEFLOW OMS (Trading Desk Dispatch Slip)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+        {/* ========================================================================= */}
+        {/* EXHIBIT 04: TRADEFLOW OMS & RISK ENGINE (Mechanical Trading Desk) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.18 }}
-          className="lg:col-span-6 relative p-6 md:p-8 rounded-3xl border border-ink3/30 bg-paper shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[0.4deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pTrade.id}`}
         >
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Exhibit No. 04 · High-Throughput Trading
-            </span>
-            <span className="sticker text-[11px] font-mono border-accent/40 text-accent">
-              113 ns OMS · 311 ns RISK
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 04 · EXCHANGE TRADING DESK
+              </span>
+              <span className="font-serif text-sm italic text-ink2">Split-Flap FSM &amp; Ticker Tape Dispenser</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">113 ns OMS · 311 ns Risk Lua</span>
+            </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => handleOpen(pTrade.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pTrade.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pTrade.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pTrade.tagline}
-              </p>
-            </button>
-
-            {/* Illustration */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper2/50 p-3 overflow-hidden shadow-xs">
-              <DiagramTrade className="w-full h-44 text-ink drop-shadow-xs" />
-            </div>
-
-            <p className="font-sans text-xs text-ink3 leading-relaxed mb-4">
-              Deterministic order state machine paired with Redis Lua script pre-trade risk checks across 7 risk rules. Zero event loss across 2,057 FIX orders.
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {pTrade.stack.map((s) => (
-                <span key={s} className="chip bg-paper3/60 font-mono text-[11px]">
-                  {s}
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 flex flex-col justify-between order-2 lg:order-1">
+              <div>
+                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block">
+                  Go · FIX 4.2 · Redis Lua · PostgreSQL Outbox
                 </span>
-              ))}
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                  {pTrade.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pTrade.problem}
+                </p>
+
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>FSM State Machine:</span>
+                    <strong className="text-accent">113 ns/op deterministic</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Pre-Trade Risk Checks:</span>
+                    <strong className="text-blue">311 ns/op (7 integer rules)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>End-to-End Latency:</span>
+                    <strong>14.38 ms median (17.99 ms p99)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Property-Based Testing:</span>
+                    <strong>1,000 rapid randomized tests</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pTrade.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
+                <button
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pTrade.id)}
+                  data-testid={`open-notebook-${pTrade.id}`}
+                >
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Operate FIX 4.2 State Machine</span>
+                </button>
+                <a
+                  href={pTrade.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline text-xs flex items-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5" /> Source
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <TradingDeskArt className="w-full h-auto text-ink" />
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="pt-4 border-t border-ink3/20 flex items-center justify-between gap-3">
-            <span className="annotation text-ink3 text-base">transactional outbox pattern</span>
-            <button
-              onClick={() => handleOpen(pTrade.id)}
-              className="btn-outline !py-1.5 !px-3 font-sans text-xs flex items-center gap-1"
-            >
-              <span>View Notebook</span>
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-            </button>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 05: MONEYBALL (Quantitative Researcher's Open Ledger)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+        {/* ========================================================================= */}
+        {/* EXHIBIT 05: MONEYBALL (Senior Researcher's Open Field Ledger) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.22 }}
-          className="lg:col-span-6 relative p-6 md:p-8 rounded-3xl border border-ink3/30 bg-paper shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[-0.6deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pMoneyball.id}`}
         >
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-accent2 uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent2" />
-              Exhibit No. 05 · Quantitative Research
-            </span>
-            <span className="sticker text-[11px] font-mono border-accent2/40 text-accent2">
-              CUDA 1M PATHS IN 29.26 MS
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 05 · OPEN FIELD LEDGER
+              </span>
+              <span className="font-serif text-sm italic text-ink2">Merton Jump Curves &amp; 14-Qubit QAOA</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">CUDA 1M Paths: 29.26 ms (42.9x)</span>
+            </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => handleOpen(pMoneyball.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pMoneyball.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pMoneyball.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pMoneyball.tagline}
-              </p>
-            </button>
-
-            {/* Illustration */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper2/50 p-3 overflow-hidden shadow-xs">
-              <DiagramQuant className="w-full h-44 text-ink drop-shadow-xs" />
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5 mb-4 font-mono text-xs">
-              <div className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20">
-                <p className="text-ink3 text-[10px]">WALK-FORWARD RANK IC</p>
-                <p className="font-bold text-ink mt-0.5">0.0359 (ICIR 1.521)</p>
-              </div>
-              <div className="bg-paper2/70 p-2.5 rounded-xl border border-ink3/20">
-                <p className="text-ink3 text-[10px]">QAOA CARDINALITY</p>
-                <p className="font-bold text-ink mt-0.5">95.49% approx (p=2)</p>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <ResearchLedgerArt className="w-full h-auto text-ink" />
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {pMoneyball.stack.map((s) => (
-                <span key={s} className="chip bg-paper3/60 font-mono text-[11px]">
-                  {s}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                  PyTorch CUDA · HMM · Qiskit QAOA · CVXPY
                 </span>
-              ))}
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                  {pMoneyball.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pMoneyball.problem}
+                </p>
+
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Purged Walk-Forward:</span>
+                    <strong className="text-blue">Rank IC 0.0359 · ICIR 1.521</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Gaussian 3-State HMM:</span>
+                    <strong className="text-accent">Drawdown 13.58% → 8.59% (Sharpe 2.02)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>14-Qubit QAOA / QUBO:</span>
+                    <strong>95.49% approximation ratio</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Simulated Asset Universe:</span>
+                    <strong>24 assets · 1,260 trading days</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pMoneyball.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
+                <button
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pMoneyball.id)}
+                  data-testid={`open-notebook-${pMoneyball.id}`}
+                >
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Run Seeded Jump-Diffusion Sandbox</span>
+                </button>
+                <a
+                  href={pMoneyball.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline text-xs flex items-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5" /> Source
+                </a>
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="pt-4 border-t border-ink3/20 flex items-center justify-between gap-3">
-            <span className="annotation text-ink3 text-base">purged &amp; embargoed cross-validation</span>
-            <button
-              onClick={() => handleOpen(pMoneyball.id)}
-              className="btn-outline !py-1.5 !px-3 font-sans text-xs flex items-center gap-1"
-            >
-              <span>View Notebook</span>
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-            </button>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 06: WAREHOUSE ROUTING (Architectural Blueprint Floorplan)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+        {/* ========================================================================= */}
+        {/* EXHIBIT 06: WAREHOUSE ROUTING ENGINE (Architectural Isometric Table) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.26 }}
-          className="lg:col-span-5 relative p-6 md:p-8 rounded-3xl border border-ink3/30 bg-paper2/95 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[0.5deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pWarehouse.id}`}
         >
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-ink uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-blue" />
-              Exhibit No. 06 · Spatial Optimization
-            </span>
-            <span className="sticker text-[11px] font-mono">C++17 NATIVE EXTENSION</span>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 06 · ISOMETRIC SURVEY TABLE
+              </span>
+              <span className="font-serif text-sm italic text-ink2">3D Shelving &amp; Open-Path Tour</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">Held-Karp 56.5x · A* 31x</span>
+            </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => handleOpen(pWarehouse.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pWarehouse.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pWarehouse.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pWarehouse.tagline}
-              </p>
-            </button>
-
-            {/* Illustration */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper p-3 overflow-hidden shadow-xs">
-              <DiagramWarehouse className="w-full h-44 text-ink drop-shadow-xs" />
-            </div>
-
-            <p className="font-sans text-xs text-ink3 leading-relaxed mb-4">
-              Obstacle-aware A* pathfinding coupled with exact Held-Karp dynamic programming (56.5× native speedup) and 2-opt local search.
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {pWarehouse.stack.map((s) => (
-                <span key={s} className="chip bg-paper font-mono text-[11px]">
-                  {s}
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 flex flex-col justify-between order-2 lg:order-1">
+              <div>
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                  C++17 · pybind11 · FastAPI · Redis O(1)
                 </span>
-              ))}
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                  {pWarehouse.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pWarehouse.problem}
+                </p>
+
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>C++17 A* Pathfinding:</span>
+                    <strong className="text-accent">0.50 ms (31x speedup vs Python)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Held-Karp / 2-Opt TSP:</span>
+                    <strong className="text-blue">1.30 ms (56.5x speedup)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>FastAPI &amp; Redis Cache:</span>
+                    <strong>144 RPS (-43.8% p50 latency)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Open-Path Guarantee:</span>
+                    <strong>Fixed Dock [1,1] → Checkout [14,10]</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pWarehouse.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
+                <button
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pWarehouse.id)}
+                  data-testid={`open-notebook-${pWarehouse.id}`}
+                >
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Solve Real-Time Routing Tour</span>
+                </button>
+                <a
+                  href={pWarehouse.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline text-xs flex items-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5" /> Source
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <IsometricWarehouseArt className="w-full h-auto text-ink" />
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="pt-4 border-t border-ink3/20 flex items-center justify-between gap-3">
-            <span className="annotation text-ink3 text-base">31x A* speedup vs Python</span>
-            <button
-              onClick={() => handleOpen(pWarehouse.id)}
-              className="btn-outline !py-1.5 !px-3 font-sans text-xs flex items-center gap-1"
-            >
-              <span>Explore Engine</span>
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-            </button>
-          </div>
-        </motion.article>
-
-        {/* =========================================================================
-            EXHIBIT 07: WORKPLACE SAFETY (Exhibition Masterpiece Centerpiece)
-            ========================================================================= */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
+        {/* ========================================================================= */}
+        {/* EXHIBIT 07: WORKPLACE SAFETY VISION (Surveillance Observation Bay) */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="lg:col-span-7 relative p-6 md:p-8 rounded-3xl border-2 border-accent/40 bg-paper shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between rotate-[-0.2deg]"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-paper2/60 border-2 border-ink rounded-2xl p-6 sm:p-10 shadow-lg"
           data-testid={`project-card-${pSafety.id}`}
         >
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Exhibit No. 07 · Peer-Reviewed Research
-            </span>
-            <span className="sticker text-[11px] font-mono border-accent text-accent">
-              IEEE XPLORE PUBLICATION
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs font-bold px-3 py-1 bg-ink text-paper rounded-xs">
+                EXHIBIT 07 · SURVEILLANCE BAY
+              </span>
+              <span className="font-serif text-sm italic text-ink2">PTZ Optical Cones &amp; Hazard Geofencing</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-accent">IEEE RMKMATE 2026 (Xplore: 11518869)</span>
+            </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => handleOpen(pSafety.id)}
-              className="text-left group cursor-pointer w-full"
-              data-testid={`open-notebook-${pSafety.id}`}
-            >
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-accent transition-colors leading-tight">
-                {pSafety.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink2 font-sans leading-relaxed">
-                {pSafety.tagline}
-              </p>
-            </button>
-
-            {/* Illustration */}
-            <div className="my-5 rounded-2xl border border-ink3/20 bg-paper2/50 p-3 overflow-hidden shadow-xs">
-              <DiagramSafety className="w-full h-44 text-ink drop-shadow-xs" />
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7">
+              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+                <IndustrialVisionArt className="w-full h-auto text-ink" />
+              </div>
             </div>
 
-            <p className="font-sans text-xs text-ink3 leading-relaxed mb-4">
-              Dual YOLO spatial-temporal edge vision architecture for PPE non-compliance and dynamic geofencing intrusion detection.
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {pSafety.stack.map((s) => (
-                <span key={s} className="chip bg-paper3/60 font-mono text-[11px]">
-                  {s}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block">
+                  Python · Ultralytics YOLOv11 · OpenCV · ByteTrack
                 </span>
-              ))}
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                  {pSafety.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
+                  {pSafety.problem}
+                </p>
+
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Peer-Reviewed Publication:</span>
+                    <strong className="text-blue">IEEE RMKMATE 2026</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Dual-Model Architecture:</span>
+                    <strong className="text-accent">best.pt (PPE) + yolo11n.pt (Person)</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Multi-Class Compliance:</span>
+                    <strong>Hardhat, Mask, Vest, Cone, Machinery</strong>
+                  </div>
+                  <div className="flex justify-between items-center text-ink">
+                    <span>Temporal Tracking:</span>
+                    <strong>SimpleTracker centroid correlation</strong>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {pSafety.stack.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
+                <button
+                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  onClick={() => handleOpen(pSafety.id)}
+                  data-testid={`open-notebook-${pSafety.id}`}
+                >
+                  <NotebookPen className="w-4 h-4 text-gold" />
+                  <span>Test Hazard Geofencing Canvas</span>
+                </button>
+                <a
+                  href="https://ieeexplore.ieee.org/document/11518869"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline text-xs flex items-center gap-1.5 text-blue"
+                >
+                  <BookOpen className="w-3.5 h-3.5" /> IEEE Xplore
+                </a>
+              </div>
             </div>
           </div>
-
-          <div className="pt-4 border-t border-ink3/20 flex flex-wrap items-center justify-between gap-3">
-            <a
-              href="https://ieeexplore.ieee.org/document/11518869"
-              target="_blank"
-              rel="noreferrer"
-              className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent flex items-center gap-1.5"
-            >
-              <BookOpen className="w-4 h-4 text-accent" />
-              <span>IEEE Xplore Paper</span>
-              <ExternalLink className="w-3 h-3 text-ink3" />
-            </a>
-            <button
-              onClick={() => handleOpen(pSafety.id)}
-              className="btn-ink !py-1.5 !px-3 font-sans text-xs flex items-center gap-1.5"
-            >
-              <NotebookPen className="w-3.5 h-3.5 text-accent" />
-              <span>Open Notebook &amp; Sandbox</span>
-            </button>
-          </div>
-        </motion.article>
+        </motion.div>
       </div>
     </section>
   );

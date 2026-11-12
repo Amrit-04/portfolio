@@ -63,39 +63,51 @@ export default function PortfolioMode({
       exit={{ opacity: 0, transition: { duration: 0.25 } }}
       className="min-h-screen bg-paper text-ink"
     >
-      {/* Floating elegant illustrated header */}
+      {/* Handcrafted Hanging Studio Signboard Navigation */}
       <nav
-        className="fixed top-3 inset-x-0 z-50 px-4 md:px-8 max-w-5xl mx-auto pointer-events-none"
+        className="fixed top-2 inset-x-0 z-50 px-3 md:px-8 max-w-5xl mx-auto pointer-events-none"
         aria-label="Main"
       >
-        <div className="bg-paper/95 backdrop-blur-md border border-ink3/40 rounded-full px-5 py-2.5 shadow-sm flex items-center justify-between gap-4 pointer-events-auto">
+        {/* Hanging bracket links */}
+        <div className="flex justify-between px-16 -mb-1 pointer-events-none">
+          <div className="w-1 h-3 bg-ink/70 rounded-xs" />
+          <div className="w-1 h-3 bg-ink/70 rounded-xs" />
+        </div>
+
+        <div className="bg-paper2/95 backdrop-blur-md border-2 border-ink rounded-lg px-4 sm:px-6 py-2 shadow-md flex items-center justify-between gap-4 pointer-events-auto relative">
+          {/* Decorative brass rivets */}
+          <div className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rounded-full bg-ink/60" />
+          <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-ink/60" />
+          <div className="absolute bottom-1.5 left-1.5 w-1.5 h-1.5 rounded-full bg-ink/60" />
+          <div className="absolute bottom-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-ink/60" />
+
           <a
             href="#top"
-            className="flex items-center gap-3 min-w-0 group"
+            className="flex items-center gap-2.5 min-w-0 group"
             onClick={(e) => {
               e.preventDefault();
               scrollTo('#top');
             }}
             data-testid="nav-home"
           >
-            <MarkLogo className="w-8 h-8 text-ink shrink-0 group-hover:scale-105 transition-transform" />
+            <MarkLogo className="w-7 h-7 text-ink shrink-0 group-hover:scale-105 transition-transform" />
             <span className="truncate">
-              <span className="font-serif text-base sm:text-lg leading-none block font-semibold text-ink group-hover:text-red transition-colors">
+              <span className="font-serif text-sm sm:text-base leading-none block font-bold text-ink group-hover:text-red transition-colors tracking-tight">
                 <span className="hidden sm:inline">{SITE.name}</span>
                 <span className="sm:hidden">{SITE.shortName}</span>
               </span>
-              <span className="text-[11px] text-ink3 hidden sm:block font-sans mt-0.5">
-                AI/ML &amp; Systems Engineer
+              <span className="text-[10px] text-ink3 hidden sm:block font-mono tracking-wider mt-0.5">
+                STUDIO &amp; WORKSHOP
               </span>
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-xs font-medium text-ink2 hover:text-red transition-colors font-sans"
+                className="text-xs font-semibold text-ink2 hover:text-red hover:underline underline-offset-4 transition-colors font-sans"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollTo(l.href);
@@ -107,14 +119,14 @@ export default function PortfolioMode({
           </div>
 
           <button
-            className="btn-red !py-2 !px-4 shrink-0 text-xs rounded-full flex items-center gap-2"
+            className="btn-red !py-1.5 !px-3.5 shrink-0 text-xs rounded-md flex items-center gap-1.5 border-2 shadow-xs cursor-pointer"
             onClick={onEnterTrack}
             data-testid="enter-track-nav"
             title="Launch 2D Free Rider bicycle game mode"
           >
             <Bike className="w-4 h-4" />
-            <span className="hidden sm:inline font-semibold">Enter the track</span>
-            <span className="sm:hidden font-semibold">Ride</span>
+            <span className="hidden sm:inline font-bold">Ride the Track</span>
+            <span className="sm:hidden font-bold">Ride</span>
           </button>
         </div>
       </nav>
