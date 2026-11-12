@@ -33,6 +33,18 @@ All seven flagship systems feature **interactive, client-side browser sandboxes*
 
 ---
 
+## 📸 Visual Archive & AI Review Gallery
+
+A complete visual archive of every page section, all 7 interactive demo sandboxes in active/solved states, and cross-device viewports is cataloged in the [`screenshots/`](./screenshots/README.md) directory for AI agents and technical reviewers:
+- **Exhibition Wall & Sections:** [`screenshots/01_portfolio_hero_desktop.png`](./screenshots/01_portfolio_hero_desktop.png) through [`06_portfolio_contact_desktop.png`](./screenshots/06_portfolio_contact_desktop.png)
+- **All 7 Interactive Demo Modals:** [`screenshots/01_demo_neural_query_optimizer.png`](./screenshots/01_demo_neural_query_optimizer.png) through [`07_demo_workplace_safety.png`](./screenshots/07_demo_workplace_safety.png)
+- **Ride Mode (2D Physics Bike):** Desktop in-motion ([`08_ride_mode_desktop.png`](./screenshots/08_ride_mode_desktop.png)), pause overlay ([`09_ride_mode_paused_desktop.png`](./screenshots/09_ride_mode_paused_desktop.png)), and mobile touch controls ([`12_ride_mode_mobile_touch_controls.png`](./screenshots/12_ride_mode_mobile_touch_controls.png))
+- **Cross-Device Viewports:** Laptop 1366×768 ([`10_portfolio_laptop_1366x768.png`](./screenshots/10_portfolio_laptop_1366x768.png)) and Mobile 390×844 ([`11_portfolio_mobile_390x844.png`](./screenshots/11_portfolio_mobile_390x844.png))
+
+See [`screenshots/README.md`](./screenshots/README.md) for the full annotated index.
+
+---
+
 ## 🛠️ Architecture & Technologies
 
 - **Core Framework:** React 19.3.1, TypeScript 7.0, Vite 8.3
