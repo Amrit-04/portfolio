@@ -139,7 +139,7 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           onClick={() => scrollTo('#work')}
           className="text-xs text-ink3 hover:text-accent flex items-center gap-1.5 font-sans transition-colors"
         >
-          <span>scroll to explore the blueprint wall</span>
+          <span>scroll to explore the exhibition wall</span>
           <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
         </button>
       </div>

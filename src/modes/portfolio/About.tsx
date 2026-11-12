@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ABOUT_FACTS, ABOUT_PARAGRAPHS, SITE } from '../../data/site';
+import { ABOUT_FACTS, ABOUT_PARAGRAPHS } from '../../data/site';
 import { AvatarSketch } from '../../components/illustrations';
-import { Sparkles, GraduationCap, Award, Compass } from 'lucide-react';
+import { Sparkles, Compass } from 'lucide-react';
 
 export const About: React.FC = () => (
   <section id="about" className="relative py-24 md:py-32 px-5 md:px-10 bg-paper2/50 border-t border-ink3/20">

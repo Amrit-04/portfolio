@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SITE } from '../../data/site';
 import { getAssetUrl } from '../../lib/assets';
-import { Mail, FileText, Bike, Send, Sparkles } from 'lucide-react';
+import { Mail, FileText, Bike, Sparkles } from 'lucide-react';
 import { Github, Linkedin } from '../../components/BrandIcons';
 
 export const Contact: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack }) => (

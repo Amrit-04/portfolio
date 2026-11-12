@@ -11,6 +11,7 @@ import {
   DiagramSafety,
 } from '../../components/illustrations';
 import { getLazyDemo } from '../../projects/demos';
+import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { X, ExternalLink, FileWarning, FlaskConical, BookOpen, Sparkles } from 'lucide-react';
 import { Github } from '../../components/BrandIcons';
 
@@ -257,17 +258,19 @@ export const ProjectDetail: React.FC<{
                     className="bg-paper rounded-2xl border border-ink3/30 p-4 md:p-6 shadow-xs overflow-hidden"
                     data-testid={`demo-${project.id}`}
                   >
-                    <React.Suspense
-                      fallback={
-                        <div className="py-12 text-center">
-                          <p className="font-sans text-xs text-ink3 animate-pulse">
-                            Unpacking interactive browser sandbox…
-                          </p>
-                        </div>
-                      }
-                    >
-                      <Demo />
-                    </React.Suspense>
+                    <ErrorBoundary fallbackTitle={`${project.title} Sandbox`} repoUrl={project.links.repo}>
+                      <React.Suspense
+                        fallback={
+                          <div className="py-12 text-center">
+                            <p className="font-sans text-xs text-ink3 animate-pulse">
+                              Unpacking interactive browser sandbox…
+                            </p>
+                          </div>
+                        }
+                      >
+                        <Demo />
+                      </React.Suspense>
+                    </ErrorBoundary>
                   </div>
                 </section>
               )}

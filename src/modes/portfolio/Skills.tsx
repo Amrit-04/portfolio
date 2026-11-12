@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SKILL_GROUPS } from '../../data/site';
-import { Code2, Database, Brain, Layers, Wrench, Sparkles } from 'lucide-react';
+import { Code2, Database, Brain, Layers, Wrench } from 'lucide-react';
 
 const GROUP_ICONS: Record<string, React.FC<{ className?: string }>> = {
   Languages: Code2,

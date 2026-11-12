@@ -15,6 +15,14 @@ export default defineConfig({
       'Cross-Origin-Embedder-Policy': 'require-corp',
     },
   },
+  preview: {
+    port: 4173,
+    host: '127.0.0.1',
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+    },
+  },
   optimizeDeps: {
     exclude: ['onnxruntime-web'],
   },

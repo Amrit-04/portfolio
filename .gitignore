@@ -27,3 +27,5 @@ test-live-site.cjs
 *.njsproj
 *.sln
 *.sw?
+test-results/
+playwright-report/

@@ -1,46 +1,50 @@
 # Amriteshkumar Yadav — Engineering Portfolio
 
 > **Dual-Mode Systems, AI/ML, and Quantitative Engineering Portfolio**  
-> *B.Tech CSE AI/ML, SRM Institute of Science and Technology (Graduated Jul 2026)*  
+> *B.Tech CSE (AI/ML Specialization), SRM Institute of Science and Technology (Graduated Jul 2026)*  
 > **GitHub:** [Amrit-04](https://github.com/Amrit-04) • **Live Site:** [https://amrit-04.github.io/portfolio/](https://amrit-04.github.io/portfolio/)
 
 ---
 
-## 📐 Overview
+## 🎨 Overview & Creative Direction
 
-This portfolio showcases production-grade systems engineering, applied AI/ML, distributed pipelines, and quantitative research. It is built around a **strict empirical source-of-truth standard**: every metric is verified from repository tests, benchmark artifacts, and peer-reviewed publication data.
+This portfolio combines two complementary frontend experiences built with **React 19**, **TypeScript**, and **Tailwind CSS v4**:
 
-The portfolio features two distinct presentation modes:
-1. **Blueprint Mode**: An architectural sketchbook UI with a 20px grid, hand-drawn aesthetic, high-contrast monospace typography, and interactive role-lens filtering (AI/ML, Data Science, Fintech, SDE).
-2. **Rider Mode**: A canvas-based 2D ragdoll physics game inspired by *Free Rider HD*, powered by a custom Verlet integration physics engine. Users ride across line-segment terrain, encounter anti-gravity pads, and trigger interactive project deep-dive modals at signposts and pit drops.
+1. **Portfolio Mode (Inspired by Tiago Fragoso):**  
+   An expressive, hand-drawn editorial portfolio with a warm paper palette (`#faf8f3`), organic SVG linework, and individually composed exhibition works. Every project has a distinct layout and composition, avoiding repetitive card grids and dashboard aesthetics.
+2. **Ride Mode (Inspired by Free Rider HD):**  
+   A playable, side-scrolling 2D bicycle game powered by custom **Verlet integration physics**, continuous line-segment terrain collision, landmark scenery, ramps, jumps, and in-game checkpoints that open interactive project notebooks.
+
+All seven flagship systems feature **interactive, client-side browser sandboxes** running directly in WebAssembly/JavaScript with zero backend server dependencies.
 
 ---
 
-## ⚡ Featured Projects & Interactive Demos
+## ⚡ Flagship Projects & In-Browser Sandboxes
 
-| Tier | Project | Key Technologies | Verified Highlights | In-Browser Demo |
+| Exhibit | Project | Stack | Verified Benchmark / Source Highlight | Browser Execution Sandbox |
 |:---:|:---|:---|:---|:---|
-| **Tier A** | **Neural Database Query Optimizer** | Python, PyG, ONNX Runtime Web, PostgreSQL 16, TPC-H | GNN top-1 38.9% (vs 29.2% GBDT baseline), 0.74 Spearman correlation, 2.17x speedup on TPC-H Q10, 0.21 ms p95 ONNX model latency | **Real ONNX Web GNN Execution**: parses real PostgreSQL EXPLAIN JSON trees client-side and computes cost predictions with zero server calls. |
-| **Tier A** | **LLM Reliability Control Plane** | C++20, Python, DuckDB, Parquet, Redis, Next.js | CRC-32 checksummed WAL with fsync before ack, ~5 ms p99 ingest, 50k spans/sec compaction, <100 ms p99 DuckDB queries, 54 passing tests | **Interactive Trace Explorer**: waterfall & span hierarchy visualizer with cache-hit, cache-miss, and circuit-breaker telemetry filters. |
-| **Tier A** | **Tradeflow OMS** | Go, Redis Lua, FIX 4.2, Kafka, PostgreSQL Outbox | 113 ns/op OMS state transitions, 311 ns/op risk checks, 14.38 ms median E2E latency (17.99 ms p99), 1,000 rapid property tests, zero event loss | **Client-Side Go OMS Port**: interactive FIX 4.2 state transition engine with 7 integer basis-point pre-trade risk checks and transactional outbox log. |
-| **Tier A** | **Warehouse Routing Engine** | C++17, pybind11, FastAPI, Redis, Docker | C++17 A* (0.50 ms, 31x speedup), Held-Karp / 2-opt TSP (1.30 ms, 56.5x speedup), Redis O(1) invalidation (-43.8% p50 latency, 144 RPS) | **Interactive Grid Routing Sandbox**: live A* obstacle traversal and exact Held-Karp ($O(K^2 \cdot 2^K)$) multi-waypoint path optimization. |
-| **Tier B** | **Fault-Tolerant ML Telemetry Pipeline** | Go, Kafka KRaft (12 partitions), Python, Postgres, Redis | Go HTTP gateway (288.0 RPS, 5.37 ms p99, 24.3 MB RSS vs 85.7 MB Python), 7,117 events/sec sustained Kafka consumption (7,892 peak), 44,493 malformed DLQ routed, 0 loss across 900K+ chaos events | **310-Second Kafka Replay Scrubber**: interactive telemetry playback tracking throughput vs consumer lag, 27-config tuning sweeps, and chaos inject milestones. |
-| **Tier B** | **Moneyball Quantitative Platform** | Python, PyTorch CUDA, HMM, Qiskit QAOA, CVXPY | 24-asset universe over 1,260 days, purged walk-forward CV (Rank IC 0.0359, ICIR 1.521), 3-state HMM (max DD 13.58% → 8.59%, Sharpe 2.02), CUDA Monte Carlo 1M paths in 29.26 ms (42.9x vs NumPy), 14-qubit QAOA (95.49% approx ratio) | **Alpha & Risk Replay Engine**: walk-forward regime visualizer paired with an interactive Jump-Diffusion Monte Carlo risk slider. |
-| **Tier C** | **Workplace Safety Computer Vision** | Python, Ultralytics YOLOv11, OpenCV, ByteTrack | Published in *IEEE RMKMATE 2026* (IEEE Xplore: 11518869). Dual-model cascade (`best.pt` PPE detector + `yolo11n.pt` person tracker), polygon geofencing, temporal centroid tracking | **Architecture & Geofence Case Study**: interactive polygon geofencing sandbox demonstrating intrusion violation detection and citation details. |
+| **01** | **Neural Database Query Optimizer** | Python, PyTorch Geometric, ONNX Runtime Web, PostgreSQL 16, TPC-H | PlanGCN top-1 accuracy 38.9% (vs 29.2% GBDT baseline), 0.74 Spearman correlation, 2.17x speedup on TPC-H Q10. Native C++ model inference: 0.21 ms p95 (0.30 ms end-to-end). | **Live ONNX Web GNN Inference**: Evaluates real PostgreSQL EXPLAIN AST graphs client-side using `models/best_real.onnx` (54.5 KB) across 22 TPC-H query plan fixtures with verified mathematical parity (<1e-4). |
+| **02** | **LLM Reliability Control Plane (LRCP)** | C++20, Python, DuckDB, Parquet, Redis, Next.js | CRC-32 checksummed WAL with fsync before ack, ~5 ms p99 ingest, 50k spans/sec compaction, <100 ms p99 DuckDB queries, 54 passing tests. | **Interactive OTLP Trace Explorer**: Hierarchical span waterfall visualizer with filters for Redis semantic cache hits, ChromaDB retrievals, and circuit-breaker fallback traces. |
+| **03** | **Fault-Tolerant ML Telemetry Pipeline** | Go, Kafka KRaft (12 partitions), Python, Postgres, Redis | Go HTTP gateway (288.0 RPS, 5.37 ms p99, 24.3 MB RSS vs 85.7 MB Python), 7,117 eps sustained Kafka consumption (7,892 peak), 44,493 malformed DLQ routed, 0 loss across 900K+ chaos events. | **310-Second Kafka Replay Scrubber**: Replays real recorded telemetry samples from `telemetry_benchmarks.json` with linear sample interpolation, playback speed controls, 27-config partition sweep, and chaos integrity reconciliation. |
+| **04** | **Tradeflow OMS & Pre-Trade Risk Engine** | Go, Redis Lua, FIX 4.2, Kafka, PostgreSQL Outbox | 113 ns/op OMS state transitions, 311 ns/op risk checks, 14.38 ms median E2E latency (17.99 ms p99), 1,000 rapid property tests, zero event loss across 2,057 FIX orders. | **Client-Side Go OMS Port**: Interactive FIX 4.2 order state machine (PendingNew → New → PartiallyFilled → Filled) with 7 pre-trade integer basis-point risk checks, fill quantity guards, and transactional outbox event ledger. |
+| **05** | **Moneyball Quantitative Research Platform** | Python, PyTorch CUDA, HMM, Qiskit QAOA, CVXPY | 24-asset universe over 1,260 days, purged walk-forward CV (Rank IC 0.0359, ICIR 1.521), 3-state HMM (max DD 13.58% → 8.59%, Sharpe 2.02), CUDA Monte Carlo 1M paths in 29.26 ms (42.9x vs NumPy), 14-qubit QAOA (95.49% approx ratio). | **Seeded Merton Jump-Diffusion Monte Carlo**: Client-side compound Poisson jump simulation ($N \sim \text{Poisson}(\lambda \Delta t)$ via Knuth RNG), 95%/99% VaR, and 99% CVaR tail metrics, clearly compared against the native CUDA 29.26 ms benchmark. |
+| **06** | **Warehouse Spatial Routing Engine** | C++17, pybind11, FastAPI, Redis, Docker | C++17 A* (0.50 ms, 31x speedup), Held-Karp / 2-opt TSP (1.30 ms, 56.5x speedup), Redis O(1) invalidation (-43.8% p50 latency, 144 RPS). | **Open-Path Warehouse Router**: Fixed dock start → optimal pick permutation → checkout goal. Pairs obstacle-aware A* with exact Held-Karp DP (≤10 stops) or 2-opt (>10 stops) with dynamic obstacle toggling and unreachable route detection. |
+| **07** | **Edge Workplace Safety Computer Vision** | Python, Ultralytics YOLOv11, OpenCV, ByteTrack | Published in *IEEE RMKMATE 2026* (IEEE Xplore: 11518869). Dual-model cascade (`best.pt` PPE detector + `yolo11n.pt` person tracker), polygon geofencing, temporal centroid tracking. | **Spatial Geofencing Sandbox**: Normalized polygon projection, worker foot-point ground contact probing, and 2.0s alert cooldown logic simulation. |
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Architecture & Technologies
 
-- **Frontend & UI:** React 18, TypeScript, Tailwind CSS v4, Lucide React, Zustand
-- **Physics Engine:** Custom 2D Verlet integration physics engine (`RiderCanvas.tsx`):
-  - Two wheels connected by distance constraints with spring damping
-  - Ragdoll rider with rigid torso and head constraints
+- **Core Framework:** React 19.3.1, TypeScript 7.0, Vite 8.3
+- **Styling & Design System:** Tailwind CSS v4, custom `@theme` variables, warm paper aesthetic (`#faf8f3`), editorial typography (`Playfair Display`, `Inter`, `Caveat`, `JetBrains Mono`)
+- **Animations & Smooth Scrolling:** Framer Motion, Lenis smooth scrolling
+- **Game Physics Engine:** Custom 2D Verlet integration ragdoll bike physics:
+  - Spring-damped distance constraints connecting chassis, wheels, and rider
   - Continuous line-segment collision resolution
-  - Dynamic anti-gravity bounce pads and checkpoint signposts
-- **Client-Side AI Inference:** `onnxruntime-web` (WebAssembly single-threaded CPU runtime loading `models/best_real.onnx` lazily on modal open)
-- **Design Language:** Architectural sketchbook aesthetic (`#f8f9fa` / `#0f141c`), 20px CSS grid pattern, hand-drawn sketch borders (`sketch-box`), high contrast, fully accessible (WCAG AA).
-- **Zero Fabrication Standard:** All metrics carry direct `sourceUrl` links to repository test suites, benchmarks, and publication records.
+  - Robust touch controls with `pointercancel`, pointer-release, and `window.blur` safety handlers
+  - Checkpoint proximity triggers that open project notebooks and save respawn anchors
+- **WASM Machine Learning:** `onnxruntime-web` loading PlanGCN models with isolated `ErrorBoundary` wrappers ensuring sandbox stability
+- **Automated Testing:** Playwright E2E suite (`@playwright/test`) testing Desktop, Laptop, and Mobile viewports with local Chrome channel
 
 ---
 
@@ -48,8 +52,8 @@ The portfolio features two distinct presentation modes:
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- Node.js 20+
+- npm
 
 ### Installation
 
@@ -62,31 +66,46 @@ cd portfolio
 npm install
 ```
 
-### Development
+### Development Server
 
 ```bash
-# Start Vite development server
+# Start local Vite development server
 npm run dev
 ```
-
-Open your browser to `http://localhost:5173`.
 
 ### Production Build
 
 ```bash
-# Run typecheck and bundle with Vite
+# Run typechecking and generate production dist with 404.html fallback
 npm run build
 
-# Preview production build locally
+# Preview production build locally on http://127.0.0.1:4173/portfolio/
 npm run preview
+```
+
+### Automated End-to-End Testing
+
+```bash
+# Run full Playwright test suite across Desktop, Laptop, and Mobile viewports
+npm run test:e2e
+```
+
+### Code Quality & Linting
+
+```bash
+# Run oxlint across all source files
+npm run lint
 ```
 
 ---
 
-## 📑 Resume Alignment & Documentation Audit
+## 📑 Empirical Source-of-Truth Standard
 
-As part of this repository's engineering standards, all 8 associated repositories were audited and aligned with verified claims:
-- See [`README_ALIGNMENT_REPORT.md`](./README_ALIGNMENT_REPORT.md) for the complete audit log, verified benchmarks, and repository branches (`docs/align-readme-verified-resume`).
+Every performance metric, accuracy claim, and speedup ratio cited across this website is backed by verified benchmark data and test suites preserved in repository artifacts:
+- [`public/data/golden_predictions.json`](./public/data/golden_predictions.json): 22 verified TPC-H execution plan cost tensors.
+- [`public/data/telemetry_benchmarks.json`](./public/data/telemetry_benchmarks.json): 310s sustained Kafka run, 27 partition tuning results, Go vs Python polyglot benchmarks, and chaos recovery reconciliation.
+- [`public/data/quant_and_routing_benchmarks.json`](./public/data/quant_and_routing_benchmarks.json): 1,260-day walk-forward ICIR, CUDA 1M-path Monte Carlo benchmarks, QAOA circuit metrics, and C++17 routing execution times.
+- [`README_ALIGNMENT_REPORT.md`](./README_ALIGNMENT_REPORT.md): Complete repository audit alignment report.
 
 ---
 

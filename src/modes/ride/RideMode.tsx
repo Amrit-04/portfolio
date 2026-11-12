@@ -150,11 +150,28 @@ export default function RideMode({ onExit, openProject }: Props) {
           break;
       }
     };
+    const resetInputs = () => {
+      const eng = engineRef.current;
+      if (eng) {
+        eng.input.accel = false;
+        eng.input.brake = false;
+        eng.input.leanB = false;
+        eng.input.leanF = false;
+      }
+    };
+
     window.addEventListener('keydown', down);
     window.addEventListener('keyup', up);
+    window.addEventListener('blur', resetInputs);
+    window.addEventListener('pointerup', resetInputs);
+    window.addEventListener('pointercancel', resetInputs);
+
     return () => {
       window.removeEventListener('keydown', down);
       window.removeEventListener('keyup', up);
+      window.removeEventListener('blur', resetInputs);
+      window.removeEventListener('pointerup', resetInputs);
+      window.removeEventListener('pointercancel', resetInputs);
     };
   }, [togglePause, onExit]);
 
@@ -167,6 +184,9 @@ export default function RideMode({ onExit, openProject }: Props) {
       if (engineRef.current) engineRef.current.input[key] = false;
     },
     onPointerLeave: () => {
+      if (engineRef.current) engineRef.current.input[key] = false;
+    },
+    onPointerCancel: () => {
       if (engineRef.current) engineRef.current.input[key] = false;
     },
     onContextMenu: (e: React.MouseEvent) => e.preventDefault(),

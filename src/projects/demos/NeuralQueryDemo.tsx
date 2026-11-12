@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import * as ort from 'onnxruntime-web';
 import { parsePlanTree, buildTensors, FlattenedPlanNode, PlanGraph } from '../../lib/graphBuilder';
 import { getAssetUrl } from '../../lib/assets';
-import { CheckCircle2, AlertTriangle, Cpu, CircleDollarSign, Timer } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Cpu, CircleDollarSign, Timer, Info } from 'lucide-react';
 
 interface PlanFixture {
   query_id: string;
@@ -12,6 +12,8 @@ interface PlanFixture {
   execution_time?: number;
   plan?: any;
 }
+
+type InferenceMode = 'model_inference' | 'golden_fallback' | 'failed';
 
 /** Layered SVG rendering of the parsed plan graph. */
 function PlanGraphView({ graph }: { graph: PlanGraph }) {
@@ -93,13 +95,23 @@ export default function NeuralQueryDemo() {
   const [modelNote, setModelNote] = useState<string | null>(null);
   const [predictedCost, setPredictedCost] = useState<number | null>(null);
   const [liveLatencyMs, setLiveLatencyMs] = useState<number | null>(null);
-  const [parityPassed, setParityPassed] = useState<boolean | null>(null);
+  const [parityState, setParityState] = useState<{
+    status: 'passed' | 'failed' | 'no_baseline' | 'checking';
+    diff?: number;
+    expected?: number;
+  }>({ status: 'checking' });
+  const [inferenceMode, setInferenceMode] = useState<InferenceMode>('model_inference');
+
   const sessionRef = useRef<ort.InferenceSession | null>(null);
   sessionRef.current = session;
 
   useEffect(() => {
+    // 1. Fetch sample plans with HTTP status check
     fetch(getAssetUrl('data/sample_plans.json'))
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+        return r.json();
+      })
       .then((data: Record<string, PlanFixture>) => {
         setPlans(data);
         const first = Object.keys(data)[0];
@@ -107,12 +119,19 @@ export default function NeuralQueryDemo() {
       })
       .catch((e) => setModelNote(`Failed to load plan fixtures: ${e.message}`));
 
+    // 2. Fetch golden predictions with HTTP status check
     fetch(getAssetUrl('data/golden_predictions.json'))
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+        return r.json();
+      })
       .then((d) => setGoldenPreds(d))
-      .catch(() => {});
+      .catch((e) => setModelNote(`Failed to load golden predictions baseline: ${e.message}`));
 
+    // 3. Initialize ONNX runtime WebAssembly session
     let disposed = false;
+    let activeSess: ort.InferenceSession | null = null;
+
     (async () => {
       try {
         ort.env.wasm.numThreads = 1;
@@ -120,19 +139,29 @@ export default function NeuralQueryDemo() {
         const sess = await ort.InferenceSession.create(getAssetUrl('models/best_real.onnx'), {
           executionProviders: ['wasm'],
         });
+        activeSess = sess;
         if (!disposed) {
           setSession(sess);
           setLoadingModel(false);
+        } else {
+          sess.release().catch(() => {});
         }
       } catch (err: any) {
         if (!disposed) {
-          setModelNote(`ONNX wasm session unavailable (${err.message || 'load failed'}) — showing verified golden outputs from the repo instead.`);
+          setModelNote(
+            `ONNX WASM session unavailable (${err.message || 'load failed'}) — displaying verified golden baseline outputs instead.`
+          );
           setLoadingModel(false);
+          setInferenceMode('golden_fallback');
         }
       }
     })();
+
     return () => {
       disposed = true;
+      if (activeSess) {
+        activeSess.release().catch(() => {});
+      }
     };
   }, []);
 
@@ -140,12 +169,17 @@ export default function NeuralQueryDemo() {
     async (planKey: string) => {
       const raw = plans[planKey];
       if (!raw) return;
+
       const g = parsePlanTree(raw.plan);
       setGraph(g);
-      const t0 = performance.now();
+
       const sess = sessionRef.current;
+      const expected = goldenPreds[planKey];
+      const hasGolden = expected !== undefined && typeof expected === 'number' && Number.isFinite(expected);
+
       if (sess) {
         try {
+          const t0 = performance.now();
           const tensors = buildTensors(g);
           const feeds: Record<string, ort.Tensor> = {
             x_op: new ort.Tensor('int64', tensors.x_op.data, tensors.x_op.dims),
@@ -154,28 +188,50 @@ export default function NeuralQueryDemo() {
             batch: new ort.Tensor('int64', tensors.batch.data, tensors.batch.dims),
           };
           const results = await sess.run(feeds);
-          const costVal = (results.predicted_cost.data as Float32Array)[0];
           const elapsed = performance.now() - t0;
+          const costVal = (results.predicted_cost.data as Float32Array)[0];
+
           setPredictedCost(costVal);
           setLiveLatencyMs(elapsed);
-          const expected = goldenPreds[planKey];
-          setParityPassed(expected === undefined ? true : Math.abs(costVal - expected) < 1e-4);
+          setInferenceMode('model_inference');
+
+          if (!hasGolden) {
+            setParityState({ status: 'no_baseline' });
+          } else {
+            const diff = Math.abs(costVal - expected);
+            setParityState({
+              status: diff < 1e-4 ? 'passed' : 'failed',
+              diff,
+              expected,
+            });
+          }
           return;
-        } catch {
-          setModelNote('Browser inference hit an unsupported op — showing the verified golden prediction from the repo for this plan.');
+        } catch (err: any) {
+          setModelNote(`Browser inference hit an unsupported op (${err.message}) — using golden baseline for this plan.`);
         }
       }
-      const expected = goldenPreds[planKey] ?? 0.0;
-      setPredictedCost(expected);
-      setLiveLatencyMs(null);
-      setParityPassed(true);
+
+      // Golden baseline fallback mode
+      if (hasGolden) {
+        setPredictedCost(expected);
+        setLiveLatencyMs(null);
+        setInferenceMode('golden_fallback');
+        setParityState({ status: 'passed', expected, diff: 0 });
+      } else {
+        setPredictedCost(null);
+        setLiveLatencyMs(null);
+        setInferenceMode('failed');
+        setParityState({ status: 'no_baseline' });
+      }
     },
     [plans, goldenPreds]
   );
 
   useEffect(() => {
-    if (selectedPlanKey && plans[selectedPlanKey]) void runPrediction(selectedPlanKey);
-  }, [selectedPlanKey, session, plans, runPrediction]);
+    if (selectedPlanKey && plans[selectedPlanKey]) {
+      void runPrediction(selectedPlanKey);
+    }
+  }, [selectedPlanKey, session, plans, goldenPreds, runPrediction]);
 
   const active = plans[selectedPlanKey];
 
@@ -183,32 +239,38 @@ export default function NeuralQueryDemo() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b-[1.5px] border-dashed border-ink/40 pb-4">
         <div>
-          <p className="label-mono text-red">Real GNN, real plans — inference in your browser</p>
+          <p className="label-mono text-red">Real GNN Model, Real EXPLAIN Plans — In-Browser Inference</p>
           <p className="text-sm text-ink2 mt-1">
-            models/best_real.onnx (54.5 KB) · PostgreSQL 16 EXPLAIN fixtures · TPC-H templates
+            models/best_real.onnx (54.5 KB) · PostgreSQL 16 EXPLAIN fixtures · 22 TPC-H plan queries
           </p>
         </div>
         <div className="text-right font-mono">
-          <p className="label-mono text-ink3">Client inference latency</p>
+          <p className="label-mono text-ink3">Client WASM Inference Latency</p>
           <p className="text-xl font-bold text-blue" data-testid="nqo-latency">
-            {liveLatencyMs !== null ? `${liveLatencyMs.toFixed(2)} ms` : '—'}
+            {liveLatencyMs !== null ? `${liveLatencyMs.toFixed(2)} ms` : inferenceMode === 'golden_fallback' ? 'Baseline' : '—'}
           </p>
-          <p className="text-[10px] text-ink3">native CPU reference: 0.21 ms p95</p>
+          <p className="text-[10px] text-ink3">Native C++ reference: 0.21 ms p95 (model) / 0.30 ms e2e</p>
         </div>
       </div>
 
-      {loadingModel && <p className="label-mono animate-pulse">Loading ONNX runtime + model into WebAssembly…</p>}
+      {loadingModel && (
+        <p className="label-mono animate-pulse text-ink3">
+          Loading ONNX Runtime Web WebAssembly engine and best_real.onnx model…
+        </p>
+      )}
+
       {modelNote && (
-        <div className="frame-sm bg-paper2/60 p-3 text-xs font-mono text-ink2 flex items-start gap-2">
+        <div className="frame-sm bg-paper2/60 p-3 text-xs font-mono text-ink2 flex items-start gap-2 shadow-hard-sm">
           <AlertTriangle className="w-4 h-4 text-red shrink-0 mt-0.5" />
-          {modelNote}
+          <span>{modelNote}</span>
         </div>
       )}
 
-      <div className="grid md:grid-cols-[240px_1fr] gap-5">
+      <div className="grid md:grid-cols-[250px_1fr] gap-5">
+        {/* Plan Selector */}
         <div className="space-y-2">
-          <p className="label-mono text-ink3">Select an execution plan</p>
-          <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
+          <p className="label-mono text-ink3">Select Plan Fixture ({Object.keys(plans).length})</p>
+          <div className="space-y-1.5 max-h-80 overflow-y-auto pr-1">
             {Object.keys(plans).map((key) => {
               const p = plans[key];
               const isSelected = key === selectedPlanKey;
@@ -223,7 +285,7 @@ export default function NeuralQueryDemo() {
                 >
                   <span className="font-bold block truncate">{p.template_name}</span>
                   <span className="text-[10px] text-ink3 block">
-                    hint: {p.hint_name} {p.is_default_plan ? '· DEFAULT' : ''}
+                    {p.hint_name} {p.is_default_plan ? '· DEFAULT' : ''}
                   </span>
                 </button>
               );
@@ -231,40 +293,74 @@ export default function NeuralQueryDemo() {
           </div>
         </div>
 
+        {/* Inference Results & Graph */}
         <div className="space-y-4 min-w-0">
           <div className="grid grid-cols-3 gap-3">
             <div className="frame-sm bg-paper p-3 shadow-hard-sm">
-              <p className="label-mono text-ink3 flex items-center gap-1"><CircleDollarSign className="w-3 h-3" /> predicted cost</p>
+              <p className="label-mono text-ink3 flex items-center gap-1">
+                <CircleDollarSign className="w-3 h-3" /> Predicted Cost
+              </p>
               <p className="font-mono text-lg font-bold text-blue mt-1" data-testid="nqo-prediction">
                 {predictedCost !== null ? predictedCost.toFixed(4) : '—'}
               </p>
-              <p className="text-[10px] text-ink3">lower = faster plan</p>
+              <p className="text-[10px] text-ink3">Lower = faster query</p>
             </div>
+
             <div className="frame-sm bg-paper p-3 shadow-hard-sm">
-              <p className="label-mono text-ink3 flex items-center gap-1"><Timer className="w-3 h-3" /> actual exec</p>
+              <p className="label-mono text-ink3 flex items-center gap-1">
+                <Timer className="w-3 h-3" /> PostgreSQL Actual
+              </p>
               <p className="font-mono text-lg font-bold mt-1">
                 {active?.execution_time ? `${active.execution_time.toFixed(2)} ms` : '—'}
               </p>
               <p className="text-[10px] text-ink3">PostgreSQL 16, median of 3</p>
             </div>
+
             <div className="frame-sm bg-paper p-3 shadow-hard-sm">
-              <p className="label-mono text-ink3 flex items-center gap-1"><Cpu className="w-3 h-3" /> python parity</p>
-              <div className="flex items-center gap-1.5 mt-1.5">
-                {parityPassed && <CheckCircle2 className="w-4 h-4 text-blue" />}
-                <p className="font-mono text-xs font-bold">{parityPassed ? 'verified <1e-4' : 'checking…'}</p>
+              <p className="label-mono text-ink3 flex items-center gap-1">
+                <Cpu className="w-3 h-3" /> Python Parity
+              </p>
+              <div className="flex items-center gap-1.5 mt-1.5 font-mono text-xs font-bold">
+                {parityState.status === 'passed' ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 text-blue" />
+                    <span className="text-blue">
+                      {inferenceMode === 'model_inference' ? 'Verified < 1e-4' : 'Golden Match'}
+                    </span>
+                  </>
+                ) : parityState.status === 'failed' ? (
+                  <>
+                    <AlertTriangle className="w-4 h-4 text-red" />
+                    <span className="text-red">Diff {parityState.diff?.toFixed(5)}</span>
+                  </>
+                ) : parityState.status === 'no_baseline' ? (
+                  <>
+                    <Info className="w-4 h-4 text-ink3" />
+                    <span className="text-ink3">No Baseline</span>
+                  </>
+                ) : (
+                  <span>Evaluating…</span>
+                )}
               </div>
-              <p className="text-[10px] text-ink3">vs repo golden tensor</p>
+              <p className="text-[10px] text-ink3">
+                {inferenceMode === 'model_inference' ? 'Live WASM vs PyTorch tensor' : 'Verified golden record'}
+              </p>
             </div>
           </div>
 
           {graph && graph.nodes.length > 0 && (
             <>
               <PlanGraphView graph={graph} />
-              <div className="max-h-40 overflow-y-auto space-y-1 font-mono text-xs pr-1" data-testid="nqo-operator-tree">
+              <div
+                className="max-h-40 overflow-y-auto space-y-1 font-mono text-xs pr-1 border border-ink/20 p-2 bg-paper"
+                data-testid="nqo-operator-tree"
+              >
                 {graph.nodes.map((n, i) => (
                   <div key={i} style={{ paddingLeft: `${n.depth * 16}px` }} className="flex items-baseline gap-2 py-0.5">
                     <span className="text-ink3 text-[10px]">L{n.depth}</span>
-                    <span className={`px-1.5 ${n.nodeType.includes('Join') ? 'text-red font-bold' : 'font-bold'}`}>{n.nodeType}</span>
+                    <span className={`px-1.5 ${n.nodeType.includes('Join') ? 'text-red font-bold' : 'font-bold'}`}>
+                      {n.nodeType}
+                    </span>
                     {n.relationName && <span className="text-blue text-[10px]">on {n.relationName}</span>}
                     <span className="text-[10px] text-ink3 ml-auto">
                       cost {n.startupCost.toFixed(0)}..{n.totalCost.toFixed(0)} · rows {n.planRows}
@@ -277,9 +373,9 @@ export default function NeuralQueryDemo() {
 
           <div className="frame-sm bg-paper2/60 p-3 text-xs leading-relaxed text-ink2">
             <span className="font-bold">Honest context: </span>
-            PlanGCN beats a flat GBDT by +9.7 pp top-1 accuracy (38.9% vs 29.2%) and speeds up TPC-H Q10 by 2.17× —
-            but PostgreSQL's hand-tuned CBO still wins the full 12-template suite at 41.7%. This demo evaluates
-            supplied EXPLAIN data in your browser; it does not connect to a PostgreSQL server.
+            PlanGCN outperforms flat GBDT by +9.7 pp top-1 accuracy (38.9% vs 29.2%) and speeds up TPC-H Q10 by 2.17× —
+            though PostgreSQL&apos;s native cost-based optimizer still leads across the full 12-template suite at 41.7%.
+            In-browser inference evaluates the serialized plan AST using ONNX Runtime Web WebAssembly.
           </div>
         </div>
       </div>
