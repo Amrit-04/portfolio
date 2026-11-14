@@ -14,6 +14,7 @@ import { getLazyDemo } from '../../projects/demos';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { X, ExternalLink, FileWarning, FlaskConical, BookOpen, Sparkles, Pin } from 'lucide-react';
 import { Github } from '../../components/BrandIcons';
+import { sfx } from '../../lib/sound';
 
 const DIAGRAMS: Record<string, React.FC<{ className?: string }>> = {
   'onnx-gnn': TreeEaselArt,
@@ -82,8 +83,11 @@ export const ProjectDetail: React.FC<{
             </span>
           </div>
           <button
-            className="w-8 h-8 rounded-full bg-paper hover:bg-paper3 border border-ink3/40 flex items-center justify-center text-ink hover:text-accent transition-colors cursor-pointer"
-            onClick={onClose}
+            className="w-8 h-8 rounded-full bg-paper hover:bg-paper3 border border-ink3/40 flex items-center justify-center text-ink hover:text-accent transition-colors cursor-pointer idle-shake"
+            onClick={() => {
+              sfx.click();
+              onClose();
+            }}
             aria-label="Close notebook"
             data-testid="close-notebook-btn"
           >
@@ -93,10 +97,10 @@ export const ProjectDetail: React.FC<{
 
         {/* Modal Scrollable Body */}
         <div className="px-6 md:px-10 py-8 max-h-[85vh] overflow-y-auto">
-          <h3 className="font-serif text-3xl md:text-5xl leading-tight font-semibold text-ink">
+          <h3 className="font-anton text-3xl md:text-5xl leading-tight uppercase tracking-wide text-ink">
             {project.title}
           </h3>
-          <p className="mt-2 text-base text-ink2 font-sans">
+          <p className="mt-2 text-base text-ink2 font-elite">
             {project.tagline}
           </p>
 
@@ -104,12 +108,12 @@ export const ProjectDetail: React.FC<{
             {/* Left Rail: Specs & Verified Metrics */}
             <aside className="space-y-6 lg:border-r border-ink3/20 lg:pr-8">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-2">
                   Stack
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 font-elite">
                   {project.stack.map((s) => (
-                    <span key={s} className="chip bg-paper2/80">
+                    <span key={s} className="chip bg-paper2/80 font-elite">
                       {s}
                     </span>
                   ))}
@@ -117,7 +121,7 @@ export const ProjectDetail: React.FC<{
               </div>
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-2">
                   Links
                 </p>
                 <div className="space-y-2">
@@ -125,7 +129,7 @@ export const ProjectDetail: React.FC<{
                     href={project.links.repo}
                     target="_blank"
                     rel="noreferrer"
-                    className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent flex items-center gap-1.5 w-fit"
+                    className="link-sketch font-elite text-xs font-semibold text-ink hover:text-accent flex items-center gap-1.5 w-fit"
                   >
                     <Github className="w-4 h-4" /> Source repository
                   </a>
@@ -134,7 +138,7 @@ export const ProjectDetail: React.FC<{
                       href={project.links.paper}
                       target="_blank"
                       rel="noreferrer"
-                      className="link-sketch font-sans text-xs font-semibold text-ink hover:text-accent flex items-center gap-1.5 w-fit"
+                      className="link-sketch font-elite text-xs font-semibold text-ink hover:text-accent flex items-center gap-1.5 w-fit"
                     >
                       <BookOpen className="w-4 h-4" /> IEEE Xplore
                     </a>
@@ -143,13 +147,13 @@ export const ProjectDetail: React.FC<{
               </div>
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-3">
                   Verified benchmarks
                 </p>
                 <div className="space-y-3.5">
                   {project.metrics.map((m) => (
                     <div key={m.label} className="border-l-2 border-accent pl-3 py-0.5">
-                      <p className="font-mono text-sm font-bold text-ink leading-snug">
+                      <p className="font-elite text-sm font-bold text-ink leading-snug">
                         {m.value}
                       </p>
                       <p className="font-sans text-[11px] text-ink2 mt-0.5 font-medium">
@@ -164,7 +168,7 @@ export const ProjectDetail: React.FC<{
                         href={m.sourceUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-mono text-[10px] text-accent2 underline underline-offset-2 flex items-center gap-1 mt-1 hover:text-accent"
+                        className="font-elite text-[10px] text-accent2 underline underline-offset-2 flex items-center gap-1 mt-1 hover:text-accent"
                       >
                         source artifact <ExternalLink className="w-2.5 h-2.5" />
                       </a>
@@ -182,7 +186,7 @@ export const ProjectDetail: React.FC<{
             {/* Right Column: Narrative & Architecture */}
             <div className="space-y-8 min-w-0">
               <section>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-2">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-2">
                   THE PROBLEM
                 </h4>
                 <p className="font-serif text-xl md:text-2xl leading-relaxed text-ink">
@@ -191,13 +195,13 @@ export const ProjectDetail: React.FC<{
               </section>
 
               <section>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-3">
                   WHAT I BUILT
                 </h4>
                 <ul className="space-y-2.5 font-sans">
                   {project.built.map((b, i) => (
                     <li key={i} className="flex gap-3 text-sm leading-relaxed text-ink2">
-                      <span className="font-mono text-xs text-accent font-bold shrink-0 mt-0.5">
+                      <span className="font-elite text-xs text-accent font-bold shrink-0 mt-0.5">
                         0{i + 1}
                       </span>
                       <span>{b}</span>
@@ -208,7 +212,7 @@ export const ProjectDetail: React.FC<{
 
               {/* Hand-drawn Illustrated Architecture */}
               <section>
-                <div className="rounded-2xl border border-ink3/30 bg-paper2/60 p-4">
+                <div className="rounded-2xl ink-frame-med bg-paper2/60 p-4 squiggle-target shadow-inner">
                   <Diagram className="w-full text-ink drop-shadow-xs" />
                 </div>
                 <p className="annotation text-base text-ink3 mt-2 text-center">
@@ -218,7 +222,7 @@ export const ProjectDetail: React.FC<{
 
               {/* Engineering Decisions & Tradeoffs */}
               <section>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-3">
                   ENGINEERING DECISIONS &amp; TRADEOFFS
                 </h4>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -241,7 +245,7 @@ export const ProjectDetail: React.FC<{
 
               {/* Honest Limitations */}
               <section className="bg-paper2/40 rounded-2xl border border-accent/40 p-5">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-3 flex items-center gap-1.5">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-3 flex items-center gap-1.5">
                   <FileWarning className="w-4 h-4 text-accent" />
                   HONEST LIMITATIONS
                 </h4>
@@ -255,12 +259,12 @@ export const ProjectDetail: React.FC<{
               {/* Interactive In-Browser Demo */}
               {Demo && (
                 <section>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-sans mb-3 flex items-center gap-1.5">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-accent font-elite mb-3 flex items-center gap-1.5">
                     <FlaskConical className="w-4 h-4 text-accent" />
                     INTERACTIVE DEMO
                   </h4>
                   <div
-                    className="bg-paper rounded-2xl border border-ink3/30 p-4 md:p-6 shadow-xs overflow-hidden"
+                    className="bg-paper rounded-2xl ink-frame-med p-4 md:p-6 shadow-sm overflow-hidden"
                     data-testid={`demo-${project.id}`}
                   >
                     <ErrorBoundary fallbackTitle={`${project.title} Sandbox`} repoUrl={project.links.repo}>

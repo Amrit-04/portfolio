@@ -10,6 +10,8 @@
       content="Amriteshkumar Yadav — engineering portfolio &amp; playable track. AI/ML systems, backend and distributed engineering, quantitative computing. Every metric is sourced; seven project demos run in your browser."
     />
     <title>Amriteshkumar Yadav — Engineering Notebook &amp; Track</title>
+    <!-- Inspiration Typography (Anton, Permanent Marker, Special Elite) + Google Fonts -->
+    <link rel="stylesheet" href="/portfolio/fonts/google-fonts.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,6 +20,21 @@
     />
   </head>
   <body>
+    <!-- Squigglevision Boiling Ink Filters -->
+    <svg width="0" height="0" style="position:absolute;pointer-events:none;" aria-hidden="true">
+      <filter id="squiggle-0" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3.8" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="squiggle-1" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="22" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3.8" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="squiggle-2" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="47" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3.8" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </svg>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

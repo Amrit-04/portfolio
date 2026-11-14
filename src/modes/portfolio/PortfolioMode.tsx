@@ -11,6 +11,8 @@ import { Skills } from './Skills';
 import { Research } from './Research';
 import { Contact } from './Contact';
 import { Bike } from 'lucide-react';
+import { initSquigglevision } from '../../lib/squigglevision';
+import { sfx } from '../../lib/sound';
 
 export default function PortfolioMode({
   onEnterTrack,
@@ -21,6 +23,11 @@ export default function PortfolioMode({
 }) {
   const lenisRef = useRef<Lenis | null>(null);
   const [, force] = useState(0);
+
+  useEffect(() => {
+    const cleanupSquiggle = initSquigglevision();
+    return () => cleanupSquiggle();
+  }, []);
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -86,30 +93,34 @@ export default function PortfolioMode({
             className="flex items-center gap-2.5 min-w-0 group"
             onClick={(e) => {
               e.preventDefault();
+              sfx.click();
               scrollTo('#top');
             }}
             data-testid="nav-home"
           >
             <MarkLogo className="w-7 h-7 text-ink shrink-0 group-hover:scale-105 transition-transform" />
             <span className="truncate">
-              <span className="font-serif text-sm sm:text-base leading-none block font-bold text-ink group-hover:text-red transition-colors tracking-tight">
+              <span className="font-anton text-sm sm:text-base leading-none block font-bold text-ink group-hover:text-red transition-colors tracking-wide">
                 <span className="hidden sm:inline">{SITE.name}</span>
                 <span className="sm:hidden">{SITE.shortName}</span>
               </span>
-              <span className="text-[10px] text-ink3 hidden sm:block font-mono tracking-wider mt-0.5">
+              <span className="text-[10px] text-ink3 hidden sm:block font-elite tracking-wider mt-0.5">
                 STUDIO &amp; WORKSHOP
               </span>
             </span>
           </a>
 
           <div className="hidden md:flex items-center gap-5">
-            {NAV_LINKS.map((l) => (
+            {NAV_LINKS.map((l, i) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-xs font-semibold text-ink2 hover:text-red hover:underline underline-offset-4 transition-colors font-sans"
+                className={`text-xs font-semibold text-ink2 hover:text-red hover:underline underline-offset-4 transition-colors font-sans idle-shake ${i % 2 === 1 ? 'idle-shake-delay-1' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
+                  if (l.href === '#work') sfx.navWork();
+                  else if (l.href === '#about') sfx.navAbout();
+                  else sfx.navLinks();
                   scrollTo(l.href);
                 }}
               >
@@ -119,8 +130,11 @@ export default function PortfolioMode({
           </div>
 
           <button
-            className="btn-red !py-1.5 !px-3.5 shrink-0 text-xs rounded-md flex items-center gap-1.5 border-2 shadow-xs cursor-pointer"
-            onClick={onEnterTrack}
+            className="btn-red !py-1.5 !px-3.5 shrink-0 text-xs rounded-md flex items-center gap-1.5 border-2 shadow-xs cursor-pointer idle-shake idle-shake-delay-2"
+            onClick={() => {
+              sfx.navWork();
+              onEnterTrack();
+            }}
             data-testid="enter-track-nav"
             title="Launch 2D Free Rider bicycle game mode"
           >

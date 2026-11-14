@@ -386,7 +386,7 @@ export default function RideMode({ onExit, openProject }: Props) {
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <p className="font-sans text-xs font-semibold text-ink">
+              <p className="font-anton text-sm tracking-wide text-ink uppercase">
                 {section.num} — {section.name}
               </p>
             </div>
@@ -396,19 +396,19 @@ export default function RideMode({ onExit, openProject }: Props) {
                 style={{ width: `${progress.pct}%` }}
               />
             </div>
-            <p className="font-mono text-[10px] text-ink3 mt-1" data-testid="hud-progress">
+            <p className="font-elite text-[11px] text-ink3 mt-1" data-testid="hud-progress">
               {progress.pct.toFixed(0)}% · {progress.meters}m
             </p>
           </div>
 
           {/* Golden Star Counter */}
           <div
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-50 border border-amber-300 rounded-xl shadow-xs"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-50 border border-amber-300 rounded-xl shadow-xs font-elite"
             title="Collectible Golden Stars"
             data-testid="hud-stars"
           >
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
-            <span className="font-mono text-xs font-bold text-amber-900">
+            <span className="font-elite text-xs font-bold text-amber-900">
               {stars.collected}/{stars.total}
             </span>
           </div>
@@ -653,12 +653,12 @@ export default function RideMode({ onExit, openProject }: Props) {
             className="absolute left-3 md:left-6 bottom-36 md:bottom-6 max-w-[320px] md:max-w-sm bg-paper rounded-2xl border-2 border-ink3/30 p-5 shadow-lg z-20 postcard"
             data-testid="checkpoint-card"
           >
-            <p className="text-xs font-semibold text-accent flex items-center gap-1.5 font-sans">
+            <p className="text-xs font-semibold text-accent flex items-center gap-1.5 font-elite">
               <Flag className="w-3.5 h-3.5" /> Checkpoint Reached
             </p>
             {cp.projectId === 'workshop' && (
               <>
-                <h3 className="font-serif text-2xl font-semibold leading-tight mt-1 text-ink">The Workshop</h3>
+                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">The Workshop</h3>
                 <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">
                   The beginning of the engineering track — 8 continuous sections, one per project. Ride right to begin.
                 </p>
@@ -666,7 +666,7 @@ export default function RideMode({ onExit, openProject }: Props) {
             )}
             {cp.projectId === 'finish' && (
               <>
-                <h3 className="font-serif text-2xl font-semibold leading-tight mt-1 text-ink">End of the Track</h3>
+                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">End of the Track</h3>
                 <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">
                   You rode through every engineering project. Return to the portfolio to inspect any in detail.
                 </p>
@@ -674,7 +674,7 @@ export default function RideMode({ onExit, openProject }: Props) {
             )}
             {project && (
               <>
-                <h3 className="font-serif text-2xl font-semibold leading-tight mt-1 text-ink">{project.title}</h3>
+                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">{project.title}</h3>
                 <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">{project.tagline}</p>
               </>
             )}
@@ -723,12 +723,12 @@ export default function RideMode({ onExit, openProject }: Props) {
             data-testid="pause-overlay"
           >
             <div className="bg-paper rounded-3xl border border-ink3/30 p-8 text-center shadow-xl max-w-xs w-full mx-4">
-              <span className="sticker text-xs text-accent">Game Paused</span>
-              <h3 className="font-serif text-3xl font-semibold mt-2 text-ink">Catch your breath.</h3>
+              <span className="sticker text-xs text-accent font-elite">Game Paused</span>
+              <h3 className="font-anton text-3xl uppercase tracking-wide mt-2 text-ink">Catch your breath.</h3>
               <p className="text-xs text-ink2 mt-2 font-sans">
                 Take a pause or return to the illustrated portfolio exhibition.
               </p>
-              <div className="mt-6 space-y-2.5">
+              <div className="mt-6 space-y-2.5 font-elite">
                 <button
                   className="btn-ink w-full text-xs flex items-center justify-center gap-1.5"
                   onClick={togglePause}
@@ -770,12 +770,12 @@ export default function RideMode({ onExit, openProject }: Props) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute top-20 left-1/2 -translate-x-1/2 bg-paper rounded-2xl border border-ink3/30 px-6 py-4 text-center shadow-lg z-20"
+            className="absolute top-20 left-1/2 -translate-x-1/2 bg-paper rounded-2xl border border-ink3/30 px-6 py-4 text-center shadow-lg z-20 font-elite"
             data-testid="finish-banner"
           >
             <span className="sticker text-xs text-accent">Track Complete</span>
-            <p className="font-serif text-2xl font-semibold mt-1 text-ink">Every project visited!</p>
-            <button className="btn-ink mt-3 !py-1.5 !px-4 text-xs" onClick={onExit} data-testid="finish-exit-btn">
+            <p className="font-anton text-2xl uppercase tracking-wide mt-1 text-ink">Every project visited!</p>
+            <button className="btn-ink mt-3 !py-1.5 !px-4 text-xs font-elite" onClick={onExit} data-testid="finish-exit-btn">
               Back to portfolio
             </button>
           </motion.div>

@@ -12,6 +12,7 @@ import {
 } from '../../components/illustrations';
 import { NotebookPen, ExternalLink, Sparkles, BookOpen, Layers, Terminal } from 'lucide-react';
 import { Github } from '../../components/BrandIcons';
+import { sfx } from '../../lib/sound';
 
 interface GalleryProps {
   onOpen?: (id: string) => void;
@@ -19,7 +20,11 @@ interface GalleryProps {
 }
 
 export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject }) => {
-  const handleOpen = onOpenProject || onOpen || (() => {});
+  const onSelect = onOpenProject || onOpen || (() => {});
+  const handleOpen = (id: string) => {
+    sfx.openProject();
+    onSelect(id);
+  };
   const pNeural = PROJECTS[0]; // neural-query-optimizer
   const pLrcp = PROJECTS[1]; // llm-reliability-control-plane
   const pPipeline = PROJECTS[2]; // fault-tolerant-ml-telemetry
@@ -41,7 +46,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
             7 individual architectural installations
           </span>
         </div>
-        <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink tracking-tight">
+        <h2 className="font-anton text-4xl sm:text-5xl md:text-6xl uppercase tracking-wide text-ink">
           Physical Works &amp; Engineering Folios
         </h2>
         <p className="mt-4 text-base md:text-lg text-ink2 font-sans leading-relaxed">
@@ -78,7 +83,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Column: Massive Drafting Easel Illustration taking center stage */}
             <div className="lg:col-span-7">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame shadow-inner squiggle-target">
                 <TreeEaselArt className="w-full h-auto text-ink" />
               </div>
             </div>
@@ -89,7 +94,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                 <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
                   Graph Neural Networks · PostgreSQL 16
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pNeural.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
@@ -97,7 +102,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                 </p>
 
                 {/* Hand-drawn verified metric highlights */}
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>PlanGCN Top-1 Accuracy:</span>
                     <strong className="text-accent">38.9% (+9.7 pp vs GBDT)</strong>
@@ -113,9 +118,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                 </div>
 
                 {/* Technology chips */}
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pNeural.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -125,7 +130,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
               {/* Action buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pNeural.id)}
                   data-testid={`open-notebook-${pNeural.id}`}
                 >
@@ -176,7 +181,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                 <span className="sticker text-xs text-gold bg-ink/60 border border-gold/40 mb-2 inline-block">
                   C++20 &amp; Python OTLP · DuckDB · Redis
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-paper leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-paper leading-tight">
                   {pLrcp.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-paper2/90 font-sans leading-relaxed">
@@ -184,7 +189,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                 </p>
 
                 {/* Control room verified gauges */}
-                <div className="mt-5 p-4 bg-ink/80 rounded-xl border border-paper3/20 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-ink/80 rounded-xl border border-paper3/20 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-paper2">
                     <span>WAL Segment Rotation:</span>
                     <strong className="text-gold">64 MB · CRC-32 Checksummed</strong>
@@ -203,9 +208,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pLrcp.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-ink border border-paper3/20 text-paper3">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-ink border border-paper3/20 text-paper3">
                       {t}
                     </span>
                   ))}
@@ -214,7 +219,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-paper3/20">
                 <button
-                  className="btn-red flex items-center gap-2 cursor-pointer"
+                  className="btn-red flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pLrcp.id)}
                   data-testid={`open-notebook-${pLrcp.id}`}
                 >
@@ -234,7 +239,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
             {/* Right Column: Console Art */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="relative p-2 bg-ink/90 rounded-xl border border-paper3/20 shadow-inner">
+              <div className="relative p-2 bg-ink/90 rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <ControlConsoleArt className="w-full h-auto text-paper" />
               </div>
             </div>
@@ -266,24 +271,24 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <PneumaticPipelineArt className="w-full h-auto text-ink" />
               </div>
             </div>
 
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block font-elite">
                   Go · Kafka KRaft · PostgreSQL 16 · Redis
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pPipeline.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
                   {pPipeline.problem}
                 </p>
 
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>Go HTTP Ingestion:</span>
                     <strong className="text-blue">288 RPS · 5.37 ms p99</strong>
@@ -302,9 +307,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pPipeline.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -313,7 +318,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pPipeline.id)}
                   data-testid={`open-notebook-${pPipeline.id}`}
                 >
@@ -359,17 +364,17 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5 flex flex-col justify-between order-2 lg:order-1">
               <div>
-                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block">
+                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block font-elite">
                   Go · FIX 4.2 · Redis Lua · PostgreSQL Outbox
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pTrade.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
                   {pTrade.problem}
                 </p>
 
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>FSM State Machine:</span>
                     <strong className="text-accent">113 ns/op deterministic</strong>
@@ -388,9 +393,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pTrade.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -399,7 +404,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pTrade.id)}
                   data-testid={`open-notebook-${pTrade.id}`}
                 >
@@ -418,7 +423,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
             </div>
 
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <TradingDeskArt className="w-full h-auto text-ink" />
               </div>
             </div>
@@ -450,24 +455,24 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <ResearchLedgerArt className="w-full h-auto text-ink" />
               </div>
             </div>
 
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block font-elite">
                   PyTorch CUDA · HMM · Qiskit QAOA · CVXPY
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pMoneyball.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
                   {pMoneyball.problem}
                 </p>
 
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>Purged Walk-Forward:</span>
                     <strong className="text-blue">Rank IC 0.0359 · ICIR 1.521</strong>
@@ -486,9 +491,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pMoneyball.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -497,7 +502,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pMoneyball.id)}
                   data-testid={`open-notebook-${pMoneyball.id}`}
                 >
@@ -543,17 +548,17 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5 flex flex-col justify-between order-2 lg:order-1">
               <div>
-                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block">
+                <span className="sticker text-xs text-blue bg-paper border border-blue/40 mb-2 inline-block font-elite">
                   C++17 · pybind11 · FastAPI · Redis O(1)
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pWarehouse.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
                   {pWarehouse.problem}
                 </p>
 
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>C++17 A* Pathfinding:</span>
                     <strong className="text-accent">0.50 ms (31x speedup vs Python)</strong>
@@ -572,9 +577,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pWarehouse.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -583,7 +588,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pWarehouse.id)}
                   data-testid={`open-notebook-${pWarehouse.id}`}
                 >
@@ -602,7 +607,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
             </div>
 
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <IsometricWarehouseArt className="w-full h-auto text-ink" />
               </div>
             </div>
@@ -634,24 +639,24 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <div className="relative p-2 bg-paper rounded-xl border border-ink3/30 shadow-inner">
+              <div className="relative p-2 bg-paper rounded-xl ink-frame-med shadow-inner squiggle-target">
                 <IndustrialVisionArt className="w-full h-auto text-ink" />
               </div>
             </div>
 
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block">
+                <span className="sticker text-xs text-accent bg-paper border border-accent/40 mb-2 inline-block font-elite">
                   Python · Ultralytics YOLOv11 · OpenCV · ByteTrack
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-ink leading-tight">
+                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-wide text-ink leading-tight">
                   {pSafety.title}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-ink2 font-sans leading-relaxed">
                   {pSafety.problem}
                 </p>
 
-                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-mono text-xs">
+                <div className="mt-5 p-4 bg-paper rounded-xl border border-ink3/30 space-y-2 font-elite text-xs">
                   <div className="flex justify-between items-center text-ink">
                     <span>Peer-Reviewed Publication:</span>
                     <strong className="text-blue">IEEE RMKMATE 2026</strong>
@@ -670,9 +675,9 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-1.5 font-elite">
                   {pSafety.stack.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
+                    <span key={t} className="text-[11px] font-elite px-2 py-0.5 rounded-xs bg-paper border border-ink3/30 text-ink2">
                       {t}
                     </span>
                   ))}
@@ -681,7 +686,7 @@ export const ProjectsGallery: React.FC<GalleryProps> = ({ onOpen, onOpenProject 
 
               <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-ink3/20">
                 <button
-                  className="btn-ink flex items-center gap-2 cursor-pointer"
+                  className="btn-ink flex items-center gap-2 cursor-pointer idle-shake"
                   onClick={() => handleOpen(pSafety.id)}
                   data-testid={`open-notebook-${pSafety.id}`}
                 >

@@ -19,15 +19,15 @@ export const Contact: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack }
       <div className="grid lg:grid-cols-12 gap-8 items-center mb-8">
         <div className="lg:col-span-7">
           <div className="flex items-center gap-2 mb-3">
-            <span className="sticker text-xs text-accent bg-paper2 border border-accent/40 px-3 py-1 rounded-full">
+            <span className="sticker text-xs text-accent bg-paper2 border border-accent/40 px-3 py-1 rounded-full font-elite">
               <Sparkles className="w-3.5 h-3.5 text-accent mr-1 inline" />
               The Dispatch Desk
             </span>
-            <span className="annotation text-ink3 text-sm rotate-[-1deg]">
+            <span className="font-marker text-ink3 text-sm rotate-[-1deg]">
               hand-stamped &amp; ready to send
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-ink leading-tight">
+          <h2 className="font-anton text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide text-ink leading-tight">
             Let&rsquo;s build something <em className="italic text-accent font-medium">measurable</em>.
           </h2>
 
@@ -38,21 +38,35 @@ export const Contact: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack }
           <p className="mt-3 text-sm text-ink3 font-sans leading-relaxed">
             Whether discussing learned query optimizers, low-latency order routing, or quantitative risk infrastructure — my inbox is always open.
           </p>
+
+          {/* Authentic stamp badges */}
+          <div className="mt-6 flex items-center gap-4">
+            <img
+              src={getAssetUrl('media/drawn-by-hand.png')}
+              alt="Drawn by hand"
+              className="w-20 h-auto opacity-70"
+            />
+            <img
+              src={getAssetUrl('media/coded-with-claude.png')}
+              alt="Coded with Claude"
+              className="w-20 h-auto opacity-70"
+            />
+          </div>
         </div>
 
         {/* Right side: Illustrated Writing Desk */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="w-full max-w-[360px] p-2 bg-paper2/50 rounded-xl border border-ink3/30">
+          <div className="w-full max-w-[360px] p-2 bg-paper2/50 rounded-xl ink-frame-med squiggle-target shadow-inner">
             <DispatchDeskContactArt className="w-full h-auto text-ink" />
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div className="mt-6 flex flex-wrap items-center gap-3 pt-6 border-t-2 border-ink/10">
+      <div className="mt-6 flex flex-wrap items-center gap-3 pt-6 border-t-2 border-ink/10 font-elite">
         <a
           href={SITE.links.email}
-          className="btn-ink text-xs flex items-center gap-2 cursor-pointer"
+          className="btn-ink text-xs flex items-center gap-2 cursor-pointer idle-shake"
           data-testid="contact-email"
         >
           <Mail className="w-4 h-4 text-gold" /> Send Email

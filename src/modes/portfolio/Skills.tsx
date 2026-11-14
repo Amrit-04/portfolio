@@ -17,15 +17,15 @@ export const Skills: React.FC = () => (
     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <span className="sticker text-xs text-accent bg-paper2 border border-ink3/40 px-3 py-1 rounded-full">
+          <span className="sticker text-xs text-accent bg-paper2 border border-ink3/40 px-3 py-1 rounded-full font-elite">
             <Wrench className="w-3.5 h-3.5 text-accent mr-1 inline" />
             The Master Toolboard
           </span>
-          <span className="annotation text-ink3 text-sm rotate-[-1.5deg]">
+          <span className="font-marker text-ink3 text-sm rotate-[-1.5deg]">
             calibrated for production systems
           </span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-ink">
+        <h2 className="font-anton text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide text-ink">
           Instruments on the workshop bench.
         </h2>
       </div>
@@ -40,7 +40,7 @@ export const Skills: React.FC = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.6 }}
-      className="mb-12 p-3 bg-paper2/50 rounded-2xl border-2 border-ink shadow-sm"
+      className="mb-12 p-3 bg-paper2/50 rounded-2xl ink-frame-med shadow-sm squiggle-target"
     >
       <ToolboardSkillsArt className="w-full h-auto text-ink" />
     </motion.div>
@@ -64,15 +64,15 @@ export const Skills: React.FC = () => (
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-ink">
+                  <h3 className="font-anton text-2xl uppercase tracking-wide text-ink">
                     {g.title}
                   </h3>
-                  <p className="annotation text-base text-ink3">
+                  <p className="font-marker text-sm text-ink3">
                     {g.note}
                   </p>
                 </div>
               </div>
-              <span className="text-xs font-mono font-bold text-ink3/60">
+              <span className="text-xs font-elite font-bold text-ink3/60">
                 0{gi + 1}
               </span>
             </div>
@@ -85,7 +85,7 @@ export const Skills: React.FC = () => (
               {g.items.map((item) => (
                 <span
                   key={item}
-                  className="font-mono text-xs font-semibold px-3 py-1.5 rounded-md bg-paper2 border border-ink3/40 text-ink shadow-2xs hover:border-accent hover:text-accent transition-colors"
+                  className="font-elite text-xs font-semibold px-3 py-1.5 rounded-md bg-paper2 border border-ink3/40 text-ink shadow-2xs hover:border-accent hover:text-accent transition-colors"
                 >
                   {item}
                 </span>

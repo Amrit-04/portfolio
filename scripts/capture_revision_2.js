@@ -186,10 +186,14 @@ async function run() {
   await browser.close();
 
   if (serverProcess) {
-    serverProcess.kill('SIGTERM');
+    try {
+      serverProcess.kill('SIGTERM');
+      serverProcess.kill('SIGKILL');
+    } catch {}
   }
 
   console.log('All 13 revision-2 screenshots captured successfully!');
+  process.exit(0);
 }
 
 run().catch((err) => {

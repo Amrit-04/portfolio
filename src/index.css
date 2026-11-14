@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #faf8f3;
+  --color-paper: #f7f6f1;
   --color-paper2: #f0ece3;
   --color-paper3: #e8e2d6;
   --color-ink: #2a2520;
@@ -13,16 +13,19 @@
   --color-red: #c84b31;
   --color-blue: #3a6ea5;
 
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-anton: 'Anton', Impact, sans-serif;
+  --font-elite: 'Special Elite', monospace;
+  --font-marker: 'Permanent Marker', cursive;
+  --font-display: 'Anton', 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-hand: 'Caveat', cursive;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-hand: 'Permanent Marker', 'Caveat', cursive;
+  --font-mono: 'Special Elite', 'JetBrains Mono', monospace;
 
   --spacing-page: 1240px;
 }
 
 :root {
-  --paper: #faf8f3;
+  --paper: #f7f6f1;
   --paper2: #f0ece3;
   --paper3: #e8e2d6;
   --ink: #2a2520;
@@ -39,6 +42,7 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: url('/portfolio/media/cursors/cursor-arrow.png') 4 2, auto;
 }
 
 html.lenis,
@@ -52,21 +56,86 @@ html.lenis body {
 body {
   background-color: var(--paper);
   color: var(--ink);
-  cursor: default;
+  cursor: url('/portfolio/media/cursors/cursor-arrow.png') 4 2, auto;
   overflow-x: hidden;
   font-family: var(--font-sans);
-  /* Subtle warm paper texture via radial noise */
-  background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(212, 168, 67, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(200, 75, 49, 0.02) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(58, 110, 165, 0.02) 0%, transparent 50%);
+  /* Authentic inspiration paper grain from Tiago Fragoso */
+  background-image: url('/portfolio/media/scrap-grain.png');
+  background-repeat: repeat;
 }
 
 a,
 button,
 label,
-summary {
-  cursor: pointer;
+summary,
+.cursor-pointer,
+[role="button"] {
+  cursor: url('/portfolio/media/cursors/cursor-hand.png') 10 2, pointer !important;
+}
+
+/* ── Inspiration Typography Classes ───────────────────── */
+.font-anton {
+  font-family: 'Anton', Impact, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-elite {
+  font-family: 'Special Elite', monospace;
+}
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+/* ── Hand-Drawn Ink Frame Overlays ───────────────────── */
+.ink-frame {
+  position: relative;
+}
+.ink-frame::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  background-image: url('/portfolio/media/frames/video-frame-thin.png');
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ink-frame-med {
+  position: relative;
+}
+.ink-frame-med::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background-image: url('/portfolio/media/frames/video-frame-med.png');
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Stop-Motion Idle Jitter Animation (Steps 1) ──────── */
+@keyframes navIdleShake {
+  0%   { transform: translateX(-1.2px) rotate(-0.8deg); }
+  25%  { transform: translateX(1.2px)  rotate(0.9deg); }
+  50%  { transform: translateX(-0.6px) rotate(-0.3deg); }
+  75%  { transform: translateX(0.9px)  rotate(0.6deg); }
+  100% { transform: translateX(-1.2px) rotate(-0.8deg); }
+}
+
+.idle-shake {
+  animation: navIdleShake 0.72s steps(1, end) infinite;
+  display: inline-block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .idle-shake { animation: none; }
+}
+
+.idle-shake-delay-1 {
+  animation-delay: -0.24s;
+}
+.idle-shake-delay-2 {
+  animation-delay: -0.48s;
 }
 input,
 textarea,

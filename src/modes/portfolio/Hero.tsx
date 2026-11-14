@@ -5,6 +5,7 @@ import { getAssetUrl } from '../../lib/assets';
 import { WorkshopEntranceHeroArt } from '../../components/illustrations';
 import { Mail, FileText, ArrowDown, Bike, Sparkles, Compass } from 'lucide-react';
 import { Github, Linkedin } from '../../components/BrandIcons';
+import { sfx } from '../../lib/sound';
 
 export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string) => void }> = ({
   onEnterTrack,
@@ -39,12 +40,12 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           transition={{ delay: 0.15, duration: 0.6 }}
           className="max-w-4xl"
         >
-          <h1 className="font-serif leading-[1.02] text-[clamp(2.5rem,6.5vw,5rem)] tracking-tight text-ink font-semibold">
+          <h1 className="font-anton leading-[0.96] text-[clamp(2.5rem,6.8vw,5.2rem)] tracking-wide uppercase text-ink">
             {HERO_LINES.map((line, i) => (
               <span key={line} className="block">
                 {i === HERO_LINES.length - 1 ? (
                   <span>
-                    and <em className="text-accent not-italic font-serif italic font-medium">scale.</em>
+                    and <em className="text-accent not-italic font-anton italic">scale.</em>
                   </span>
                 ) : (
                   line
@@ -54,14 +55,14 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           </h1>
 
           {/* Professional Positioning Taxonomy */}
-          <div className="mt-4 flex flex-wrap justify-center items-center gap-2 text-xs md:text-sm font-mono font-medium text-ink2">
-            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/80 border border-ink3/30">AI/ML Systems</span>
+          <div className="mt-4 flex flex-wrap justify-center items-center gap-2 text-xs md:text-sm font-elite font-medium text-ink2">
+            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/90 border border-ink3/40">AI/ML Systems</span>
             <span className="text-accent">•</span>
-            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/80 border border-ink3/30">Backend Engineering</span>
+            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/90 border border-ink3/40">Backend Engineering</span>
             <span className="text-accent">•</span>
-            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/80 border border-ink3/30">Distributed Systems</span>
+            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/90 border border-ink3/40">Distributed Systems</span>
             <span className="text-accent">•</span>
-            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/80 border border-ink3/30">Quantitative Computing</span>
+            <span className="px-2.5 py-0.5 rounded-sm bg-paper2/90 border border-ink3/40">Quantitative Computing</span>
           </div>
 
           <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed text-ink2 font-sans">
@@ -77,16 +78,22 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           className="mt-6 flex flex-wrap justify-center items-center gap-3 sm:gap-4"
         >
           <button
-            className="btn-ink"
-            onClick={() => scrollTo('#work')}
+            className="btn-ink idle-shake"
+            onClick={() => {
+              sfx.click();
+              scrollTo('#work');
+            }}
             data-testid="explore-work-btn"
           >
             <Compass className="w-4 h-4 mr-1 text-gold" />
             Walk the Exhibition Wall <ArrowDown className="w-4 h-4 ml-1" />
           </button>
           <button
-            className="btn-red flex items-center gap-2"
-            onClick={onEnterTrack}
+            className="btn-red flex items-center gap-2 idle-shake idle-shake-delay-1"
+            onClick={() => {
+              sfx.click();
+              onEnterTrack();
+            }}
             data-testid="enter-track-btn"
           >
             <Bike className="w-4 h-4 text-accent" />
@@ -96,6 +103,7 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
             href={getAssetUrl('resumes/Amriteshkumar_Yadav_.pdf')}
             download="Amriteshkumar_Yadav_Resume.pdf"
             className="btn-outline flex items-center gap-2"
+            onClick={() => sfx.click()}
             data-testid="resume-btn"
             title="Download verified resume"
           >
@@ -137,16 +145,24 @@ export const Hero: React.FC<{ onEnterTrack: () => void; scrollTo: (href: string)
           </a>
         </motion.div>
 
-        {/* THE CENTERPIECE ILLUSTRATED WORKSHOP FACADE */}
+        {/* THE CENTERPIECE ILLUSTRATED WORKSHOP FACADE WITH HAND-DRAWN INK FRAME */}
         <motion.div
           className="mt-8 w-full max-w-4xl relative"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.35, duration: 0.8 }}
         >
-          <div className="relative rounded-xl border border-ink3/40 bg-paper/60 p-2 sm:p-4 shadow-sm">
+          <div className="relative rounded-2xl ink-frame bg-paper/80 p-2 sm:p-4 shadow-md squiggle-target">
             <WorkshopEntranceHeroArt className="w-full h-auto text-ink" />
           </div>
+
+          {/* Inspiration Badges: Drawn by Hand & Coded with Claude */}
+          <div className="mt-4 flex items-center justify-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
+            <img src="/portfolio/media/drawn-by-hand.png" alt="Drawn by hand" className="h-5 sm:h-6 w-auto" />
+            <span className="text-ink3 text-xs">•</span>
+            <img src="/portfolio/media/coded-with-claude.png" alt="Coded with Claude" className="h-5 sm:h-6 w-auto" />
+          </div>
+
           <span className="annotation absolute -bottom-6 right-4 text-sm sm:text-base text-accent rotate-2 hidden sm:block">
             welcome inside the engineering studio ✎
           </span>

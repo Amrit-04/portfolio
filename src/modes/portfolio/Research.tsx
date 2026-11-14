@@ -10,15 +10,15 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
       {/* Section Header */}
       <div className="mb-14">
         <div className="flex items-center gap-2 mb-3">
-          <span className="sticker text-xs text-accent bg-paper border border-accent/40 px-3 py-1 rounded-full">
+          <span className="sticker text-xs text-accent bg-paper border border-accent/40 px-3 py-1 rounded-full font-elite">
             <Sparkles className="w-3.5 h-3.5 text-accent mr-1 inline" />
             Peer-Reviewed Research
           </span>
-          <span className="annotation text-ink3 text-sm rotate-[-1deg]">
+          <span className="font-marker text-ink3 text-sm rotate-[-1deg]">
             IEEE RMKMATE 2026 publication
           </span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-ink">
+        <h2 className="font-anton text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide text-ink">
           Framed publication &amp; side quests.
         </h2>
       </div>
@@ -29,7 +29,7 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.65 }}
-        className="relative bg-paper rounded-2xl border-2 border-ink p-6 sm:p-10 md:p-12 shadow-md relative overflow-hidden"
+        className="relative bg-paper rounded-2xl ink-frame-med p-6 sm:p-10 md:p-12 shadow-md relative overflow-hidden squiggle-target"
       >
         {/* Top hanging wire & brass brackets */}
         <div className="flex justify-between items-center px-8 -mt-2 mb-6 opacity-60">
@@ -41,24 +41,24 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
           <div className="flex items-center gap-2.5">
             <Award className="w-5 h-5 text-accent" />
-            <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
+            <span className="font-elite text-xs font-bold text-accent uppercase tracking-wider">
               IEEE Conference Publication
             </span>
           </div>
-          <span className="sticker text-xs font-mono font-bold text-ink bg-paper2 border border-ink3/40">
+          <span className="sticker text-xs font-elite font-bold text-ink bg-paper2 border border-ink3/40">
             IEEE Xplore: 11518869
           </span>
         </div>
 
-        <h3 className="font-serif text-2xl sm:text-3xl leading-snug font-bold text-ink">
+        <h3 className="font-anton text-2xl sm:text-3xl uppercase tracking-wide text-ink leading-snug">
           {RESEARCH.title}
         </h3>
 
-        <div className="mt-4 p-4 bg-paper2/60 rounded-xl border border-ink3/30 space-y-1">
+        <div className="mt-4 p-4 bg-paper2/60 rounded-xl border border-ink3/30 space-y-1 font-elite">
           <p className="font-sans text-sm text-ink2 leading-relaxed">
             <strong className="text-ink">Authors:</strong> {RESEARCH.authors}
           </p>
-          <p className="font-mono text-xs text-blue">
+          <p className="font-elite text-xs text-blue">
             {RESEARCH.venue}
           </p>
         </div>
@@ -68,7 +68,7 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
             href={RESEARCH.doiUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn-ink text-xs flex items-center gap-2"
+            className="btn-ink text-xs flex items-center gap-2 idle-shake cursor-pointer"
             data-testid="ieee-link"
           >
             <ExternalLink className="w-4 h-4 text-gold" /> View on IEEE Xplore
@@ -77,7 +77,7 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
             href="https://github.com/Amrit-04/workplace-safety-vision"
             target="_blank"
             rel="noreferrer"
-            className="btn-outline text-xs flex items-center gap-2"
+            className="btn-outline text-xs flex items-center gap-2 cursor-pointer"
           >
             <Github className="w-4 h-4" /> Research Repository
           </a>
@@ -87,15 +87,15 @@ export const Research: React.FC<{ onEnterTrack: () => void }> = ({ onEnterTrack 
       {/* Side Quests Section */}
       <div className="mt-16">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <h4 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
+          <h4 className="font-anton text-2xl sm:text-3xl uppercase tracking-wide text-ink">
             Curious side quests
           </h4>
-          <span className="annotation text-base sm:text-lg text-ink3 rotate-[-1deg]">
+          <span className="font-marker text-base sm:text-lg text-ink3 rotate-[-1deg]">
             unusual systems built to understand how computers work ✎
           </span>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5 font-elite">
           {SIDE_QUESTS.map((q) => (
             <a
               key={q.name}
