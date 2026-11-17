@@ -1,0 +1,26 @@
+# Space Physics Engine
+
+A little project to explore physics, C++, and space.
+
+The idea is to build a space physics engine from scratch, starting with the basics and gradually making it more capable. I'll be using it to learn more about physics simulations, numerical methods, graphics programming, and the engineering behind them.
+
+### What I'm aiming for
+
+- Simulating gravity and the motion of celestial bodies.
+- Experimenting with planets, moons, stars, and orbital mechanics.
+- Building a 3D visualization of the simulation.
+- Exploring performance improvements and GPU acceleration as the project grows.
+- Learning by building things myself, one step at a time.
+
+### Tech stack
+
+- **C++20**
+- **CMake**
+- **Git**
+- **Vulkan and CUDA**, eventually, as I get to rendering and GPU computing.
+
+### Current status
+
+Just getting the foundations in place. No grand simulations yet, just setting things up properly and learning as I go.
+
+This is a long-term learning project, so the plan is to keep things simple, experiment often, and see how far I can take it.

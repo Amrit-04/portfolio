@@ -1,0 +1,515 @@
+[
+  {
+    "name": "desktop",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-CtpjmB2t.js",
+        "bytes": 95922,
+        "duration": 24.88000001013279,
+        "start": 16.33499999344349
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 11.435000002384186,
+        "start": 16.575000002980232
+      },
+      {
+        "name": "/portfolio/assets/index-BPDgKmp_.css",
+        "bytes": 14617,
+        "duration": 12.444999992847443,
+        "start": 16.640000000596046
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 4.419999986886978,
+        "start": 79.15000000596046
+      },
+      {
+        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
+        "bytes": 53596,
+        "duration": 196.1899999976158,
+        "start": 89.46500000357628
+      },
+      {
+        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
+        "bytes": 29864,
+        "duration": 196.50999999046326,
+        "start": 89.57500000298023
+      },
+      {
+        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
+        "bytes": 18912,
+        "duration": 196.7099999934435,
+        "start": 89.625
+      }
+    ],
+    "metrics": {
+      "lcp": 351.0649999976158,
+      "cls": 0.0013008866072289737,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 128.85500000417233
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 351.0649999976158
+        }
+      ]
+    }
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:llm-reliability-control-plane",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:fault-tolerant-ml-telemetry",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:tradeflow",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:moneyball",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:warehouse-routing-engine",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:workplace-safety-vision",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.944999999999709,
+      "p95Ms": 7.2849999999998545,
+      "maxMs": 7.600000000002183
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.597817402147086,
+      "progress": 0.44120440701768787,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.9583333333333324,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.248608471860057,
+      "y": 0.8367252355469802,
+      "angle": 0.0010184317121625657,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.7250863906044183,
+      "frontSpin": -2.7250791240300885,
+      "steps": 115,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.061246691770656614
+    },
+    "canvas": {
+      "bufferWidth": 1440,
+      "bufferHeight": 776,
+      "cssWidth": 1440,
+      "cssHeight": 776
+    }
+  },
+  {
+    "name": "desktop",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "errors": [],
+    "bad": []
+  },
+  {
+    "name": "mobile",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-CtpjmB2t.js",
+        "bytes": 95922,
+        "duration": 42.15500000119209,
+        "start": 26.524999991059303
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 32.625,
+        "start": 26.804999992251396
+      },
+      {
+        "name": "/portfolio/assets/index-BPDgKmp_.css",
+        "bytes": 14617,
+        "duration": 29.185000002384186,
+        "start": 26.86999998986721
+      },
+      {
+        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
+        "bytes": 53596,
+        "duration": 218.98000000417233,
+        "start": 117.4299999922514
+      },
+      {
+        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
+        "bytes": 29864,
+        "duration": 220.60499998927116,
+        "start": 117.5
+      },
+      {
+        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
+        "bytes": 18912,
+        "duration": 221.30500000715256,
+        "start": 117.53999999165535
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 14.33500000834465,
+        "start": 325.0549999922514
+      }
+    ],
+    "metrics": {
+      "lcp": 344.39000000059605,
+      "cls": 0,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 66.16499999165535
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 344.39000000059605
+        }
+      ]
+    }
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:llm-reliability-control-plane",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:fault-tolerant-ml-telemetry",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:tradeflow",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:moneyball",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:warehouse-routing-engine",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:workplace-safety-vision",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.955000000001746,
+      "p95Ms": 7.18999999999869,
+      "maxMs": 13.790000000000873
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.576790978869111,
+      "progress": 0.44016773927770564,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.8999999999999992,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.245674702155907,
+      "y": 0.837511470614529,
+      "angle": 0.0029641008634770268,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.866356232400495,
+      "frontSpin": -2.7074904770007997,
+      "steps": 108,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.050044704827573464
+    },
+    "canvas": {
+      "bufferWidth": 390,
+      "bufferHeight": 577,
+      "cssWidth": 390,
+      "cssHeight": 577
+    }
+  },
+  {
+    "name": "mobile",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "errors": [],
+    "bad": []
+  },
+  {
+    "name": "small",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-CtpjmB2t.js",
+        "bytes": 95922,
+        "duration": 46.38499999046326,
+        "start": 36.01000000536442
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 27.150000005960464,
+        "start": 36.25
+      },
+      {
+        "name": "/portfolio/assets/index-BPDgKmp_.css",
+        "bytes": 14617,
+        "duration": 26.394999995827675,
+        "start": 36.310000002384186
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 4.114999994635582,
+        "start": 132.8500000089407
+      },
+      {
+        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
+        "bytes": 53596,
+        "duration": 235.78999999165535,
+        "start": 141.02500000596046
+      },
+      {
+        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
+        "bytes": 29864,
+        "duration": 236.77000001072884,
+        "start": 141.0949999988079
+      },
+      {
+        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
+        "bytes": 18912,
+        "duration": 237.57999999821186,
+        "start": 141.13500000536442
+      }
+    ],
+    "metrics": {
+      "lcp": 379.2199999988079,
+      "cls": 0,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 73.48000000417233
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 379.2199999988079
+        }
+      ]
+    }
+  },
+  {
+    "name": "small",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.9399999999996,
+      "p95Ms": 7.384999999999309,
+      "maxMs": 9.845000000000255
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.6961663093063497,
+      "progress": 0.48222807635745074,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.9999999999999989,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.364705456091586,
+      "y": 0.8367376437280566,
+      "angle": 0.0006014833662506142,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.978049461997428,
+      "frontSpin": -2.9780402770073002,
+      "steps": 120,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.0500077795801626
+    },
+    "canvas": {
+      "bufferWidth": 360,
+      "bufferHeight": 379,
+      "cssWidth": 360,
+      "cssHeight": 379
+    }
+  },
+  {
+    "name": "small",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "errors": [],
+    "bad": []
+  }
+]
