@@ -1,135 +1,117 @@
-# Performance and accessibility verification
+# Performance and accessibility — corrected composition
 
-Date: 2026-11-17. Scope: the production build served locally at `/portfolio/`, not the unchanged public deployment. Chrome 157 on Windows; Lighthouse 12.8.2. Phone dimensions are emulated on the same computer, not measurements of physical phones.
+Date: 2026-11-17. Scope: the production bundle served locally at `/portfolio/`, Chrome 157 on Windows. These are not measurements of the unchanged public deployment or physical phones. This report supersedes the workshop's earlier 27-state/49-test/four-100-score report.
 
-## Results and evidence
+## Results
 
-| Check | Earlier observation | Final observation |
+| Check | Historical workshop / earlier correction | Current correction |
 | --- | --- | --- |
-| Critical JS + CSS, gzip | 113,514 bytes before final CSS correction | **113,449 / 160,000 bytes**, gate passes |
-| Neural demo JS, raw | approximately 419 KB with general ONNX import | **63,567 bytes**; gzip 20,337 bytes |
-| ONNX runtime WASM, raw | 29,520,971-byte JSEP runtime and redundant emitted assets | **14,848,852-byte** WASM-only runtime, loaded on demand; redundant runtime excluded |
-| Game chunk | Deferred from first screen | 239,934 bytes raw / 56,678 bytes gzip |
-| Portfolio initial resource transfers | No comparable baseline retained | **217,702 bytes**, excluding the HTML document; includes resource response overhead |
-| Loaded-state axe audit | Contrast, unlabeled slider and inaccessible scroll region found | **27 states; 0 violations**, 0 page errors, 0 HTTP failures |
-| Horizontal document overflow | Mobile title/canvas defects corrected during implementation | **0 px** at 1440, 390 and 360 CSS pixels |
-| Lighthouse desktop-form-factor | First trace failed `NO_NAVSTART`; partial accessibility 96 / SEO 100 | Completed diagnostic run: performance **100**, accessibility **100**, best practices **100**, SEO **100**, with warnings below |
-| Lighthouse mobile | No valid performance baseline | `NO_NAVSTART`: performance/best-practices unavailable; partial accessibility 100 / SEO 100 |
+| Critical JS + CSS, gzip | 113,449 bytes in rejected workshop | **112,320 / 160,000 bytes**, budget passes |
+| Initial resource transfer, excluding HTML | 217,702 bytes in workshop | **736,947 bytes**, including new illustration/font responses and overhead |
+| Loaded-state axe | 27 states in workshop | **45 states, zero violations** |
+| Browser page errors / HTTP failures | No comparable correction baseline | **0 / 0** in quality and visual audits |
+| Horizontal document overflow | Lower paper occlusion found despite no document overflow | **0 px** at 1440, 390 and 360 px; small-paper occlusion separately fixed and screenshot-checked |
+| Unit / physics | 15 tests | **15 pass** |
+| E2E | 49 pass / 2 duplicate skips in workshop | **53 pass / 4 intentional skips / 0 failed / 0 flaky** |
+| Strict types / build | Previously passed | Both pass on corrected source |
+| Lint | 426 warnings / 0 errors | **429 warnings / 0 errors**, exit 0; not warning-free |
+| Lighthouse desktop diagnostic | Historical workshop scores must not be reused | **Trace failed NO_NAVSTART**; performance/best-practices unavailable; partial accessibility 100 / SEO 100 |
+| Lighthouse mobile | Historical trace failed | Not rerun for correction; no current mobile score |
 
-Raw evidence: [browser-quality.json](browser-quality.json), [e2e-results.json](e2e-results.json), [unit-results.json](unit-results.json), [lighthouse-desktop-final.json](lighthouse-desktop-final.json), [lighthouse-mobile-final.json](lighthouse-mobile-final.json). The earlier failed Lighthouse report is retained as [lighthouse-desktop.json](lighthouse-desktop.json).
+Evidence: [browser-quality.json](browser-quality.json), [adaptation-visual.json](adaptation-visual.json), [e2e-results.json](e2e-results.json), [unit-results.json](unit-results.json), [adaptation-lint.txt](adaptation-lint.txt), [lighthouse-adaptation-desktop.json](lighthouse-adaptation-desktop.json).
 
-**Lighthouse qualification:** the completed run used `--form-factor=desktop --screenEmulation.disabled --throttling-method=provided`. It used local unthrottled networking/CPU and retained Lighthouse's default mobile user-agent. It is a useful local diagnostic, not a standard throttled desktop benchmark or a claim of production performance. Category scores do not mean every informational or experimental audit passed. In particular, seven label warnings remain (see below). The mobile report is partial because trace collection failed; no mobile performance score is claimed.
+The increase in total initial transfer is real: two original WebP illustrations and two complete local Amatic TTF files now load. The JS/CSS budget excludes those assets, so its passing result must not be described as a 112 KB total page. Game, demo, model and inference runtime remain absent from initial requests.
 
-## Measured timings
+## Current local timings
 
-Independent PerformanceObserver measurements from the production browser audit:
+The quality audit uses reduced motion. It therefore bypasses the normal 850 ms splash and phone recommendation gate and initializes the reel paused. These FCP/LCP values **do not measure the normal-motion time to useful interaction**. Normal-motion gate/reel/navigation behaviour is separately exercised by the visual audit and E2E.
 
-| Viewport | FCP / LCP | CLS | 120 game RAF intervals: median / p95 / max |
+| Emulated viewport | FCP / LCP (ms) | CLS | 120 RAF intervals: median / p95 / max (ms) |
 | --- | --- | --- | --- |
-| 1440 × 1000 | 351.06 / 351.06 ms | 0.001301 | 6.945 / 7.285 / 7.600 ms |
-| 390 × 844 | 344.39 / 344.39 ms | 0 | 6.955 / 7.190 / 13.790 ms |
-| 360 × 640 | 379.22 / 379.22 ms | 0 | 6.940 / 7.385 / 9.845 ms |
+| 1440×1000 | 466.805 / 466.805 | 0.005522 | 6.940 / 8.180 / 29.145 |
+| 390×844 | 254.175 / 254.175 | 0 | 6.950 / 7.425 / 8.825 |
+| 360×640 | 215.555 / 215.555 | 0 | 6.955 / 7.265 / 7.975 |
 
-These are single local observations. RAF interval samples describe presentation cadence on this host, not CPU execution time, a sustained stress test, or mobile-device FPS. The physical simulation remains fixed at 120 Hz independent of rendering cadence.
+Single local, unthrottled host observations, not field performance, mobile-device FPS or a sustained stress test. RAF intervals are presentation cadence, not physics CPU execution time. Simulation stays fixed at 120 Hz independently.
 
-Completed Lighthouse diagnostic: FCP/LCP 549.475 ms, TBT 0 ms, CLS 0.002885, Speed Index 360 ms. LCP was `section#top > div.hero-masthead > div > h1` (the Engineering World heading). Its breakdown was 19.409 ms TTFB and 530.066 ms render delay; no LCP image fetch. These measurements are distinct from the independent browser audit above.
+The independent observer records LCP timing, not its element or subpart breakdown. Lighthouse trace failure means the current LCP element/subparts were not verified; the old workshop heading is not a valid substitute.
 
-## Critical path and payload
+## Observed loading path and requests
 
-The observed path is HTML → entry JS, JSX runtime and stylesheet in parallel → locally hosted fonts → heading text. There is no boot animation, authentication gate or full-screen entrance opacity blocking the first useful screen.
+HTML discovers entry JS, JSX runtime and CSS in parallel. The React page requests original illustrations and the local Amatic faces; game/experiments load only when entered. Normal motion then includes the intended reference-style entrance/gate, rather than an undocumented zero-delay claim.
 
-| Resource | Transfer bytes in browser audit | Start / duration (ms) |
+Desktop request observations:
+
+| Resource | Transfer bytes | Start / duration (ms) |
 | --- | --- | --- |
-| Entry JS | 95,922 | 16.335 / 24.880 |
-| JSX runtime | 3,810 | 16.575 / 11.435 |
-| Stylesheet | 14,617 | 16.640 / 12.445 |
-| Favicon | 981 | 79.150 / 4.420 |
-| Special Elite | 53,596 | 89.465 / 196.190 |
-| Permanent Marker | 29,864 | 89.575 / 196.510 |
-| Anton | 18,912 | 89.625 / 196.710 |
+| Entry JS | 89,061 | 17.900 / 30.880 |
+| JSX runtime | 3,810 | 18.145 / 14.035 |
+| Stylesheet | 20,349 | 18.230 / 23.330 |
+| Character WebP | 196,666 | 82.775 / 5.045 |
+| Process WebP | 117,676 | 82.865 / 4.630 |
+| Amatic bold TTF | 156,480 | 89.630 / 82.230 |
+| Amatic regular TTF | 151,924 | 89.750 / 84.940 |
+| Favicon | 981 | 171.270 / 4.240 |
 
-The game, seven experiments, ONNX model and 14.85 MB inference runtime are absent from initial resource requests. ONNX is still a substantial on-demand download; no attempt is made to pass it off as a small initial asset. Real model inference and fixture parity were re-tested after switching to the observed WASM-only package export. No server/backend calls or live homelab services are invented. A separate Pages-like header check removed COOP/COEP from the document; with `crossOriginIsolated: false`, real model inference and parity below 1e-4 passed for two changing fixtures, with no page errors ([raw result](pages-compatibility.json)).
+The ONNX SIMD runtime remains **14,848,852 raw bytes**, an on-demand cost, not a tiny asset. The neural demo JS is about 63.6 KB raw and the separate game about 239 KB raw. Browser fixture parity and actual inference are tested; other experiments accurately identify recorded/synthetic data. No backend or live homelab service is fabricated. The earlier Pages-like non-isolated inference probe is retained in [pages-compatibility.json](pages-compatibility.json); it is historical compatibility evidence, not a newly deployed check.
 
-## Findings resolved and verified
+## Findings: severity, owner and outcome
 
-| Severity / owner | Finding and correction | Post-fix evidence |
+| Severity / owner | Finding | Evidence / action |
 | --- | --- | --- |
-| major / fix-now | Tab could escape the native project dialog at the boundary; explicit forward/backward cycling added | E2E asserts 12 Tabs, Shift+Tab, Escape and focus return at all three test viewports |
-| major / fix-now | Camera/bicycle SVG centres were hollow hit targets; transparent interactive rectangles added | Trusted Playwright clicks open the intended notebook/route, including back/forward history |
-| major / fix-now | Crash retry re-entered the crashed guard recursively; replacement body now enters ready before play | Unit regression and physical-gap R-retry test pass with intact 21 joints |
-| major / fix-now | A global `color: inherit` rule overrode dark-button label colours | Final desktop/phone demo PNGs opened; Evaluate risk, replay speed and Solve route labels readable |
-| major / fix-now | Replay slider had no accessible name; query-tree scroll region had no keyboard focus | Label and focusable named region added; loaded-demo axe audit passes |
-| minor / fix-now | Small red/formula annotations had inadequate contrast | Existing darker red reused; final loaded-state audit passes |
-| minor / fix-now | Canvas resize left a stale buffer/ghosted scene | ResizeObserver synchronizes buffer and CSS dimensions; final ready/riding/pause/finish PNGs opened |
-| minor / fix-now | Re-entered game sound label disagreed with retained sound setting | State initializes from the shared setting; real WebAudio context/oscillator assertions pass |
-| minor / fix-now | Mobile notebook text joined words when decorative breaks were hidden | Final 390/360 notebook PNGs show normal word spacing |
-
-## Deferred findings and qualifications
-
-| Severity / owner | Evidence | Next step / decision |
-| --- | --- | --- |
-| major / unverifiable | Lighthouse reports 7 `label-content-name-mismatch` findings on exhibition artwork buttons. It treats visible internal SVG diagram text as a button label, while each button has `Explore <project title>` and the illustration subtree is aria-hidden. The separate 27-state axe run reports no violations. | Do not call this a clean WCAG certification. A voice-control/screen-reader review should decide whether to restructure diagram/caption semantics. Explicitly visible Open notebook controls provide an alternate path. No rule was disabled to hide the discrepancy. |
-| minor / needs-product-decision | Lighthouse estimates 80 ms render-blocking CSS savings and 40 KiB unused entry JS; DOM is 1,109 elements | Initial byte budget is met. Keep the illustrated, readable first screen rather than adding a stylesheet-swap race or another redesign without a measured need. |
-| minor / needs-product-decision | ONNX runtime remains 14.85 MB on demand | Real offline model execution is an intentional feature. Consider a clearly opt-in download screen only if field measurements justify it. |
-| minor / unverifiable | Mobile Lighthouse 12.8.2 / Chrome 157 trace lacks navigation start | Repeat on a supported Chrome/Lighthouse pairing or CI; no simulated score substituted. |
-| minor / needs-backend-change | Only local preview compression/timing was measured | After separately authorized deployment, inspect Pages caching/compression/security headers and rerun live measurements. |
-| minor / needs-product-decision | With JavaScript disabled only useful identity/contact/GitHub/résumé fallback remains; full exhibition is client-rendered | Consider prerendering if complete no-JS browsing becomes a requirement. |
-| minor / unverifiable | Lint: 426 warnings, 0 errors. 415 warning locations are copied ONNX runtime modules; 11 are retained portfolio/demo code. | Vendor files were not modified or ignored merely to lower the count. Review remaining hook/dependency warnings separately; this is not a warning-free claim. |
+| major / fix-now | Nested wall/notebook focus, Escape and body-scroll state needed independent boundaries | Tests assert 12 Tabs, Shift+Tab, one-layer Escape, restored focus and retained wall/body lock |
+| major / fix-now | Desktop homelab paper covered bicycle introduction | Narrowed into right column; final introduction, button and disclaimer opened and readable |
+| major / fix-now | 360 px lower sheets covered résumé/disclaimer | Small-only offsets increased; final PNGs opened, résumé trial pointer click passes |
+| minor / fix-now | Phone preview could reopen after outside interaction | E2E asserts cancel, delayed opening, gate persistence and separate touch lifecycle |
+| minor / fix-now | Early capture readiness could show a grid rather than reference wall | Fresh navigation and opacity/media readiness; all six final reference walls visibly loaded |
+| minor / needs-product-decision | New illustrations/complete TTFs increase initial transfer to 736,947 bytes | Honest total reported; optional licensed WOFF2/subsetting and below-fold lazy images could reduce it, but are not claimed implemented |
+| minor / needs-product-decision | Real neural inference downloads a 14.85 MB runtime | Keep explicit model/demo context; consider a separate download confirmation if field data warrants it |
+| minor / unverifiable | Lighthouse 12.8.2 trace collection failed NO_NAVSTART on Chrome 157 | Rerun on a compatible browser/toolchain or CI; no guessed performance score |
+| minor / needs-backend-change | Local response sizes/timings do not establish Pages caching/compression/security headers | Inspect only after separately authorized publication |
+| minor / unverifiable | 429 lint warnings remain | 415 vendor-runtime warning locations and 14 application locations; no rule disabled/vendor edits to reduce the count |
+| minor / needs-product-decision | No-JS fallback is useful but not a complete portfolio | Identity, contact, GitHub and résumé work; full prerendering is not implemented |
 
 ## Accessibility checklist
 
-### Screen reader and keyboard
+### Keyboard and semantics
 
-Semantic navigation, skip link, headings, labelled controls, dialog close/Escape/focus restoration, roving skill tabs and keyboard ride controls are exercised. Actual focus is asserted rather than inferred from keypress success. The query plan region is focusable and the replay slider named. Canvas game telemetry/control labels do not make a visual physics game fully nonvisual; all project content is independently available through portfolio notebooks. No physical screen-reader or voice-control session was available.
+Semantic navigation and skip link; labelled category/reel/close controls; native nested dialogs with asserted focus cycling/restoration; back/forward history; named keyboard-pannable walls; actual experiment state changes; replay slider label and query-tree focus region; keyboard bicycle controls. Small-phone résumé pointer hit-testing is verified without following its external document link.
 
-### Visual and media
+### Visual/media
 
-74 final PNGs were opened, covering all desktop sections, seven desktop and phone notebook introductions and loaded experiments, small-phone representative notebook/demo, and game/editor states. Font hierarchy and paper/ink treatment remain coherent. Tall sections and notebooks intentionally scroll; the viewport captures do not claim all content fits in one screen. No document horizontal overflow was measured at 360, 390 or 1440 px. Contrast fixes were measured by axe; the old Lighthouse SVG-label discrepancy is not hidden by its 100 category score.
+The 57-state normal-motion archive and 48 current notebook/demo/game/editor captures were opened. Lower-sheet occlusion was repaired separately from overflow testing. The 45-state axe run covers loaded content, not only a hidden/splash page. Phone walls deliberately require internal pan; full technical explanations are available as notebook text. Automated results do not certify WCAG compliance or voice-control usability.
 
-### Motion and readability
+### Motion and input
 
-Reduced-motion mode is tested. No boot delay, automatic ambient audio, custom cursor or mandatory scrolling animation. Sound stays off until an explicit click; actual context/oscillator creation is observed using CDP. While muted, collecting a star creates no new audio node. Audio nodes are not proof of listening quality, and no listening-quality claim is made.
+Reduced motion skips the splash/recommendation, pauses the reel and disables decorative animation. Normal motion includes the brief splash, first-phone recommendation, stepped line jitter and controlled reel; play/pause/next controls are tested. Audio defaults muted and requires opt-in. Game input owners are independent; blur/pause/cancel/exit clear them. WebAudio node assertions prove creation/muting, not listening quality.
 
-### Needs design input
+### Unverified external checks
 
-Resolve the diagram-text versus button-name discrepancy with assistive-technology feedback, rather than stuffing all diagram prose into an oversized accessible name. Small SVG diagram labels are illustrative; full explanations and sourced metrics remain available as normal notebook text.
-
-### Needs product decision
-
-Full no-JS prerendering, an explicit large-model download gate, and a nonvisual alternative to gameplay are possible later extensions, not completed features.
-
-### Unverifiable here
-
-Physical iOS/Android interaction, Safari/Firefox compatibility, real screen reader/voice control, 200% browser zoom, comprehensive target-size audit, extended gameplay stress/battery behaviour, deployed network conditions and post-publication functionality. Chrome viewport emulation is not a substitute for these checks.
+Physical iOS/Android, Safari/Firefox, real screen readers and voice control, 200% browser zoom, exhaustive target-size review, sustained gameplay/battery behaviour and published network conditions. The game is not claimed to be fully playable nonvisually; all portfolio content is accessible without completing it. The old workshop's seven Lighthouse artwork-label warnings are historical, not presented as measured defects of the new composition.
 
 ## Reproduction
 
 ```sh
-npm ci
+npm run build
 npm run typecheck
 npm run lint
 npx vitest run tests --reporter=default --reporter=json --outputFile=docs/unit-results.json
-npm run build
 npm run size
-npx playwright install --with-deps chrome
 npm run test:e2e
 ```
 
-Observed final output: 15 unit/physics tests pass; typecheck exits 0; lint exits 0 with 426 warnings / 0 errors; size 113,449 / 160,000 gzip bytes; E2E **49 passed, 2 skipped, 0 failed, 0 flaky**, 163.045 seconds. The skips are duplicate laptop/mobile full-course traversals; all other tests run at all three E2E viewports.
-
-For production screenshots and audit, start `npm run preview -- --port 4183 --strictPort` in a separate terminal, then:
+With production preview on port 4183:
 
 ```sh
-node scripts/quality-audit.mjs
 node scripts/visual-audit.mjs
+node scripts/quality-audit.mjs
+node scripts/create-review.mjs
 ```
 
-Final combined command `npm run build && node scripts/quality-audit.mjs && npm run test:e2e && node scripts/visual-audit.mjs` exited 0. The audit waits for actual loaded experiment controls, including model inference, before capturing or scanning.
-
-Lighthouse diagnostic command (Git Bash on this host):
+Lighthouse diagnostic attempted after the prior complete regression had exited (not concurrently with it):
 
 ```sh
-CHROME_PATH="C:/Program Files/Google/Chrome/Application/chrome.exe" npx --yes lighthouse@12 http://127.0.0.1:4183/portfolio/ --only-categories=performance,accessibility,best-practices,seo --form-factor=desktop --screenEmulation.disabled --throttling-method=provided --disable-full-page-screenshot --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage" --output=json --output-path=docs/lighthouse-desktop-final.json --quiet
+CHROME_PATH="C:/Program Files/Google/Chrome/Application/chrome.exe" npx --yes lighthouse@12 http://127.0.0.1:4183/portfolio/ --only-categories=performance,accessibility,best-practices,seo --form-factor=desktop --screenEmulation.disabled --throttling-method=provided --disable-full-page-screenshot --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage" --output=json --output-path=docs/lighthouse-adaptation-desktop.json --quiet
 ```
 
-Mobile used `--form-factor=mobile`, omitted `--screenEmulation.disabled`, and wrote `docs/lighthouse-mobile-final.json`; it exited 1 with the documented `NO_NAVSTART` failure. The owned preview is stopped at handoff. No test harness or mutated QA route is shipped.
+Exit 1: `NO_NAVSTART`. The diagnostic was local/unthrottled with screen emulation disabled; even a completed score would not have been a production benchmark. The subsequent CSS-only ≤380 px clearance fix does not change that desktop surface. Owned preview/audit processes are stopped at handoff; no QA route or injected harness is in dist.

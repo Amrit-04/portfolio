@@ -15,6 +15,9 @@ for (const entry of await readdir("dist"))
   if (!allowed.has(entry))
     await rm(`dist/${entry}`, { recursive: true, force: true });
 const fonts = new Set([
+  "AmaticSC-Regular.ttf",
+  "AmaticSC-Bold.ttf",
+  "amatic-LICENSE.txt",
   "anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
   "permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
   "special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",

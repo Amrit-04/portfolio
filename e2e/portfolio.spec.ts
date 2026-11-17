@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { openNotebook } from "./paper-helpers";
 
 test.describe("Portfolio Mode & Navigation", () => {
   test("loads portfolio mode with correct branding, navigation, and resume link", async ({
@@ -7,24 +8,12 @@ test.describe("Portfolio Mode & Navigation", () => {
     await page.goto("./");
     await expect(page).toHaveTitle(/Amriteshkumar Yadav/i);
 
-    // Verify Hero and Sections
-    const heroHeadline = page.locator("h1");
-    await expect(heroHeadline).toBeVisible();
-    await expect(heroHeadline).toContainText(/engineering/i);
-
-    // Navigation links (desktop navbar vs mobile navbar)
-    const viewport = page.viewportSize();
-    if (viewport && viewport.width > 800) {
-      await expect(page.locator('nav a[href="#work"]')).toBeVisible();
-      await expect(page.locator('nav a[href="#about"]')).toBeVisible();
-      await expect(page.locator('nav a[href="#skills"]')).toBeVisible();
-      await expect(page.locator('nav a[href="#contact"]')).toBeVisible();
-    } else {
-      await expect(
-        page.locator('[data-testid="enter-track-nav"]'),
-      ).toBeVisible();
-      await expect(page.locator('[data-testid="nav-home"]')).toBeVisible();
+    await expect(page.locator("h1")).toHaveText("AMRITESHKUMAR YADAV");
+    for (const id of ["about", "work", "links"]) {
+      await expect(page.locator(`nav a[href="#${id}"]`)).toBeVisible();
     }
+    await expect(page.locator('[data-testid^="category-"]')).toHaveCount(6);
+    await page.getByTestId("category-research").click();
 
     // Verify verified resume download link
     const resumeLink = page.locator('[data-testid="resume-btn"]');
@@ -32,9 +21,19 @@ test.describe("Portfolio Mode & Navigation", () => {
     const resumeHref = await resumeLink.getAttribute("href");
     expect(resumeHref).toContain("Amriteshkumar_Yadav_.pdf");
 
-    // Verify all 7 distinct project exhibits
-    const projectCards = page.locator('[data-testid^="project-card-"]');
-    await expect(projectCards).toHaveCount(7);
+    await page.keyboard.press("Escape");
+    const found = new Set<string>();
+    for (const category of ["ai", "systems", "quant", "algorithms"]) {
+      await page.getByTestId(`category-${category}`).click();
+      for (const id of await page
+        .locator('[data-testid^="open-notebook-"]')
+        .evaluateAll((nodes) =>
+          nodes.map((n) => n.getAttribute("data-testid")!),
+        ))
+        found.add(id);
+      await page.keyboard.press("Escape");
+    }
+    expect(found.size).toBe(7);
   });
 });
 
@@ -46,13 +45,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 1: Neural Query Optimizer (WASM Inference & Parity)", async ({
     page,
   }) => {
-    const card = page.locator(
-      '[data-testid="project-card-neural-query-optimizer"]',
-    );
-    await card.scrollIntoViewIfNeeded();
-    await page
-      .locator('[data-testid="open-notebook-neural-query-optimizer"]')
-      .click();
+    await openNotebook(page, "neural-query-optimizer");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -91,13 +84,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 2: LRCP Trace Explorer (Waterfall & Filter Re-selection)", async ({
     page,
   }) => {
-    const card = page.locator(
-      '[data-testid="project-card-llm-reliability-control-plane"]',
-    );
-    await card.scrollIntoViewIfNeeded();
-    await page
-      .locator('[data-testid="open-notebook-llm-reliability-control-plane"]')
-      .click();
+    await openNotebook(page, "llm-reliability-control-plane");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -122,13 +109,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 3: Pipeline Replay (Real Sample Playback & 27 Tuning Sweeps)", async ({
     page,
   }) => {
-    const card = page.locator(
-      '[data-testid="project-card-fault-tolerant-ml-telemetry"]',
-    );
-    await card.scrollIntoViewIfNeeded();
-    await page
-      .locator('[data-testid="open-notebook-fault-tolerant-ml-telemetry"]')
-      .click();
+    await openNotebook(page, "fault-tolerant-ml-telemetry");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -165,9 +146,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 4: Tradeflow OMS (State Machine & Fill Accounting)", async ({
     page,
   }) => {
-    const card = page.locator('[data-testid="project-card-tradeflow"]');
-    await card.scrollIntoViewIfNeeded();
-    await page.locator('[data-testid="open-notebook-tradeflow"]').click();
+    await openNotebook(page, "tradeflow");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -201,9 +180,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 5: Moneyball (Merton Compound Poisson Monte Carlo)", async ({
     page,
   }) => {
-    const card = page.locator('[data-testid="project-card-moneyball"]');
-    await card.scrollIntoViewIfNeeded();
-    await page.locator('[data-testid="open-notebook-moneyball"]').click();
+    await openNotebook(page, "moneyball");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -227,13 +204,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 6: Warehouse Routing (Obstacle-Aware A* & Open-Path Held-Karp)", async ({
     page,
   }) => {
-    const card = page.locator(
-      '[data-testid="project-card-warehouse-routing-engine"]',
-    );
-    await card.scrollIntoViewIfNeeded();
-    await page
-      .locator('[data-testid="open-notebook-warehouse-routing-engine"]')
-      .click();
+    await openNotebook(page, "warehouse-routing-engine");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();
@@ -262,13 +233,7 @@ test.describe("Interactive Project Demos", () => {
   test("Demo 7: Workplace Safety (Geofencing & Foot-Point Probing)", async ({
     page,
   }) => {
-    const card = page.locator(
-      '[data-testid="project-card-workplace-safety-vision"]',
-    );
-    await card.scrollIntoViewIfNeeded();
-    await page
-      .locator('[data-testid="open-notebook-workplace-safety-vision"]')
-      .click();
+    await openNotebook(page, "workplace-safety-vision");
 
     const modal = page.locator('[data-testid="project-detail-modal"]');
     await expect(modal).toBeVisible();

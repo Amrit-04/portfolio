@@ -1,17 +1,29 @@
-# Engineering World design system
+# Reference-led composition specification
 
-A working illustrated studio, not a dashboard. Wide editorial masthead, an original tabletop workshop scene, then a winding exhibition shelf. The same ink, red bicycle and paper terrain carry into the game.
+Updated 2026-11-17. This is the implementation map for the supplied Tiago clone, not a newly invented design system. The rejected workshop masthead, tabletop navigation, shelves and seven-project card arrangement are no longer the portfolio's composition. Historical unused components are retained without being imported by the portfolio route.
 
-Palette: paper #F7F6F1, secondary #F0ECE3, ink #2A2520, secondary ink #4A4540, blue #3A6EA5, green #477A54, red #C84B31, brass #D4A843. Muted #8A8478 only for decorative lines; readable secondary copy uses darker ink. No glowing gradients.
+## Page and typography
 
-Typography: local Anton for short monumental display headings; Permanent Marker for occasional personal annotations; Special Elite for field labels; system sans for prose. Locally shipped licences. Text remains real HTML, scalable and selectable.
+Pale cool paper RGB(242,244,244), near-black ink, very subtle procedural grain, seams and occasional muted print colours. Sticky three-link bracketed navigation. The page sequence is framed reel → illustrated biography → six ink category boxes → bracketed links and process illustration → long sign-off. Desktop section widths, ratios, whitespace, grid gaps and rotations follow the measured clone. Phone layout retains the miniature biography composition and two-column category grid rather than converting them to new cards.
 
-Illustration: original SVGs, 2–3px ink strokes with round caps, small asymmetric coordinates, offset repeated outlines, sparse hatching, warm flat fills. Human-scale desk, laptop, lamp, notebook, server stack, books, camera, Pi and bicycle. Objects link to real sections; normal navigation stays visible. No borrowed personal artwork.
+Amatic SC Regular/Bold is locally hosted under OFL 1.1 for tall handwritten display text. It substitutes for unlicensed TFNibText; it does not reproduce that font's exact glyphs. System sans/monospace and retained locally licensed fonts support readable notebook prose, code and game controls. Main text remains HTML, not rasterized copy.
 
-Exhibits use distinct original repo illustration plates (query easel, rack, manifold, trading desk, open ledger, warehouse, CV outpost), staggered on open shelves, not rounded icon cards. Notebook details prioritize problem, contribution, architecture, tradeoffs, limitations and executable demos.
+## Artwork and walls
 
-Motion: only short hover lift/ink accents and game motion; no cursor hijack, perpetual text shaking or forced entrance splash. Reduced motion removes transitions. Sound off by default, explicit toggle.
+Original lightly irregular SVG frames use thin non-scaling strokes and restrained coordinate variation, not large sawtooth outlines. A newly generated fictional programmer occupies the biography's left illustration slot. A new monochrome notebook-process illustration occupies the tilted links picture. Neither is a documentary photograph or a portrait-likeness claim.
 
-Responsive: 1440/1280 desktop, 768 tablet, 390 and 360 phones; fluid headings, wrapped nav, single-column exhibition, legible controls, independent modal scrolling. Game offers touch buttons, landscape hint, no forced rotation.
+The six categories occupy the source grid positions: AI/ML, backend systems, quantitative finance, algorithms, research and playground. First four offer original sticker previews; last two show animated miniature content. Portrait wall pieces are used for AI/algorithms; systems and finance use measured broad overlapping print placements. Research opens with a wide publication banner and then publication/CV/skills sheets. Playground uses a large bicycle drawing and overlapping homelab/experiment sheets. Later piece counts and detailed art differ to fit truthful personal content instead of copying a commercial archive.
 
-Accessibility: semantic regions, visible focus, skip link, dialog focus trap/restore, meaningful accessible object names, keyboard equivalents, >=44px main touch targets, no color-only state. Paper pattern subtle enough to preserve contrast.
+## Interaction and motion
+
+Stepped ink/navigation motion, short opening splash, .32 s wall drop, .22 s notebook entrance, biography correction/torn note, first-phone-visit recommendation, and the long sign-off follow the reference's interaction roles. The reel is a 4.2 s original project slideshow, not a borrowed video. Pause/play, next, fullscreen and mute controls are available. It pauses offscreen, on hidden tabs and behind walls. Audio is original synthesized sound and off until opt-in.
+
+Reduced motion removes decorative movement, skips the entrance/recommendation gate, and initializes the reel paused. Touch preview cancels when the visitor touches elsewhere. Phone walls intentionally pan internally at 180% width; the document itself must not overflow horizontally. Wall scroll regions are focusable. Native nested dialogs trap focus, close one layer at a time with Escape and restore the correct trigger.
+
+## Separate game and readable content
+
+The existing physical trail remains a separate lazy `#/ride` route reached from Playground. Its physics, editor, sound and input lifecycle are not replaced with decorative animation. The full seven notebooks and real experiments remain available above the category walls. Research includes the IEEE record, résumé and canonical education/skills. Homelab copy distinguishes repository-supported experiments from unconfirmed live services.
+
+## Verification boundary
+
+Matched desktop and phone captures are in REVIEW.html. Build/test success is not visual acceptance. The font, character, reel media, print artwork, later wall density and technical notebook interiors intentionally differ from the source. Physical-device, screen-reader, voice-control and cross-browser review are separate checks; no comprehensive WCAG certification or exact pixel match is claimed.

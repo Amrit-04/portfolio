@@ -1,0 +1,5085 @@
+{
+  "captured": "2026-11-17T08:25:22.865Z",
+  "base": "http://127.0.0.1:4183/portfolio/",
+  "states": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "home",
+      "scrollY": 0,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": 200.390625,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": 200.390625,
+            "right": 1339.1875,
+            "bottom": 1065.1875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about",
+          "rect": {
+            "x": 57.453125,
+            "y": 1155.8125,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": 1155.8125,
+            "right": 1382.53125,
+            "bottom": 2148.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 2302.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 2302.875,
+            "right": 1339.1875,
+            "bottom": 3141.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 3295.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 3295.15625,
+            "right": 1339.1875,
+            "bottom": 4107.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "about",
+      "scrollY": 1156,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -955.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -955.609375,
+            "right": 1339.1875,
+            "bottom": -90.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -0.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -0.1875,
+            "right": 1382.53125,
+            "bottom": 992.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 1146.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 1146.875,
+            "right": 1339.1875,
+            "bottom": 1985.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 2139.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 2139.15625,
+            "right": 1339.1875,
+            "bottom": 2951.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "work",
+      "scrollY": 2303,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -2102.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -2102.609375,
+            "right": 1339.1875,
+            "bottom": -1237.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -1147.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -1147.1875,
+            "right": 1382.53125,
+            "bottom": -154.109375,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": -0.125,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": -0.125,
+            "right": 1339.1875,
+            "bottom": 838.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 992.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 992.15625,
+            "right": 1339.1875,
+            "bottom": 1804.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "links",
+      "scrollY": 3295,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -3094.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -3094.609375,
+            "right": 1339.1875,
+            "bottom": -2229.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -2139.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -2139.1875,
+            "right": 1382.53125,
+            "bottom": -1146.109375,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": -992.125,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": -992.125,
+            "right": 1339.1875,
+            "bottom": -153.828125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 0.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 0.15625,
+            "right": 1339.1875,
+            "bottom": 812.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-ai",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-ai",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-ai",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "notebook",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-ai",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-systems",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-systems",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-systems",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-quant",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-quant",
+      "scrollY": 2028,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1827.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1827.609375,
+            "right": 1339.1875,
+            "bottom": -962.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -872.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -872.1875,
+            "right": 1382.53125,
+            "bottom": 120.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 274.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 274.875,
+            "right": 1339.1875,
+            "bottom": 1113.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1267.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1267.15625,
+            "right": 1339.1875,
+            "bottom": 2079.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-quant",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-algorithms",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-algorithms",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-algorithms",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-research",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-research",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "research-research-paper",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "research-cv-paper",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "research-skills-paper",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "hover-playground",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "wall-playground",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "playground-homelab-paper",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "playground-experiments-paper",
+      "scrollY": 2068,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -1867.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -1867.609375,
+            "right": 1339.1875,
+            "bottom": -1002.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -912.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -912.1875,
+            "right": 1382.53125,
+            "bottom": 80.890625,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": 234.875,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": 234.875,
+            "right": 1339.1875,
+            "bottom": 1073.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 1227.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 1227.15625,
+            "right": 1339.1875,
+            "bottom": 2039.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 130,
+            "y": 40,
+            "width": 1180,
+            "height": 920,
+            "top": 40,
+            "right": 1310,
+            "bottom": 960,
+            "left": 130
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "socials",
+      "scrollY": 2911,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -2710.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -2710.609375,
+            "right": 1339.1875,
+            "bottom": -1845.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -1755.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -1755.1875,
+            "right": 1382.53125,
+            "bottom": -762.109375,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": -608.125,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": -608.125,
+            "right": 1339.1875,
+            "bottom": 230.171875,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": 384.15625,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": 384.15625,
+            "right": 1339.1875,
+            "bottom": 1196.890625,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog social-dialog",
+          "rect": {
+            "x": 395,
+            "y": 238.5,
+            "width": 650,
+            "height": 523,
+            "top": 238.5,
+            "right": 1045,
+            "bottom": 761.5,
+            "left": 395
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "signoff",
+      "scrollY": 4837,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 114,
+            "top": 0,
+            "right": 1440,
+            "bottom": 114,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 100.796875,
+            "y": -4636.609375,
+            "width": 1238.390625,
+            "height": 864.796875,
+            "top": -4636.609375,
+            "right": 1339.1875,
+            "bottom": -3771.8125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 57.453125,
+            "y": -3681.1875,
+            "width": 1325.078125,
+            "height": 993.078125,
+            "top": -3681.1875,
+            "right": 1382.53125,
+            "bottom": -2688.109375,
+            "left": 57.453125
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 100.796875,
+            "y": -2534.125,
+            "width": 1238.390625,
+            "height": 838.296875,
+            "top": -2534.125,
+            "right": 1339.1875,
+            "bottom": -1695.828125,
+            "left": 100.796875
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 100.796875,
+            "y": -1541.84375,
+            "width": 1238.390625,
+            "height": 812.734375,
+            "top": -1541.84375,
+            "right": 1339.1875,
+            "bottom": -729.109375,
+            "left": 100.796875
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "errors": [],
+      "bad": []
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "gate",
+      "scrollY": 0,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-dialog mobile-gate",
+          "rect": {
+            "x": 16,
+            "y": 0,
+            "width": 358,
+            "height": 844,
+            "top": 0,
+            "right": 374,
+            "bottom": 844,
+            "left": 16
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": 116,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": 116,
+            "right": 374.390625,
+            "bottom": 366.546875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": 414.546875,
+            "width": 390,
+            "height": 292.28125,
+            "top": 414.546875,
+            "right": 390,
+            "bottom": 706.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 784.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 784.828125,
+            "right": 374.390625,
+            "bottom": 1355.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 1433.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 1433.1875,
+            "right": 374.390625,
+            "bottom": 2027.453125,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "home",
+      "scrollY": 0,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": 116,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": 116,
+            "right": 374.390625,
+            "bottom": 366.546875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": 414.546875,
+            "width": 390,
+            "height": 292.28125,
+            "top": 414.546875,
+            "right": 390,
+            "bottom": 706.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 784.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 784.828125,
+            "right": 374.390625,
+            "bottom": 1355.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 1433.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 1433.1875,
+            "right": 374.390625,
+            "bottom": 2027.453125,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "about",
+      "scrollY": 415,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -299,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -299,
+            "right": 374.390625,
+            "bottom": -48.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -0.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -0.453125,
+            "right": 390,
+            "bottom": 291.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 369.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 369.828125,
+            "right": 374.390625,
+            "bottom": 940.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 1018.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 1018.1875,
+            "right": 374.390625,
+            "bottom": 1612.453125,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "work",
+      "scrollY": 785,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -669,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -669,
+            "right": 374.390625,
+            "bottom": -418.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -370.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -370.453125,
+            "right": 390,
+            "bottom": -78.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": -0.171875,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": -0.171875,
+            "right": 374.390625,
+            "bottom": 570.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 648.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 648.1875,
+            "right": 374.390625,
+            "bottom": 1242.453125,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "links",
+      "scrollY": 1433,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -1317,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -1317,
+            "right": 374.390625,
+            "bottom": -1066.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -1018.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -1018.453125,
+            "right": 390,
+            "bottom": -726.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": -648.171875,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": -648.171875,
+            "right": 374.390625,
+            "bottom": -77.8125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 0.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 0.1875,
+            "right": 374.390625,
+            "bottom": 594.453125,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-ai",
+      "scrollY": 454,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -338,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -338,
+            "right": 374.390625,
+            "bottom": -87.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -39.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -39.453125,
+            "right": 390,
+            "bottom": 252.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 330.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 330.828125,
+            "right": 374.390625,
+            "bottom": 901.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 979.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 979.1875,
+            "right": 374.390625,
+            "bottom": 1573.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-ai",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "notebook",
+      "scrollY": 454,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -338,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -338,
+            "right": 374.390625,
+            "bottom": -87.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -39.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -39.453125,
+            "right": 390,
+            "bottom": 252.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 330.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 330.828125,
+            "right": 374.390625,
+            "bottom": 901.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 979.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 979.1875,
+            "right": 374.390625,
+            "bottom": 1573.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-ai",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-systems",
+      "scrollY": 454,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -338,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -338,
+            "right": 374.390625,
+            "bottom": -87.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -39.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -39.453125,
+            "right": 390,
+            "bottom": 252.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 330.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 330.828125,
+            "right": 374.390625,
+            "bottom": 901.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 979.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 979.1875,
+            "right": 374.390625,
+            "bottom": 1573.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-systems",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-quant",
+      "scrollY": 454,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -338,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -338,
+            "right": 374.390625,
+            "bottom": -87.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -39.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -39.453125,
+            "right": 390,
+            "bottom": 252.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 330.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 330.828125,
+            "right": 374.390625,
+            "bottom": 901.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 979.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 979.1875,
+            "right": 374.390625,
+            "bottom": 1573.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-quant",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-algorithms",
+      "scrollY": 454,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -338,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -338,
+            "right": 374.390625,
+            "bottom": -87.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -39.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -39.453125,
+            "right": 390,
+            "bottom": 252.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 330.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 330.828125,
+            "right": 374.390625,
+            "bottom": 901.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 979.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 979.1875,
+            "right": 374.390625,
+            "bottom": 1573.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-algorithms",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-research",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "research-research-paper",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "research-cv-paper",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "research-skills-paper",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "wall-playground",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "playground-homelab-paper",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "playground-experiments-paper",
+      "scrollY": 478,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -362,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -362,
+            "right": 374.390625,
+            "bottom": -111.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -63.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -63.453125,
+            "right": 390,
+            "bottom": 228.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": 306.828125,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": 306.828125,
+            "right": 374.390625,
+            "bottom": 877.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 955.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 955.1875,
+            "right": 374.390625,
+            "bottom": 1549.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 33.765625,
+            "width": 358,
+            "height": 776.46875,
+            "top": 33.765625,
+            "right": 374,
+            "bottom": 810.234375,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "socials",
+      "scrollY": 1089,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -973,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -973,
+            "right": 374.390625,
+            "bottom": -722.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -674.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -674.453125,
+            "right": 390,
+            "bottom": -382.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": -304.171875,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": -304.171875,
+            "right": 374.390625,
+            "bottom": 266.1875,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": 344.1875,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": 344.1875,
+            "right": 374.390625,
+            "bottom": 938.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog social-dialog",
+          "rect": {
+            "x": 16,
+            "y": 215.5,
+            "width": 358,
+            "height": 413,
+            "top": 215.5,
+            "right": 374,
+            "bottom": 628.5,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "signoff",
+      "scrollY": 2725,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 76,
+            "top": 0,
+            "right": 390,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 15.59375,
+            "y": -2609,
+            "width": 358.796875,
+            "height": 250.546875,
+            "top": -2609,
+            "right": 374.390625,
+            "bottom": -2358.453125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -2310.453125,
+            "width": 390,
+            "height": 292.28125,
+            "top": -2310.453125,
+            "right": 390,
+            "bottom": -2018.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 15.59375,
+            "y": -1940.171875,
+            "width": 358.796875,
+            "height": 570.359375,
+            "top": -1940.171875,
+            "right": 374.390625,
+            "bottom": -1369.8125,
+            "left": 15.59375
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 15.59375,
+            "y": -1291.8125,
+            "width": 358.796875,
+            "height": 594.265625,
+            "top": -1291.8125,
+            "right": 374.390625,
+            "bottom": -697.546875,
+            "left": 15.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "errors": [],
+      "bad": []
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "gate",
+      "scrollY": 0,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-dialog mobile-gate",
+          "rect": {
+            "x": 16,
+            "y": 0,
+            "width": 328,
+            "height": 640,
+            "top": 0,
+            "right": 344,
+            "bottom": 640,
+            "left": 16
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": 116,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": 116,
+            "right": 345.59375,
+            "bottom": 347.265625,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about",
+          "rect": {
+            "x": 0,
+            "y": 395.265625,
+            "width": 360,
+            "height": 269.796875,
+            "top": 395.265625,
+            "right": 360,
+            "bottom": 665.0625,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": 743.0625,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": 743.0625,
+            "right": 345.59375,
+            "bottom": 1276.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 1354.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 1354.25,
+            "right": 345.59375,
+            "bottom": 1925.8125,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "home",
+      "scrollY": 0,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": 116,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": 116,
+            "right": 345.59375,
+            "bottom": 347.265625,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about",
+          "rect": {
+            "x": 0,
+            "y": 395.265625,
+            "width": 360,
+            "height": 269.796875,
+            "top": 395.265625,
+            "right": 360,
+            "bottom": 665.0625,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": 743.0625,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": 743.0625,
+            "right": 345.59375,
+            "bottom": 1276.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 1354.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 1354.25,
+            "right": 345.59375,
+            "bottom": 1925.8125,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "about",
+      "scrollY": 395,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -279,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -279,
+            "right": 345.59375,
+            "bottom": -47.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": 0.265625,
+            "width": 360,
+            "height": 269.796875,
+            "top": 0.265625,
+            "right": 360,
+            "bottom": 270.0625,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": 348.0625,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": 348.0625,
+            "right": 345.59375,
+            "bottom": 881.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 959.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 959.25,
+            "right": 345.59375,
+            "bottom": 1530.8125,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "work",
+      "scrollY": 743,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -627,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -627,
+            "right": 345.59375,
+            "bottom": -395.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -347.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -347.734375,
+            "right": 360,
+            "bottom": -77.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": 0.0625,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": 0.0625,
+            "right": 345.59375,
+            "bottom": 533.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 611.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 611.25,
+            "right": 345.59375,
+            "bottom": 1182.8125,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "links",
+      "scrollY": 1354,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -1238,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -1238,
+            "right": 345.59375,
+            "bottom": -1006.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -958.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -958.734375,
+            "right": 360,
+            "bottom": -688.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -610.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -610.9375,
+            "right": 345.59375,
+            "bottom": -77.75,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 0.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 0.25,
+            "right": 345.59375,
+            "bottom": 571.8125,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "wall-research",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "research-research-paper",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "research-cv-paper",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "research-skills-paper",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-research",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "wall-playground",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "playground-homelab-paper",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "playground-experiments-paper",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog wall-dialog wall-playground",
+          "rect": {
+            "x": 16,
+            "y": 25.59375,
+            "width": 328,
+            "height": 588.796875,
+            "top": 25.59375,
+            "right": 344,
+            "bottom": 614.390625,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "socials",
+      "scrollY": 846,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -730,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -730,
+            "right": 345.59375,
+            "bottom": -498.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -450.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -450.734375,
+            "right": 360,
+            "bottom": -180.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -102.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -102.9375,
+            "right": 345.59375,
+            "bottom": 430.25,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": 508.25,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": 508.25,
+            "right": 345.59375,
+            "bottom": 1079.8125,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "",
+          "classes": "paper-dialog social-dialog",
+          "rect": {
+            "x": 16,
+            "y": 113.5,
+            "width": 328,
+            "height": 413,
+            "top": 113.5,
+            "right": 344,
+            "bottom": 526.5,
+            "left": 16
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "width": 360,
+      "height": 640,
+      "state": "signoff",
+      "scrollY": 2734,
+      "overflow": 0,
+      "sections": [
+        {
+          "id": "",
+          "classes": "paper-nav",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 76,
+            "top": 0,
+            "right": 360,
+            "bottom": 76,
+            "left": 0
+          }
+        },
+        {
+          "id": "top",
+          "classes": "paper-section reel-section",
+          "rect": {
+            "x": 14.40625,
+            "y": -2618,
+            "width": 331.1875,
+            "height": 231.265625,
+            "top": -2618,
+            "right": 345.59375,
+            "bottom": -2386.734375,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "about",
+          "classes": "paper-section paper-about correction-shown",
+          "rect": {
+            "x": 0,
+            "y": -2338.734375,
+            "width": 360,
+            "height": 269.796875,
+            "top": -2338.734375,
+            "right": 360,
+            "bottom": -2068.9375,
+            "left": 0
+          }
+        },
+        {
+          "id": "work",
+          "classes": "paper-section paper-work",
+          "rect": {
+            "x": 14.40625,
+            "y": -1990.9375,
+            "width": 331.1875,
+            "height": 533.1875,
+            "top": -1990.9375,
+            "right": 345.59375,
+            "bottom": -1457.75,
+            "left": 14.40625
+          }
+        },
+        {
+          "id": "links",
+          "classes": "paper-section paper-links",
+          "rect": {
+            "x": 14.40625,
+            "y": -1379.75,
+            "width": 331.1875,
+            "height": 571.5625,
+            "top": -1379.75,
+            "right": 345.59375,
+            "bottom": -808.1875,
+            "left": 14.40625
+          }
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "errors": [],
+      "bad": []
+    }
+  ]
+}

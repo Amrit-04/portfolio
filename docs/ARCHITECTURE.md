@@ -2,9 +2,9 @@
 
 ## Runtime and boundaries
 
-React 19, strict TypeScript and Vite 8; existing Tailwind utilities remain for the seven project demos. Portfolio content lives in `src/data/projects.ts`; the original workshop is SVG/DOM in `src/components/Workshop.tsx`. `PortfolioMode` composes the exhibition, About, toolboard, research, homelab, notebook and contact. The portfolio renders immediately without a splash or animation gate.
+React 19, strict TypeScript and Vite 8; existing Tailwind utilities remain for the seven project demos. Canonical content lives in `src/data/projects.ts`. `PortfolioMode.tsx` composes the supplied reference's reel, illustrated biography, six-category grid, links and sign-off. `PaperWalls.tsx` owns category composition and native wall/social dialogs; `PaperArt.tsx` supplies original SVGs and frame/filter helpers; `paper-portfolio.css` contains the measured reference geometry and motion. The old Workshop component is not imported by the portfolio route. Normal motion includes an 850 ms splash and a dismissible first-phone-visit recommendation; reduced motion skips these and initializes the reel paused.
 
-`App` uses the hash `#/ride` for the lazy game route and ordinary section anchors for the portfolio. The native `ProjectDetail` dialog is shared by exhibition and game checkpoints. It locks document scrolling, cycles Tab/Shift+Tab within current visible controls, handles Escape and restores trigger focus. Closing a checkpoint notebook does not silently resume physics.
+`App` uses the hash `#/ride` for the lazy game route. `PortfolioMode` maps `#wall-*` history entries to category walls and ordinary anchors to page sections, listens for popstate/hashchange, and restores the correct route after back/forward. Wall dialogs lock body scrolling and cycle focus; nested `ProjectDetail` restores the prior locked overflow and its print trigger when closing. The native `ProjectDetail` dialog is shared by category walls and game checkpoints. It locks document scrolling, cycles Tab/Shift+Tab within current visible controls, handles Escape and restores trigger focus. Closing a checkpoint notebook does not silently resume physics.
 
 Demos are module-scope React.lazy entries. ONNX imports the WASM-only package export with its documented external-runtime condition. The model and 14.85 MB SIMD WASM runtime are fetched only on opening that notebook. Other demos remain local simulations or recorded-sample explorers, explicitly labelled. No cloud AI service or real trading endpoint is called.
 
@@ -42,7 +42,7 @@ Feature branches/PRs run installation, strict types, lint, unit physics, build, 
 - `tests/engine.test.ts`: fixed-rate/clamped stepping, pause/time/input, physical star/checkpoint passage, crash respawn, clone restoration and cleanup.
 - `e2e/portfolio.spec.ts`: all seven demo state transitions, actual ONNX execution and Python parity.
 - `e2e/ride.spec.ts`: real keyboard and multi-pointer inputs, file picker/download, crash/retry, full trail/checkpoint notebooks/finish and WebAudio opt-in.
-- `e2e/accessibility.spec.ts`: focus trap/return, keyboard tabs, trusted SVG hotspot clicks, history, canonical contact, reduced motion, base-path résumé and no-JS fallback.
+- `e2e/accessibility.spec.ts`: nested focus trap/return, keyboard category selection, wall/ride history, canonical contact, reduced motion, real reel controls, scrollspy, wall keyboard panning, phone gate/touch-preview lifecycle, base-path résumé and no-JS fallback.
 - `scripts/quality-audit.mjs`: fully loaded demo/portfolio/game/editor axe checks, browser errors, resources, local LCP/CLS observations, frame sampling and desktop/phone images.
 - `scripts/visual-audit.mjs`: all portfolio sections and overflow matrix; images opened manually after capture.
 

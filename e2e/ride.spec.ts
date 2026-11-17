@@ -28,6 +28,7 @@ test("sound is opt-in, synthesizes real audio and remains consistent on re-entry
     .poll(() => nodes.some((n) => n.includes("Oscillator")))
     .toBe(true);
   await page.getByRole("button", { name: "← Portfolio", exact: true }).click();
+  await page.getByTestId("category-playground").click();
   await page.getByTestId("enter-track-nav").click();
   await expect(page.getByRole("button", { name: "Mute sound" })).toHaveText(
     "Sound on",
@@ -37,7 +38,9 @@ test("sound is opt-in, synthesizes real audio and remains consistent on re-entry
     "Sound off",
   );
   const count = nodes.length;
-  await page.getByRole("button", { name: "Start riding →", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Start riding →", exact: true })
+    .click();
   await page.keyboard.down("w");
   await expect.poll(async () => (await state(page)).stars).toBeGreaterThan(0);
   await page.keyboard.up("w");
@@ -83,7 +86,8 @@ test("wheel propulsion, braking, pause, reset, blur, exit and re-entry", async (
   await expect.poll(async () => (await state(page)).x).toBeLessThan(3.1);
   expect((await state(page)).stars).toBe(0);
   await page.keyboard.press("Escape");
-  await expect(page.locator(".world-portfolio")).toBeVisible();
+  await expect(page.locator(".paper-portfolio")).toBeVisible();
+  await page.getByTestId("category-playground").click();
   await page.getByTestId("enter-track-nav").click();
   await expect(
     page.getByRole("heading", { name: "IDEAS. IN MOTION." }),
@@ -256,7 +260,9 @@ test("full physical trail reaches all notebook checkpoints and finish", async ({
     last = s;
     seen.add(s.section);
     if (!capturedGap && s.x > 79 && s.x < 85 && !s.grounded) {
-      await page.screenshot({ path: "screenshots/final/desktop-game-airborne-gap.png" });
+      await page.screenshot({
+        path: "screenshots/final/desktop-game-airborne-gap.png",
+      });
       capturedGap = true;
     }
     if (s.status === "finished") break;

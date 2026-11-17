@@ -37,14 +37,12 @@ for (const [name, width, height] of [
   await page.evaluate(() => document.fonts.ready);
   await page.waitForLoadState("networkidle");
   const resources = await page.evaluate(() =>
-      performance
-        .getEntriesByType("resource")
-        .map((r) => ({
-          name: r.name.replace(location.origin, ""),
-          bytes: r.transferSize,
-          duration: r.duration,
-          start: r.startTime,
-        })),
+      performance.getEntriesByType("resource").map((r) => ({
+        name: r.name.replace(location.origin, ""),
+        bytes: r.transferSize,
+        duration: r.duration,
+        start: r.startTime,
+      })),
     ),
     metrics = await page.evaluate(() => ({
       ...window.__metrics,
@@ -74,6 +72,18 @@ for (const [name, width, height] of [
   };
   await audit("portfolio");
   results.push({ name, resources, metrics });
+  for (const category of [
+    "ai",
+    "systems",
+    "quant",
+    "algorithms",
+    "research",
+    "playground",
+  ]) {
+    await page.getByTestId(`category-${category}`).click();
+    await audit(`wall:${category}`);
+    await page.keyboard.press("Escape");
+  }
   const projects =
     name === "small"
       ? ["neural-query-optimizer"]
@@ -105,6 +115,16 @@ for (const [name, width, height] of [
     "workplace-safety-vision",
   ];
   for (const id of projects) {
+    const category = {
+      "neural-query-optimizer": "ai",
+      "workplace-safety-vision": "ai",
+      "llm-reliability-control-plane": "systems",
+      "fault-tolerant-ml-telemetry": "systems",
+      tradeflow: "quant",
+      moneyball: "quant",
+      "warehouse-routing-engine": "algorithms",
+    }[id];
+    await page.getByTestId(`category-${category}`).click();
     await page.getByTestId(`open-notebook-${id}`).click();
     await page
       .getByTestId(readyIds[allIds.indexOf(id)])
@@ -121,6 +141,7 @@ for (const [name, width, height] of [
     await page.screenshot({ path: `screenshots/final/${name}-demo-${id}.png` });
     await audit(`notebook:${id}`);
     await page.getByRole("button", { name: "Close notebook" }).click();
+    await page.keyboard.press("Escape");
   }
   await page.goto(base + "#/ride");
   await page.getByRole("button", { name: "Start riding" }).waitFor();
@@ -158,14 +179,12 @@ for (const [name, width, height] of [
     telemetry: JSON.parse(
       await page.locator("canvas").getAttribute("data-telemetry"),
     ),
-    canvas: await page
-      .locator("canvas")
-      .evaluate((c) => ({
-        bufferWidth: c.width,
-        bufferHeight: c.height,
-        cssWidth: c.clientWidth,
-        cssHeight: c.clientHeight,
-      })),
+    canvas: await page.locator("canvas").evaluate((c) => ({
+      bufferWidth: c.width,
+      bufferHeight: c.height,
+      cssWidth: c.clientWidth,
+      cssHeight: c.clientHeight,
+    })),
   });
   await page.getByRole("button", { name: "Pause ride", exact: true }).click();
   await page.screenshot({ path: `screenshots/final/${name}-game-paused.png` });

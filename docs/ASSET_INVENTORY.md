@@ -1,5 +1,17 @@
 # Inspiration asset inventory
 
+## Art-direction correction assets — 2026-11-17
+
+- `public/fonts/AmaticSC-Regular.ttf`, `AmaticSC-Bold.ttf`: Google Fonts Amatic SC, Copyright 2015 The Amatic SC Project Authors, SIL OFL 1.1. Notice: `public/fonts/amatic-LICENSE.txt`; upstream https://github.com/google/fonts/tree/main/ofl/amaticsc. Replaces the reference's proprietary TFNibText rather than redistributing it.
+- `src/assets/paper/character.webp` (196,366 bytes): original AI-assisted ink illustration, generated as `vibe_images/amrit-ink-character-v1_1794901160650_15b7713a.png` (768 × 1024). Brief: friendly fictional programmer with short tousled hair, dot eyes, long nose, light stubble, black shirt and waving hand inside a tall irregular ink panel; monochrome hand-inked appearance; no cap, glasses, copied character, workshop or photoreal portrait. Cropped at (78,4,693,1019); white converted to alpha with dark ink RGB(20,19,16). This is not a verified likeness of Amritesh.
+- `src/assets/paper/process.webp` (117,376 bytes): original AI-assisted notebook-process illustration from `vibe_images/notebook-process-illustration-v1_1794901315424_574e389b.png` (1280 × 1024). Brief: monochrome ink/charcoal hand sketching a query tree and bicycle in a notebook, no face and no documentary-photo claim. Resized to 840 px width and encoded WebP at quality 87.
+- `src/components/PaperArt.tsx`: newly authored frame polylines, arrows, filter primitives and project diagram SVG paths. No source portrait/signature/client-logo paths were copied.
+- Reel: code-native slideshow of original project prints, not borrowed creator video. Sound: existing original WebAudio synthesis, muted by default. Texture: procedural SVG noise, not a copied paper scan.
+
+Generation brief summaries above record intent, not verbatim full tool prompts. Original generation records remain in the session transcript. Both source PNGs were opened before extracting production WebPs. The output allowlist includes the two WebPs and licensed fonts, but excludes the supplied reference media, audio and proprietary font. Reference screenshots are local review evidence only, outside `public`/`dist`.
+
+## Supplied clone inventory
+
 Audited recursively on 2026-11-15 from `S:/website inspo`. 312 files. Dimensions are decoded from raster headers, not guessed. Video dimensions not probed; shown as —.
 
 No general reuse licence accompanies the clone. Do not ship Tiago’s personal illustrations, handwriting font, voice, branding, or animation frames. Existing copied public/media and public/audio files are historical material and will be excluded from the rebuilt artifact. Original SVG artwork and synthesized sound replace them. Google-font assets are separately licensed upstream: Anton (OFL), Permanent Marker and Special Elite (Apache 2.0), with notices stored in public/fonts.

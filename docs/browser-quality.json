@@ -9,62 +9,104 @@
     "name": "desktop",
     "resources": [
       {
-        "name": "/portfolio/assets/index-CtpjmB2t.js",
-        "bytes": 95922,
-        "duration": 24.88000001013279,
-        "start": 16.33499999344349
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 30.88000001013279,
+        "start": 17.899999991059303
       },
       {
         "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
         "bytes": 3810,
-        "duration": 11.435000002384186,
-        "start": 16.575000002980232
+        "duration": 14.034999996423721,
+        "start": 18.144999995827675
       },
       {
-        "name": "/portfolio/assets/index-BPDgKmp_.css",
-        "bytes": 14617,
-        "duration": 12.444999992847443,
-        "start": 16.640000000596046
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 23.32999999821186,
+        "start": 18.230000004172325
+      },
+      {
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 5.045000001788139,
+        "start": 82.7749999910593
+      },
+      {
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 4.63000001013279,
+        "start": 82.86499999463558
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 82.23000000417233,
+        "start": 89.62999999523163
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 84.93999999761581,
+        "start": 89.75
       },
       {
         "name": "/portfolio/favicon.svg",
         "bytes": 981,
-        "duration": 4.419999986886978,
-        "start": 79.15000000596046
-      },
-      {
-        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
-        "bytes": 53596,
-        "duration": 196.1899999976158,
-        "start": 89.46500000357628
-      },
-      {
-        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
-        "bytes": 29864,
-        "duration": 196.50999999046326,
-        "start": 89.57500000298023
-      },
-      {
-        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
-        "bytes": 18912,
-        "duration": 196.7099999934435,
-        "start": 89.625
+        "duration": 4.240000009536743,
+        "start": 171.26999999582767
       }
     ],
     "metrics": {
-      "lcp": 351.0649999976158,
-      "cls": 0.0013008866072289737,
+      "lcp": 466.8049999922514,
+      "cls": 0.0055216289552935845,
       "paint": [
         {
           "name": "first-paint",
-          "time": 128.85500000417233
+          "time": 126.5949999988079
         },
         {
           "name": "first-contentful-paint",
-          "time": 351.0649999976158
+          "time": 466.8049999922514
         }
       ]
     }
+  },
+  {
+    "name": "desktop",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
   },
   {
     "name": "desktop",
@@ -118,36 +160,36 @@
     "name": "desktop",
     "gameFrameTiming": {
       "frames": 120,
-      "medianMs": 6.944999999999709,
-      "p95Ms": 7.2849999999998545,
-      "maxMs": 7.600000000002183
+      "medianMs": 6.940000000002328,
+      "p95Ms": 8.180000000000291,
+      "maxMs": 29.145000000000437
     },
     "telemetry": {
       "status": "running",
-      "speed": 2.597817402147086,
-      "progress": 0.44120440701768787,
+      "speed": 2.681616614683594,
+      "progress": 0.44966975478197607,
       "section": 0,
       "sectionName": "The Workshop",
       "checkpoint": 0,
       "stars": 0,
       "totalStars": 20,
-      "seconds": 0.9583333333333324,
+      "seconds": 0.9083333333333325,
       "crashes": 0,
       "custom": false,
       "canUndo": false,
       "canRedo": false,
       "lines": 1,
       "scenery": 0,
-      "x": 4.248608471860057,
-      "y": 0.8367252355469802,
-      "angle": 0.0010184317121625657,
+      "x": 4.272565406032992,
+      "y": 0.8374476547196553,
+      "angle": 0.004480166428443961,
       "grounded": true,
       "crashed": false,
       "bodies": 19,
       "joints": 21,
-      "rearSpin": -2.7250863906044183,
-      "frontSpin": -2.7250791240300885,
-      "steps": 115,
+      "rearSpin": -2.9263503583928845,
+      "frontSpin": -2.767175731868684,
+      "steps": 109,
       "maxAirborneTime": 0.049999999999999996,
       "input": {
         "accel": false,
@@ -156,7 +198,7 @@
         "leanF": false
       },
       "collected": [],
-      "angular": -0.061246691770656614
+      "angular": -0.07568272173719161
     },
     "canvas": {
       "bufferWidth": 1440,
@@ -192,62 +234,104 @@
     "name": "mobile",
     "resources": [
       {
-        "name": "/portfolio/assets/index-CtpjmB2t.js",
-        "bytes": 95922,
-        "duration": 42.15500000119209,
-        "start": 26.524999991059303
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 42.09499999880791,
+        "start": 25.49500000476837
       },
       {
         "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
         "bytes": 3810,
-        "duration": 32.625,
-        "start": 26.804999992251396
+        "duration": 35.10999999940395,
+        "start": 25.79500000178814
       },
       {
-        "name": "/portfolio/assets/index-BPDgKmp_.css",
-        "bytes": 14617,
-        "duration": 29.185000002384186,
-        "start": 26.86999998986721
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 38.62000000476837,
+        "start": 25.890000000596046
       },
       {
-        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
-        "bytes": 53596,
-        "duration": 218.98000000417233,
-        "start": 117.4299999922514
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 6.0150000005960464,
+        "start": 107.20000000298023
       },
       {
-        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
-        "bytes": 29864,
-        "duration": 220.60499998927116,
-        "start": 117.5
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 6.409999996423721,
+        "start": 107.29000000655651
       },
       {
-        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
-        "bytes": 18912,
-        "duration": 221.30500000715256,
-        "start": 117.53999999165535
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 119.39499999582767,
+        "start": 111.39000000059605
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 121.21500000357628,
+        "start": 111.48499999940395
       },
       {
         "name": "/portfolio/favicon.svg",
         "bytes": 981,
-        "duration": 14.33500000834465,
-        "start": 325.0549999922514
+        "duration": 11.424999997019768,
+        "start": 222.27500000596046
       }
     ],
     "metrics": {
-      "lcp": 344.39000000059605,
+      "lcp": 254.17499999701977,
       "cls": 0,
       "paint": [
         {
           "name": "first-paint",
-          "time": 66.16499999165535
+          "time": 80.60999999940395
         },
         {
           "name": "first-contentful-paint",
-          "time": 344.39000000059605
+          "time": 254.17499999701977
         }
       ]
     }
+  },
+  {
+    "name": "mobile",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
   },
   {
     "name": "mobile",
@@ -301,36 +385,36 @@
     "name": "mobile",
     "gameFrameTiming": {
       "frames": 120,
-      "medianMs": 6.955000000001746,
-      "p95Ms": 7.18999999999869,
-      "maxMs": 13.790000000000873
+      "medianMs": 6.950000000000728,
+      "p95Ms": 7.424999999999272,
+      "maxMs": 8.825000000000728
     },
     "telemetry": {
       "status": "running",
-      "speed": 2.576790978869111,
-      "progress": 0.44016773927770564,
+      "speed": 2.628859372962442,
+      "progress": 0.4488667456378204,
       "section": 0,
       "sectionName": "The Workshop",
       "checkpoint": 0,
       "stars": 0,
       "totalStars": 20,
-      "seconds": 0.8999999999999992,
+      "seconds": 0.9083333333333325,
       "crashes": 0,
       "custom": false,
       "canUndo": false,
       "canRedo": false,
       "lines": 1,
       "scenery": 0,
-      "x": 4.245674702155907,
-      "y": 0.837511470614529,
-      "angle": 0.0029641008634770268,
+      "x": 4.270292890155032,
+      "y": 0.8374997982853372,
+      "angle": 0.003381613039666546,
       "grounded": true,
       "crashed": false,
       "bodies": 19,
       "joints": 21,
-      "rearSpin": -2.866356232400495,
-      "frontSpin": -2.7074904770007997,
-      "steps": 108,
+      "rearSpin": -2.9205021127437467,
+      "frontSpin": -2.7613488421255803,
+      "steps": 109,
       "maxAirborneTime": 0.049999999999999996,
       "input": {
         "accel": false,
@@ -339,7 +423,7 @@
         "leanF": false
       },
       "collected": [],
-      "angular": -0.050044704827573464
+      "angular": -0.06129349994994463
     },
     "canvas": {
       "bufferWidth": 390,
@@ -375,62 +459,104 @@
     "name": "small",
     "resources": [
       {
-        "name": "/portfolio/assets/index-CtpjmB2t.js",
-        "bytes": 95922,
-        "duration": 46.38499999046326,
-        "start": 36.01000000536442
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 32.429999992251396,
+        "start": 28.600000008940697
       },
       {
         "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
         "bytes": 3810,
-        "duration": 27.150000005960464,
-        "start": 36.25
+        "duration": 19.530000001192093,
+        "start": 28.815000012516975
       },
       {
-        "name": "/portfolio/assets/index-BPDgKmp_.css",
-        "bytes": 14617,
-        "duration": 26.394999995827675,
-        "start": 36.310000002384186
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 20.819999992847443,
+        "start": 28.88000001013279
+      },
+      {
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 6.209999993443489,
+        "start": 92.4450000077486
+      },
+      {
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 6.8900000005960464,
+        "start": 92.5300000011921
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 92.17499999701977,
+        "start": 95.8200000077486
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 96.06000000238419,
+        "start": 95.89000000059605
       },
       {
         "name": "/portfolio/favicon.svg",
         "bytes": 981,
-        "duration": 4.114999994635582,
-        "start": 132.8500000089407
-      },
-      {
-        "name": "/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
-        "bytes": 53596,
-        "duration": 235.78999999165535,
-        "start": 141.02500000596046
-      },
-      {
-        "name": "/portfolio/fonts/permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
-        "bytes": 29864,
-        "duration": 236.77000001072884,
-        "start": 141.0949999988079
-      },
-      {
-        "name": "/portfolio/fonts/anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
-        "bytes": 18912,
-        "duration": 237.57999999821186,
-        "start": 141.13500000536442
+        "duration": 9.600000008940697,
+        "start": 184.32500000298023
       }
     ],
     "metrics": {
-      "lcp": 379.2199999988079,
+      "lcp": 215.55500000715256,
       "cls": 0,
       "paint": [
         {
           "name": "first-paint",
-          "time": 73.48000000417233
+          "time": 68.71500000357628
         },
         {
           "name": "first-contentful-paint",
-          "time": 379.2199999988079
+          "time": 215.55500000715256
         }
       ]
     }
+  },
+  {
+    "name": "small",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
   },
   {
     "name": "small",
@@ -448,36 +574,36 @@
     "name": "small",
     "gameFrameTiming": {
       "frames": 120,
-      "medianMs": 6.9399999999996,
-      "p95Ms": 7.384999999999309,
-      "maxMs": 9.845000000000255
+      "medianMs": 6.954999999999927,
+      "p95Ms": 7.265000000001237,
+      "maxMs": 7.975000000000364
     },
     "telemetry": {
       "status": "running",
-      "speed": 2.6961663093063497,
-      "progress": 0.48222807635745074,
+      "speed": 2.6306553128690338,
+      "progress": 0.43367324470338986,
       "section": 0,
       "sectionName": "The Workshop",
       "checkpoint": 0,
       "stars": 0,
       "totalStars": 20,
-      "seconds": 0.9999999999999989,
+      "seconds": 0.8999999999999992,
       "crashes": 0,
       "custom": false,
       "canUndo": false,
       "canRedo": false,
       "lines": 1,
       "scenery": 0,
-      "x": 4.364705456091586,
-      "y": 0.8367376437280566,
-      "angle": 0.0006014833662506142,
+      "x": 4.227295282510593,
+      "y": 0.8369451634978542,
+      "angle": 0.003997383973468229,
       "grounded": true,
       "crashed": false,
       "bodies": 19,
       "joints": 21,
-      "rearSpin": -2.978049461997428,
-      "frontSpin": -2.9780402770073002,
-      "steps": 120,
+      "rearSpin": -2.786593628387145,
+      "frontSpin": -2.67211660960951,
+      "steps": 108,
       "maxAirborneTime": 0.049999999999999996,
       "input": {
         "accel": false,
@@ -486,7 +612,7 @@
         "leanF": false
       },
       "collected": [],
-      "angular": -0.0500077795801626
+      "angular": -0.07567818920159017
     },
     "canvas": {
       "bufferWidth": 360,
