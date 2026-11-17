@@ -1,0 +1,2804 @@
+{
+  "captured": "2026-11-17T08:18:05.039Z",
+  "source": "S:/website inspo (served unchanged)",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "errors": [],
+      "failed": [],
+      "states": [
+        {
+          "state": "home",
+          "scrollY": 0,
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 200.390625,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": 200.390625,
+                "right": 1339.1875,
+                "bottom": 1065.1875,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": 1155.8125,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": 1155.8125,
+                "right": 1382.53125,
+                "bottom": 2148.921875,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 2302.90625,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": 2302.90625,
+                "right": 1339.1875,
+                "bottom": 3141.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 3295.1875,
+                "width": 1238.390625,
+                "height": 700,
+                "top": 3295.1875,
+                "right": 1339.1875,
+                "bottom": 3995.1875,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "about",
+          "scrollY": 1156,
+          "active": "#about",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -955.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -955.609375,
+                "right": 1339.1875,
+                "bottom": -90.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -0.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -0.1875,
+                "right": 1382.53125,
+                "bottom": 992.921875,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 1146.90625,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": 1146.90625,
+                "right": 1339.1875,
+                "bottom": 1985.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 2139.1875,
+                "width": 1238.390625,
+                "height": 700,
+                "top": 2139.1875,
+                "right": 1339.1875,
+                "bottom": 2839.1875,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "work",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "links",
+          "scrollY": 3295,
+          "active": "#links",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -3094.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -3094.609375,
+                "right": 1339.1875,
+                "bottom": -2229.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -2139.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -2139.1875,
+                "right": 1382.53125,
+                "bottom": -1146.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -992.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -992.09375,
+                "right": 1339.1875,
+                "bottom": -153.796875,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 0.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 0.1875,
+                "right": 1339.1875,
+                "bottom": 713.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "hover-1",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-1",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 18
+        },
+        {
+          "state": "lightbox",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "hover-2",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-2",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 13
+        },
+        {
+          "state": "hover-3",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-3",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 12
+        },
+        {
+          "state": "hover-4",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-4",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 18
+        },
+        {
+          "state": "hover-5",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-5",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 4
+        },
+        {
+          "state": "hover-6",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-6",
+          "scrollY": 2303,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 130,
+                "y": 40,
+                "width": 1180,
+                "height": 920,
+                "top": 40,
+                "right": 1310,
+                "bottom": 960,
+                "left": 130
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -2303,
+                "width": 1440,
+                "height": 114,
+                "top": -2303,
+                "right": 1440,
+                "bottom": -2189,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2102.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -2102.609375,
+                "right": 1339.1875,
+                "bottom": -1237.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -1147.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -1147.1875,
+                "right": 1382.53125,
+                "bottom": -154.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -0.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -0.09375,
+                "right": 1339.1875,
+                "bottom": 838.203125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": 992.1875,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": 992.1875,
+                "right": 1339.1875,
+                "bottom": 1705.5625,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 46
+        },
+        {
+          "state": "signoff",
+          "scrollY": 5237,
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 114,
+                "top": 0,
+                "right": 1440,
+                "bottom": 114,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -5036.609375,
+                "width": 1238.390625,
+                "height": 864.796875,
+                "top": -5036.609375,
+                "right": 1339.1875,
+                "bottom": -4171.8125,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 57.453125,
+                "y": -4081.1875,
+                "width": 1325.078125,
+                "height": 993.109375,
+                "top": -4081.1875,
+                "right": 1382.53125,
+                "bottom": -3088.078125,
+                "left": 57.453125
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -2934.09375,
+                "width": 1238.390625,
+                "height": 838.296875,
+                "top": -2934.09375,
+                "right": 1339.1875,
+                "bottom": -2095.796875,
+                "left": 100.796875
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 100.796875,
+                "y": -1941.8125,
+                "width": 1238.390625,
+                "height": 713.375,
+                "top": -1941.8125,
+                "right": 1339.1875,
+                "bottom": -1228.4375,
+                "left": 100.796875
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        }
+      ],
+      "imageIssues": [
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        },
+        {
+          "src": "",
+          "loading": "auto"
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "errors": [],
+      "failed": [],
+      "states": [
+        {
+          "state": "gate",
+          "scrollY": 0,
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 116,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": 116,
+                "right": 374.390625,
+                "bottom": 366.546875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": 414.546875,
+                "width": 390,
+                "height": 292.28125,
+                "top": 414.546875,
+                "right": 390,
+                "bottom": 706.828125,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 784.828125,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": 784.828125,
+                "right": 374.390625,
+                "bottom": 1355.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 1433.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 1433.1875,
+                "right": 374.390625,
+                "bottom": 2023.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "home",
+          "scrollY": 0,
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 116,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": 116,
+                "right": 374.390625,
+                "bottom": 366.546875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": 414.546875,
+                "width": 390,
+                "height": 292.28125,
+                "top": 414.546875,
+                "right": 390,
+                "bottom": 706.828125,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 784.828125,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": 784.828125,
+                "right": 374.390625,
+                "bottom": 1355.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 1433.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 1433.1875,
+                "right": 374.390625,
+                "bottom": 2023.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "about",
+          "scrollY": 415,
+          "active": "#about",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -299,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -299,
+                "right": 374.390625,
+                "bottom": -48.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -0.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -0.453125,
+                "right": 390,
+                "bottom": 291.828125,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 369.828125,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": 369.828125,
+                "right": 374.390625,
+                "bottom": 940.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 1018.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 1018.1875,
+                "right": 374.390625,
+                "bottom": 1608.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "work",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "links",
+          "scrollY": 1433,
+          "active": "#links",
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -1317,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -1317,
+                "right": 374.390625,
+                "bottom": -1066.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -1018.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -1018.453125,
+                "right": 390,
+                "bottom": -726.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -648.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -648.171875,
+                "right": 374.390625,
+                "bottom": -77.8125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 0.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 0.1875,
+                "right": 374.390625,
+                "bottom": 590.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-1",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 14
+        },
+        {
+          "state": "lightbox",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        },
+        {
+          "state": "wall-2",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 13
+        },
+        {
+          "state": "wall-3",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 12
+        },
+        {
+          "state": "wall-4",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 18
+        },
+        {
+          "state": "wall-5",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 4
+        },
+        {
+          "state": "wall-6",
+          "scrollY": 785,
+          "active": "#work",
+          "sections": [
+            {
+              "id": "",
+              "classes": "modal-sheet wall-sheet",
+              "rect": {
+                "x": 16,
+                "y": 33.765625,
+                "width": 358,
+                "height": 776.46875,
+                "top": 33.765625,
+                "right": 374,
+                "bottom": 810.234375,
+                "left": 16
+              }
+            },
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": -785,
+                "width": 390,
+                "height": 76,
+                "top": -785,
+                "right": 390,
+                "bottom": -709,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -669,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -669,
+                "right": 374.390625,
+                "bottom": -418.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -370.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -370.453125,
+                "right": 390,
+                "bottom": -78.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -0.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -0.171875,
+                "right": 374.390625,
+                "bottom": 570.1875,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": 648.1875,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": 648.1875,
+                "right": 374.390625,
+                "bottom": 1238.984375,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)",
+          "pieces": 43
+        },
+        {
+          "state": "signoff",
+          "scrollY": 2750,
+          "sections": [
+            {
+              "id": "",
+              "classes": "nav-bar",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 390,
+                "height": 76,
+                "top": 0,
+                "right": 390,
+                "bottom": 76,
+                "left": 0
+              }
+            },
+            {
+              "id": "home",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -2634,
+                "width": 358.796875,
+                "height": 250.546875,
+                "top": -2634,
+                "right": 374.390625,
+                "bottom": -2383.453125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "about",
+              "classes": "section",
+              "rect": {
+                "x": 0,
+                "y": -2335.453125,
+                "width": 390,
+                "height": 292.28125,
+                "top": -2335.453125,
+                "right": 390,
+                "bottom": -2043.171875,
+                "left": 0
+              }
+            },
+            {
+              "id": "work",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -1965.171875,
+                "width": 358.796875,
+                "height": 570.359375,
+                "top": -1965.171875,
+                "right": 374.390625,
+                "bottom": -1394.8125,
+                "left": 15.59375
+              }
+            },
+            {
+              "id": "links",
+              "classes": "section",
+              "rect": {
+                "x": 15.59375,
+                "y": -1316.8125,
+                "width": 358.796875,
+                "height": 590.796875,
+                "top": -1316.8125,
+                "right": 374.390625,
+                "bottom": -726.015625,
+                "left": 15.59375
+              }
+            }
+          ],
+          "paper": "rgb(242,244,244)"
+        }
+      ],
+      "imageIssues": []
+    }
+  ]
+}

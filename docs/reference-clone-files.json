@@ -1,0 +1,2486 @@
+[
+  {
+    "path": "app.js",
+    "bytes": 182562,
+    "sha256": "c355a48d87ed3323b79f0ae3abf3204e7db398aec635c3256b422e23ec985eb1"
+  },
+  {
+    "path": "index.html",
+    "bytes": 228952,
+    "sha256": "7872666d684c1f47dccd4638b7a42fed711250d9ddb3ef540c87831b91c30efe"
+  },
+  {
+    "path": "unmute-frames-1.js",
+    "bytes": 142679,
+    "sha256": "697865bec21d7085332fe0411def8284b505dbb57358fc39cde0bfe4d49c13f3"
+  },
+  {
+    "path": "unmute-frames-2.js",
+    "bytes": 148843,
+    "sha256": "75b8b4d8e833b7f01b5e1e594647845cd68d2f854c111530021b1046c76a6d10"
+  },
+  {
+    "path": "unmute-frames-3.js",
+    "bytes": 131421,
+    "sha256": "a961c9219aea0b6c8c316c5bc0cc45783281c21bef1cb3c161367b663955f8df"
+  },
+  {
+    "path": "unmute-frames-4.js",
+    "bytes": 163419,
+    "sha256": "5599fff72d4206f287ff6d0681f5fa10497d3142403b3c7cc6c99e0f995e3663"
+  },
+  {
+    "path": "unmute-frames-5.js",
+    "bytes": 138759,
+    "sha256": "a3ea9068cecab16e9004fe5fce0f01fffb7f697b8bc0c96d980fd5962051485d"
+  },
+  {
+    "path": "bake\\hotspots.js",
+    "bytes": 7652,
+    "sha256": "3d12f28efe1d62d94a6a5a6caf42511792dc110f1e3ffd222793a21b242cf95a"
+  },
+  {
+    "path": "bake\\wall-playground.webp",
+    "bytes": 1184400,
+    "sha256": "31509e98a4f803f1629775d7e2189104dab55bf673f3f08d75a47211c4d83372",
+    "dimensions": [
+      1307,
+      8115
+    ]
+  },
+  {
+    "path": "bake\\wall-print.webp",
+    "bytes": 892546,
+    "sha256": "b72b905a9fdbba52a072ace2e8a711b0e4f2106ec9341cacaf39dd49e67125e1",
+    "dimensions": [
+      1292,
+      4508
+    ]
+  },
+  {
+    "path": "fonts\\anton-v27-1Ptgg87LROyAm3K8-C8QSw.woff2",
+    "bytes": 8680,
+    "sha256": "82cc85bd416dc825c05b4264a8a58e189e528fed8a05fbd471b5493e010d623b"
+  },
+  {
+    "path": "fonts\\anton-v27-1Ptgg87LROyAm3K9-C8QSw.woff2",
+    "bytes": 31356,
+    "sha256": "0d17b7880f389deeb6663a52fa4eadc6d9116bdda725f0aa1f3d404fbb7d3d59"
+  },
+  {
+    "path": "fonts\\anton-v27-1Ptgg87LROyAm3Kz-C8.woff2",
+    "bytes": 18612,
+    "sha256": "d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b"
+  },
+  {
+    "path": "fonts\\google-fonts.css",
+    "bytes": 2356,
+    "sha256": "2d5a6206cda70cfe9c8f5d21196912c1183fd418d0905a2900717e0f38bc5f3b"
+  },
+  {
+    "path": "fonts\\permanent-marker-v16-Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2",
+    "bytes": 29564,
+    "sha256": "4884fec2c73aa52a2461073c1b87d1ceb80f400520391b43f97ca7d3c39eeb24"
+  },
+  {
+    "path": "fonts\\special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntn4OSEFt.woff2",
+    "bytes": 25196,
+    "sha256": "5ab1c7e4d8574a18090d98e945ebf7489d7120303eab111e0506470e1f82f2df"
+  },
+  {
+    "path": "fonts\\special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2",
+    "bytes": 53296,
+    "sha256": "770493d84cbb753cd0573d0f014550583138f40469d137e310d239593a1949d8"
+  },
+  {
+    "path": "media\\about-award-winning-v3.png",
+    "bytes": 41265,
+    "sha256": "99c09f0f3290321809f1ffe4801439aa30f2d16383f0197cb2c2daa5062ac2b2",
+    "dimensions": [
+      1001,
+      229
+    ]
+  },
+  {
+    "path": "media\\about-inked-v19.webp",
+    "bytes": 127386,
+    "sha256": "5b049f8b50ba888b3a5739660ce99c7c95d188bd2f3a1a630225b882de44da00",
+    "dimensions": [
+      1900,
+      1424
+    ]
+  },
+  {
+    "path": "media\\about-poet-line.png",
+    "bytes": 16289,
+    "sha256": "a43ed4f50010b129c411d98530f5b5571faa6267361b1c43353106c74c30e802",
+    "dimensions": [
+      638,
+      80
+    ]
+  },
+  {
+    "path": "media\\coded-with-claude.png",
+    "bytes": 18664,
+    "sha256": "048279138dccc68d37d72d0175d9ffd4290f25e8b3ca7bd0884405f15f0e3412",
+    "dimensions": [
+      736,
+      77
+    ]
+  },
+  {
+    "path": "media\\correction.png",
+    "bytes": 9699,
+    "sha256": "adb56a0b7a109485cf8e2cccb6e18274bfc2d239e4025e1972a9a4b070c00a31",
+    "dimensions": [
+      209,
+      53
+    ]
+  },
+  {
+    "path": "media\\cursor-arrow.png",
+    "bytes": 1243,
+    "sha256": "aa30f326ba2f41f9a0d961c8d59d6a15bc8ade187331033ffb06238396353b6c",
+    "dimensions": [
+      28,
+      42
+    ]
+  },
+  {
+    "path": "media\\cursor-hand.png",
+    "bytes": 1915,
+    "sha256": "d6567f7e814b1e9b09a295c190db8847393087e428842359454ee005e8ab53a7",
+    "dimensions": [
+      38,
+      44
+    ]
+  },
+  {
+    "path": "media\\drawn-by-hand.png",
+    "bytes": 18280,
+    "sha256": "3b3d6281a7c454b019d03fe25d8ef19786589a88b4b87b8f01d8e4074012bf63",
+    "dimensions": [
+      531,
+      88
+    ]
+  },
+  {
+    "path": "media\\favicon-apple.png",
+    "bytes": 15167,
+    "sha256": "9c207c09704b571638af2b5b8acefca18e83495797a829dff0f4d69c942dace1",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  {
+    "path": "media\\favicon.png",
+    "bytes": 15203,
+    "sha256": "d52e3c41783a84eb3befdc25e2943198d8cc291621218a215ca3466f79767549",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  {
+    "path": "media\\gag-extended-v3.webp",
+    "bytes": 20644,
+    "sha256": "f3c789ab4aa9e4e7db40a07249a432838962fafae645b47c546234dacfeb4a00",
+    "dimensions": [
+      616,
+      2400
+    ]
+  },
+  {
+    "path": "media\\gag-jimmy-line.png",
+    "bytes": 89250,
+    "sha256": "579a0a5939688f1563d9b447505920edc8b1d2dd8e4e659ba0f5663246bdc32c",
+    "dimensions": [
+      1600,
+      286
+    ]
+  },
+  {
+    "path": "media\\gag-jimmy.webp",
+    "bytes": 26210,
+    "sha256": "e28c18415de29e35f329e7ab32e63bafe4748eabbcf1694ec4fb5f077b765b4b",
+    "dimensions": [
+      660,
+      730
+    ]
+  },
+  {
+    "path": "media\\gag-sparks-even.png",
+    "bytes": 140305,
+    "sha256": "e9b218f95fd457ac0ff8f1724e4559df3da3ba4d0f5f56563db3252f4a93bb20",
+    "dimensions": [
+      3338,
+      1900
+    ]
+  },
+  {
+    "path": "media\\gag-sparks-odd.png",
+    "bytes": 140571,
+    "sha256": "3f173051fce200cbf7ca22c46d4349f8c04125f1229a94dbabddceb715283f6c",
+    "dimensions": [
+      3338,
+      1900
+    ]
+  },
+  {
+    "path": "media\\gagr-0.png",
+    "bytes": 2602,
+    "sha256": "691a212ab31ad902fbb36c6a1c6a4931f910d370e699877e58358e134afa9723",
+    "dimensions": [
+      118,
+      282
+    ]
+  },
+  {
+    "path": "media\\gagr-1.png",
+    "bytes": 1954,
+    "sha256": "1034d42087664740c7009126cbce4419d33d85580beacd1da4414ec123598769",
+    "dimensions": [
+      101,
+      229
+    ]
+  },
+  {
+    "path": "media\\gagr-2.png",
+    "bytes": 2100,
+    "sha256": "0fc529d33176ad59910ce76e94a338357a2f568ac0c7834bef4e379a14e1ad38",
+    "dimensions": [
+      106,
+      237
+    ]
+  },
+  {
+    "path": "media\\gagr-3.png",
+    "bytes": 1560,
+    "sha256": "cd9f7124a9f56ef087bff6e5bff77af1d2aafeb17e57220608e52f2f41bc97c2",
+    "dimensions": [
+      96,
+      213
+    ]
+  },
+  {
+    "path": "media\\gagr-4.png",
+    "bytes": 1752,
+    "sha256": "83b6ceebf281a50d7f6bd4002a1f8e5307ec960d8bfa8c395081a1fa11de8af4",
+    "dimensions": [
+      100,
+      232
+    ]
+  },
+  {
+    "path": "media\\gagr-5.png",
+    "bytes": 2379,
+    "sha256": "cdf353dca2e503430dc8b7ee73d6b6f0e1ef35cbe7bed2e3c461afc369645715",
+    "dimensions": [
+      148,
+      222
+    ]
+  },
+  {
+    "path": "media\\gagr-6.png",
+    "bytes": 2181,
+    "sha256": "14bacaa2f218a9ab990f58590ead00f7c19f8698743cd31b18682a540873d952",
+    "dimensions": [
+      104,
+      247
+    ]
+  },
+  {
+    "path": "media\\gags-0.png",
+    "bytes": 2718,
+    "sha256": "1e4bc2a004f96789de4d9540b0fe44fcb10dfda1957fb388f506ef93e78462f9",
+    "dimensions": [
+      152,
+      215
+    ]
+  },
+  {
+    "path": "media\\gags-1.png",
+    "bytes": 2301,
+    "sha256": "5090dea1c04a75fb49cbef277213dbd6321d352e4081cefa0b6d065a5400aeff",
+    "dimensions": [
+      142,
+      224
+    ]
+  },
+  {
+    "path": "media\\gags-10.png",
+    "bytes": 2229,
+    "sha256": "970fa21abf2dcd42bf9dce3ba6b56dfb5f1a60a7f82b4aec0cf650305c61306e",
+    "dimensions": [
+      114,
+      262
+    ]
+  },
+  {
+    "path": "media\\gags-2.png",
+    "bytes": 1202,
+    "sha256": "34a1e25dbe28e1777a2807073eca730d1c9a7e1ed633e68e36a1a650e3bbff01",
+    "dimensions": [
+      48,
+      210
+    ]
+  },
+  {
+    "path": "media\\gags-3.png",
+    "bytes": 1889,
+    "sha256": "9debca058b19731f7e69d751260783c4bbafc0f994df33bdb34e3a1682a59b78",
+    "dimensions": [
+      108,
+      233
+    ]
+  },
+  {
+    "path": "media\\gags-4.png",
+    "bytes": 1928,
+    "sha256": "648da15f65664340c5ee97971dc17029d9d30f2abcec3aafe71fbed19abbd353",
+    "dimensions": [
+      102,
+      250
+    ]
+  },
+  {
+    "path": "media\\gags-5.png",
+    "bytes": 3225,
+    "sha256": "3c308f8101ddbdef2628ca40f6125fa73f18703ada4bdeb2cbc6717f5fec11d6",
+    "dimensions": [
+      181,
+      266
+    ]
+  },
+  {
+    "path": "media\\gags-6.png",
+    "bytes": 2725,
+    "sha256": "c8de1681d4b212ee0215cfba97707f652b307dbfebc23bc07a994b5fc4342640",
+    "dimensions": [
+      130,
+      244
+    ]
+  },
+  {
+    "path": "media\\gags-7.png",
+    "bytes": 2649,
+    "sha256": "179f1d0b8a8f22febc4b1555c4fb095f592e620a52e52a6335c7a15a8ab6e94c",
+    "dimensions": [
+      127,
+      255
+    ]
+  },
+  {
+    "path": "media\\gags-8.png",
+    "bytes": 2691,
+    "sha256": "5b8d5a451b3bdb522f8b1e026477f4b4a0a7491ee985347984c317527bbb0ed1",
+    "dimensions": [
+      134,
+      257
+    ]
+  },
+  {
+    "path": "media\\gags-9.png",
+    "bytes": 2440,
+    "sha256": "cf5bf495c5be2f59dba16627afdf6be6eebe8fc6a38369a5b0cc9855d50e5b1b",
+    "dimensions": [
+      123,
+      275
+    ]
+  },
+  {
+    "path": "media\\gate-arrow1.png",
+    "bytes": 20932,
+    "sha256": "1c342b13953827c034a7173e896b049e3340cc139aab59a1ac7070ac0cbc47ab",
+    "dimensions": [
+      687,
+      175
+    ]
+  },
+  {
+    "path": "media\\gate-arrow2.png",
+    "bytes": 15824,
+    "sha256": "b066cf68eac031622ed69c92edf247970bb1b7c62d3af2b34e7a1077ffc53c7c",
+    "dimensions": [
+      687,
+      175
+    ]
+  },
+  {
+    "path": "media\\gate-arrow3.png",
+    "bytes": 16201,
+    "sha256": "59cdbcacb65467700665119d6d94720a55a3c1b6bdfcc1770bb2eb0691c6b5cb",
+    "dimensions": [
+      687,
+      175
+    ]
+  },
+  {
+    "path": "media\\gate-arrow4.png",
+    "bytes": 21704,
+    "sha256": "528c886ccffe922f016156188fc51088d20b3e638444b67324e653e2b3ebaac4",
+    "dimensions": [
+      687,
+      175
+    ]
+  },
+  {
+    "path": "media\\gate-arrow5.png",
+    "bytes": 22957,
+    "sha256": "682cddea8d1b0c7ac9980698feb999d13ad86b04b98395dd9c1098461801f3bb",
+    "dimensions": [
+      687,
+      175
+    ]
+  },
+  {
+    "path": "media\\gate-frown.png",
+    "bytes": 20449,
+    "sha256": "0cc8abb90d930004e48c115cb79fa29b0e36a8ade7a0b4851fad6b115ead2219",
+    "dimensions": [
+      322,
+      269
+    ]
+  },
+  {
+    "path": "media\\gate-idc.png",
+    "bytes": 30737,
+    "sha256": "c0495b22a192ecf76ffd286ac64ec494ce1450468362f6857b68f5a3f00a14fb",
+    "dimensions": [
+      666,
+      185
+    ]
+  },
+  {
+    "path": "media\\gate-msg.png",
+    "bytes": 174244,
+    "sha256": "376d3e716b064bb09a26f6f4b40cae247657c145e4496ec9f14cdb35602681e7",
+    "dimensions": [
+      1051,
+      918
+    ]
+  },
+  {
+    "path": "media\\hey-dash.png",
+    "bytes": 531,
+    "sha256": "effab085edf3aa608e9f2579b9185044372ccee86f19ee922fad37ebfd9d97a7",
+    "dimensions": [
+      49,
+      26
+    ]
+  },
+  {
+    "path": "media\\hey-dot.png",
+    "bytes": 199,
+    "sha256": "6c39987f7259e5f486cc11fa34ce66dc6d620781be22d32b4785cb81d2792930",
+    "dimensions": [
+      16,
+      15
+    ]
+  },
+  {
+    "path": "media\\hey-e.png",
+    "bytes": 1001,
+    "sha256": "678c787ffa3a7eee520642efa817690fa5948a1d3c5906c4a496fe999709eb0e",
+    "dimensions": [
+      30,
+      76
+    ]
+  },
+  {
+    "path": "media\\hey-h.png",
+    "bytes": 1170,
+    "sha256": "820b9662b7882e3546d0a442f55c02d699fc3d1a568e82ed8c6a7d124b4e098a",
+    "dimensions": [
+      38,
+      75
+    ]
+  },
+  {
+    "path": "media\\hey-y.png",
+    "bytes": 978,
+    "sha256": "16c35a9edbb8334b729cae139ad0eeae188b577faf4eb3c86097a975157e9d46",
+    "dimensions": [
+      40,
+      76
+    ]
+  },
+  {
+    "path": "media\\ink-strike-crisp.png",
+    "bytes": 10038,
+    "sha256": "136186c07eb40335a3db7a25a141c8aaecf7e28d30ba2ff8538135c30f9b104a",
+    "dimensions": [
+      1360,
+      103
+    ]
+  },
+  {
+    "path": "media\\jim-sfx-click-1.m4a",
+    "bytes": 8046,
+    "sha256": "65d7bf641596fdd15c33f21526685f3cd2923579a9d5971509a39bae6f496806"
+  },
+  {
+    "path": "media\\jim-sfx-click-2.m4a",
+    "bytes": 8418,
+    "sha256": "e52822f247e9c5238a479cc39ee212127e6c68007753aaa7f09f79c3b79fe59c"
+  },
+  {
+    "path": "media\\jim-sfx-click-3.m4a",
+    "bytes": 9272,
+    "sha256": "97fc196c0749d6cd63837bad8ba53e48c0a5f9716c42cfcfffabca1c227aec69"
+  },
+  {
+    "path": "media\\jim-sfx-click-4.m4a",
+    "bytes": 8394,
+    "sha256": "e397df4876422cb4538e1c5e1281b6ad86464d1566a1c174d23406b79415c5fd"
+  },
+  {
+    "path": "media\\jim-sfx-idle.m4a",
+    "bytes": 12769,
+    "sha256": "21c5bbff573e96fc86a3698f1157b07797fa611148499af366a4d1f0ce850041"
+  },
+  {
+    "path": "media\\jimmy-reel.mp4",
+    "bytes": 21359637,
+    "sha256": "fdff14b6140673511b4fe742145acd357cfe0d1c20de6d6d3cf46a93b3763e73"
+  },
+  {
+    "path": "media\\link-email-l.png",
+    "bytes": 1752,
+    "sha256": "b051d68bcdaff59a5573d5221f9c8e34267ec8c57426422b16ec60bd776b96ca",
+    "dimensions": [
+      271,
+      109
+    ]
+  },
+  {
+    "path": "media\\link-email-mid.png",
+    "bytes": 4043,
+    "sha256": "d4bd2823ea0e32a9a6358d203f02d816900cb170c333febcc8a65933fb0fe672",
+    "dimensions": [
+      271,
+      109
+    ]
+  },
+  {
+    "path": "media\\link-email-r.png",
+    "bytes": 1602,
+    "sha256": "a5544da95b80dac23c446bf6ba286b25dbc613426abaf33ff5c56be6c6ac9f57",
+    "dimensions": [
+      271,
+      109
+    ]
+  },
+  {
+    "path": "media\\link-sfx-email.m4a",
+    "bytes": 11202,
+    "sha256": "26ba8370abb9945e1e829c644794270917144ad135e82a9040f0a70191b38300"
+  },
+  {
+    "path": "media\\link-sfx-socials.m4a",
+    "bytes": 14062,
+    "sha256": "aa71528677bb98af9331671f555914ba7938ea6583bbbdc04b06eb7db5cbbda2"
+  },
+  {
+    "path": "media\\link-sfx-stuff.m4a",
+    "bytes": 8876,
+    "sha256": "4e54583e674f009975256c1bb820b881ed42abf7676885c645f1fabe7ddc151a"
+  },
+  {
+    "path": "media\\link-socials-l.png",
+    "bytes": 1931,
+    "sha256": "f3f145a26ecd94903f45dc6dae853bb7ba5039e1214a29c78f4bd751acd5fe21",
+    "dimensions": [
+      262,
+      126
+    ]
+  },
+  {
+    "path": "media\\link-socials-mid.png",
+    "bytes": 5580,
+    "sha256": "57cd7205f9bd14a9fa2ba8e2174e72803c50e7575b27abc1fe540e40e3f432fa",
+    "dimensions": [
+      262,
+      126
+    ]
+  },
+  {
+    "path": "media\\link-socials-r.png",
+    "bytes": 1846,
+    "sha256": "ce7ec6066da5a0fa36bc464915f5e7825a5a4463aa897f78765e46fb8152d0f8",
+    "dimensions": [
+      262,
+      126
+    ]
+  },
+  {
+    "path": "media\\link-stuff-l.png",
+    "bytes": 2004,
+    "sha256": "7498d08bda73e2fa16daf0207533b9c7e0c77e63fd40eb16762b4bcc52d4fd29",
+    "dimensions": [
+      255,
+      141
+    ]
+  },
+  {
+    "path": "media\\link-stuff-mid.png",
+    "bytes": 4830,
+    "sha256": "6e3d6ae9ec92fe167e8e12e5be78499058bd1f5e25f7a05f25418e949c03931f",
+    "dimensions": [
+      255,
+      141
+    ]
+  },
+  {
+    "path": "media\\link-stuff-r.png",
+    "bytes": 1912,
+    "sha256": "7d10aa8bb555d2cd1e05fc3ca2d31ed13193207c310e50afd3a56ce639ff3989",
+    "dimensions": [
+      255,
+      141
+    ]
+  },
+  {
+    "path": "media\\mistake.mp4",
+    "bytes": 33790,
+    "sha256": "265080f35445182a6bc674cc7b2d74c3af8155cabb317e154c31a935fde73454"
+  },
+  {
+    "path": "media\\name-a1.png",
+    "bytes": 3685,
+    "sha256": "e2bd20441251bfd7262d80f408750f6fccf50bb842c65af9efee58bb8b59d347",
+    "dimensions": [
+      66,
+      228
+    ]
+  },
+  {
+    "path": "media\\name-a2.png",
+    "bytes": 3736,
+    "sha256": "37d16fcb29872728ac8ebbf42a34252c16ff63c9a7d735256f5e1f623c0d6317",
+    "dimensions": [
+      62,
+      229
+    ]
+  },
+  {
+    "path": "media\\name-f.png",
+    "bytes": 2171,
+    "sha256": "432fcc6dd8eab5ce176e2ec15810843c9c72e4bbcb558578438b0e3eb32b8665",
+    "dimensions": [
+      52,
+      230
+    ]
+  },
+  {
+    "path": "media\\name-g1.png",
+    "bytes": 3003,
+    "sha256": "317f1cc3954e368d1a2a46f402a9ebf5124aad93afc528bfa285a69d02b0d87d",
+    "dimensions": [
+      49,
+      210
+    ]
+  },
+  {
+    "path": "media\\name-g2.png",
+    "bytes": 3181,
+    "sha256": "7fb1bc3572537dc765171db1ddb0094b9250517de792ecdc1d0ff9cdeb717838",
+    "dimensions": [
+      57,
+      228
+    ]
+  },
+  {
+    "path": "media\\name-o1.png",
+    "bytes": 3026,
+    "sha256": "f8c8242d15118b3c75718d495db88f603779b6168fcf5f3899ac3dd213a12e2a",
+    "dimensions": [
+      43,
+      222
+    ]
+  },
+  {
+    "path": "media\\name-o2.png",
+    "bytes": 3096,
+    "sha256": "38c62c2aeec3cef8d54815780ae18721ec48f34929436a0b3e6578f0926916c4",
+    "dimensions": [
+      42,
+      230
+    ]
+  },
+  {
+    "path": "media\\name-o3.png",
+    "bytes": 2949,
+    "sha256": "cd63b725a81557f71e945b7559f526ff55a8a95d0a7ca6aaf5ceba946fbdd2fd",
+    "dimensions": [
+      44,
+      208
+    ]
+  },
+  {
+    "path": "media\\name-r.png",
+    "bytes": 4164,
+    "sha256": "a642a0c044b2b15c1884f17c6636aa8202fd0c887410d8bbbe6d885507e21b27",
+    "dimensions": [
+      67,
+      228
+    ]
+  },
+  {
+    "path": "media\\name-s.png",
+    "bytes": 2950,
+    "sha256": "82706f857b2c5f09573ddfdbf9e6cce19252a5457ccc91d4a647b4aa72ceb40f",
+    "dimensions": [
+      63,
+      226
+    ]
+  },
+  {
+    "path": "media\\name-ti.png",
+    "bytes": 3620,
+    "sha256": "c36493b79cf40190b67f2842022357017847cae4363d7223fb8ec1b48819cd80",
+    "dimensions": [
+      114,
+      230
+    ]
+  },
+  {
+    "path": "media\\nav-about-active.png",
+    "bytes": 29613,
+    "sha256": "2c9bd051b8e59020561f17c740188291623566b3fd9860372129c3adaeb3e17c",
+    "dimensions": [
+      1110,
+      628
+    ]
+  },
+  {
+    "path": "media\\nav-about.png",
+    "bytes": 36159,
+    "sha256": "8ea2e84f6292ac68d6504f2fba50cef0fa741a790848020c10c5a08f46ed06b3",
+    "dimensions": [
+      481,
+      262
+    ]
+  },
+  {
+    "path": "media\\nav-links-active.png",
+    "bytes": 30172,
+    "sha256": "3b9a3130eacedae14d4854f42b05012d64e74db7beee9415cfaae44d2812aa41",
+    "dimensions": [
+      1188,
+      604
+    ]
+  },
+  {
+    "path": "media\\nav-links.png",
+    "bytes": 34638,
+    "sha256": "70a685e876503bebafcc140a5ffe8a270dd994d172ab7b4951564117b20e9f61",
+    "dimensions": [
+      495,
+      256
+    ]
+  },
+  {
+    "path": "media\\nav-sfx-about-swoosh.m4a",
+    "bytes": 11020,
+    "sha256": "cc46635be2afc3f0a4fb1496b7300ee36b8037bcbd90003891479ac05af5d19f"
+  },
+  {
+    "path": "media\\nav-sfx-about.m4a",
+    "bytes": 8628,
+    "sha256": "5d8008321d46e2ab881b3ece46b5b9ff859da0568d2c52912c31dac9af9bb9d5"
+  },
+  {
+    "path": "media\\nav-sfx-links-swoosh.m4a",
+    "bytes": 8463,
+    "sha256": "dba08d1a29452b8d50b11a029509448ff5e0325620247c7a10691c5a11280201"
+  },
+  {
+    "path": "media\\nav-sfx-links.m4a",
+    "bytes": 10858,
+    "sha256": "efd7230e90847b1ad4884cd5769848d98a2db66a95be07aadd36a5870187f8fb"
+  },
+  {
+    "path": "media\\nav-sfx-work-swoosh.m4a",
+    "bytes": 8795,
+    "sha256": "fbb181b18edcdb57f881c8b7449580a7c193cb7e10b73c9d6ffaa523e932ab97"
+  },
+  {
+    "path": "media\\nav-sfx-work.m4a",
+    "bytes": 9210,
+    "sha256": "da31f5154d9a4054ba56256d5136347cdebe630b3e90e24dff81ac259523e692"
+  },
+  {
+    "path": "media\\nav-work-active.png",
+    "bytes": 32855,
+    "sha256": "7d49c0942a4e4d3986d93cab8fa8478e839c971f65a039475a2ebeda814603ac",
+    "dimensions": [
+      1319,
+      661
+    ]
+  },
+  {
+    "path": "media\\nav-work.png",
+    "bytes": 43176,
+    "sha256": "921dfc628e1c2f0ca293eb7d365266debe3f9def3501a7d7fc08cb766e26352c",
+    "dimensions": [
+      549,
+      258
+    ]
+  },
+  {
+    "path": "media\\ocasional.png",
+    "bytes": 138929,
+    "sha256": "a94a9ca69a78af74f7e033b75f5bc606a4d4a4d4ef537cafe821fecd8fa9f7b5",
+    "dimensions": [
+      1237,
+      432
+    ]
+  },
+  {
+    "path": "media\\playground-hover-orig.jpg",
+    "bytes": 114307,
+    "sha256": "83c4bd6374031379da4f2c48673d4ad71f694887dbb2870d7c1fe21eb129f13e",
+    "dimensions": [
+      900,
+      900
+    ]
+  },
+  {
+    "path": "media\\playground-smoke-trimmed.png",
+    "bytes": 22531,
+    "sha256": "c4db2dfb6a5192a322e5aad5602cbeff211f4528b09b9cd425505a27e298aab4",
+    "dimensions": [
+      900,
+      835
+    ]
+  },
+  {
+    "path": "media\\portrait.jpg",
+    "bytes": 777658,
+    "sha256": "308b0f2637703bf389860f6a0347d2e6e57d1f2973849936754e35524d33d90d",
+    "dimensions": [
+      3152,
+      2592
+    ]
+  },
+  {
+    "path": "media\\poster.jpg",
+    "bytes": 49068,
+    "sha256": "787123b9ec81a4edb219f1de2f92f9ffc395e64627816eddf332d258a9fc5006",
+    "dimensions": [
+      1288,
+      728
+    ]
+  },
+  {
+    "path": "media\\scrap-grain.png",
+    "bytes": 50628,
+    "sha256": "ce2c3b106276bfa0f8155370c5b6259c555a2f3ffb2cec478d694c014e54115a",
+    "dimensions": [
+      220,
+      220
+    ]
+  },
+  {
+    "path": "media\\sig-tf.png",
+    "bytes": 16045,
+    "sha256": "6a857ed56d5b3f2ee78b620ea5e6b333219c16e729bd4953ce79182d826fc607",
+    "dimensions": [
+      800,
+      684
+    ]
+  },
+  {
+    "path": "media\\tf-splash.png",
+    "bytes": 23229,
+    "sha256": "a9b78e8edddf88420ed610d7f518fc3e0f197535439ccde66f086b22f2ebb9c8",
+    "dimensions": [
+      840,
+      724
+    ]
+  },
+  {
+    "path": "media\\tornnote.webp",
+    "bytes": 83618,
+    "sha256": "975a8e4dadd8e73c4b5e0b88f311e1fab21c11c7969fe8923e4b967557c6afd1",
+    "dimensions": [
+      1344,
+      896
+    ]
+  },
+  {
+    "path": "media\\video-frame-bold.png",
+    "bytes": 97722,
+    "sha256": "ea34494fd4034f17d03d748eefa8c9d49c72c88ddc72ab0e2f8f81487277c8fc",
+    "dimensions": [
+      2400,
+      1676
+    ]
+  },
+  {
+    "path": "media\\video-frame-hair.png",
+    "bytes": 93973,
+    "sha256": "22012e633f4ab5a9a68bff55449f9dacd79ca24ace3a21133e0cbb15affa090b",
+    "dimensions": [
+      2400,
+      1676
+    ]
+  },
+  {
+    "path": "media\\video-frame-med.png",
+    "bytes": 95144,
+    "sha256": "f26cc402cab25f7ab772e6e1a129d3e626ad377966efe1470eabaace3e79293b",
+    "dimensions": [
+      2400,
+      1676
+    ]
+  },
+  {
+    "path": "media\\video-frame-thin.png",
+    "bytes": 89073,
+    "sha256": "bb622dca4e6364d46f470e11e4202344d0d8c74ec050dfcc074bea944c0c7a3a",
+    "dimensions": [
+      2400,
+      1676
+    ]
+  },
+  {
+    "path": "media\\video-poster.jpg",
+    "bytes": 7202,
+    "sha256": "2510311c7f8b51ada55267d65a6274eb13bedc989097595b405eb482ac58cf2a",
+    "dimensions": [
+      640,
+      360
+    ]
+  },
+  {
+    "path": "media\\videogames-hover.webp",
+    "bytes": 152640,
+    "sha256": "3607c7c49d5d0756aad2cd584a415bafbd972d8473c9f289913af3b1632dd570",
+    "dimensions": [
+      6180,
+      300
+    ]
+  },
+  {
+    "path": "media\\work-close-x-big.png",
+    "bytes": 19605,
+    "sha256": "91bf4123cc04256abc84aa7bb7a8929eee4cfd5e07a9de2e2b4980c43529b0e1",
+    "dimensions": [
+      240,
+      240
+    ]
+  },
+  {
+    "path": "media\\work-close-x.png",
+    "bytes": 15578,
+    "sha256": "b4c1707dc287b2853a511cfb27316bdd4a1bfc92fb93a0716fb8d1e1eaa75135",
+    "dimensions": [
+      240,
+      240
+    ]
+  },
+  {
+    "path": "media\\work-sfx-activations.m4a",
+    "bytes": 18302,
+    "sha256": "62fc05dca418920708a5ba44007088397da5a11fb447bf7a4fe698a7d56260b8"
+  },
+  {
+    "path": "media\\work-sfx-digital-social.m4a",
+    "bytes": 10128,
+    "sha256": "8d5353dba999fbbb64ce4ae599f3ffc32c28426e501faa861385469925cb8aa7"
+  },
+  {
+    "path": "media\\work-sfx-playground.m4a",
+    "bytes": 32068,
+    "sha256": "60d022a62b63ecf5a6b0fe284edb51d9b180e814879b6231e29721ee174fa0bc"
+  },
+  {
+    "path": "media\\work-sfx-print.m4a",
+    "bytes": 8546,
+    "sha256": "eaa85fd0af966efbd7f804c71715df87b2faf69ca8a91612a6f825d6a3ec5da3"
+  },
+  {
+    "path": "media\\work-sfx-tv-ads.m4a",
+    "bytes": 9704,
+    "sha256": "2f9cd5d1895b1d5da0e7bf47a0aa7aa9cdf00c311b12adc0e4db9952eb9aed36"
+  },
+  {
+    "path": "media\\work-sfx-videogames.m4a",
+    "bytes": 19642,
+    "sha256": "724132ea03c7dbc4bf2df08ad574dd15a321a5a1116d6ae5de3d5dd258083eb7"
+  },
+  {
+    "path": "media\\worklabel-activations.png",
+    "bytes": 91646,
+    "sha256": "0080d367fddfd0f582b6eb13625b03c1879b630b5a6911ffca98948311c3cf83",
+    "dimensions": [
+      843,
+      892
+    ]
+  },
+  {
+    "path": "media\\worklabel-digital.png",
+    "bytes": 128102,
+    "sha256": "22549026250659bd79812596e26e028d831acc9762eb2b47e856975fd8c651b8",
+    "dimensions": [
+      735,
+      1023
+    ]
+  },
+  {
+    "path": "media\\worklabel-playground.png",
+    "bytes": 135952,
+    "sha256": "6e62cab0196daa51232a78221a063c78dc62d1fca47e75443c53a7328c5cd314",
+    "dimensions": [
+      736,
+      685
+    ]
+  },
+  {
+    "path": "media\\worklabel-print.png",
+    "bytes": 127034,
+    "sha256": "1b90ec28c04e4235567508140bddcda5cd470829d3878b16cda6acdb2c5b1e81",
+    "dimensions": [
+      597,
+      1035
+    ]
+  },
+  {
+    "path": "media\\worklabel-tv.png",
+    "bytes": 71139,
+    "sha256": "d9295092d516aab65ba8346b36be6ca6654f70e73e818963d83cec9181fe18d5",
+    "dimensions": [
+      429,
+      717
+    ]
+  },
+  {
+    "path": "media\\worklabel-videogames.png",
+    "bytes": 130809,
+    "sha256": "229362496180b4cca1969db4537aa1275468d890c8ff9fe10cf44fb47a0734e5",
+    "dimensions": [
+      760,
+      810
+    ]
+  },
+  {
+    "path": "media\\worksq1-empty.png",
+    "bytes": 16677,
+    "sha256": "50e53b681acf800847fd10e90dfc2b0d4b25dd14e0dc9defae62ab968e6d34ad",
+    "dimensions": [
+      420,
+      392
+    ]
+  },
+  {
+    "path": "media\\worksq2-empty.png",
+    "bytes": 16395,
+    "sha256": "0fdcd10b5b0b313c96de9fa443da7a9e0044422b6803c04949645362c14be731",
+    "dimensions": [
+      392,
+      392
+    ]
+  },
+  {
+    "path": "media\\worksq3-empty.png",
+    "bytes": 17675,
+    "sha256": "04117599e10d872304e3ad29e86151503bc7c240c6f7a62570c33aaa3a0c6508",
+    "dimensions": [
+      420,
+      420
+    ]
+  },
+  {
+    "path": "media\\worksq4-empty.png",
+    "bytes": 17212,
+    "sha256": "86bb429babe61636508db5abd432c30eda3f9fc0659775417be26091acdd2757",
+    "dimensions": [
+      392,
+      448
+    ]
+  },
+  {
+    "path": "media\\worksq5-empty.png",
+    "bytes": 17887,
+    "sha256": "36f42a5afa6431b713c5536937b930151f55caf1cf0887e850c136514ca37330",
+    "dimensions": [
+      420,
+      448
+    ]
+  },
+  {
+    "path": "media\\worksq6-empty.png",
+    "bytes": 17909,
+    "sha256": "75be82a5d1023e5680e21d9605430c26a9118032ce293c8e648e2c2e423eabcd",
+    "dimensions": [
+      392,
+      448
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-activobank.png",
+    "bytes": 22851,
+    "sha256": "65f91cf40fab2bf81617dca7422c237baa9284c07e289c979d0c8662e9d7a705",
+    "dimensions": [
+      480,
+      139
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-benfica.png",
+    "bytes": 147941,
+    "sha256": "ce9f2dd5ead5e5f598e83a7745b97dd5e2d50136fe5fe10b4bb18c68f306f3b3",
+    "dimensions": [
+      480,
+      474
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-brisa.png",
+    "bytes": 46657,
+    "sha256": "325d48a5cb87bd225d3fe867bea11f3a10ca9b264b7ba38885910722dec7d9c2",
+    "dimensions": [
+      480,
+      401
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-edp.png",
+    "bytes": 30475,
+    "sha256": "c4537018843375c64c3e02eb909e01c27d7ace399303dd6ac28fc73c1cac88af",
+    "dimensions": [
+      296,
+      432
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-meo.png",
+    "bytes": 26020,
+    "sha256": "a99fc3e5afaf8bb26aa40366e504183e0449973025bdcea112a570111230d026",
+    "dimensions": [
+      480,
+      282
+    ]
+  },
+  {
+    "path": "media\\bloom\\activation-rtp.png",
+    "bytes": 22041,
+    "sha256": "1e2d83ba8ba8da6a4e15a74ec6ac234e6febee76a9a323bfc2363c35c5650e5d",
+    "dimensions": [
+      480,
+      374
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-apav.png",
+    "bytes": 28060,
+    "sha256": "78831755e4d25c9e4f5670b9917818de3d1dba58ace10201379030c4006ec774",
+    "dimensions": [
+      480,
+      480
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-betclic.png",
+    "bytes": 44822,
+    "sha256": "4e1b9c5f3ecaa5a664bcf513e50a953bfe6f365cd013cf03fa63549a23065edf",
+    "dimensions": [
+      480,
+      211
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-del-monte.png",
+    "bytes": 86716,
+    "sha256": "f8a44dec7234b2a65f7c488b7a35e02ff333e47d550a602bb1d44c029262c600",
+    "dimensions": [
+      480,
+      378
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-imagem1.png",
+    "bytes": 75353,
+    "sha256": "b50b37775938fc4d2a494332a477b2e578cf50e8b196781842aaebf7082c4387",
+    "dimensions": [
+      480,
+      409
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-montepio.png",
+    "bytes": 27419,
+    "sha256": "d8f2512b5847860291c43ab95d8bd46bfc0c6c3e2132034b32a759fa68b822bc",
+    "dimensions": [
+      414,
+      177
+    ]
+  },
+  {
+    "path": "media\\bloom\\digital-social-sumol.png",
+    "bytes": 76808,
+    "sha256": "03a5a497f990cb62f34cbd165e470b80ca4282b1666f05d5039a82e76fd5fb44",
+    "dimensions": [
+      480,
+      327
+    ]
+  },
+  {
+    "path": "media\\bloom\\print-ooh-agros.png",
+    "bytes": 79680,
+    "sha256": "a38de831179d8f236edfb1742f5bd74d91f6d5e145fd34d4d962568d6d06298b",
+    "dimensions": [
+      480,
+      480
+    ]
+  },
+  {
+    "path": "media\\bloom\\print-ooh-betclic.png",
+    "bytes": 44822,
+    "sha256": "4e1b9c5f3ecaa5a664bcf513e50a953bfe6f365cd013cf03fa63549a23065edf",
+    "dimensions": [
+      480,
+      211
+    ]
+  },
+  {
+    "path": "media\\bloom\\print-ooh-meta.png",
+    "bytes": 48392,
+    "sha256": "d7228afb835d2c18fa8a8af3c0a4ce4411022575d8bea00830d7903c992bbc88",
+    "dimensions": [
+      390,
+      291
+    ]
+  },
+  {
+    "path": "media\\bloom\\print-ooh-montepio.png",
+    "bytes": 27419,
+    "sha256": "d8f2512b5847860291c43ab95d8bd46bfc0c6c3e2132034b32a759fa68b822bc",
+    "dimensions": [
+      414,
+      177
+    ]
+  },
+  {
+    "path": "media\\bloom\\print-ooh-oliveira-da-serra.png",
+    "bytes": 117298,
+    "sha256": "335601cebcc602707490c2bc18a026ae3d37c82bd0e0f03d1b65038ec8ed8c5c",
+    "dimensions": [
+      437,
+      418
+    ]
+  },
+  {
+    "path": "media\\bloom\\tv-ads-fula.png",
+    "bytes": 54741,
+    "sha256": "4ac0b28e1ac79439f87b931492296b6dc390c8d7e0b4c8f778d6e443d6c9a48d",
+    "dimensions": [
+      467,
+      322
+    ]
+  },
+  {
+    "path": "media\\bloom\\tv-ads-pisca-pisca.png",
+    "bytes": 54893,
+    "sha256": "24d1eb8b77e0c692ee7685020ce9eea3bd403ef220d76a99b2c366d8bfb5386f",
+    "dimensions": [
+      480,
+      448
+    ]
+  },
+  {
+    "path": "media\\bloom\\tv-ads-sagres.png",
+    "bytes": 75353,
+    "sha256": "b50b37775938fc4d2a494332a477b2e578cf50e8b196781842aaebf7082c4387",
+    "dimensions": [
+      480,
+      409
+    ]
+  },
+  {
+    "path": "media\\bloom\\tv-ads-sumol.png",
+    "bytes": 76808,
+    "sha256": "03a5a497f990cb62f34cbd165e470b80ca4282b1666f05d5039a82e76fd5fb44",
+    "dimensions": [
+      480,
+      327
+    ]
+  },
+  {
+    "path": "media\\bloom\\tv-ads-vigor.png",
+    "bytes": 19463,
+    "sha256": "9549da0f072d96baf6ad8987313cea05339268cb9df60b7ecd4fd5d782ac6447",
+    "dimensions": [
+      418,
+      148
+    ]
+  },
+  {
+    "path": "media\\fonts\\nib-random.js",
+    "bytes": 2648,
+    "sha256": "81ea3d57811ce86c6420bd195913f2ca74f2195803302e6ccb342da0377e96e9"
+  },
+  {
+    "path": "media\\fonts\\TFNibText-Regular.woff2",
+    "bytes": 37820,
+    "sha256": "f99684167d0ba321b6271475d9061e4a4ba7b8a30b2b58963de62edf76ae6b36"
+  },
+  {
+    "path": "media\\hover-gallery\\pg-gallery-1.webp",
+    "bytes": 6814,
+    "sha256": "69f23cbcdd7165ee1682e55d8761c187f9324564adb0d2d7ab1e7543403fad00",
+    "dimensions": [
+      540,
+      467
+    ]
+  },
+  {
+    "path": "media\\hover-gallery\\pg-gallery-2.webp",
+    "bytes": 26570,
+    "sha256": "749231c1b68bb2d2c7dcb019ace9a2d6580922438ec1b1c4d701ae2fff74291d",
+    "dimensions": [
+      686,
+      592
+    ]
+  },
+  {
+    "path": "media\\hover-gallery\\pg-gallery-4.webp",
+    "bytes": 25186,
+    "sha256": "de410b899ef656a6e1cfd5dd06388964c2377bf3ed2335b5e287865d03d949d6",
+    "dimensions": [
+      920,
+      814
+    ]
+  },
+  {
+    "path": "media\\hover-gallery\\pg-gallery-9.webp",
+    "bytes": 67424,
+    "sha256": "3162230f3cccbea5813588b32378c193304f76f28a667d079a2b081d1c81e0ac",
+    "dimensions": [
+      1096,
+      1100
+    ]
+  },
+  {
+    "path": "media\\work\\videogame\\night-is-grey\\01.jpg",
+    "bytes": 464164,
+    "sha256": "8e3f227f8d653ed899a06ac91d5c5f90ff4c5394a0a8f48ab837510f9ae271f0",
+    "dimensions": [
+      1920,
+      790
+    ]
+  },
+  {
+    "path": "media\\work\\videogame\\night-is-grey\\02.mp4",
+    "bytes": 9557022,
+    "sha256": "70c798874f8b721fb92954ff5db8b1ec2dda8c953f44bbcbb08a4914b979c382"
+  },
+  {
+    "path": "media\\work\\videogame\\night-is-grey\\03.jpg",
+    "bytes": 1266828,
+    "sha256": "84c81e17faf63121a2f173c7eedae27b3914b2ae5d9ad2c454092cbc834aa7d4",
+    "dimensions": [
+      1487,
+      2136
+    ]
+  },
+  {
+    "path": "media\\work\\videogame\\night-is-grey\\04.png",
+    "bytes": 1400803,
+    "sha256": "80ae3b3324e85a053eb83aab1aa7ca56d9a09dddc383a04eb2c484034ff78729",
+    "dimensions": [
+      2658,
+      1286
+    ]
+  },
+  {
+    "path": "media\\work\\tv-ads\\fula\\bombom-30s.mp4",
+    "bytes": 3620787,
+    "sha256": "bbcb779fbb7d55ceaff79e19dc85d73bd8a032fb7acfd5325e635da0759d1e6d"
+  },
+  {
+    "path": "media\\work\\tv-ads\\pisca-pisca\\se-e-para-mudar.mp4",
+    "bytes": 16069342,
+    "sha256": "a2048e31f0da30d7a3c54397d8e864c51562f58495ed389514d681a844a44da9"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres\\2m-version-a.mp4",
+    "bytes": 8265690,
+    "sha256": "c04199fa94989614bbf2bda585065ef4b7c4d821888ca14319d8478e9700602a"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres-00\\beijo.mp4",
+    "bytes": 1367985,
+    "sha256": "5a09871425dc83ef09386b8dbd531ca44e786b70331dd7ba2afb95caaa497d0b"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres-00\\inacreditavel.mp4",
+    "bytes": 8069278,
+    "sha256": "bdf8015b16ab2ed7a806cd893c0386350ae863e995cfdb35efc7f60fb3b0b944"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres-00\\loop-1.mp4",
+    "bytes": 1408364,
+    "sha256": "dc15d21f2b8e24effaa859dcbc012c1ad085afdd0dc07b30529a6b3dbd68ea22"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres-00\\loop-2.mp4",
+    "bytes": 1379194,
+    "sha256": "358326448a4f06f08a523d5dd06e0baacdcfaec2d73aea444c13785e6e2a727a"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sagres-00\\loop-3.mp4",
+    "bytes": 1385028,
+    "sha256": "738a6f6fbc8ab24f791d3c745cf93a84049e0bd83b2c5ca340ecc5e53941baee"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sumol\\45s.mp4",
+    "bytes": 7489127,
+    "sha256": "629123b8d062b1e12399d7531696eb6411192dd5505e5a0d0e90807a99fc968e"
+  },
+  {
+    "path": "media\\work\\tv-ads\\sumol\\estrada-com-amigos.mp4",
+    "bytes": 6475991,
+    "sha256": "7f51f8475e2eea62f49b4de7f529af3ed77bb58d515b2e61ab2ffdf87a21f4c5"
+  },
+  {
+    "path": "media\\work\\tv-ads\\vigor\\caffe-latte.mp4",
+    "bytes": 1361738,
+    "sha256": "d865a6152cc3f55695acd499e157cf6a62e3fad66b29763508f1931037a4d934"
+  },
+  {
+    "path": "media\\work\\tv-ads\\vigor\\leite-chocolate.mp4",
+    "bytes": 1302110,
+    "sha256": "8cfc0ed73b7337f4db841da9cf889142b710fec97da1ac24082c2456318e3186"
+  },
+  {
+    "path": "media\\work\\tv-ads\\vigor\\smoothie.mp4",
+    "bytes": 1229643,
+    "sha256": "5861bb10774205772999735cb7c0bc7fb0d701929bdbabd111c88dfa1e1b8863"
+  },
+  {
+    "path": "media\\work\\print-ooh\\betclic\\key.png",
+    "bytes": 304391,
+    "sha256": "a127a2114c9d214b260c42a37430b78d36b2d39af460b8c75cd111d6f3915ac9",
+    "dimensions": [
+      489,
+      719
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\1.jpg",
+    "bytes": 300752,
+    "sha256": "659ba637e77a42db476e7d667abf224175e0cee78288b95872730a4a4cd09820",
+    "dimensions": [
+      1400,
+      1085
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\2.jpg",
+    "bytes": 355365,
+    "sha256": "5c3bc428c33d81a5d945a03ef5d3cc45c1819df1fd36c5b95c45990fa7660e51",
+    "dimensions": [
+      1400,
+      1085
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\3.jpg",
+    "bytes": 1329065,
+    "sha256": "12ae3a05b1811475f183cfbc449bbd8d0197fd973be90efc7d78d7db167e0971",
+    "dimensions": [
+      1200,
+      1765
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\4.jpg",
+    "bytes": 938054,
+    "sha256": "b9ebd2712111d2dcdebffeb8afd32e3314cbd9c2f40f109f54b628cb9b071d38",
+    "dimensions": [
+      1200,
+      1765
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\5.webp",
+    "bytes": 579520,
+    "sha256": "2b88dc6b0a572f859fe241c50809c25a84a428ff4b1b3b81bd4a6049058bdc63",
+    "dimensions": [
+      2482,
+      3509
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\crf\\6.webp",
+    "bytes": 2585304,
+    "sha256": "ef3a2ffd5df9d83e1b66a0e3ad6c888331da7400917e6485476a2bca2bd89d1e",
+    "dimensions": [
+      3840,
+      5891
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\fula\\campanha-2024.jpg",
+    "bytes": 481350,
+    "sha256": "5e86be0658d9e4cfb8832eb8f0130161937f0f1b8d602799754fcb4bd10925ac",
+    "dimensions": [
+      1350,
+      1976
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\oliveira-da-serra\\sem-rotulos.jpg",
+    "bytes": 479180,
+    "sha256": "01f5ab73464804242b173f08df273c3529b87265f7da7ccd88da3741b2db8e66",
+    "dimensions": [
+      1400,
+      1980
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\2.jpg",
+    "bytes": 725018,
+    "sha256": "21ef7d1fcdc23bde2a7e72bd7f6cc23ff78b6b7774cceb4edcc8609ec327b314",
+    "dimensions": [
+      1200,
+      1700
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\3.jpg",
+    "bytes": 245081,
+    "sha256": "4e8c17f3d50d21e070504b4bcdf3d83e6500b5ffea5bb1f1390c3afbb13e5c72",
+    "dimensions": [
+      600,
+      850
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\4.jpg",
+    "bytes": 201942,
+    "sha256": "e5d294110b82fc288fd644179ab8e88f0302fdc6c574df068612f23b94f6c329",
+    "dimensions": [
+      1036,
+      1370
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\5.jpg",
+    "bytes": 322055,
+    "sha256": "6088a860913304363f02815b082a84e90393f163c47fe0fbf2a4b82e808a3846",
+    "dimensions": [
+      600,
+      849
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\frito-cozido-passado-verso.jpg",
+    "bytes": 249493,
+    "sha256": "2ed25db4c035ca635fbc890b9fe6065d6d0b7d09762ad195afa00f50a0952447",
+    "dimensions": [
+      1018,
+      1400
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\frito-cozido-passado.jpg",
+    "bytes": 406421,
+    "sha256": "6a0ea593018b042668bcb09f196d7940e664e63ad76818eb47e8c72640e4ed45",
+    "dimensions": [
+      1011,
+      1400
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\malpassado-bempassado-antepassado-verso.jpg",
+    "bytes": 466545,
+    "sha256": "b616c74c29da623573be7ee861cae4234459d61abaf7398147540610fd55b1b0",
+    "dimensions": [
+      987,
+      1400
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\paleo-kitchen\\malpassado-bempassado-antepassado.jpg",
+    "bytes": 278878,
+    "sha256": "4727a6280d89bd9aa13243ec0c1b283b100ec160c546c7781cda09476d7172e3",
+    "dimensions": [
+      1012,
+      1400
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\sagres-00\\inacreditavel.jpg",
+    "bytes": 114280,
+    "sha256": "11f50ee4507ce518367704b62c9be42d679b7ccf15cb0da5190c7a3027795d78",
+    "dimensions": [
+      674,
+      1000
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\sovena\\ods.jpg",
+    "bytes": 400675,
+    "sha256": "17c58d8280fd5a1166688358cf5de7e8192111aae277caf1f05e6a3ed3fe01d7",
+    "dimensions": [
+      1363,
+      1837
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-1.png",
+    "bytes": 3903130,
+    "sha256": "7649a8e8a9f567325b9a41cfde52b7392ead4d816ed348c9dc15bd82a627e3c6",
+    "dimensions": [
+      1070,
+      1576
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-2.png",
+    "bytes": 1180326,
+    "sha256": "08a306909209affb0f6cc526f1a8357ef868b73a14e52a6d3e7f8b7e356680c0",
+    "dimensions": [
+      1074,
+      1566
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-3.png",
+    "bytes": 3464585,
+    "sha256": "41deac5b7d2a1bb63e31a8ea3ed83cf9a3cef5592a755874f32ff685a4738651",
+    "dimensions": [
+      988,
+      1448
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-4.png",
+    "bytes": 1018067,
+    "sha256": "d3cf5f2d735467719a8355c632b0dbf3bf1fd8078ba8d6a16f2911b3c11915f9",
+    "dimensions": [
+      984,
+      1444
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-5.png",
+    "bytes": 1027481,
+    "sha256": "c79442dd813a5d0a82ec68f83bb19edc82d48739d972da889bcb246893774b62",
+    "dimensions": [
+      990,
+      1446
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-6.png",
+    "bytes": 825461,
+    "sha256": "b18eb76c7f0dc27a6aaade1292e2a8cd36e5854ba2175c5415d2fb5278f0fe27",
+    "dimensions": [
+      1004,
+      1432
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-7.png",
+    "bytes": 816116,
+    "sha256": "e17e036cd7a0514c785aec944a259d995feacda790fe2a947a4a959c485ed9fd",
+    "dimensions": [
+      984,
+      1442
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\ooh-8.png",
+    "bytes": 844910,
+    "sha256": "f27e7006138a7cffed8722001dfe069078f54e768b8965a15df5922f6291dfeb",
+    "dimensions": [
+      858,
+      1220
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\social-1.png",
+    "bytes": 932423,
+    "sha256": "c34bd2453534d30dcd9f2850d2a7d38f78fe6efffdf4374292f49f4ee99146b4",
+    "dimensions": [
+      2553,
+      945
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\social-2.jpg",
+    "bytes": 143614,
+    "sha256": "6bf53b09616d0f57369349261a3bea6a6c7acd3abb7ebc16cbbb7828f3bb77df",
+    "dimensions": [
+      1080,
+      1350
+    ]
+  },
+  {
+    "path": "media\\work\\print-ooh\\unsorted\\social-3.jpeg",
+    "bytes": 154480,
+    "sha256": "ef7291c5a68532763a4b1f692e66db3a0797dd6548664de8d71d842cddab5f07",
+    "dimensions": [
+      1080,
+      1350
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\comics\\01.webp",
+    "bytes": 386556,
+    "sha256": "5052d81886ac9fd8f41e9aaf87728775bc3a6bbd31a25fe44b03badb2ee7015a",
+    "dimensions": [
+      2038,
+      7394
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\comics\\02.webp",
+    "bytes": 33612,
+    "sha256": "9b9a84926417667320780d87d036bfe6bea6a4bd10188e7b86e1b0ca8b222724",
+    "dimensions": [
+      526,
+      421
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\comics\\03.webp",
+    "bytes": 30770,
+    "sha256": "3941fb1e23f1a91c226c24298ac5e7a45e3b990845944af81b58cbea0e23dc9f",
+    "dimensions": [
+      486,
+      426
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\comics\\04.webp",
+    "bytes": 65006,
+    "sha256": "343e00f88c48ae9ead047795a624a89275a8422b630ade0ab6b60bb4940fc4b7",
+    "dimensions": [
+      600,
+      1463
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\comics\\05.webp",
+    "bytes": 25510,
+    "sha256": "caf715ef2f8678e616d7a6893620652a725c2985b31f90e39d40b7e4c4bfe6f5",
+    "dimensions": [
+      405,
+      405
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\02.webp",
+    "bytes": 116626,
+    "sha256": "a09caff0eae65088bc17b4870a781b0219f54bb7d8accabfbee0d026b27822d3",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\03.webp",
+    "bytes": 73366,
+    "sha256": "075bd7c0689c2ba6e87676ba53cbb14ce1d568ec343bcebd1673b4983b6d6f4d",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\04.webp",
+    "bytes": 73130,
+    "sha256": "02b5c50bf1c86175ab5ed9172e65def5ab4a45e87abb83f05baf63c4a2798496",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\05.webp",
+    "bytes": 60126,
+    "sha256": "4fe42f27e5e5b9ab94120acd1d5e23a8178045bb348ada098a33f15b03e6efa7",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\06.webp",
+    "bytes": 64700,
+    "sha256": "7b03d440259113cc5bedb198e24c988a626a207dddf5a61f4c94a79eef7fcb8b",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\07.webp",
+    "bytes": 99832,
+    "sha256": "5104c479f90f1f990cb5cd663bf295a5d3c48c0ed83a13294f1cbd0c1880ca17",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\08.webp",
+    "bytes": 95374,
+    "sha256": "dbbdb1c89a0db9c07c104fec466e2cf57024e63ef1f0ba50463233e8b924132f",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\09.webp",
+    "bytes": 80668,
+    "sha256": "789a49d2d87eaa397e2c997e37acdf49caafbe17889bfe8d3dfa5a5f4f72d055",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\10.webp",
+    "bytes": 93438,
+    "sha256": "b3ed509a0c33d498895fb24cd52226c6d54023931ed5aced9eabd3b70a874c51",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\11.webp",
+    "bytes": 96480,
+    "sha256": "d48f1d6cba08e149aa5612d18c5c3aca8758898516030aaf378244deaed457e5",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\12.webp",
+    "bytes": 32730,
+    "sha256": "74f6758dae9636161e60ccfd91716150945724202ca51bee8810b2139f7c2516",
+    "dimensions": [
+      549,
+      696
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\13.webp",
+    "bytes": 24812,
+    "sha256": "f2aa46811418c3ba14b647057a405008e4e796176d336376964d6257334c47ed",
+    "dimensions": [
+      571,
+      421
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\14.webp",
+    "bytes": 31906,
+    "sha256": "f0b795430b7b39c0821cc0ac39b18fc13853fb4a7054f7d7d3464dcd6d883b22",
+    "dimensions": [
+      528,
+      538
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\15.webp",
+    "bytes": 92294,
+    "sha256": "43236f180d588904a324a7e8a49419a60e7689d0b671b2bcf526563eb0107e61",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\16.webp",
+    "bytes": 55860,
+    "sha256": "5909947864f95906f9f15ff7a892d29d930afd577b5502492a76d1ba343e60d3",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\drawings\\17.webp",
+    "bytes": 62176,
+    "sha256": "0a0c063a90bb377c489594db478d7a7c889780ecf786931baf0675575941e0e1",
+    "dimensions": [
+      640,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\01.jpg",
+    "bytes": 652944,
+    "sha256": "fc14700cf6c66478395ea8e63aad520148104e8d4284725e8efbb6ad08a5946e",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\02.jpg",
+    "bytes": 541069,
+    "sha256": "6bf1a43dccbc98c3dd88276642c85f4aefcd2c65366c22797125a91c80697527",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\03.jpg",
+    "bytes": 558368,
+    "sha256": "5a3fa5db7f14880acd9f1b92bde39faa434b658710e96dff44121663434ade13",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\04.jpg",
+    "bytes": 516067,
+    "sha256": "45a19ba2c86c605d7605478e01c1daf7d83f81240e5235d3f7695585157661e7",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\05.jpg",
+    "bytes": 683085,
+    "sha256": "e07bd3fd6fdc4baf94e71951533d47507e9547c8a78a49d0a78f4fe01eee4df9",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\06.jpg",
+    "bytes": 410484,
+    "sha256": "3d5eb27c03cd4cf7b55accf644f71a0223828834ddcd2f5223d385d869690a80",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\07.jpg",
+    "bytes": 459889,
+    "sha256": "d87b4384f8e54d1a303c9ab3c039f5b6f4b0383157ad2eb11a9565517eafc0ff",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\08.jpg",
+    "bytes": 558036,
+    "sha256": "1956c121f7fcec0be77587d66029c0a544d49e6e63528dbe9dedd15e797347ef",
+    "dimensions": [
+      2200,
+      1507
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\09.jpg",
+    "bytes": 504604,
+    "sha256": "0145ad06c1a74048b8d993a035058e1c3ca838a600a73cf96c533831bb6a5173",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\10.jpg",
+    "bytes": 705200,
+    "sha256": "872b7574889ea5346fd62ffff4ead3210927f145f347931827955087717c7b61",
+    "dimensions": [
+      1850,
+      1850
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\12.jpg",
+    "bytes": 642228,
+    "sha256": "e683a4b74130f0eb797a4eb0c476d98dffce618f621a2b640c7536748bb0839c",
+    "dimensions": [
+      2200,
+      1467
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\13.jpg",
+    "bytes": 382221,
+    "sha256": "663db547bd160b84a54594f259681411c6cc2de25f2ae528410fb91e44113f27",
+    "dimensions": [
+      2200,
+      1299
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\14.jpg",
+    "bytes": 538412,
+    "sha256": "1703ca621916387a5211f7237b5ed6dd84ea408b6e92ef59db1e60a96c7d633a",
+    "dimensions": [
+      2200,
+      1410
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\15.jpg",
+    "bytes": 573589,
+    "sha256": "6df0b15d96929b9947884ba03632906f01292dfbce807c08f9e1a59e65fcaf4e",
+    "dimensions": [
+      1467,
+      2200
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\malditados\\18.jpg",
+    "bytes": 1170962,
+    "sha256": "749f4b55c8b8e12b1cc86756201192fc6bc32b17276d488ea671f1bb7e0e094b",
+    "dimensions": [
+      1650,
+      2200
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\01.jpg",
+    "bytes": 190578,
+    "sha256": "11c916a93a72d9cb25d1fd45361a68a1aeff563f91db66c5a3ca0c65220fe1c1",
+    "dimensions": [
+      2048,
+      1131
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\02.webp",
+    "bytes": 160008,
+    "sha256": "5077cba596a975308d085cb2c4121538fd87024ebca98c90162050bd42ae2df9",
+    "dimensions": [
+      960,
+      842
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\03.jpg",
+    "bytes": 111649,
+    "sha256": "c67d9137a0a4222874b2c3e267053dedc0e8c4d34f87356d6ca3d7802498a7af",
+    "dimensions": [
+      960,
+      634
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\05.webp",
+    "bytes": 126052,
+    "sha256": "89171ee59f255e1c9647d0d1d94a8bdeca4cb9543ce2511a765f92a1d2a66a87",
+    "dimensions": [
+      1936,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\06.webp",
+    "bytes": 87356,
+    "sha256": "8728cce1f390357a8696941028b922f6b2ff6dd13ea832cc950507f16bcb2952",
+    "dimensions": [
+      960,
+      794
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\07.webp",
+    "bytes": 95652,
+    "sha256": "ed216c35e66e370095eb7f9d5926585f3f67665cef2ec31407455d13b138ad91",
+    "dimensions": [
+      960,
+      610
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\08.webp",
+    "bytes": 121470,
+    "sha256": "7fa17d1795a7d49fce82bf187de23a21431e5a19c97bc331e1bb5ba6799e97d1",
+    "dimensions": [
+      2114,
+      640
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\09.webp",
+    "bytes": 81382,
+    "sha256": "c9f5d78d4255e633dd98ad46eee56bba597624bb9da3a13f5d65c49857ab0dd7",
+    "dimensions": [
+      686,
+      960
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\10.webp",
+    "bytes": 83644,
+    "sha256": "5260094652bd838f942b5f6d4bf5882279ab7a4ccdbda0927784941cb6f016fc",
+    "dimensions": [
+      720,
+      960
+    ]
+  },
+  {
+    "path": "media\\work\\playground\\pubsicologo\\11.webp",
+    "bytes": 148272,
+    "sha256": "a4101a00d035f2f05cba1d7ef5d628c11cc00653f04c0806342a28632eab3e1d",
+    "dimensions": [
+      940,
+      960
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\a-ultima-palavra.mp4",
+    "bytes": 2368097,
+    "sha256": "f6560d2970db67b5a9fd31fea51b11679c858a6166d2654c62316d6ce52ddc1a"
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-1.jpg",
+    "bytes": 986669,
+    "sha256": "16c2611fd424531441bd679eefcf9250af019ab84af6f706a0ab5d8342ab8c6c",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-2.jpg",
+    "bytes": 678393,
+    "sha256": "74a7ab406d84288bfff43e4dcd2e6d9f747929c84a30524ad1cae5229576f159",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-3.jpg",
+    "bytes": 445241,
+    "sha256": "fa11f9f54de4087cdc9c4dbe5e112ae41fc1e67fa5873cd02a10436b2aa4a242",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-4.jpg",
+    "bytes": 633139,
+    "sha256": "e1f6e3c03779fe6b8bb272ae8281cd58528a38b6cb67da74957adceeac7e2da4",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-5.jpg",
+    "bytes": 615085,
+    "sha256": "375dad5277c9a781bff0966f25e3df5737c0c26cbf0e7d86881a02135b73a7bc",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-6.jpg",
+    "bytes": 1101181,
+    "sha256": "529b3f4e131035417b474a6d6ee10333b0d1410c7018180520094817d99d407b",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\print-7.jpg",
+    "bytes": 941862,
+    "sha256": "494f39169153ad84937d39a625c8b9d9aea872533726e79988eb6766109d0cd6",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\apav\\site.mp4",
+    "bytes": 21879313,
+    "sha256": "3c77f1675735f157c569042959ccfa89f4c6086fe072459df0853a91fdf96205"
+  },
+  {
+    "path": "media\\work\\digital-social\\audi\\cockpit.mp4",
+    "bytes": 3803606,
+    "sha256": "00f5914dfa71050fde97c3836d78c76081e1d4bf8468b8f0b22356d87143068f"
+  },
+  {
+    "path": "media\\work\\digital-social\\betclic\\apogee.mp4",
+    "bytes": 14651560,
+    "sha256": "ab6969b01eca8618657af7ea6812be9cceedf8a70cc45aa4dbcd5682cd568ede"
+  },
+  {
+    "path": "media\\work\\digital-social\\betclic\\bem-vindo-a-bordo.mp4",
+    "bytes": 8456267,
+    "sha256": "a3c28744f0eacad573979798445ee71dffdb927105a88c4744d6b902b693a7f8"
+  },
+  {
+    "path": "media\\work\\digital-social\\betclic\\key.webp",
+    "bytes": 1280900,
+    "sha256": "e34cd30c094d68056bb0f4ede2f968da210ccc53f057afe45098c3f420cb7671",
+    "dimensions": [
+      2800,
+      1575
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\betclic\\testosterodds.mp4",
+    "bytes": 4747593,
+    "sha256": "7d768a698a1a2325464974cf0e1df48f33af9f7efadff34c3fc65d0274f0547c"
+  },
+  {
+    "path": "media\\work\\digital-social\\del-monte\\bunch-of-good-1.jpg",
+    "bytes": 174517,
+    "sha256": "8d65ce1305775588fc8dba928275227e9a6c946a6df440ce9fc2044ec8ac5f9f",
+    "dimensions": [
+      600,
+      849
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\del-monte\\bunch-of-good-2.jpeg",
+    "bytes": 140488,
+    "sha256": "6e0f8548e43d3c5ce932fcf3da8d2ef4789eb78ee1810dd476923c9564cde64f",
+    "dimensions": [
+      600,
+      762
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\del-monte\\film.mp4",
+    "bytes": 14285316,
+    "sha256": "bf871d68c3235524f3c58b8ef096cd15c1a1dfb593d11d59142abb4ca0cc196c"
+  },
+  {
+    "path": "media\\work\\digital-social\\del-monte\\key.webp",
+    "bytes": 793572,
+    "sha256": "761929b70b8ebae10e83d8a9637a7972dbd96a076e674c6d198455d3eb6df16b",
+    "dimensions": [
+      1920,
+      6684
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\giving-tuesday\\film.mp4",
+    "bytes": 6892114,
+    "sha256": "012e44546a9274478f5abf58c96953f6b7b7fd1051677cb12d4287f1ae4752e4"
+  },
+  {
+    "path": "media\\work\\digital-social\\ipdj\\film.mp4",
+    "bytes": 13891070,
+    "sha256": "7a5eae587f1cb68cce867a5a203ef9650c4dbcb98bbfe035ad609c36d894b276"
+  },
+  {
+    "path": "media\\work\\digital-social\\ipdj\\key.webp",
+    "bytes": 134902,
+    "sha256": "1997d52ae4783c636c33119a43723514ba4b6f9f7b39a4d44b926e4cdef5b511",
+    "dimensions": [
+      1180,
+      752
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\montepio\\film.mp4",
+    "bytes": 9692751,
+    "sha256": "155abea14ffa3fd336af71bb3186d8115aba753a1a16c8195b1a2fd1cdb4b03f"
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\cerveja.jpg",
+    "bytes": 23188,
+    "sha256": "2f64451ca10a784a9f4cf972f7b84ef53fb260da999b96ffe9a657f112dbd963",
+    "dimensions": [
+      300,
+      238
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\film-2.mp4",
+    "bytes": 3756341,
+    "sha256": "3f3622dcf7bc781a4c423fdccc5c8f7463b520cfcc851daae5ab4f1cf8c8eb25"
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\key-1.png",
+    "bytes": 5226712,
+    "sha256": "4d1bcf5d050d16c5302f489879afd873fae44097e6b698dea8bf28413e7d10ee",
+    "dimensions": [
+      2442,
+      988
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\key-2.webp",
+    "bytes": 425094,
+    "sha256": "4c938f5ef745bd85339dcfbb9613198f2f7037ca15f08364a612124793bd3bf2",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\key-3.webp",
+    "bytes": 348204,
+    "sha256": "033df522c5ad20e2363fc067f50a7573b08aea2d693017bbae9707afba0bebc9",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\o-que-nos-vai-na-alma.mp4",
+    "bytes": 6385356,
+    "sha256": "7191ef9be11eb52afb34b1cd2e6efdae486e669a789dd89893ced4fe766e6f1e"
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\portugal-pede.mp4",
+    "bytes": 2611037,
+    "sha256": "b371462948b899f3efd48fe2f8078cbc83370cad02debd64d45a03da63f93b94"
+  },
+  {
+    "path": "media\\work\\digital-social\\sagres\\selecionador.mp4",
+    "bytes": 14826334,
+    "sha256": "efe76b4b41ed9293a3c7ed7856f13fb7fe0afa7763729047b6887411ad936078"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\amigos-amigos.mp4",
+    "bytes": 15350320,
+    "sha256": "5eda5071e094e8ffa3a61d9917a59cf2e91204da1b0b4d44b965d8936f025b99"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\mal-males.mp4",
+    "bytes": 209093,
+    "sha256": "54e76cc4a322ef567e6b080f88b9a65da59f499b68ec86c0360f4ad2257ecbd5"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\os-falantes-decidem.mp4",
+    "bytes": 11987307,
+    "sha256": "5522ef713dc44122453adc520c8a10e27f0f67bb0f2abf994a7d85240201d795"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\so-ha-um-plural.mp4",
+    "bytes": 14205661,
+    "sha256": "7f607fa2f61ed35d8a5e9c610d124c36d884e1df2124a3d87df1ec0b59944622"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\sol-sois.mp4",
+    "bytes": 182471,
+    "sha256": "be1f4eeae0d270db63e0c5f00ef7b2d29655925a0cb430a45be55cbf0a42645f"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\sumois-ou-sumoles.mp4",
+    "bytes": 14788291,
+    "sha256": "d4129f16b5a874eba5cae6f78a56108bb98a89fb95fa52efe923b9a7228fb44f"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\team-sumois.mp4",
+    "bytes": 6342482,
+    "sha256": "c489296490cceff46e63abad1259d098a79ae814dd3912f3b37579b61e7c2d4e"
+  },
+  {
+    "path": "media\\work\\digital-social\\sumol\\votacao.jpg",
+    "bytes": 102069,
+    "sha256": "12d18f73bfd5368117815ed97c08c49c0afdbf05d630d32670b409ed28cf88c1",
+    "dimensions": [
+      1170,
+      1462
+    ]
+  },
+  {
+    "path": "media\\work\\digital-social\\tanqueray\\film.mp4",
+    "bytes": 5896462,
+    "sha256": "0ecee55abbf1876addea7ee79cc5add687dae922cce54c7b1d20ff1ac297356d"
+  },
+  {
+    "path": "media\\work\\digital-social\\tanqueray\\key.webp",
+    "bytes": 209188,
+    "sha256": "1688904633ec532c43043868e8dac1d04732440249edfbde5a2b8eda402c0aec",
+    "dimensions": [
+      1400,
+      3260
+    ]
+  },
+  {
+    "path": "media\\work\\activation\\activobank\\case.jpg",
+    "bytes": 1411812,
+    "sha256": "9f33f333b341699454c16568ab2490403b5bdcebc57c494bb02466408db9cbab",
+    "dimensions": [
+      1754,
+      1240
+    ]
+  },
+  {
+    "path": "media\\work\\activation\\activobank\\mustard.webp",
+    "bytes": 140486,
+    "sha256": "2d3f20cb1325f9ce05fb683142975a56d83615332c64628bdf45ce3a92642022",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\activation\\benfica-sagres\\ninho-da-aguia.mp4",
+    "bytes": 10056080,
+    "sha256": "7e2f44a04875611f83a7dffeb9086a0d123138445e137cb6c0ca5ae09939fb7a"
+  },
+  {
+    "path": "media\\work\\activation\\brisa\\case.jpg",
+    "bytes": 931136,
+    "sha256": "a5ffe7b2e64d6126f2e799e90e8a9df42d6b6abb530f8d12f666c374fe720bc5",
+    "dimensions": [
+      1754,
+      1240
+    ]
+  },
+  {
+    "path": "media\\work\\activation\\edp\\film.mp4",
+    "bytes": 9471167,
+    "sha256": "e1254497c9e51ef4d19dd581cd8f63bed326eda6b37d46fcb29855ccd55470d1"
+  },
+  {
+    "path": "media\\work\\activation\\free-now\\key.webp",
+    "bytes": 387240,
+    "sha256": "ca70263cc46f05d520ef7989d6fa39ff5107d747b3ad613af02b0d859ce8b771",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "path": "media\\work\\activation\\free-now\\ride-parade.mp4",
+    "bytes": 20402152,
+    "sha256": "e0d190b0bd722c352294bcf02f623e177b3f625ce72195b77d89a4dd38362510"
+  },
+  {
+    "path": "media\\work\\activation\\meo\\sbsr.mp4",
+    "bytes": 33313472,
+    "sha256": "875c9bcd01303fc7f1586a4ce08146fd6d9e9c488fcee33ab312426e3ef743c6"
+  },
+  {
+    "path": "media\\work\\activation\\montepio\\superbrands.mp4",
+    "bytes": 7305021,
+    "sha256": "11fffb04c44991c352501f2db0ca510988ce5569f87717a334743bbef20158fb"
+  },
+  {
+    "path": "media\\work\\activation\\rtp\\film.mp4",
+    "bytes": 28425202,
+    "sha256": "96d4a0af6b7de6ab2a1a35133200bd6924ad0db8bd9feeb2d851c8fac57bd2b2"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-17T08:31:06.774Z",
+  "geometry": [
+    {
+      "section": "top",
+      "reference": {
+        "width": 1238.390625,
+        "height": 864.796875
+      },
+      "adaptation": {
+        "width": 1238.390625,
+        "height": 864.796875
+      },
+      "widthDifference": 0,
+      "heightDifference": 0
+    },
+    {
+      "section": "about",
+      "reference": {
+        "width": 1325.078125,
+        "height": 993.109375
+      },
+      "adaptation": {
+        "width": 1325.078125,
+        "height": 993.078125
+      },
+      "widthDifference": 0,
+      "heightDifference": -0.03125
+    },
+    {
+      "section": "work",
+      "reference": {
+        "width": 1238.390625,
+        "height": 838.296875
+      },
+      "adaptation": {
+        "width": 1238.390625,
+        "height": 838.296875
+      },
+      "widthDifference": 0,
+      "heightDifference": 0
+    }
+  ],
+  "note": "Outer boxes only, not a pixel-similarity score or user acceptance."
+}

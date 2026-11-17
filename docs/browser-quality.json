@@ -1,0 +1,641 @@
+[
+  {
+    "name": "desktop",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 30.88000001013279,
+        "start": 17.899999991059303
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 14.034999996423721,
+        "start": 18.144999995827675
+      },
+      {
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 23.32999999821186,
+        "start": 18.230000004172325
+      },
+      {
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 5.045000001788139,
+        "start": 82.7749999910593
+      },
+      {
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 4.63000001013279,
+        "start": 82.86499999463558
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 82.23000000417233,
+        "start": 89.62999999523163
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 84.93999999761581,
+        "start": 89.75
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 4.240000009536743,
+        "start": 171.26999999582767
+      }
+    ],
+    "metrics": {
+      "lcp": 466.8049999922514,
+      "cls": 0.0055216289552935845,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 126.5949999988079
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 466.8049999922514
+        }
+      ]
+    }
+  },
+  {
+    "name": "desktop",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:llm-reliability-control-plane",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:fault-tolerant-ml-telemetry",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:tradeflow",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:moneyball",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:warehouse-routing-engine",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "notebook:workplace-safety-vision",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.940000000002328,
+      "p95Ms": 8.180000000000291,
+      "maxMs": 29.145000000000437
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.681616614683594,
+      "progress": 0.44966975478197607,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.9083333333333325,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.272565406032992,
+      "y": 0.8374476547196553,
+      "angle": 0.004480166428443961,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.9263503583928845,
+      "frontSpin": -2.767175731868684,
+      "steps": 109,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.07568272173719161
+    },
+    "canvas": {
+      "bufferWidth": 1440,
+      "bufferHeight": 776,
+      "cssWidth": 1440,
+      "cssHeight": 776
+    }
+  },
+  {
+    "name": "desktop",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "errors": [],
+    "bad": []
+  },
+  {
+    "name": "mobile",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 42.09499999880791,
+        "start": 25.49500000476837
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 35.10999999940395,
+        "start": 25.79500000178814
+      },
+      {
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 38.62000000476837,
+        "start": 25.890000000596046
+      },
+      {
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 6.0150000005960464,
+        "start": 107.20000000298023
+      },
+      {
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 6.409999996423721,
+        "start": 107.29000000655651
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 119.39499999582767,
+        "start": 111.39000000059605
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 121.21500000357628,
+        "start": 111.48499999940395
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 11.424999997019768,
+        "start": 222.27500000596046
+      }
+    ],
+    "metrics": {
+      "lcp": 254.17499999701977,
+      "cls": 0,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 80.60999999940395
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 254.17499999701977
+        }
+      ]
+    }
+  },
+  {
+    "name": "mobile",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:llm-reliability-control-plane",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:fault-tolerant-ml-telemetry",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:tradeflow",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:moneyball",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:warehouse-routing-engine",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "notebook:workplace-safety-vision",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.950000000000728,
+      "p95Ms": 7.424999999999272,
+      "maxMs": 8.825000000000728
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.628859372962442,
+      "progress": 0.4488667456378204,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.9083333333333325,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.270292890155032,
+      "y": 0.8374997982853372,
+      "angle": 0.003381613039666546,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.9205021127437467,
+      "frontSpin": -2.7613488421255803,
+      "steps": 109,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.06129349994994463
+    },
+    "canvas": {
+      "bufferWidth": 390,
+      "bufferHeight": 577,
+      "cssWidth": 390,
+      "cssHeight": 577
+    }
+  },
+  {
+    "name": "mobile",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "errors": [],
+    "bad": []
+  },
+  {
+    "name": "small",
+    "state": "portfolio",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "resources": [
+      {
+        "name": "/portfolio/assets/index-BGMane4e.js",
+        "bytes": 89061,
+        "duration": 32.429999992251396,
+        "start": 28.600000008940697
+      },
+      {
+        "name": "/portfolio/assets/jsx-runtime-BHjaDo2T.js",
+        "bytes": 3810,
+        "duration": 19.530000001192093,
+        "start": 28.815000012516975
+      },
+      {
+        "name": "/portfolio/assets/index-GO76Q6ZV.css",
+        "bytes": 20349,
+        "duration": 20.819999992847443,
+        "start": 28.88000001013279
+      },
+      {
+        "name": "/portfolio/assets/character-B8KDVkjS.webp",
+        "bytes": 196666,
+        "duration": 6.209999993443489,
+        "start": 92.4450000077486
+      },
+      {
+        "name": "/portfolio/assets/process-Bh4Wdqpg.webp",
+        "bytes": 117676,
+        "duration": 6.8900000005960464,
+        "start": 92.5300000011921
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Bold.ttf",
+        "bytes": 156480,
+        "duration": 92.17499999701977,
+        "start": 95.8200000077486
+      },
+      {
+        "name": "/portfolio/fonts/AmaticSC-Regular.ttf",
+        "bytes": 151924,
+        "duration": 96.06000000238419,
+        "start": 95.89000000059605
+      },
+      {
+        "name": "/portfolio/favicon.svg",
+        "bytes": 981,
+        "duration": 9.600000008940697,
+        "start": 184.32500000298023
+      }
+    ],
+    "metrics": {
+      "lcp": 215.55500000715256,
+      "cls": 0,
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 68.71500000357628
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 215.55500000715256
+        }
+      ]
+    }
+  },
+  {
+    "name": "small",
+    "state": "wall:ai",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:systems",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:quant",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:algorithms",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:research",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "wall:playground",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "notebook:neural-query-optimizer",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "game-ready",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "gameFrameTiming": {
+      "frames": 120,
+      "medianMs": 6.954999999999927,
+      "p95Ms": 7.265000000001237,
+      "maxMs": 7.975000000000364
+    },
+    "telemetry": {
+      "status": "running",
+      "speed": 2.6306553128690338,
+      "progress": 0.43367324470338986,
+      "section": 0,
+      "sectionName": "The Workshop",
+      "checkpoint": 0,
+      "stars": 0,
+      "totalStars": 20,
+      "seconds": 0.8999999999999992,
+      "crashes": 0,
+      "custom": false,
+      "canUndo": false,
+      "canRedo": false,
+      "lines": 1,
+      "scenery": 0,
+      "x": 4.227295282510593,
+      "y": 0.8369451634978542,
+      "angle": 0.003997383973468229,
+      "grounded": true,
+      "crashed": false,
+      "bodies": 19,
+      "joints": 21,
+      "rearSpin": -2.786593628387145,
+      "frontSpin": -2.67211660960951,
+      "steps": 108,
+      "maxAirborneTime": 0.049999999999999996,
+      "input": {
+        "accel": false,
+        "brake": false,
+        "leanB": false,
+        "leanF": false
+      },
+      "collected": [],
+      "angular": -0.07567818920159017
+    },
+    "canvas": {
+      "bufferWidth": 360,
+      "bufferHeight": 379,
+      "cssWidth": 360,
+      "cssHeight": 379
+    }
+  },
+  {
+    "name": "small",
+    "state": "game-paused",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "state": "editor",
+    "overflow": 0,
+    "violations": []
+  },
+  {
+    "name": "small",
+    "errors": [],
+    "bad": []
+  }
+]
