@@ -1,792 +1,613 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { GameEngine, EngineInput } from './engine';
-import { Checkpoint } from './track';
-import { getProjectById } from '../../data/projects';
-import { sfx } from '../../lib/sound';
-import {
-  X,
-  RotateCcw,
-  Pause as PauseIcon,
-  Volume2,
-  VolumeX,
-  ArrowLeft,
-  ArrowRight,
-  ChevronUp,
-  ChevronDown,
-  Play,
-  Flag,
-  Pencil,
-  Brush,
-  Eraser,
-  Undo2,
-  Trash2,
-  Star,
-} from 'lucide-react';
-
-interface Props {
+import { useEffect, useRef, useState } from "react";
+import { GameEngine } from "./engine";
+import type { GameView } from "./engine";
+import type { EngineInput } from "./physics";
+import { sfx } from "../../lib/sound";
+type Control = keyof EngineInput;
+const keys: Record<string, Control> = {
+  ArrowUp: "accel",
+  w: "accel",
+  ArrowDown: "brake",
+  s: "brake",
+  ArrowLeft: "leanB",
+  a: "leanB",
+  ArrowRight: "leanF",
+  d: "leanF",
+};
+const clock = (s: number) =>
+  `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+export default function RideMode({
+  onExit,
+  openProject,
+}: {
   onExit: () => void;
   openProject: (id: string) => void;
-}
-
-export default function RideMode({ onExit, openProject }: Props) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const engineRef = useRef<GameEngine | null>(null);
-  const [section, setSection] = useState({ name: 'THE WORKSHOP', num: '00' });
-  const [progress, setProgress] = useState({ pct: 0, meters: 0 });
-  const [stars, setStars] = useState({ collected: 0, total: 20 });
-  const [paused, setPaused] = useState(false);
-  const [crashed, setCrashed] = useState(false);
-  const [finished, setFinished] = useState(false);
-  const [cp, setCp] = useState<Checkpoint | null>(null);
-  const [muted, setMuted] = useState(() => localStorage.getItem('ay-sound-muted') !== 'false');
-  const [hintVisible, setHintVisible] = useState(true);
-  const [ready, setReady] = useState(false);
-
-  // Track Editor state
-  const [editorMode, setEditorMode] = useState(false);
-  const [editorTool, setEditorTool] = useState<'physics' | 'scenery' | 'eraser'>('physics');
-  const lastDrawPt = useRef<{ x: number; y: number } | null>(null);
-  const isDrawing = useRef(false);
-
-  const pausedRef = useRef(false);
-  pausedRef.current = paused;
-  const editorModeRef = useRef(false);
-  editorModeRef.current = editorMode;
-
+}) {
+  const canvas = useRef<HTMLCanvasElement>(null),
+    engine = useRef<GameEngine | null>(null),
+    sources = useRef(new Map<string, Control>()),
+    exit = useRef(onExit),
+    file = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    sfx.setMuted(muted);
-    localStorage.setItem('ay-sound-muted', String(muted));
-  }, [muted]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHintVisible(false), 7000);
-    return () => clearTimeout(t);
-  }, []);
-
-  const togglePause = useCallback(() => {
-    if (editorModeRef.current) return;
-    setPaused((p) => {
-      const next = !p;
-      if (next) engineRef.current?.pause();
-      else engineRef.current?.resume();
-      return next;
-    });
-  }, []);
-
-  const toggleEditor = useCallback(() => {
-    setEditorMode((prev) => {
-      const next = !prev;
-      editorModeRef.current = next;
-      if (engineRef.current) {
-        engineRef.current.editorActive = next;
-        engineRef.current.editorTool = editorTool;
-        if (next) {
-          engineRef.current.pause();
-        } else {
-          engineRef.current.resume();
-        }
-      }
-      return next;
-    });
-  }, [editorTool]);
-
-  const selectTool = (tool: 'physics' | 'scenery' | 'eraser') => {
-    setEditorTool(tool);
-    if (engineRef.current) {
-      engineRef.current.editorTool = tool;
-    }
+    exit.current = onExit;
+  }, [onExit]);
+  const [v, setView] = useState<GameView | null>(null),
+    [muted, setMuted] = useState(() => sfx.muted),
+    [error, setError] = useState(""),
+    [tool, setTool] = useState<"physics" | "scenery" | "eraser">("physics");
+  const sync = () => {
+    const e = engine.current;
+    if (!e) return;
+    for (const k of ["accel", "brake", "leanB", "leanF"] as Control[])
+      e.input[k] =
+        e.status === "running" && [...sources.current.values()].includes(k);
   };
-
-  const openCpNotebook = useCallback(
-    (id: string) => {
-      engineRef.current?.pause();
-      openProject(id);
-    },
-    [openProject]
-  );
-
+  const clear = () => {
+    sources.current.clear();
+    engine.current?.clearInput();
+  };
   useEffect(() => {
-    const onModalCloseResume = () => {
-      if (!editorModeRef.current) engineRef.current?.resume();
-    };
-    window.addEventListener('ay-resume-ride', onModalCloseResume);
-    return () => window.removeEventListener('ay-resume-ride', onModalCloseResume);
-  }, []);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    const eng = new GameEngine(canvasRef.current, {
-      onSection: (name, num) => setSection((s) => (s.name === name ? s : { name, num })),
-      onProgress: (pct, meters) =>
-        setProgress((p) => (Math.abs(p.pct - pct) > 0.4 ? { pct, meters } : p)),
-      onCheckpoint: (c) => setCp(c),
-      onCheckpointLeave: () => setCp(null),
-      onCrash: () => setCrashed(true),
-      onRespawn: () => setCrashed(false),
-      onFinish: () => {
-        setFinished(true);
-      },
-      requestPause: () => setPaused(true),
-      onStarCollect: (collected, total) => setStars({ collected, total }),
+    const e = new GameEngine(canvas.current!, (value) => {
+      if (value.status !== "running") sources.current.clear();
+      setView(value);
     });
-    engineRef.current = eng;
-    setReady(true);
-    return () => {
-      eng.destroy();
-      engineRef.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
-    const input = engineRef.current?.input as EngineInput | undefined;
-    if (!input) return;
-    if (paused || editorMode) {
-      input.accel = input.brake = input.leanB = input.leanF = false;
-    }
-  }, [paused, editorMode]);
-
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      const eng = engineRef.current;
-      if (!eng) return;
-
-      // Editor shortcuts
-      if ((e.ctrlKey || e.metaKey) && e.code === 'KeyZ') {
-        eng.undo();
-        e.preventDefault();
+    engine.current = e;
+    const down = (ev: KeyboardEvent) => {
+      if (document.querySelector("dialog[open]")) {
+        clear();
         return;
       }
-      if (e.code === 'KeyE' && !e.ctrlKey && !e.metaKey) {
-        toggleEditor();
-        e.preventDefault();
-        return;
-      }
-
-      if (editorModeRef.current) return;
-
-      switch (e.code) {
-        case 'KeyW':
-        case 'ArrowUp':
-          if (!pausedRef.current) eng.input.accel = true;
-          e.preventDefault();
-          break;
-        case 'KeyS':
-        case 'ArrowDown':
-          if (!pausedRef.current) eng.input.brake = true;
-          e.preventDefault();
-          break;
-        case 'KeyA':
-        case 'ArrowLeft':
-          if (!pausedRef.current) eng.input.leanB = true;
-          e.preventDefault();
-          break;
-        case 'KeyD':
-        case 'ArrowRight':
-          if (!pausedRef.current) eng.input.leanF = true;
-          e.preventDefault();
-          break;
-        case 'KeyR':
-          eng.respawn(true);
-          break;
-        case 'Space':
-          togglePause();
-          e.preventDefault();
-          break;
-        case 'Escape':
-          onExit();
-          break;
+      const target = ev.target as HTMLElement;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
+      const key = ev.key.length === 1 ? ev.key.toLowerCase() : ev.key;
+      if (keys[key]) {
+        ev.preventDefault();
+        sources.current.set(`key:${key}`, keys[key]);
+        sync();
+      } else if (key === "Escape") {
+        ev.preventDefault();
+        exit.current();
+      } else if (key === " ") {
+        if (target.tagName === "BUTTON") return;
+        ev.preventDefault();
+        if (!ev.repeat) e.togglePause();
+        clear();
+      } else if (key === "r" && e.status !== "editor") {
+        ev.preventDefault();
+        if (!ev.repeat) e.respawn();
+        clear();
+      } else if (key === "Backspace" && e.status !== "editor") {
+        ev.preventDefault();
+        if (!ev.repeat) e.respawn(true);
+        clear();
       }
     };
-    const up = (e: KeyboardEvent) => {
-      const eng = engineRef.current;
-      if (!eng || editorModeRef.current) return;
-      switch (e.code) {
-        case 'KeyW':
-        case 'ArrowUp':
-          eng.input.accel = false;
-          break;
-        case 'KeyS':
-        case 'ArrowDown':
-          eng.input.brake = false;
-          break;
-        case 'KeyA':
-        case 'ArrowLeft':
-          eng.input.leanB = false;
-          break;
-        case 'KeyD':
-        case 'ArrowRight':
-          eng.input.leanF = false;
-          break;
-      }
+    const up = (ev: KeyboardEvent) => {
+      const key = ev.key.length === 1 ? ev.key.toLowerCase() : ev.key;
+      sources.current.delete(`key:${key}`);
+      sync();
     };
-    const resetInputs = () => {
-      const eng = engineRef.current;
-      if (eng) {
-        eng.input.accel = false;
-        eng.input.brake = false;
-        eng.input.leanB = false;
-        eng.input.leanF = false;
-      }
+    const blur = () => {
+      clear();
+      e.pause();
     };
-
-    window.addEventListener('keydown', down);
-    window.addEventListener('keyup', up);
-    window.addEventListener('blur', resetInputs);
-    window.addEventListener('pointerup', resetInputs);
-    window.addEventListener('pointercancel', resetInputs);
-
+    const visibility = () => {
+      if (document.hidden) blur();
+    };
+    window.addEventListener("keydown", down);
+    window.addEventListener("keyup", up);
+    window.addEventListener("blur", blur);
+    document.addEventListener("visibilitychange", visibility);
     return () => {
-      window.removeEventListener('keydown', down);
-      window.removeEventListener('keyup', up);
-      window.removeEventListener('blur', resetInputs);
-      window.removeEventListener('pointerup', resetInputs);
-      window.removeEventListener('pointercancel', resetInputs);
+      e.dispose();
+      window.removeEventListener("keydown", down);
+      window.removeEventListener("keyup", up);
+      window.removeEventListener("blur", blur);
+      document.removeEventListener("visibilitychange", visibility);
+      engine.current = null;
     };
-  }, [togglePause, toggleEditor, onExit]);
-
-  // Editor drawing interactions
-  const handleEditorPointerDown = (e: React.PointerEvent) => {
-    if (!engineRef.current || !editorMode) return;
-    const eng = engineRef.current;
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const sx = e.clientX - rect.left;
-    const sy = e.clientY - rect.top;
-    const [wx, wy] = eng.screenToWorld(sx, sy);
-
-    if (editorTool === 'eraser') {
-      eng.eraseAt(wx, wy);
-      isDrawing.current = true;
-    } else {
-      isDrawing.current = true;
-      lastDrawPt.current = { x: wx, y: wy };
-    }
-  };
-
-  const handleEditorPointerMove = (e: React.PointerEvent) => {
-    if (!engineRef.current || !editorMode || !isDrawing.current) return;
-    const eng = engineRef.current;
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const sx = e.clientX - rect.left;
-    const sy = e.clientY - rect.top;
-    const [wx, wy] = eng.screenToWorld(sx, sy);
-
-    if (editorTool === 'eraser') {
-      eng.eraseAt(wx, wy);
-    } else if (lastDrawPt.current) {
-      const dist = Math.hypot(wx - lastDrawPt.current.x, wy - lastDrawPt.current.y);
-      if (dist >= 18) {
-        if (editorTool === 'physics') {
-          eng.addCustomSegment({
-            x1: lastDrawPt.current.x,
-            y1: lastDrawPt.current.y,
-            x2: wx,
-            y2: wy,
-          });
-        } else {
-          eng.addCustomScenery({
-            x1: lastDrawPt.current.x,
-            y1: lastDrawPt.current.y,
-            x2: wx,
-            y2: wy,
-          });
-        }
-        lastDrawPt.current = { x: wx, y: wy };
-        eng.editorDraftLine = null;
-      } else {
-        eng.editorDraftLine = {
-          x1: lastDrawPt.current.x,
-          y1: lastDrawPt.current.y,
-          x2: wx,
-          y2: wy,
-        };
+  }, []);
+  const run = (action: (e: GameEngine) => void) => {
+    try {
+      setError("");
+      if (engine.current) {
+        clear();
+        action(engine.current);
+        engine.current.emit();
       }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Unable to change this track.",
+      );
     }
   };
-
-  const handleEditorPointerUp = (e: React.PointerEvent) => {
-    if (!engineRef.current || !editorMode || !isDrawing.current) return;
-    const eng = engineRef.current;
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (rect && lastDrawPt.current && editorTool !== 'eraser') {
-      const sx = e.clientX - rect.left;
-      const sy = e.clientY - rect.top;
-      const [wx, wy] = eng.screenToWorld(sx, sy);
-      const dist = Math.hypot(wx - lastDrawPt.current.x, wy - lastDrawPt.current.y);
-      if (dist >= 6) {
-        if (editorTool === 'physics') {
-          eng.addCustomSegment({
-            x1: lastDrawPt.current.x,
-            y1: lastDrawPt.current.y,
-            x2: wx,
-            y2: wy,
-          });
-        } else {
-          eng.addCustomScenery({
-            x1: lastDrawPt.current.x,
-            y1: lastDrawPt.current.y,
-            x2: wx,
-            y2: wy,
-          });
-        }
-      }
-    }
-    isDrawing.current = false;
-    lastDrawPt.current = null;
-    eng.editorDraftLine = null;
-  };
-
-  const hold = (key: keyof EngineInput) => ({
-    onPointerDown: (e: React.PointerEvent) => {
-      e.preventDefault();
-      if (engineRef.current && !pausedRef.current && !editorModeRef.current) engineRef.current.input[key] = true;
-    },
-    onPointerUp: () => {
-      if (engineRef.current) engineRef.current.input[key] = false;
-    },
-    onPointerLeave: () => {
-      if (engineRef.current) engineRef.current.input[key] = false;
-    },
-    onPointerCancel: () => {
-      if (engineRef.current) engineRef.current.input[key] = false;
-    },
-    onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
-  });
-
-  const project = cp ? getProjectById(cp.projectId) : null;
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-40 bg-paper select-none overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      data-testid="ride-mode"
-      style={{ touchAction: 'none' }}
+  const touch = (control: Control, label: string, key: string) => (
+    <button
+      className={`ride-key key-${control}`}
+      aria-label={label}
+      onPointerDown={(ev) => {
+        ev.preventDefault();
+        ev.currentTarget.setPointerCapture(ev.pointerId);
+        sources.current.set(`pointer:${ev.pointerId}`, control);
+        sync();
+      }}
+      onPointerUp={(ev) => {
+        sources.current.delete(`pointer:${ev.pointerId}`);
+        sync();
+      }}
+      onPointerCancel={(ev) => {
+        sources.current.delete(`pointer:${ev.pointerId}`);
+        sync();
+      }}
+      onLostPointerCapture={(ev) => {
+        sources.current.delete(`pointer:${ev.pointerId}`);
+        sync();
+      }}
     >
-      <canvas
-        ref={canvasRef}
-        className={`absolute inset-0 w-full h-full ${editorMode ? 'cursor-crosshair' : 'cursor-default'}`}
-        data-testid="ride-canvas"
-        onPointerDown={handleEditorPointerDown}
-        onPointerMove={handleEditorPointerMove}
-        onPointerUp={handleEditorPointerUp}
-        onPointerCancel={handleEditorPointerUp}
-      />
-
-      {/* Free Rider HUD Top Bar */}
-      <div className="absolute top-0 inset-x-0 flex items-start justify-between gap-3 p-3 md:p-4 pointer-events-none z-10">
-        {/* Section, Progress & Collectible Stars Capsule */}
-        <div
-          className="bg-paper/95 backdrop-blur-md rounded-2xl border border-ink3/30 px-3.5 md:px-4 py-2.5 shadow-sm pointer-events-auto flex items-center gap-3.5"
-          data-testid="hud-section"
-        >
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <p className="font-anton text-sm tracking-wide text-ink uppercase">
-                {section.num} — {section.name}
-              </p>
-            </div>
-            <div className="w-28 sm:w-36 md:w-44 h-1.5 bg-paper2 rounded-full overflow-hidden border border-ink3/20 mt-1.5">
-              <div
-                className="h-full bg-accent transition-[width] duration-200 rounded-full"
-                style={{ width: `${progress.pct}%` }}
-              />
-            </div>
-            <p className="font-elite text-[11px] text-ink3 mt-1" data-testid="hud-progress">
-              {progress.pct.toFixed(0)}% · {progress.meters}m
-            </p>
-          </div>
-
-          {/* Golden Star Counter */}
-          <div
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-50 border border-amber-300 rounded-xl shadow-xs font-elite"
-            title="Collectible Golden Stars"
-            data-testid="hud-stars"
+      <span>{label}</span>
+      <kbd>{key}</kbd>
+    </button>
+  );
+  const e = engine.current,
+    editing = v?.status === "editor",
+    overlay =
+      v &&
+      ["ready", "paused", "crashed", "checkpoint", "finished"].includes(
+        v.status,
+      );
+  return (
+    <main className="ride-app" data-testid="ride-mode">
+      <header className="ride-header">
+        <button onClick={onExit} className="ride-exit">
+          ← Portfolio
+        </button>
+        <div className="ride-brand">
+          THE ENGINEERING TRAIL<span>A ride through the things I build.</span>
+        </div>
+        <div className="ride-top-actions">
+          <button
+            aria-label={muted ? "Enable sound" : "Mute sound"}
+            onClick={() => {
+              const next = !muted;
+              setMuted(next);
+              sfx.setMuted(next);
+              if (!next) sfx.click();
+            }}
           >
-            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
-            <span className="font-elite text-xs font-bold text-amber-900">
-              {stars.collected}/{stars.total}
+            {muted ? "Sound off" : "Sound on"}
+          </button>
+          <button
+            onClick={() =>
+              run((x) => (editing ? x.returnTrail() : x.openEditor()))
+            }
+          >
+            {editing ? "Leave editor" : "Track editor"}
+          </button>
+        </div>
+      </header>
+      {!editing && v && (
+        <div className="ride-hud">
+          <div>
+            <span className="label-mono">
+              {String(v.section + 1).padStart(2, "0")} / 09
+            </span>
+            <strong data-testid="section-name">{v.sectionName}</strong>
+          </div>
+          <div className="ride-stats">
+            <span>
+              <b data-testid="ride-speed">{Math.round(v.speed)}</b> km/h
+            </span>
+            <span>
+              ★{" "}
+              <b data-testid="ride-stars">
+                {v.stars}/{v.totalStars}
+              </b>
+            </span>
+            <span data-testid="ride-clock">{clock(v.seconds)}</span>
+            <button
+              aria-label={v.status === "running" ? "Pause ride" : "Resume ride"}
+              disabled={!["running", "paused"].includes(v.status)}
+              onClick={() => run((x) => x.togglePause())}
+            >
+              {v.status === "running" ? "Pause" : "Resume"}
+            </button>
+          </div>
+          <div
+            className="ride-progress"
+            role="progressbar"
+            aria-label="Course progress"
+            aria-valuenow={Math.round(v.progress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            <i style={{ width: `${v.progress}%` }} />
+          </div>
+        </div>
+      )}
+      {editing && (
+        <div className="editor-toolbar">
+          <div className="editor-tools" aria-label="Drawing tools">
+            {(["physics", "scenery", "eraser"] as const).map((t) => (
+              <button
+                key={t}
+                aria-pressed={tool === t}
+                onClick={() => {
+                  setTool(t);
+                  run((x) => {
+                    x.editorTool = t;
+                  });
+                }}
+              >
+                {t === "physics"
+                  ? "Collision line"
+                  : t === "scenery"
+                    ? "Scenery line"
+                    : "Eraser"}
+              </button>
+            ))}
+          </div>
+          <button
+            disabled={!v?.canUndo}
+            onClick={() => run((x) => x.editor.undo())}
+          >
+            Undo
+          </button>
+          <button
+            disabled={!v?.canRedo}
+            onClick={() => run((x) => x.editor.redo())}
+          >
+            Redo
+          </button>
+          <button onClick={() => run((x) => x.editor.clear())}>Clear</button>
+          <button onClick={() => file.current?.click()}>Import JSON</button>
+          <button
+            onClick={() =>
+              run((x) => {
+                const blob = new Blob([x.editor.export()], {
+                    type: "application/json",
+                  }),
+                  url = URL.createObjectURL(blob),
+                  a = document.createElement("a");
+                a.href = url;
+                a.download = "engineering-trail.json";
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+              })
+            }
+          >
+            Export JSON
+          </button>
+          <button
+            className="editor-test"
+            onClick={() => run((x) => x.testRide())}
+          >
+            Test ride →
+          </button>
+          <input
+            ref={file}
+            type="file"
+            accept=".json,application/json"
+            aria-label="Import track file"
+            hidden
+            onChange={async (ev) => {
+              const f = ev.target.files?.[0];
+              if (f) {
+                if (f.size > 600000)
+                  setError("Track files must be smaller than 600 KB.");
+                else {
+                  const text = await f.text();
+                  run((x) => x.editor.import(text));
+                }
+              }
+              ev.target.value = "";
+            }}
+          />
+        </div>
+      )}
+      <div className="ride-stage">
+        <canvas
+          ref={canvas}
+          aria-label={
+            editing
+              ? "Track drawing canvas. Drag to add a line."
+              : "Bicycle game. Accelerate with W, lean with A and D, brake with S."
+          }
+          tabIndex={0}
+          onPointerDown={(ev) => {
+            if (!editing || !e) return;
+            ev.currentTarget.setPointerCapture(ev.pointerId);
+            const p = e.screenToWorld(ev.clientX, ev.clientY);
+            if (tool === "eraser") run((x) => x.editor.erase(p.x, p.y));
+            else e.draft = { a: p, b: p };
+          }}
+          onPointerMove={(ev) => {
+            if (!editing || !e?.draft) return;
+            e.draft.b = e.screenToWorld(ev.clientX, ev.clientY);
+          }}
+          onPointerUp={() => {
+            if (!editing || !e?.draft) return;
+            const line = e.draft;
+            e.draft = null;
+            if (tool !== "eraser") run((x) => x.editor.add(tool, line));
+          }}
+          onPointerCancel={() => {
+            if (e) e.draft = null;
+          }}
+        >
+          This game needs Canvas. The complete portfolio and project notebooks
+          are available without playing.
+        </canvas>
+        {editing && (
+          <div className="editor-pan">
+            <button
+              aria-label="Pan editor left"
+              onClick={() =>
+                run((x) => {
+                  x.camX -= 8;
+                })
+              }
+            >
+              ←
+            </button>
+            <button
+              aria-label="Pan editor right"
+              onClick={() =>
+                run((x) => {
+                  x.camX += 8;
+                })
+              }
+            >
+              →
+            </button>
+            <button
+              aria-label="Pan editor up"
+              onClick={() =>
+                run((x) => {
+                  x.camY += 4;
+                })
+              }
+            >
+              ↑
+            </button>
+            <button
+              aria-label="Pan editor down"
+              onClick={() =>
+                run((x) => {
+                  x.camY -= 4;
+                })
+              }
+            >
+              ↓
+            </button>
+            <button
+              aria-label="Zoom out"
+              onClick={() =>
+                run((x) => {
+                  x.zoom = Math.max(12, x.zoom / 1.2);
+                })
+              }
+            >
+              −
+            </button>
+            <button
+              aria-label="Zoom in"
+              onClick={() =>
+                run((x) => {
+                  x.zoom = Math.min(80, x.zoom * 1.2);
+                })
+              }
+            >
+              +
+            </button>
+            <span data-testid="editor-count">
+              {v?.lines} collision / {v?.scenery} scenery
             </span>
           </div>
-        </div>
-
-        {/* HUD Control Pill */}
-        <div className="flex items-center gap-1 md:gap-1.5 pointer-events-auto bg-paper/95 backdrop-blur-md rounded-full border border-ink3/30 p-1.5 shadow-sm">
-          {/* Track Editor Toggle */}
-          <button
-            className={`px-3 py-1.5 rounded-full text-xs font-sans font-medium flex items-center gap-1.5 transition-all ${
-              editorMode
-                ? 'bg-ink text-paper shadow-xs font-semibold'
-                : 'hover:bg-paper2 text-ink'
-            }`}
-            onClick={toggleEditor}
-            data-testid="hud-editor-btn"
-            title="Toggle Track Editor (E)"
+        )}
+        {overlay && (
+          <section
+            className={`ride-overlay status-${v.status}`}
+            aria-label="Ride status"
+            aria-live="polite"
           >
-            <Pencil className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">{editorMode ? 'Riding' : 'Editor'}</span>
-          </button>
-
-          <button
-            className="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-paper2 text-xs font-sans font-medium text-ink flex items-center gap-1.5 transition-colors"
-            onClick={() => engineRef.current?.respawn(true)}
-            data-testid="hud-restart-btn"
-            title="Restart at last checkpoint (R)"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Restart</span>
-          </button>
-
-          <button
-            className="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-paper2 text-xs font-sans font-medium text-ink flex items-center gap-1.5 transition-colors"
-            onClick={togglePause}
-            data-testid="hud-pause-btn"
-            title="Pause game (Space)"
-          >
-            <PauseIcon className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">{paused ? 'Resume' : 'Pause'}</span>
-          </button>
-
-          <button
-            className="w-8 h-8 rounded-full hover:bg-paper2 flex items-center justify-center text-ink transition-colors"
-            onClick={() => setMuted(!muted)}
-            aria-label={muted ? 'Unmute sound effects' : 'Mute sound effects'}
-            data-testid="hud-mute-btn"
-          >
-            {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-          </button>
-
-          <button
-            className="btn-ink !py-1.5 !px-3 text-xs rounded-full flex items-center gap-1.5"
-            onClick={onExit}
-            aria-label="Exit to portfolio"
-            data-testid="hud-exit-btn"
-          >
-            <X className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Exit</span>
-          </button>
-        </div>
+            {v.status === "ready" && (
+              <>
+                <span className="annotation">Take the scenic route.</span>
+                <h1>IDEAS. IN MOTION.</h1>
+                <p>
+                  Nine places. Seven projects. Two wheels.
+                  <br />
+                  Ride the landscape of my engineering work.
+                </p>
+                <dl className="ride-instructions">
+                  <div>
+                    <dt>W / ↑</dt>
+                    <dd>Pedal</dd>
+                  </div>
+                  <div>
+                    <dt>S / ↓</dt>
+                    <dd>Brake</dd>
+                  </div>
+                  <div>
+                    <dt>A / ←</dt>
+                    <dd>Lean back</dd>
+                  </div>
+                  <div>
+                    <dt>D / →</dt>
+                    <dd>Lean forward</dd>
+                  </div>
+                </dl>
+                <p className="ride-hint">
+                  Build speed before gaps. Make small lean corrections in the
+                  air. Touch controls are below.
+                </p>
+                <button
+                  className="btn-primary"
+                  onClick={() => {
+                    run((x) => x.play());
+                    canvas.current?.focus();
+                  }}
+                >
+                  Start riding →
+                </button>
+                <small>
+                  R restarts at a flag · Space pauses · Escape exits
+                </small>
+              </>
+            )}
+            {v.status === "paused" && (
+              <>
+                <span className="annotation">
+                  A moment to catch your breath.
+                </span>
+                <h2>ON THE BRAKES.</h2>
+                <p>Your position is saved. The clock is stopped.</p>
+                <button
+                  className="btn-primary"
+                  onClick={() => {
+                    run((x) => x.play());
+                    canvas.current?.focus();
+                  }}
+                >
+                  Continue riding
+                </button>
+                <button onClick={() => run((x) => x.respawn())}>
+                  Restart at checkpoint
+                </button>
+              </>
+            )}
+            {v.status === "crashed" && (
+              <>
+                <span className="annotation">
+                  That’s engineering. Try again.
+                </span>
+                <h2>A ROUGH LANDING.</h2>
+                <p>
+                  {v.crashes} {v.crashes === 1 ? "crash" : "crashes"} · Your
+                  collected stars are safe.
+                </p>
+                <button
+                  className="btn-primary"
+                  onClick={() => {
+                    run((x) => x.respawn());
+                    canvas.current?.focus();
+                  }}
+                >
+                  Retry checkpoint · R
+                </button>
+                {v.custom && (
+                  <button onClick={() => run((x) => x.openEditor())}>
+                    Back to drawing board
+                  </button>
+                )}
+              </>
+            )}
+            {v.status === "checkpoint" && (
+              <>
+                <span className="annotation">
+                  Checkpoint {v.checkpoint} / 8
+                </span>
+                <h2>{v.sectionName.toUpperCase()}</h2>
+                <p>
+                  There’s an engineering notebook behind this part of the
+                  landscape. Take a look — the ride will wait.
+                </p>
+                <button
+                  className="btn-primary"
+                  onClick={() => {
+                    const id = e?.track.checkpoints[v.checkpoint]?.project;
+                    if (id) openProject(id);
+                  }}
+                >
+                  Open project notebook
+                </button>
+                <button
+                  onClick={() => {
+                    run((x) => x.play());
+                    canvas.current?.focus();
+                  }}
+                >
+                  Continue riding →
+                </button>
+              </>
+            )}
+            {v.status === "finished" && (
+              <>
+                <span className="annotation">Curiosity got you here.</span>
+                <h2>WHAT A RIDE.</h2>
+                <div className="finish-stats">
+                  <span>
+                    <b>{clock(v.seconds)}</b>ride time
+                  </span>
+                  <span>
+                    <b>
+                      {v.stars}/{v.totalStars}
+                    </b>
+                    stars found
+                  </span>
+                  <span>
+                    <b>{v.crashes}</b>crashes
+                  </span>
+                </div>
+                <p>
+                  {v.custom
+                    ? "Your custom track is rideable. Keep experimenting."
+                    : "Nine landscapes explored. There’s more to discover in the workshop."}
+                </p>
+                <button className="btn-primary" onClick={onExit}>
+                  Back to the portfolio →
+                </button>
+                <button
+                  onClick={() =>
+                    run((x) => (x.custom ? x.openEditor() : x.respawn(true)))
+                  }
+                >
+                  {v.custom ? "Back to editor" : "Ride again"}
+                </button>
+              </>
+            )}
+          </section>
+        )}
       </div>
-
-      {/* Floating Track Editor Toolbar */}
-      <AnimatePresence>
-        {editorMode && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-20 left-1/2 -translate-x-1/2 bg-paper/95 backdrop-blur-md rounded-2xl border-2 border-ink shadow-xl p-2 z-30 flex items-center gap-2 max-w-[95vw] overflow-x-auto pointer-events-auto"
-            data-testid="track-editor-toolbar"
-          >
-            <div className="flex items-center gap-1 border-r border-ink3/30 pr-2">
-              <button
-                className={`px-3 py-1.5 rounded-xl font-sans text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                  editorTool === 'physics'
-                    ? 'bg-ink text-paper shadow-xs'
-                    : 'hover:bg-paper2 text-ink'
-                }`}
-                onClick={() => selectTool('physics')}
-                data-testid="editor-tool-physics"
-                title="Solid Physics Line (Bikes ride and collide on this)"
-              >
-                <Pencil className="w-3.5 h-3.5" />
-                <span>Solid Terrain</span>
-              </button>
-
-              <button
-                className={`px-3 py-1.5 rounded-xl font-sans text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                  editorTool === 'scenery'
-                    ? 'bg-accent2 text-paper shadow-xs'
-                    : 'hover:bg-paper2 text-ink'
-                }`}
-                onClick={() => selectTool('scenery')}
-                data-testid="editor-tool-scenery"
-                title="Scenery Line (Decorative, non-colliding)"
-              >
-                <Brush className="w-3.5 h-3.5" />
-                <span>Scenery</span>
-              </button>
-
-              <button
-                className={`px-3 py-1.5 rounded-xl font-sans text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                  editorTool === 'eraser'
-                    ? 'bg-accent text-paper shadow-xs'
-                    : 'hover:bg-paper2 text-ink'
-                }`}
-                onClick={() => selectTool('eraser')}
-                data-testid="editor-tool-eraser"
-                title="Eraser (Click or drag to delete lines)"
-              >
-                <Eraser className="w-3.5 h-3.5" />
-                <span>Eraser</span>
-              </button>
-            </div>
-
-            <div className="flex items-center gap-1 border-r border-ink3/30 pr-2">
-              <button
-                className="px-2.5 py-1.5 rounded-xl hover:bg-paper2 font-sans text-xs font-medium text-ink flex items-center gap-1 transition-colors"
-                onClick={() => engineRef.current?.undo()}
-                data-testid="editor-tool-undo"
-                title="Undo last line (Ctrl+Z)"
-              >
-                <Undo2 className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">Undo</span>
-              </button>
-
-              <button
-                className="px-2.5 py-1.5 rounded-xl hover:bg-red-50 text-accent font-sans text-xs font-medium flex items-center gap-1 transition-colors"
-                onClick={() => engineRef.current?.clearCustomTrack()}
-                data-testid="editor-tool-clear"
-                title="Reset track to original"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">Reset</span>
-              </button>
-            </div>
-
-            <div className="flex items-center gap-1">
-              <button
-                className="px-2.5 py-1.5 rounded-xl hover:bg-paper2 font-sans text-xs text-ink3 hover:text-ink transition-colors"
-                onClick={() => {
-                  if (engineRef.current) {
-                    engineRef.current.camX = engineRef.current.track.startX;
-                    engineRef.current.camY = engineRef.current.track.startY;
-                  }
-                }}
-                title="Center camera on start ramp"
-              >
-                To Start
-              </button>
-              <button
-                className="px-2.5 py-1.5 rounded-xl hover:bg-paper2 font-sans text-xs text-ink3 hover:text-ink transition-colors"
-                onClick={() => {
-                  if (engineRef.current) {
-                    engineRef.current.camX = engineRef.current.frame.x;
-                    engineRef.current.camY = engineRef.current.frame.y - 42;
-                  }
-                }}
-                title="Center camera on bicycle"
-              >
-                To Bike
-              </button>
-              <button
-                className="btn-ink !py-1.5 !px-3 text-xs rounded-xl flex items-center gap-1.5 shadow-sm"
-                onClick={toggleEditor}
-                data-testid="editor-tool-ride"
-              >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Test Ride!</span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Control hints (desktop) */}
-      <AnimatePresence>
-        {hintVisible && !editorMode && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-paper/90 backdrop-blur-sm rounded-full border border-ink3/30 px-5 py-2 shadow-sm font-sans text-xs text-ink2 hidden md:block pointer-events-none z-10"
-          >
-            W / Up accelerate · S / Down brake · A/D lean · R restart · E editor · Space pause · Esc exit
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile touch controls */}
-      {!editorMode && (
-        <div className="absolute bottom-0 inset-x-0 p-4 flex justify-between items-end md:hidden z-20 pointer-events-none" data-testid="touch-controls">
-          <div className="flex gap-2.5 pointer-events-auto">
-            <button
-              className="w-14 h-14 rounded-2xl bg-paper/90 backdrop-blur-sm border border-ink3/40 shadow-md flex items-center justify-center text-ink active:scale-95"
-              {...hold('leanB')}
-              data-testid="touch-lean-b"
-              aria-label="Lean backwards"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
-              className="w-14 h-14 rounded-2xl bg-paper/90 backdrop-blur-sm border border-ink3/40 shadow-md flex items-center justify-center text-ink active:scale-95"
-              {...hold('leanF')}
-              data-testid="touch-lean-f"
-              aria-label="Lean forwards"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-          <div className="flex gap-2.5 pointer-events-auto">
-            <button
-              className="w-14 h-14 rounded-2xl bg-paper/90 backdrop-blur-sm border border-ink3/40 shadow-md flex items-center justify-center text-ink active:scale-95"
-              {...hold('brake')}
-              data-testid="touch-brake"
-              aria-label="Brake"
-            >
-              <ChevronDown className="w-6 h-6" />
-            </button>
-            <button
-              className="w-16 h-16 rounded-2xl bg-accent text-paper shadow-md flex items-center justify-center active:scale-95"
-              {...hold('accel')}
-              data-testid="touch-accel"
-              aria-label="Accelerate"
-            >
-              <ChevronUp className="w-8 h-8" />
-            </button>
-          </div>
+      {error && (
+        <div role="alert" className="ride-error">
+          {error}
+          <button aria-label="Dismiss error" onClick={() => setError("")}>
+            ×
+          </button>
         </div>
       )}
-
-      {/* Checkpoint card */}
-      <AnimatePresence>
-        {cp && !editorMode && (
-          <motion.div
-            key={cp.projectId}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 24 }}
-            className="absolute left-3 md:left-6 bottom-36 md:bottom-6 max-w-[320px] md:max-w-sm bg-paper rounded-2xl border-2 border-ink3/30 p-5 shadow-lg z-20 postcard"
-            data-testid="checkpoint-card"
-          >
-            <p className="text-xs font-semibold text-accent flex items-center gap-1.5 font-elite">
-              <Flag className="w-3.5 h-3.5" /> Checkpoint Reached
-            </p>
-            {cp.projectId === 'workshop' && (
-              <>
-                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">The Workshop</h3>
-                <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">
-                  The beginning of the engineering track — 8 continuous sections, one per project. Ride right to begin.
-                </p>
-              </>
-            )}
-            {cp.projectId === 'finish' && (
-              <>
-                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">End of the Track</h3>
-                <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">
-                  You rode through every engineering project. Return to the portfolio to inspect any in detail.
-                </p>
-              </>
-            )}
-            {project && (
-              <>
-                <h3 className="font-anton text-2xl uppercase tracking-wide leading-tight mt-1 text-ink">{project.title}</h3>
-                <p className="text-xs text-ink2 mt-1.5 leading-relaxed font-sans">{project.tagline}</p>
-              </>
-            )}
-            <div className="flex flex-wrap gap-2 mt-4 pt-2 border-t border-ink3/20">
-              {project && (
-                <>
-                  <button
-                    className="btn-ink !py-1.5 !px-3 text-xs"
-                    onClick={() => openCpNotebook(project.id)}
-                    data-testid="cp-open-notebook"
-                  >
-                    Open notebook
-                  </button>
-                  <button
-                    className="btn-outline !py-1.5 !px-3 text-xs"
-                    onClick={() => onExit()}
-                    data-testid="cp-portfolio-jump"
-                  >
-                    See in portfolio
-                  </button>
-                </>
-              )}
-              <button
-                className="btn-red !py-1.5 !px-3 text-xs flex items-center gap-1"
-                onClick={() => {
-                  setCp(null);
-                  engineRef.current?.resume();
-                }}
-                data-testid="cp-resume-riding"
-              >
-                <Play className="w-3.5 h-3.5" /> Keep riding
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Pause overlay */}
-      <AnimatePresence>
-        {paused && !editorMode && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-ink/30 backdrop-blur-xs flex items-center justify-center z-30"
-            data-testid="pause-overlay"
-          >
-            <div className="bg-paper rounded-3xl border border-ink3/30 p-8 text-center shadow-xl max-w-xs w-full mx-4">
-              <span className="sticker text-xs text-accent font-elite">Game Paused</span>
-              <h3 className="font-anton text-3xl uppercase tracking-wide mt-2 text-ink">Catch your breath.</h3>
-              <p className="text-xs text-ink2 mt-2 font-sans">
-                Take a pause or return to the illustrated portfolio exhibition.
-              </p>
-              <div className="mt-6 space-y-2.5 font-elite">
-                <button
-                  className="btn-ink w-full text-xs flex items-center justify-center gap-1.5"
-                  onClick={togglePause}
-                  data-testid="pause-resume-btn"
-                >
-                  <Play className="w-4 h-4" /> Resume riding
-                </button>
-                <button
-                  className="btn-outline w-full text-xs"
-                  onClick={onExit}
-                  data-testid="pause-exit-btn"
-                >
-                  Exit to portfolio
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Crash toast */}
-      <AnimatePresence>
-        {crashed && !editorMode && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="absolute top-20 left-1/2 -translate-x-1/2 bg-accent text-paper px-4 py-2 rounded-full font-sans text-xs font-semibold shadow-md z-20"
-            data-testid="crash-toast"
-          >
-            CRASHED — respawning at last checkpoint…
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Finish overlay */}
-      <AnimatePresence>
-        {finished && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute top-20 left-1/2 -translate-x-1/2 bg-paper rounded-2xl border border-ink3/30 px-6 py-4 text-center shadow-lg z-20 font-elite"
-            data-testid="finish-banner"
-          >
-            <span className="sticker text-xs text-accent">Track Complete</span>
-            <p className="font-anton text-2xl uppercase tracking-wide mt-1 text-ink">Every project visited!</p>
-            <button className="btn-ink mt-3 !py-1.5 !px-4 text-xs font-elite" onClick={onExit} data-testid="finish-exit-btn">
-              Back to portfolio
+      {editing ? (
+        <footer className="editor-footer">
+          Drag to draw · Erase by tapping a line · Undo restores deletions and
+          clears · Drafts stay separate from the main trail.
+        </footer>
+      ) : (
+        <footer className="ride-controls">
+          <div className="control-pair">
+            {touch("leanB", "Lean back", "A / ←")}
+            {touch("leanF", "Lean forward", "D / →")}
+          </div>
+          <div className="ride-footer-actions">
+            <button onClick={() => run((x) => x.respawn())}>
+              Restart flag · R
             </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {!ready && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="font-sans text-xs text-ink3 animate-pulse">Rolling out the track…</p>
-        </div>
+            {v?.custom ? (
+              <button onClick={() => run((x) => x.openEditor())}>
+                Back to editor
+              </button>
+            ) : (
+              <button onClick={() => run((x) => x.respawn(true))}>
+                Restart trail
+              </button>
+            )}
+          </div>
+          <div className="control-pair">
+            {touch("brake", "Brake", "S / ↓")}
+            {touch("accel", "Pedal", "W / ↑")}
+          </div>
+        </footer>
       )}
-    </motion.div>
+    </main>
   );
 }

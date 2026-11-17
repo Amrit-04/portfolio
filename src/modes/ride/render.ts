@@ -1,479 +1,373 @@
-// Free Rider HD Canvas Renderer: Paper world, ink terrain, non-colliding scenery lines,
-// golden collectible stars, detailed bicycle with spring suspension, and animated stick rider.
-
-import { GameEngine } from './engine';
-import { Decoration } from './track';
-
-const INK = '#2A2520';
-const RED = '#C84B31';
-const GOLD = '#D4A843';
-const BLUE = '#3A6EA5';
-
-function drawDecoration(ctx: CanvasRenderingContext2D, d: Decoration) {
-  const { x, y } = d;
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 1.8;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-
-  switch (d.kind) {
-    case 'workbench': {
-      ctx.strokeRect(x - 60, y - 52, 120, 8);
-      ctx.beginPath();
-      ctx.moveTo(x - 54, y - 44);
-      ctx.lineTo(x - 54, y);
-      ctx.moveTo(x + 54, y - 44);
-      ctx.lineTo(x + 54, y);
-      ctx.stroke();
-      ctx.strokeRect(x - 40, y - 78, 34, 26); // monitor
-      ctx.beginPath();
-      ctx.moveTo(x - 23, y - 52);
-      ctx.lineTo(x - 23, y - 44);
-      ctx.stroke();
-      break;
+import type { GameEngine } from "./engine";
+import { heightAt } from "./track";
+const ink = "#2a2520",
+  red = "#c84b31",
+  blue = "#3a6ea5",
+  paper = "#f7f6f1",
+  gold = "#d4a843";
+export function drawWorld(
+  ctx: CanvasRenderingContext2D,
+  e: GameEngine,
+  alpha: number,
+  time: number,
+) {
+  const w = e.canvas.clientWidth,
+    h = e.canvas.clientHeight,
+    dpr = e.canvas.width / w,
+    z = e.zoom;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = paper;
+  ctx.fillRect(0, 0, w, h);
+  const X = (x: number) => (x - e.camX) * z + w * 0.32,
+    Y = (y: number) => h * 0.62 - (y - e.camY) * z;
+  const line = (
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color = ink,
+    width = 2,
+  ) => {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = width;
+    ctx.beginPath();
+    ctx.moveTo(X(x1), Y(y1));
+    ctx.lineTo(X(x2), Y(y2));
+    ctx.stroke();
+  };
+  const text = (s: string, x: number, y: number, size = 13, color = ink) => {
+    ctx.fillStyle = color;
+    ctx.font = `${size}px 'Special Elite',monospace`;
+    ctx.fillText(s, X(x), Y(y));
+  };
+  const box = (
+    x: number,
+    y: number,
+    bw: number,
+    bh: number,
+    color = ink,
+    fill = paper,
+  ) => {
+    ctx.fillStyle = fill;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.7;
+    ctx.fillRect(X(x), Y(y + bh), bw * z, bh * z);
+    ctx.strokeRect(X(x), Y(y + bh), bw * z, bh * z);
+  };
+  ctx.strokeStyle = "#e4dfd3";
+  ctx.lineWidth = 1;
+  for (let yy = 30; yy < h; yy += 28) {
+    ctx.beginPath();
+    ctx.moveTo(0, yy);
+    ctx.lineTo(w, yy);
+    ctx.stroke();
+  }
+  const editor = e.status === "editor";
+  if (editor) {
+    ctx.strokeStyle = "#e1ddd1";
+    for (let xx = Math.floor(e.camX - w / z); xx < e.camX + w / z; xx++) {
+      line(xx, e.camY - h / z, xx, e.camY + h / z, "#e1ddd1", 1);
     }
-    case 'db': {
-      for (let i = 0; i < 3; i++) {
-        const ox = x + i * 36;
-        const oy = y;
-        ctx.beginPath();
-        ctx.ellipse(ox + 15, oy - 60, 15, 6, 0, 0, Math.PI * 2);
-        ctx.moveTo(ox, oy - 60);
-        ctx.lineTo(ox, oy - 25);
-        ctx.ellipse(ox + 15, oy - 25, 15, 6, 0, Math.PI, 0, true);
-        ctx.lineTo(ox + 30, oy - 60);
-        ctx.stroke();
+    text(
+      "DRAW YOUR OWN WAY THROUGH.",
+      e.camX - (w * 0.26) / z,
+      e.camY + (h * 0.45) / z,
+      18,
+    );
+  } else {
+    for (const section of e.track.sections) {
+      if (X(section.end) < -200 || X(section.start) > w + 200) continue;
+      const x = section.start + 9,
+        y = heightAt(e.track.physics, x) ?? 0;
+      text(section.name.toUpperCase(), section.start + 1, y + 6, 18, "#81786a");
+      switch (section.theme) {
+        case "workshop":
+          box(x - 5, y + 1, 8, 3.4);
+          line(x - 5, y + 1, x + 3, y + 1, ink, 4);
+          line(x - 4, y + 1, x - 4, y + 0.1);
+          line(x + 2, y + 1, x + 2, y + 0.1);
+          box(x - 4, y + 1.4, 3, 1.7, blue);
+          text("hello, world", x - 3.8, y + 2.1, 11, blue);
+          box(x + 0.4, y + 1.2, 1, 0.9, red);
+          text("START →", x - 7, y + 4.8, 18, red);
+          break;
+        case "database":
+          for (let n = 0; n < 3; n++) {
+            const xx = x + n * 3;
+            box(xx, y + 1, 2.2, 1.4, blue);
+            text(["SCAN", "JOIN", "PLAN"][n], xx + 0.2, y + 1.6, 12, blue);
+            if (n < 2) line(xx + 2.2, y + 1.7, xx + 3, y + 1.7, blue);
+          }
+          text("find the better path", x, y + 4, 14);
+          break;
+        case "mountains":
+          line(x - 8, y, x - 2, y + 4.8, "#aaa18f", 2);
+          line(x - 2, y + 4.8, x + 5, y, "#aaa18f", 2);
+          line(x + 1, y + 2.7, x + 5, y + 5.6, "#aaa18f");
+          line(x + 5, y + 5.6, x + 12, y, "#aaa18f");
+          text("RETRY ≠ GIVE UP", x - 1, y + 6.4, 14, red);
+          break;
+        case "bridge":
+          for (let n = 0; n < 4; n++) {
+            box(x - 4 + n * 3.2, y + 2.3, 2.6, 1.2, n === 2 ? red : blue);
+            text(
+              ["NEW", "VALID", "FILLED", "DONE"][n],
+              x - 3.8 + n * 3.2,
+              y + 2.8,
+              11,
+            );
+            if (n < 3)
+              line(x - 1.4 + n * 3.2, y + 2.8, x - 0.8 + n * 3.2, y + 2.8);
+          }
+          text("ORDER STATE / NOT REAL MONEY", x - 4, y + 4.7, 12);
+          break;
+        case "warehouse":
+          for (let n = 0; n < 5; n++) {
+            box(x - 4 + n * 2.5, y + 1.7, 1.8, 2.8, "#887d69", "#eee8d9");
+            for (let j = 1; j < 3; j++)
+              line(
+                x - 4 + n * 2.5,
+                y + 1.7 + j * 0.85,
+                x - 2.2 + n * 2.5,
+                y + 1.7 + j * 0.85,
+                "#887d69",
+              );
+            text(
+              String(n + 1).padStart(2, "0"),
+              x - 3.7 + n * 2.5,
+              y + 3.1,
+              12,
+            );
+          }
+          text("THE SHORTEST ROUTE IS NOT ALWAYS OBVIOUS", x - 4, y + 5.3, 11);
+          break;
+        case "quant":
+          line(x - 5, y + 1.4, x + 8, y + 1.4, "#8a816d");
+          line(x - 5, y + 1.4, x - 5, y + 5, "#8a816d");
+          [1.9, 2.7, 2.2, 3.4, 3, 4.2, 3.5].forEach((v, n, a) => {
+            if (n)
+              line(
+                x - 5 + (n - 1) * 1.8,
+                y + a[n - 1],
+                x - 5 + n * 1.8,
+                y + v,
+                blue,
+                2,
+              );
+          });
+          text("SIMULATED ≠ LIVE", x - 4, y + 5.5, 14, red);
+          break;
+        case "factory":
+          for (let n = 0; n < 4; n++) {
+            box(x - 4 + n * 3, y + 1.6, 2, 2.5);
+            text(
+              ["IN", "QUEUE", "WORK", "OUT"][n],
+              x - 3.8 + n * 3,
+              y + 2.6,
+              11,
+            );
+            if (n < 3)
+              line(x - 2 + n * 3, y + 2.8, x - 1 + n * 3, y + 2.8, blue, 3);
+          }
+          text("OBSERVE · RETRY · RECOVER", x - 4, y + 5.1, 14, blue);
+          break;
+        case "vision":
+          box(x - 4, y + 1.4, 5, 3.5, blue);
+          box(x - 3.1, y + 2.1, 1.2, 1.9, red);
+          text("PPE?", x - 3, y + 4.4, 12, red);
+          box(x + 3, y + 3.2, 1.4, 0.8);
+          line(x + 3.7, y + 3.2, x + 3.7, y + 0.7);
+          line(x + 3.7, y + 3.6, x + 1, y + 4, blue);
+          text("VISION OUTPOST", x - 4, y + 5.6, 14);
+          break;
+        case "finish":
+          line(e.track.finish, y, e.track.finish, y + 5.3, ink, 3);
+          line(e.track.finish + 4, y, e.track.finish + 4, y + 5.3, ink, 3);
+          box(e.track.finish, y + 4.2, 4, 1.1, ink, gold);
+          text("YOU MADE IT", e.track.finish + 0.2, y + 4.6, 12);
+          text("keep being curious.", x - 4, y + 3, 20, blue);
+          break;
       }
-      break;
     }
-    case 'tower': {
+  }
+  const physics = editor ? e.editor.document.physics : e.track.physics,
+    scenery = editor ? e.editor.document.scenery : e.track.scenery;
+  for (const s of scenery) line(s.a.x, s.a.y, s.b.x, s.b.y, "#8a9caa", 2);
+  for (const s of physics) {
+    if (
+      Math.max(X(s.a.x), X(s.b.x)) < -10 ||
+      Math.min(X(s.a.x), X(s.b.x)) > w + 10
+    )
+      continue;
+    if (!editor) {
+      ctx.fillStyle = "#e9e3d6";
       ctx.beginPath();
-      ctx.moveTo(x - 24, y);
-      ctx.lineTo(x - 6, y - 130);
-      ctx.lineTo(x + 6, y - 130);
-      ctx.lineTo(x + 24, y);
-      ctx.moveTo(x - 16, y - 40);
-      ctx.lineTo(x + 16, y - 40);
-      ctx.moveTo(x - 12, y - 80);
-      ctx.lineTo(x + 12, y - 80);
-      ctx.moveTo(x - 16, y - 40);
-      ctx.lineTo(x + 12, y - 80);
-      ctx.moveTo(x - 12, y - 80);
-      ctx.lineTo(x + 16, y - 40);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x, y - 138, 5, 0, Math.PI * 2);
-      ctx.stroke();
-      break;
-    }
-    case 'breaker': {
-      ctx.strokeRect(x - 18, y - 44, 36, 44);
-      ctx.beginPath();
-      ctx.moveTo(x - 8, y);
-      ctx.lineTo(x - 8, y - 30);
-      ctx.lineTo(x + 8, y - 36);
-      ctx.stroke();
-      ctx.fillStyle = RED;
-      ctx.beginPath();
-      ctx.arc(x, y - 36, 4, 0, Math.PI * 2);
-      ctx.fill();
-      break;
-    }
-    case 'bridge': {
-      const w = d.w ?? 900;
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, y + 160);
-      ctx.moveTo(x + w, y);
-      ctx.lineTo(x + w, y + 160);
-      ctx.stroke();
-      break;
-    }
-    case 'shelf': {
-      ctx.strokeRect(x - 30, y - 70, 60, 70);
-      ctx.beginPath();
-      ctx.moveTo(x - 30, y - 45);
-      ctx.lineTo(x + 30, y - 45);
-      ctx.moveTo(x - 30, y - 22);
-      ctx.lineTo(x + 30, y - 22);
-      ctx.stroke();
-      break;
-    }
-    case 'chart': {
-      ctx.strokeRect(x - 45, y - 80, 90, 60);
-      ctx.beginPath();
-      ctx.moveTo(x - 38, y - 30);
-      ctx.lineTo(x - 20, y - 55);
-      ctx.lineTo(x, y - 40);
-      ctx.lineTo(x + 20, y - 70);
-      ctx.lineTo(x + 38, y - 35);
-      ctx.stroke();
-      break;
-    }
-    case 'pipes': {
-      ctx.beginPath();
-      ctx.moveTo(x - 20, y);
-      ctx.lineTo(x - 20, y - 80);
-      ctx.lineTo(x + 60, y - 80);
-      ctx.lineTo(x + 60, y);
-      ctx.stroke();
-      break;
-    }
-    case 'camera': {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, y - 110);
-      ctx.lineTo(x + 20, y - 110);
-      ctx.stroke();
-      ctx.strokeRect(x + 15, y - 120, 24, 16);
-      break;
-    }
-    case 'flag': {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, y - 110);
-      ctx.stroke();
-      ctx.fillStyle = RED;
-      ctx.beginPath();
-      ctx.moveTo(x, y - 110);
-      ctx.lineTo(x + 44, y - 98);
-      ctx.lineTo(x, y - 84);
+      ctx.moveTo(X(s.a.x), Y(s.a.y));
+      ctx.lineTo(X(s.b.x), Y(s.b.y));
+      ctx.lineTo(X(s.b.x), h);
+      ctx.lineTo(X(s.a.x), h);
       ctx.closePath();
       ctx.fill();
-      break;
+      const lo = Math.min(s.a.x, s.b.x),
+        hi = Math.max(s.a.x, s.b.x);
+      for (let x = Math.ceil(lo); x < hi; x += 1.5) {
+        const y = heightAt([s], x);
+        if (y !== null) line(x, y - 0.2, x + 0.45, y - 0.7, "#c9beaa", 1);
+      }
     }
-    case 'sign': {
-      const w = Math.max(120, (d.text?.length ?? 6) * 8.5);
+    line(s.a.x, s.a.y, s.b.x, s.b.y, ink, 3);
+  }
+  if (editor && e.draft)
+    line(
+      e.draft.a.x,
+      e.draft.a.y,
+      e.draft.b.x,
+      e.draft.b.y,
+      e.editorTool === "scenery" ? blue : red,
+      3,
+    );
+  if (!editor) {
+    for (let i = 0; i < e.track.checkpoints.length; i++) {
+      const cp = e.track.checkpoints[i];
+      line(cp.x, cp.y, cp.x, cp.y + 2.7, "#756952");
+      ctx.fillStyle = e.visited.has(i) ? "#477a54" : red;
       ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, y - 64);
-      ctx.stroke();
-      ctx.strokeRect(x - w / 2, y - 88, w, 26);
-      ctx.fillStyle = INK;
-      ctx.font = "bold 10px 'JetBrains Mono', monospace";
-      ctx.textAlign = 'center';
-      ctx.fillText(d.text ?? '', x, y - 71);
-      ctx.textAlign = 'left';
-      break;
+      ctx.moveTo(X(cp.x), Y(cp.y + 2.7));
+      ctx.lineTo(X(cp.x + 1.1), Y(cp.y + 2.35));
+      ctx.lineTo(X(cp.x), Y(cp.y + 2));
+      ctx.fill();
     }
-    case 'banner': {
-      const w = 340;
-      ctx.lineWidth = 2;
+    e.track.stars.forEach((s, i) => {
+      if (e.stars.has(i) || X(s.x) < -30 || X(s.x) > w + 30) return;
       ctx.beginPath();
-      ctx.moveTo(x - w / 2, y - 150);
-      ctx.lineTo(x - w / 2, y);
-      ctx.moveTo(x + w / 2, y - 150);
-      ctx.lineTo(x + w / 2, y);
-      ctx.moveTo(x - w / 2, y - 150);
-      ctx.lineTo(x + w / 2, y - 150);
+      for (let n = 0; n < 10; n++) {
+        const a = -Math.PI / 2 + (n * Math.PI) / 5,
+          r = n % 2 ? 0.12 : 0.28,
+          xx = X(s.x + Math.cos(a) * r),
+          yy = Y(s.y + Math.sin(a) * r);
+        if (n === 0) ctx.moveTo(xx, yy);
+        else ctx.lineTo(xx, yy);
+      }
+      ctx.closePath();
+      ctx.fillStyle = gold;
+      ctx.strokeStyle = "#866619";
+      ctx.lineWidth = 1.5;
+      ctx.fill();
       ctx.stroke();
-      ctx.fillStyle = 'rgba(200,75,49,0.15)';
-      ctx.fillRect(x - w / 2, y - 148, w, 34);
-      ctx.strokeRect(x - w / 2, y - 148, w, 34);
-      ctx.fillStyle = INK;
-      ctx.font = "bold 13px 'JetBrains Mono', monospace";
-      ctx.textAlign = 'center';
-      ctx.fillText(d.text ?? '', x, y - 126);
-      ctx.textAlign = 'left';
-      break;
+    });
+    const poses = e.bike.parts.map((p) => ({
+      part: p,
+      pose: e.bike.interpolated(
+        p,
+        e.status === "running" || e.status === "crashed" ? alpha : 1,
+      ),
+    }));
+    // Every body, including both arms and legs, is drawn from its own solver pose.
+    for (const { part: p, pose: q } of poses.filter(
+      (v) => v.part.kind !== "frame",
+    )) {
+      ctx.save();
+      ctx.translate(X(q.x), Y(q.y));
+      ctx.rotate(-q.angle);
+      ctx.strokeStyle = ink;
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = "round";
+      ctx.fillStyle =
+        p.kind === "head" ? "#ddc29b" : p.kind === "limb" ? blue : ink;
+      if (p.kind === "wheel") {
+        ctx.beginPath();
+        ctx.arc(0, 0, 0.46 * z, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = "#8a8173";
+        ctx.lineWidth = 1;
+        for (let k = 0; k < 8; k++) {
+          const a = (k * Math.PI) / 4;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(Math.cos(a) * 0.42 * z, Math.sin(a) * 0.42 * z);
+          ctx.stroke();
+        }
+        ctx.fillStyle = ink;
+        ctx.beginPath();
+        ctx.arc(0, 0, 3, 0, 7);
+        ctx.fill();
+      } else if (p.kind === "head") {
+        ctx.beginPath();
+        ctx.arc(0, 0, 0.205 * z, 0, 7);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = red;
+        ctx.beginPath();
+        ctx.arc(0, 0, 0.22 * z, Math.PI, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      } else {
+        const length = (p.length ?? 0.2) * z;
+        ctx.lineWidth = p.kind === "limb" ? Math.max(4, z * 0.12) : 4;
+        ctx.strokeStyle = p.kind === "limb" ? blue : ink;
+        ctx.beginPath();
+        ctx.moveTo(-length / 2, 0);
+        ctx.lineTo(length / 2, 0);
+        ctx.stroke();
+        ctx.fillStyle = ink;
+        ctx.beginPath();
+        ctx.arc(-length / 2, 0, 2, 0, 7);
+        ctx.fill();
+      }
+      ctx.restore();
     }
-  }
-}
-
-function drawStar(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number) {
-  ctx.save();
-  ctx.fillStyle = GOLD;
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 1.4;
-  ctx.beginPath();
-  for (let i = 0; i < 5; i++) {
-    const a1 = (i * Math.PI * 2) / 5 - Math.PI / 2;
-    const a2 = a1 + Math.PI / 5;
-    const x1 = cx + Math.cos(a1) * r;
-    const y1 = cy + Math.sin(a1) * r;
-    const x2 = cx + Math.cos(a2) * (r * 0.45);
-    const y2 = cy + Math.sin(a2) * (r * 0.45);
-    if (i === 0) ctx.moveTo(x1, y1);
-    else ctx.lineTo(x1, y1);
-    ctx.lineTo(x2, y2);
-  }
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
-}
-
-export function drawWorld(ctx: CanvasRenderingContext2D, eng: GameEngine) {
-  const cw = ctx.canvas.width;
-  const ch = ctx.canvas.height;
-  const scale = (ch / 760) * eng.zoom;
-
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.fillStyle = '#FAF8F3';
-  ctx.fillRect(0, 0, cw, ch);
-
-  ctx.save();
-  ctx.translate(cw * 0.38 - eng.camX * scale, ch * 0.5 - eng.camY * scale);
-  ctx.scale(scale, scale);
-
-  const viewLeft = eng.camX - cw / 2 / scale;
-  const viewRight = eng.camX + (cw * 0.62) / scale;
-
-  // 1. SECTION TITLES AS HAND-DRAWN MURAL CALLOUTS
-  ctx.fillStyle = 'rgba(42,37,32,0.12)';
-  ctx.font = "bold 56px 'Playfair Display', Georgia, serif";
-  ctx.textAlign = 'center';
-  for (const s of eng.track.sections) {
-    if (s.startX + 700 > viewLeft && s.startX + 700 < viewRight) {
-      ctx.fillText(s.name, s.startX + 700, 100);
-    }
-  }
-  ctx.textAlign = 'left';
-
-  // 2. NON-COLLIDING BACKGROUND SCENERY LINES (Free Rider HD aesthetic)
-  for (const line of eng.track.scenery) {
-    if (Math.max(line.x1, line.x2) < viewLeft - 60 || Math.min(line.x1, line.x2) > viewRight + 60) continue;
-    ctx.strokeStyle = line.color || 'rgba(74,69,64,0.3)';
-    ctx.lineWidth = line.width || 1.4;
-    ctx.lineCap = 'round';
-    if (line.dashed) ctx.setLineDash([6, 4]);
-    else ctx.setLineDash([]);
-    ctx.beginPath();
-    ctx.moveTo(line.x1, line.y1);
-    ctx.lineTo(line.x2, line.y2);
-    ctx.stroke();
-  }
-  ctx.setLineDash([]);
-
-  // 3. DISTANCE TICKS ALONG TRACK
-  ctx.fillStyle = 'rgba(74,69,64,0.4)';
-  ctx.font = "9px 'JetBrains Mono', monospace";
-  for (let x = 0; x <= eng.track.length; x += 500) {
-    if (x < viewLeft || x > viewRight) continue;
-    const seg = eng.track.segments.find((s) => x >= Math.min(s.x1, s.x2) && x <= Math.max(s.x1, s.x2));
-    if (seg) {
-      const t = (x - seg.x1) / (seg.x2 - seg.x1 || 1);
-      const gy = seg.y1 + (seg.y2 - seg.y1) * t;
-      ctx.fillText(`${x / 10}m`, x, gy - 25);
+    const frame = poses.find((v) => v.part.kind === "frame");
+    if (frame) {
+      const q = frame.pose;
+      ctx.save();
+      ctx.translate(X(q.x), Y(q.y));
+      ctx.rotate(-q.angle);
+      ctx.strokeStyle = red;
+      ctx.lineWidth = 3;
+      ctx.lineJoin = "round";
+      const f = (x: number, y: number) => [x * z, -y * z];
       ctx.beginPath();
-      ctx.moveTo(x, gy);
-      ctx.lineTo(x, gy - 8);
-      ctx.strokeStyle = 'rgba(74,69,64,0.35)';
+      for (const [i, p] of [
+        [-1.05, -0.39],
+        [-0.42, 0.4],
+        [0.04, -0.4],
+        [0.66, 0.43],
+        [-0.42, 0.4],
+      ].entries()) {
+        const a = f(p[0], p[1]);
+        if (i === 0) ctx.moveTo(a[0], a[1]);
+        else ctx.lineTo(a[0], a[1]);
+      }
+      const a = f(-1.05, -0.39);
+      ctx.lineTo(a[0], a[1]);
       ctx.stroke();
-    }
-  }
-
-  // 4. DECORATIONS (Workshop, database cylinders, towers, bridges)
-  for (const d of eng.track.decorations) {
-    if (d.x + 300 < viewLeft || d.x - 300 > viewRight) continue;
-    drawDecoration(ctx, d);
-  }
-
-  // 5. COLLECTIBLE GOLDEN STARS
-  for (const star of eng.track.stars) {
-    if (star.collected) continue;
-    if (star.x < viewLeft - 40 || star.x > viewRight + 40) continue;
-    drawStar(ctx, star.x, star.y, 11);
-  }
-
-  // 6. CHECKPOINTS & BANNERS
-  for (const cp of eng.track.checkpoints) {
-    if (cp.x < viewLeft - 100 || cp.x > viewRight + 100) continue;
-    const visited = eng.visited.has(cp.projectId);
-    ctx.strokeStyle = INK;
-    ctx.lineWidth = 2.2;
-    ctx.beginPath();
-    ctx.moveTo(cp.x, cp.y);
-    ctx.lineTo(cp.x, cp.y - 68);
-    ctx.stroke();
-    ctx.fillStyle = visited ? RED : '#FAF8F3';
-    ctx.beginPath();
-    ctx.moveTo(cp.x, cp.y - 68);
-    ctx.lineTo(cp.x + 36, cp.y - 56);
-    ctx.lineTo(cp.x, cp.y - 44);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = INK;
-    ctx.font = "bold 10px 'JetBrains Mono', monospace";
-    ctx.textAlign = 'center';
-    ctx.fillText(cp.label, cp.x + 6, cp.y - 78);
-    ctx.textAlign = 'left';
-
-    if (eng.activeCheckpoint?.projectId === cp.projectId) {
-      ctx.strokeStyle = RED;
-      ctx.lineWidth = 1.8;
-      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = ink;
+      ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.arc(cp.x, cp.y - 30, 48, 0, Math.PI * 2);
+      ctx.moveTo(0.66 * z, -0.43 * z);
+      ctx.lineTo(1.05 * z, 0.39 * z);
+      ctx.moveTo(0.66 * z, -0.43 * z);
+      ctx.lineTo(0.75 * z, -0.7 * z);
+      ctx.lineTo(1 * z, -0.7 * z);
+      ctx.moveTo(-0.42 * z, -0.4 * z);
+      ctx.lineTo(-0.45 * z, -0.63 * z);
+      ctx.moveTo(-0.7 * z, -0.63 * z);
+      ctx.lineTo(-0.24 * z, -0.63 * z);
       ctx.stroke();
-      ctx.setLineDash([]);
-    }
-  }
-
-  // 7. SOLID COLLISION TERRAIN LINES (Heavy Free Rider track stroke)
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 3.6;
-  ctx.lineCap = 'round';
-  ctx.beginPath();
-  for (const s of eng.track.segments) {
-    if (Math.max(s.x1, s.x2) < viewLeft - 50 || Math.min(s.x1, s.x2) > viewRight + 50) continue;
-    ctx.moveTo(s.x1, s.y1);
-    ctx.lineTo(s.x2, s.y2);
-  }
-  ctx.stroke();
-
-  // Terrain under-hatching (classic Free Rider hand-drawn texture)
-  ctx.lineWidth = 1.2;
-  ctx.strokeStyle = 'rgba(42,37,32,0.25)';
-  ctx.beginPath();
-  for (const s of eng.track.segments) {
-    if (Math.max(s.x1, s.x2) < viewLeft - 50 || Math.min(s.x1, s.x2) > viewRight + 50) continue;
-    const len = Math.hypot(s.x2 - s.x1, s.y2 - s.y1);
-    const n = Math.floor(len / 16);
-    for (let i = 0; i < n; i++) {
-      const t = (i + 0.5) / n;
-      const hx = s.x1 + (s.x2 - s.x1) * t;
-      const hy = s.y1 + (s.y2 - s.y1) * t;
-      ctx.moveTo(hx, hy);
-      ctx.lineTo(hx - 8, hy + 10);
-    }
-  }
-  ctx.stroke();
-
-  // 8. PARTICLES & DUST TRAILS
-  for (const p of eng.particles) {
-    ctx.fillStyle = p.color || 'rgba(74,69,64,0.5)';
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 2.5 * p.life * 2, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  // 9. DRAFT LINE IN TRACK EDITOR (if active)
-  if (eng.editorActive && eng.editorDraftLine) {
-    ctx.strokeStyle = eng.editorTool === 'physics' ? RED : BLUE;
-    ctx.lineWidth = 2.5;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(eng.editorDraftLine.x1, eng.editorDraftLine.y1);
-    ctx.lineTo(eng.editorDraftLine.x2, eng.editorDraftLine.y2);
-    ctx.stroke();
-    ctx.setLineDash([]);
-  }
-
-  // 10. FREE RIDER BICYCLE & ANIMATED RAGDOLL RIDER
-  const { w1, w2, frame, head } = eng;
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 2.6;
-
-  // Wheels (Radius 14px)
-  for (const w of [w1, w2]) {
-    // Outer tire
-    ctx.beginPath();
-    ctx.arc(w.x, w.y, 14, 0, Math.PI * 2);
-    ctx.stroke();
-    // Inner rim
-    ctx.beginPath();
-    ctx.arc(w.x, w.y, 11, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // 6 Rotating spokes
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    for (let i = 0; i < 6; i++) {
-      const a = eng.wheelSpin + (i * Math.PI) / 3;
-      ctx.moveTo(w.x - Math.cos(a) * 11, w.y - Math.sin(a) * 11);
-      ctx.lineTo(w.x + Math.cos(a) * 11, w.y + Math.sin(a) * 11);
-    }
-    ctx.stroke();
-    ctx.lineWidth = 2.6;
-    // Hub center
-    ctx.fillStyle = INK;
-    ctx.beginPath();
-    ctx.arc(w.x, w.y, 2.5, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  // Bicycle Diamond Frame
-  ctx.lineWidth = 2.8;
-  ctx.strokeStyle = RED;
-  ctx.beginPath();
-  ctx.moveTo(w1.x, w1.y);
-  ctx.lineTo(frame.x, frame.y);
-  ctx.lineTo(w2.x, w2.y);
-  ctx.closePath();
-  ctx.stroke();
-
-  // Bottom Bracket Crank
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 2;
-  const crankA = eng.wheelSpin * 0.8;
-  const crankR = 7;
-  const bx = frame.x;
-  const by = frame.y;
-  const p1x = bx + Math.cos(crankA) * crankR;
-  const p1y = by + Math.sin(crankA) * crankR;
-  const p2x = bx - Math.cos(crankA) * crankR;
-  const p2y = by - Math.sin(crankA) * crankR;
-  ctx.beginPath();
-  ctx.moveTo(p1x, p1y);
-  ctx.lineTo(p2x, p2y);
-  ctx.stroke();
-
-  // Handlebars & Stem
-  const barX = frame.x + (w2.x - frame.x) * 0.78;
-  const barY = frame.y + (w2.y - frame.y) * 0.78 - 9;
-  ctx.beginPath();
-  ctx.moveTo(w2.x, w2.y);
-  ctx.lineTo(barX, barY);
-  ctx.stroke();
-
-  // Rider Torso, Arms & Legs
-  ctx.lineWidth = 2.2;
-  ctx.beginPath();
-  // Spine: Seat lug to Head
-  ctx.moveTo(frame.x, frame.y - 4);
-  ctx.lineTo(head.x, head.y);
-
-  // Arms to Handlebars
-  ctx.moveTo(head.x, head.y + 8);
-  ctx.lineTo(barX, barY);
-
-  // Pedaling Legs: Hip to Foot
-  ctx.moveTo(frame.x, frame.y - 4);
-  ctx.lineTo(p1x, p1y);
-  ctx.stroke();
-
-  // Helmet with visor
-  ctx.beginPath();
-  ctx.arc(head.x, head.y, 9, 0, Math.PI * 2);
-  ctx.fillStyle = eng.crashed ? INK : RED;
-  ctx.fill();
-  ctx.stroke();
-
-  if (!eng.crashed) {
-    // Rider face & visor
-    ctx.fillStyle = '#FAF8F3';
-    ctx.beginPath();
-    ctx.arc(head.x + 3, head.y - 2, 2.5, 0, Math.PI * 2);
-    ctx.fill();
-  } else {
-    // Cartoon crash stars circling head
-    ctx.strokeStyle = RED;
-    ctx.lineWidth = 1.8;
-    for (let i = 0; i < 4; i++) {
-      const a = (i / 4) * Math.PI * 2 + eng.wheelSpin * 0.4;
-      const sx = head.x + Math.cos(a) * 20;
-      const sy = head.y + Math.sin(a) * 20;
       ctx.beginPath();
-      ctx.moveTo(sx - 3, sy);
-      ctx.lineTo(sx + 3, sy);
-      ctx.moveTo(sx, sy - 3);
-      ctx.lineTo(sx, sy + 3);
+      ctx.arc(0.04 * z, 0.4 * z, 0.12 * z, 0, 7);
       ctx.stroke();
+      ctx.restore();
     }
   }
-
-  ctx.restore();
+  ctx.fillStyle = "#756b5b";
+  ctx.font = "12px 'Special Elite',monospace";
+  ctx.fillText(
+    editor
+      ? "Blue = scenery / Ink = collision"
+      : `${Math.max(0, Math.round(e.bike.position.x))} m  ·  120 Hz physics`,
+    16,
+    h - 16,
+  );
+  void time;
 }
