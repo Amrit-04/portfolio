@@ -47,10 +47,11 @@ describe("physical bicycle", () => {
     for (let i = 0; i < 100; i++) b.step();
     expect(Number.isFinite(b.head.getPosition().y)).toBe(true);
   });
-  it("authored gaps have no invisible collision surface", () => {
+  it("keeps one visible jump and rolls smoothly through the rest of the trail", () => {
     const t = buildTrack();
-    for (const x of [81.5, 113.5, 189.5, 251])
-      expect(heightAt(t.physics, x)).toBeNull();
+    expect(heightAt(t.physics, 81.5)).toBeNull();
+    for (const x of [113.5, 189.5, 251])
+      expect(heightAt(t.physics, x)).not.toBeNull();
     expect(t.sections).toHaveLength(9);
   });
   it("full course can be completed using only recorded physical inputs", () => {

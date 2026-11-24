@@ -21,6 +21,7 @@ export interface GameView {
   checkpoint: number;
   stars: number;
   totalStars: number;
+  totalProjectStops: number;
   seconds: number;
   crashes: number;
   custom: boolean;
@@ -280,6 +281,9 @@ export class GameEngine {
       checkpoint: this.checkpoint,
       stars: this.stars.size,
       totalStars: this.track.stars.length,
+      totalProjectStops: this.track.checkpoints.filter(
+        (checkpoint) => checkpoint.project,
+      ).length,
       seconds: this.seconds,
       crashes: this.crashes,
       custom: this.custom,

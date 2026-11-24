@@ -277,7 +277,7 @@ test("full physical trail reaches all notebook checkpoints and finish", async ({
           path: "screenshots/final/desktop-game-checkpoint.png",
         });
         await page
-          .getByRole("button", { name: "Open project notebook", exact: true })
+          .getByRole("button", { name: "Read project notebook", exact: true })
           .click();
         await expect(page.getByTestId("project-detail-modal")).toBeVisible();
         const stopped = await state(page);

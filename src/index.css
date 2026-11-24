@@ -1925,10 +1925,20 @@ em {
 }
 /* The game is an opt-in, fixed viewport; the portfolio never runs its animation loop. */
 .ride-app {
+  --paper: #f2f4f4;
+  --paper2: #e9eceb;
+  --ink: #171612;
+  --ink2: #4a4944;
+  --ink3: #6c6964;
+  --red: #a83e32;
+  --blue: #486d78;
+  --gold: #b68b36;
   position: fixed;
   inset: 0;
   z-index: 40;
   background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1939,7 +1949,7 @@ em {
   justify-content: space-between;
   gap: 20px;
   padding: 14px 24px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #17161255;
   flex-shrink: 0;
 }
 .ride-header button {
@@ -1947,16 +1957,16 @@ em {
   min-height: 40px;
 }
 .ride-exit {
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid currentColor;
 }
 .ride-brand {
-  font: 22px Anton;
-  letter-spacing: 0.03em;
+  font: 700 30px/0.95 Amatic, "Arial Narrow", sans-serif;
+  letter-spacing: 0.025em;
 }
 .ride-brand span {
   display: block;
-  font: 10px "Special Elite";
-  margin-top: 4px;
+  font: 11px "Special Elite", monospace;
+  margin-top: 7px;
   letter-spacing: 0;
 }
 .ride-top-actions {
@@ -1979,7 +1989,7 @@ em {
   gap: 18px;
 }
 .ride-hud strong {
-  font: 19px "Special Elite";
+  font: 700 25px/1 Amatic, "Arial Narrow", sans-serif;
 }
 .ride-stats {
   display: flex;
@@ -2020,6 +2030,9 @@ em {
   touch-action: none;
   outline-offset: -5px;
 }
+.ride-stage canvas:focus-visible {
+  outline: 2px solid var(--blue);
+}
 .ride-overlay {
   position: absolute;
   left: 50%;
@@ -2029,9 +2042,9 @@ em {
   max-height: calc(100% - 24px);
   overflow: auto;
   padding: 32px 35px;
-  background: #f7f6f1f5;
-  border: 2px solid var(--ink);
-  box-shadow: 7px 7px 0 #2a252025;
+  background: #f2f4f4f5;
+  border: 1px solid var(--ink);
+  box-shadow: 5px 5px 0 #17161220;
   text-align: center;
 }
 .ride-overlay > .annotation {
@@ -2042,8 +2055,8 @@ em {
 }
 .ride-overlay h1,
 .ride-overlay h2 {
-  font: 46px/1.1 Anton;
-  letter-spacing: -0.02em;
+  font: 700 58px/0.92 Amatic, "Arial Narrow", sans-serif;
+  letter-spacing: 0.01em;
 }
 .ride-overlay > p {
   font-size: 13px;
@@ -2065,7 +2078,7 @@ em {
 }
 .btn-primary {
   background: var(--ink);
-  color: var(--paper);
+  color: #f2f4f4;
   box-shadow: 3px 3px 0 var(--red);
 }
 .ride-instructions {
@@ -2100,7 +2113,7 @@ em {
   align-items: center;
   gap: 20px;
   padding: 12px 24px calc(12px + env(safe-area-inset-bottom));
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid #17161255;
   flex-shrink: 0;
   background: var(--paper);
 }
@@ -2117,7 +2130,7 @@ em {
   justify-content: center;
   align-items: center;
   gap: 6px;
-  background: var(--paper2);
+  background: #e9eceb;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
@@ -2134,7 +2147,7 @@ em {
 }
 .key-accel {
   background: var(--ink);
-  color: var(--paper);
+  color: #f2f4f4;
 }
 .ride-footer-actions {
   display: flex;
@@ -2155,7 +2168,7 @@ em {
 }
 .finish-stats b {
   display: block;
-  font: 34px Anton;
+  font: 700 42px/0.95 Amatic, "Arial Narrow", sans-serif;
   margin-bottom: 8px;
 }
 .editor-toolbar {
@@ -2233,7 +2246,7 @@ em {
 }
 .status-crashed {
   top: 30%;
-  background: #f7f6f1dc;
+  background: #f2f4f4ed;
 }
 .ride-app .project-dialog {
   z-index: 100;

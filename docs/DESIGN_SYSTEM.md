@@ -22,7 +22,7 @@ Reduced motion removes decorative movement, skips the entrance/recommendation ga
 
 ## Separate game and readable content
 
-The existing physical trail remains a separate lazy `#/ride` route reached from Playground. Its physics, editor, sound and input lifecycle are not replaced with decorative animation. The full seven notebooks and real experiments remain available above the category walls. Research includes the IEEE record, résumé and canonical education/skills. Homelab copy distinguishes repository-supported experiments from unconfirmed live services.
+The physical trail remains a separate lazy `#/ride` route reached from Playground. Its cool-paper styling echoes the portfolio; its original rolling course has one deliberate jump and clearly marked project stops. Physics, editor, sound and input lifecycle are not replaced with decorative animation. The full seven notebooks and real experiments remain available above the category walls. Research includes the IEEE record, résumé and canonical education/skills. Homelab copy distinguishes repository-supported experiments from unconfirmed live services.
 
 ## Verification boundary
 

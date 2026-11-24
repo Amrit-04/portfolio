@@ -150,6 +150,7 @@ export default function RideMode({
   );
   const e = engine.current,
     editing = v?.status === "editor",
+    projectStops = v?.totalProjectStops ?? 0,
     overlay =
       v &&
       ["ready", "paused", "crashed", "checkpoint", "finished"].includes(
@@ -162,7 +163,8 @@ export default function RideMode({
           ← Portfolio
         </button>
         <div className="ride-brand">
-          THE ENGINEERING TRAIL<span>A ride through the things I build.</span>
+          THE ENGINEERING TRAIL
+          <span>A hand-drawn ride through the things I build.</span>
         </div>
         <div className="ride-top-actions">
           <button
@@ -505,12 +507,12 @@ export default function RideMode({
             {v.status === "checkpoint" && (
               <>
                 <span className="annotation">
-                  Checkpoint {v.checkpoint} / 8
+                  Project stop {v.checkpoint} / {projectStops}
                 </span>
-                <h2>{v.sectionName.toUpperCase()}</h2>
+                <h2>PROJECT STOP</h2>
                 <p>
-                  There’s an engineering notebook behind this part of the
-                  landscape. Take a look — the ride will wait.
+                  {v.sectionName} is in the notebook. The ride is paused while
+                  you read.
                 </p>
                 <button
                   className="btn-primary"
@@ -519,7 +521,7 @@ export default function RideMode({
                     if (id) openProject(id);
                   }}
                 >
-                  Open project notebook
+                  Read project notebook
                 </button>
                 <button
                   onClick={() => {

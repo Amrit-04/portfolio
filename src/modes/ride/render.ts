@@ -1,10 +1,11 @@
 import type { GameEngine } from "./engine";
 import { heightAt } from "./track";
-const ink = "#2a2520",
-  red = "#c84b31",
-  blue = "#3a6ea5",
-  paper = "#f7f6f1",
-  gold = "#d4a843";
+const ink = "#171612",
+  red = "#a83e32",
+  blue = "#486d78",
+  paper = "#f2f4f4",
+  ground = "#e7eae9",
+  gold = "#b68b36";
 export function drawWorld(
   ctx: CanvasRenderingContext2D,
   e: GameEngine,
@@ -18,6 +19,22 @@ export function drawWorld(
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.fillStyle = paper;
   ctx.fillRect(0, 0, w, h);
+  const horizon = h * 0.34;
+  ctx.fillStyle = "#eef1f0";
+  ctx.fillRect(0, 0, w, horizon);
+  ctx.strokeStyle = "#dce1df";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(0, horizon);
+  ctx.lineTo(w, horizon);
+  ctx.stroke();
+  ctx.strokeStyle = "#e5e9e8";
+  for (let x = 30; x < w; x += 64) {
+    ctx.beginPath();
+    ctx.moveTo(x, horizon - 3);
+    ctx.lineTo(x, horizon + 3);
+    ctx.stroke();
+  }
   const X = (x: number) => (x - e.camX) * z + w * 0.32,
     Y = (y: number) => h * 0.62 - (y - e.camY) * z;
   const line = (
@@ -37,7 +54,7 @@ export function drawWorld(
   };
   const text = (s: string, x: number, y: number, size = 13, color = ink) => {
     ctx.fillStyle = color;
-    ctx.font = `${size}px 'Special Elite',monospace`;
+    ctx.font = `700 ${size}px Amatic, sans-serif`;
     ctx.fillText(s, X(x), Y(y));
   };
   const box = (
@@ -54,19 +71,11 @@ export function drawWorld(
     ctx.fillRect(X(x), Y(y + bh), bw * z, bh * z);
     ctx.strokeRect(X(x), Y(y + bh), bw * z, bh * z);
   };
-  ctx.strokeStyle = "#e4dfd3";
-  ctx.lineWidth = 1;
-  for (let yy = 30; yy < h; yy += 28) {
-    ctx.beginPath();
-    ctx.moveTo(0, yy);
-    ctx.lineTo(w, yy);
-    ctx.stroke();
-  }
   const editor = e.status === "editor";
   if (editor) {
-    ctx.strokeStyle = "#e1ddd1";
+    ctx.strokeStyle = "#dce1df";
     for (let xx = Math.floor(e.camX - w / z); xx < e.camX + w / z; xx++) {
-      line(xx, e.camY - h / z, xx, e.camY + h / z, "#e1ddd1", 1);
+      line(xx, e.camY - h / z, xx, e.camY + h / z, "#dce1df", 1);
     }
     text(
       "DRAW YOUR OWN WAY THROUGH.",
@@ -79,7 +88,7 @@ export function drawWorld(
       if (X(section.end) < -200 || X(section.start) > w + 200) continue;
       const x = section.start + 9,
         y = heightAt(e.track.physics, x) ?? 0;
-      text(section.name.toUpperCase(), section.start + 1, y + 6, 18, "#81786a");
+      text(section.name.toUpperCase(), section.start + 1, y + 6, 18, "#737875");
       switch (section.theme) {
         case "workshop":
           box(x - 5, y + 1, 8, 3.4);
@@ -101,10 +110,10 @@ export function drawWorld(
           text("find the better path", x, y + 4, 14);
           break;
         case "mountains":
-          line(x - 8, y, x - 2, y + 4.8, "#aaa18f", 2);
-          line(x - 2, y + 4.8, x + 5, y, "#aaa18f", 2);
-          line(x + 1, y + 2.7, x + 5, y + 5.6, "#aaa18f");
-          line(x + 5, y + 5.6, x + 12, y, "#aaa18f");
+          line(x - 8, y, x - 2, y + 4.8, "#aab5b4", 2);
+          line(x - 2, y + 4.8, x + 5, y, "#aab5b4", 2);
+          line(x + 1, y + 2.7, x + 5, y + 5.6, "#aab5b4");
+          line(x + 5, y + 5.6, x + 12, y, "#aab5b4");
           text("RETRY ≠ GIVE UP", x - 1, y + 6.4, 14, red);
           break;
         case "bridge":
@@ -123,14 +132,14 @@ export function drawWorld(
           break;
         case "warehouse":
           for (let n = 0; n < 5; n++) {
-            box(x - 4 + n * 2.5, y + 1.7, 1.8, 2.8, "#887d69", "#eee8d9");
+            box(x - 4 + n * 2.5, y + 1.7, 1.8, 2.8, "#6c8490", "#e8eded");
             for (let j = 1; j < 3; j++)
               line(
                 x - 4 + n * 2.5,
                 y + 1.7 + j * 0.85,
                 x - 2.2 + n * 2.5,
                 y + 1.7 + j * 0.85,
-                "#887d69",
+                "#6c8490",
               );
             text(
               String(n + 1).padStart(2, "0"),
@@ -142,8 +151,8 @@ export function drawWorld(
           text("THE SHORTEST ROUTE IS NOT ALWAYS OBVIOUS", x - 4, y + 5.3, 11);
           break;
         case "quant":
-          line(x - 5, y + 1.4, x + 8, y + 1.4, "#8a816d");
-          line(x - 5, y + 1.4, x - 5, y + 5, "#8a816d");
+          line(x - 5, y + 1.4, x + 8, y + 1.4, "#77817f");
+          line(x - 5, y + 1.4, x - 5, y + 5, "#77817f");
           [1.9, 2.7, 2.2, 3.4, 3, 4.2, 3.5].forEach((v, n, a) => {
             if (n)
               line(
@@ -200,7 +209,7 @@ export function drawWorld(
     )
       continue;
     if (!editor) {
-      ctx.fillStyle = "#e9e3d6";
+      ctx.fillStyle = ground;
       ctx.beginPath();
       ctx.moveTo(X(s.a.x), Y(s.a.y));
       ctx.lineTo(X(s.b.x), Y(s.b.y));
@@ -212,7 +221,7 @@ export function drawWorld(
         hi = Math.max(s.a.x, s.b.x);
       for (let x = Math.ceil(lo); x < hi; x += 1.5) {
         const y = heightAt([s], x);
-        if (y !== null) line(x, y - 0.2, x + 0.45, y - 0.7, "#c9beaa", 1);
+        if (y !== null) line(x, y - 0.2, x + 0.45, y - 0.7, "#c7cfcd", 1);
       }
     }
     line(s.a.x, s.a.y, s.b.x, s.b.y, ink, 3);
@@ -229,13 +238,29 @@ export function drawWorld(
   if (!editor) {
     for (let i = 0; i < e.track.checkpoints.length; i++) {
       const cp = e.track.checkpoints[i];
-      line(cp.x, cp.y, cp.x, cp.y + 2.7, "#756952");
+      line(cp.x, cp.y, cp.x, cp.y + 2.7, blue);
       ctx.fillStyle = e.visited.has(i) ? "#477a54" : red;
       ctx.beginPath();
       ctx.moveTo(X(cp.x), Y(cp.y + 2.7));
       ctx.lineTo(X(cp.x + 1.1), Y(cp.y + 2.35));
       ctx.lineTo(X(cp.x), Y(cp.y + 2));
       ctx.fill();
+      if (cp.project && !e.visited.has(i)) {
+        const x = X(cp.x),
+          y = Y(cp.y + 3.2);
+        ctx.font = "700 15px Amatic, sans-serif";
+        const label = "READ PROJECT",
+          width = ctx.measureText(label).width + 16;
+        ctx.fillStyle = paper;
+        ctx.strokeStyle = red;
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(x - width / 2, y - 19, width, 24);
+        ctx.strokeRect(x - width / 2, y - 19, width, 24);
+        ctx.fillStyle = ink;
+        ctx.textAlign = "center";
+        ctx.fillText(label, x, y - 2);
+        ctx.textAlign = "start";
+      }
     }
     e.track.stars.forEach((s, i) => {
       if (e.stars.has(i) || X(s.x) < -30 || X(s.x) > w + 30) return;
@@ -360,7 +385,7 @@ export function drawWorld(
       ctx.restore();
     }
   }
-  ctx.fillStyle = "#756b5b";
+  ctx.fillStyle = "#5f625e";
   ctx.font = "12px 'Special Elite',monospace";
   ctx.fillText(
     editor
