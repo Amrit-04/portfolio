@@ -440,10 +440,12 @@ html:has(.paper-portfolio) {
   inset: 4%;
   width: 92%;
   height: 92%;
+  z-index: 1;
 }
 .work-label {
   position: absolute;
   inset: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -496,6 +498,7 @@ html:has(.paper-portfolio) {
 .paper-sticker {
   display: none;
   position: absolute;
+  z-index: 3;
   background: #fff;
   border: 5px solid #fff;
   box-shadow: 0 2px 4px #0003;
@@ -558,6 +561,7 @@ html:has(.paper-portfolio) {
 .box-preview {
   position: absolute;
   inset: 5%;
+  z-index: 0;
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
@@ -568,6 +572,15 @@ html:has(.paper-portfolio) {
   height: 125%;
   object-fit: cover;
   object-position: top;
+}
+.box-5 .box-preview .playground-preview-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 165%;
+  height: 165%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1.08);
+  object-position: center;
 }
 .box-preview .preview-bicycle {
   display: block;
@@ -585,11 +598,8 @@ html:has(.paper-portfolio) {
 .tap-active .box-preview {
   opacity: 1;
 }
-.box-4:hover .work-label,
 .box-5:hover .work-label,
-.box-4:focus-visible .work-label,
 .box-5:focus-visible .work-label,
-.box-4.tap-active .work-label,
 .box-5.tap-active .work-label {
   opacity: 0;
 }

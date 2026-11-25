@@ -5,6 +5,7 @@ import { InkArrow, InkFilters, InkFrame } from "../../components/PaperArt";
 import { CATEGORIES, PaperDialog, PaperWall, ProjectPrint } from "./PaperWalls";
 import character from "../../assets/paper/character.webp";
 import processArt from "../../assets/paper/process.webp";
+import playgroundBike from "../../assets/paper/playground-bike.png";
 import { sfx } from "../../lib/sound";
 import "./paper-portfolio.css";
 
@@ -417,16 +418,13 @@ export default function PortfolioMode({
                     {s}
                   </span>
                 ))}
-                {i >= 4 && (
+                {i === 5 && (
                   <span className="box-preview" aria-hidden="true">
-                    {i === 4 ? (
-                      <img src={character} alt="" />
-                    ) : (
-                      <>
-                        <span className="preview-bicycle">○╱○</span>
-                        <span className="preview-caption">TAKE A DETOUR.</span>
-                      </>
-                    )}
+                    <img
+                      className="playground-preview-image"
+                      src={playgroundBike}
+                      alt=""
+                    />
                   </span>
                 )}
               </button>
