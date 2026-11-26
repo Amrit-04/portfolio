@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Red Bull Rampage | OpenRider</title>
+    <style>
+        @font-face {
+            font-family: "Portfolio Amatic";
+            src: url("/portfolio/fonts/AmaticSC-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Portfolio Amatic";
+            src: url("/portfolio/fonts/AmaticSC-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Portfolio Elite";
+            src: url("/portfolio/fonts/special-elite-v20-XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2") format("woff2");
+            font-display: swap;
+        }
+        :root {
+            --accent: #a83d29;
+            --paper: #f2f4f4;
+            --paper-light: #fbfaf3;
+            --paper-dark: #e9eceb;
+            --ink: #171612;
+            --ink-muted: #6c6964;
+        }
+        .openrider-back {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            z-index: 30;
+            display: inline-block;
+            padding: 9px 13px;
+            border: 1px solid #232329;
+            border-radius: 8px;
+            background: rgba(15, 15, 17, 0.86);
+            color: #f2f4f4;
+            text-decoration: none;
+            font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            letter-spacing: 0.06em;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background: #ffffff;
+        }
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+        #hud {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(15, 15, 17, 0.8);
+            color: #e9e9f0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+        .hud-card {
+            background: rgba(15, 15, 17, 0.72);
+            border: 1px solid #232329;
+            border-radius: 12px;
+            padding: 9px 14px;
+            min-width: 112px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        .label {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8a8a95;
+            margin-bottom: 3px;
+        }
+        .value {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+        .value small {
+            font-size: 10px;
+            font-weight: 500;
+            color: #8a8a95;
+            letter-spacing: 0.06em;
+            margin-left: 2px;
+        }
+        .sub {
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            color: #6f6f7a;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+        .accent {
+            color: #ff6b00;
+        }
+        .controls {
+            position: fixed;
+            left: 18px;
+            bottom: 16px;
+            z-index: 10;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 10px;
+            line-height: 1.7;
+            color: #4a4a55;
+        }
+        .controls .row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            white-space: nowrap;
+        }
+        #rideActions {
+            position: fixed;
+            top: 82px;
+            right: 18px;
+            z-index: 11;
+            display: flex;
+            gap: 8px;
+        }
+        .ride-action {
+            padding: 8px 11px;
+            border: 1px solid #171612;
+            border-radius: 0;
+            background: var(--paper-light);
+            color: var(--ink);
+            box-shadow: 2px 3px 0 #17161220;
+            cursor: pointer;
+            font: 700 19px/1 "Portfolio Amatic", "Arial Narrow", sans-serif;
+        }
+        .ride-action:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        kbd {
+            display: inline-block;
+            min-width: 16px;
+            text-align: center;
+            padding: 1px 5px;
+            border: 1px solid #d0d0d8;
+            border-bottom-width: 2px;
+            border-radius: 5px;
+            background: #f4f4f7;
+            color: #1a1a20;
+            font: inherit;
+            font-size: 9px;
+            line-height: 1.4;
+        }
+        #pips {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 6px;
+        }
+        .pip {
+            width: 16px;
+            height: 3px;
+            border-radius: 2px;
+            background: #2a2a31;
+        }
+        .pip.on {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(255, 107, 0, 0.6);
+        }
+        #overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(1100px 620px at 50% 42%, rgba(255, 107, 0, 0.09), rgba(9, 9, 11, 0.94));
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: opacity 0.35s ease;
+        }
+        #overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .panel {
+            width: min(560px, calc(100vw - 40px));
+            border: 1px solid #26262d;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(23, 23, 27, 0.96), rgba(13, 13, 16, 0.97));
+            padding: 30px 34px 26px;
+            text-align: center;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+        .kicker {
+            font-size: 9px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+        h1 {
+            margin: 0;
+            font-size: clamp(26px, 5vw, 40px);
+            letter-spacing: 0.06em;
+            font-weight: 800;
+            line-height: 1.05;
+        }
+        .desc {
+            margin: 12px 0 20px;
+            font-size: 11.5px;
+            line-height: 1.8;
+            color: #9a9aa5;
+            letter-spacing: 0.02em;
+        }
+        .desc b {
+            color: #dcdce4;
+            font-weight: 600;
+        }
+        .keygrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px 16px;
+            text-align: left;
+            margin: 0 auto 22px;
+            max-width: 400px;
+            font-size: 10px;
+            color: #a9a9b4;
+        }
+        .keygrid div {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+        .cta {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #170b02;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            box-shadow: 0 8px 26px rgba(255, 107, 0, 0.3);
+        }
+        .cta.pulse {
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translateY(0); box-shadow: 0 8px 26px rgba(255, 107, 0, 0.28); }
+            50% { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(255, 107, 0, 0.45); }
+        }
+        .fine {
+            margin-top: 16px;
+            font-size: 8.5px;
+            letter-spacing: 0.18em;
+            color: #55555f;
+            text-transform: uppercase;
+        }
+        #status {
+            position: fixed;
+            right: 18px;
+            bottom: 16px;
+            z-index: 10;
+            padding: 8px 13px;
+            border: 1px solid #232329;
+            border-radius: 9px;
+            background: rgba(15, 15, 17, 0.78);
+            color: var(--accent);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            display: none;
+            pointer-events: none;
+        }
+        #status.on {
+            display: block;
+        }
+        @media (max-width: 640px) {
+            .controls { display: none; }
+            .card { padding: 7px 10px; min-width: 84px; }
+            .value { font-size: 17px; }
+        }
+        html, body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #game {
+            background: var(--paper);
+        }
+        #hud {
+            height: 72px;
+            align-items: center;
+            background: rgba(242, 244, 244, 0.94);
+            color: var(--ink);
+            font-family: "Portfolio Elite", monospace;
+            border-bottom: 1px solid #17161255;
+            box-shadow: 0 2px 8px #17161212;
+        }
+        .hud-card {
+            min-width: 112px;
+            padding: 6px 12px;
+            background: var(--paper-light);
+            border: 1px solid #17161235;
+            border-radius: 2px;
+            box-shadow: 2px 3px 0 #17161212;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .label, .sub {
+            color: var(--ink-muted);
+            font-family: "Portfolio Elite", monospace;
+        }
+        .value {
+            color: var(--ink);
+            font-family: "Portfolio Amatic", "Arial Narrow", sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .value small {
+            color: var(--ink-muted);
+            font-family: "Portfolio Elite", monospace;
+        }
+        .accent {
+            color: var(--accent);
+        }
+        .openrider-back {
+            top: 82px;
+            left: 18px;
+            padding: 8px 12px;
+            border: 1px solid #171612;
+            border-radius: 0;
+            background: var(--paper-light);
+            color: var(--ink);
+            box-shadow: 2px 3px 0 #17161220;
+            font: 700 20px/1 "Portfolio Amatic", "Arial Narrow", sans-serif;
+            letter-spacing: 0.03em;
+        }
+        .controls {
+            left: 18px;
+            bottom: 16px;
+            gap: 8px 14px;
+            color: var(--ink);
+            font: 11px/1.6 "Portfolio Elite", monospace;
+        }
+        kbd {
+            border: 1px solid #17161255;
+            border-bottom-width: 2px;
+            border-radius: 2px;
+            background: var(--paper-light);
+            color: var(--ink);
+            font-family: "Portfolio Elite", monospace;
+        }
+        .pip {
+            background: #17161230;
+        }
+        .pip.on {
+            background: var(--accent);
+            box-shadow: none;
+        }
+        #overlay {
+            background: rgba(242, 244, 244, 0.76);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+        .panel {
+            width: min(560px, calc(100vw - 40px));
+            padding: 30px 34px 26px;
+            border: 1px solid #171612;
+            border-radius: 2px;
+            background: var(--paper-light);
+            color: var(--ink);
+            box-shadow: 6px 7px 0 #17161224;
+        }
+        .kicker, .fine {
+            color: var(--ink-muted);
+            font-family: "Portfolio Elite", monospace;
+        }
+        .kicker {
+            color: var(--accent);
+        }
+        h1 {
+            color: var(--ink);
+            font: 700 clamp(46px, 8vw, 72px)/0.95 "Portfolio Amatic", "Arial Narrow", sans-serif;
+            letter-spacing: 0.02em;
+        }
+        .desc {
+            color: var(--ink2, #4a4944);
+            font: 15px/1.7 Arial, Helvetica, sans-serif;
+        }
+        .desc b {
+            color: var(--ink);
+        }
+        .keygrid {
+            color: var(--ink);
+            font: 11px/1.6 "Portfolio Elite", monospace;
+        }
+        .cta {
+            border: 1px solid var(--ink);
+            border-radius: 0;
+            background: var(--ink);
+            color: var(--paper);
+            box-shadow: 3px 4px 0 #17161225;
+            font: 700 22px/1 "Portfolio Amatic", "Arial Narrow", sans-serif;
+            letter-spacing: 0.06em;
+        }
+        .cta.pulse {
+            animation: none;
+        }
+        #status {
+            border: 1px solid #171612;
+            border-radius: 2px;
+            background: var(--paper-light);
+            color: var(--accent);
+            font: 11px "Portfolio Elite", monospace;
+        }
+        @media (max-width: 640px) {
+            #hud {
+                height: 60px;
+                padding: 6px 8px;
+                gap: 6px;
+            }
+            .hud-card {
+                min-width: 0;
+                padding: 5px 8px;
+            }
+            .value {
+                font-size: 23px;
+            }
+            #rideActions {
+                top: 68px;
+                right: 10px;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .ride-action {
+                padding: 6px 8px;
+                font-size: 17px;
+            }
+            .openrider-back {
+                top: 68px;
+                left: 10px;
+                font-size: 18px;
+            }
+            .panel {
+                padding: 24px 18px;
+            }
+        }
+    </style>
+  <script src="/portfolio/openrider/rampage-track.js"></script>
+  <script type="module" crossorigin src="/portfolio/openrider/assets/index.82fa0873.js"></script>
+</head>
+<body>
+    <a class="openrider-back" href="/portfolio/#top">← Portfolio</a>
+    <div id="rideActions" aria-label="Ride options">
+        <button class="ride-action" id="previousCheckpoint" type="button" disabled title="Return to the checkpoint before the latest one (P)">Previous checkpoint · P</button>
+        <button class="ride-action" id="restartMap" type="button" disabled title="Restart the course from its start (Shift+R)">Restart map · Shift+R</button>
+    </div>
+    <canvas id="game"></canvas>
+    <div id="hud">
+        <div class="hud-card">
+            <div class="label">Time</div>
+            <div class="value" id="hudTime">0.00</div>
+            <div class="sub" id="hudBest">BEST —</div>
+        </div>
+        <div class="hud-card" id="hudMid">
+            <div class="label">Red Bull Rampage</div>
+            <div class="value">RAMPAGE<span class="accent">.</span>01</div>
+            <div id="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></div>
+        </div>
+        <div class="hud-card" id="hudRight">
+            <div class="label">Speed</div>
+            <div class="value accent" id="hudSpeed">0</div>
+            <div class="sub">KM/H</div>
+        </div>
+    </div>
+    <div class="controls">
+        <div class="row"><kbd>↑</kbd><kbd>W</kbd> throttle</div>
+        <div class="row"><kbd>↓</kbd><kbd>S</kbd> brake / reverse</div>
+        <div class="row"><kbd>←</kbd><kbd>A</kbd> lean back</div>
+        <div class="row"><kbd>→</kbd><kbd>D</kbd> lean forward</div>
+        <div class="row"><kbd>SPACE</kbd><kbd>Z</kbd> flip bike</div>
+        <div class="row"><kbd>R</kbd> respawn · <kbd>P</kbd> previous checkpoint · <kbd>SHIFT+R</kbd> restart map</div>
+    </div>
+    <div id="status"></div>
+    <div id="overlay">
+        <div class="panel">
+            <div class="kicker" id="ovKicker">SAWYERL · FREE RIDER HD TRACK 961453</div>
+            <h1 id="ovTitle">RED BULL <span>RAMPAGE</span></h1>
+            <p class="desc" id="ovSub">
+                Ride the Red Bull Rampage course rebuilt from the original community track geometry. Hit checkpoints and make it to the finish.
+            </p>
+            <div class="keygrid">
+                <div><kbd>↑</kbd><kbd>W</kbd> Accelerate</div>
+                <div><kbd>↓</kbd><kbd>S</kbd> Brake · reverse</div>
+                <div><kbd>←</kbd><kbd>A</kbd> Lean back · backflip</div>
+                <div><kbd>→</kbd><kbd>D</kbd> Lean forward · frontflip</div>
+                <div><kbd>SPACE</kbd><kbd>Z</kbd> Flip facing</div>
+                <div><kbd>R</kbd> Respawn at checkpoint</div>
+                <div><kbd>P</kbd> Previous checkpoint</div>
+                <div><kbd>SHIFT</kbd><kbd>R</kbd> Restart map</div>
+            </div>
+            <div class="cta pulse" id="ovHint">Press Enter to ride</div>
+            <div class="fine" id="ovFine">OpenRider conversion · original track by SawyerL · FRHD track 961453</div>
+        </div>
+    </div>
+
+</body>
+</html>

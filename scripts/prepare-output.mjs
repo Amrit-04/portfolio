@@ -10,6 +10,7 @@ const allowed = new Set([
   "favicon.svg",
   "ort-wasm-simd-threaded.mjs",
   "ort-wasm-simd-threaded.wasm",
+  "openrider",
 ]);
 for (const entry of await readdir("dist"))
   if (!allowed.has(entry))

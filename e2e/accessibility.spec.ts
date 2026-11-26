@@ -67,7 +67,7 @@ test("nested notebook trap, Escape, focus return, research and canonical contact
   ).toBe(0);
 });
 
-test("category keyboard navigation and browser history preserve the separate ride", async ({
+test("category keyboard navigation and browser history preserve OpenRider", async ({
   page,
 }) => {
   await page.goto("./");
@@ -88,13 +88,11 @@ test("category keyboard navigation and browser history preserve the separate rid
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.getByTestId("category-playground").click();
   await page.getByTestId("enter-track-nav").click();
-  await expect(page.getByTestId("ride-mode")).toBeVisible();
-  await page.goBack();
-  await expect(page.locator(".paper-portfolio")).toBeVisible();
-  await expect(page.getByTestId("wall-playground")).toBeVisible();
+  await expect(page).toHaveURL(/\/portfolio\/openrider\/index\.html$/);
   await page.goForward();
+  await expect(page).toHaveTitle("Red Bull Rampage | OpenRider");
   await expect(
-    page.getByRole("button", { name: "Start riding" }),
+    page.getByRole("heading", { name: "RED BULL RAMPAGE" }),
   ).toBeVisible();
 });
 
